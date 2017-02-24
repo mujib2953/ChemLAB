@@ -1,0 +1,30 @@
+page-home {
+
+	.scroll-content {
+		margin-top: 0px !important;
+		padding: 0 !important;
+	}
+	.fixed-content {
+		display: none;
+	}
+
+	ion-header {
+		bottom: 0 ;
+		top: initial;
+	}
+
+	ion-row {
+		height: 33%;
+	}
+
+	.lvl_1 {
+		background-color: #A4E249;
+	}
+	.lvl_2 {
+		background-color: #309494;
+	}
+	.lvl_3 {
+		background-color: #39769E;
+	}
+}
+
