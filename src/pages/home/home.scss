@@ -7,6 +7,9 @@ page-home {
 	.fixed-content {
 		display: none;
 	}
+	.cursiveFont {
+		font-family: 'Caveat Brush', cursive;
+	}
 
 	ion-header {
 		bottom: 0 ;
@@ -26,5 +29,20 @@ page-home {
 	.lvl_3 {
 		background-color: #39769E;
 	}
+
+	.commonProp {
+		text-align: center;
+	    vertical-align: middle;
+	    height: 100%;
+	    font-size: 3.5em;
+	    color: purple;
+	}
+
+	.vcenter {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	}
+	
 }
 

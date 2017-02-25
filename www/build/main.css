@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Caveat+Brush");
 .ion-ios-add:before {
   content: "\f102";
 }
@@ -21273,6 +21274,39 @@ sub {
   }
 }
 
+page-beginner .customNav {
+  position: fixed;
+  bottom: 0;
+}
+
+page-beginner ion-searchbar {
+  background: rgba(0, 135, 255, 0.2) !important;
+}
+
+page-beginner ion-item {
+  background-color: #A4E249 !important;
+}
+
+page-beginner .bg {
+  background-color: #000;
+}
+
+page-beginner .item-ios.item-block .item-inner {
+  border-bottom: 0.55px solid #4629bb;
+}
+
+page-beginner .nav {
+  background-color: #000;
+  color: #FFF;
+  text-align: center;
+  padding: 5px;
+}
+
+page-beginner ion-icon {
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
 page-home .scroll-content {
   margin-top: 0px !important;
   padding: 0 !important;
@@ -21280,6 +21314,10 @@ page-home .scroll-content {
 
 page-home .fixed-content {
   display: none;
+}
+
+page-home .cursiveFont {
+  font-family: 'Caveat Brush', cursive;
 }
 
 page-home ion-header {
@@ -21301,4 +21339,24 @@ page-home .lvl_2 {
 
 page-home .lvl_3 {
   background-color: #39769E;
+}
+
+page-home .commonProp {
+  text-align: center;
+  vertical-align: middle;
+  height: 100%;
+  font-size: 3.5em;
+  color: purple;
+}
+
+page-home .vcenter {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 }

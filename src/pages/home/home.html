@@ -1,13 +1,9 @@
-<ion-content padding>
-    
-	<ion-row>
-		<ion-col class="lvl_1">A</ion-col>
-	</ion-row>
-	<ion-row>
-		<ion-col class="lvl_2">A</ion-col>
-	</ion-row>
-	<ion-row>
-		<ion-col class="lvl_3">A</ion-col>
+<ion-content padding class="cursiveFont">
+    	
+	<ion-row *ngFor=" let d of levels; let i = index; " >
+		<ion-col class="{{ 'lvl_' + (i + 1) }}" (click)='goToPage( d )' >
+			<div class="commonProp vcenter"> {{ d }} </div>
+		</ion-col>
 	</ion-row>
 
 </ion-content>

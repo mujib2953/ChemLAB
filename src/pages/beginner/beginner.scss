@@ -1,0 +1,34 @@
+page-beginner {
+	
+	.customNav {
+		position: fixed;
+		bottom: 0;
+	}
+
+	ion-searchbar {
+		background: rgba(0, 135, 255, 0.2) !important;
+	}
+
+	ion-item {
+		background-color: #A4E249 !important;
+	}
+
+	.bg {
+		background-color: #000;
+	}
+
+	.item-ios.item-block .item-inner {
+		border-bottom: 0.55px solid #4629bb;
+	}
+	.nav {
+		background-color: #000;
+		color: #FFF;
+		text-align: center;
+		padding: 5px; 
+	}
+
+	ion-icon {
+		transform: rotate( 180deg );
+	}
+
+}
