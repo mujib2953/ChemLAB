@@ -21307,6 +21307,10 @@ page-beginner ion-icon {
   transform: rotate(180deg);
 }
 
+page-elements-details {
+  /*other css*/
+}
+
 page-elements-details ion-icon {
   -webkit-transform: rotate(180deg);
   transform: rotate(180deg);
@@ -21326,6 +21330,22 @@ page-elements-details .nav {
   color: #FFF;
   text-align: center;
   padding: 5px;
+}
+
+page-elements-details img {
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+page-elements-details .boderBottom {
+  border-bottom: 0.55px solid green;
+}
+
+page-elements-details .elmName {
+  text-align: center;
+  margin: 5px 0px;
 }
 
 page-home .scroll-content {

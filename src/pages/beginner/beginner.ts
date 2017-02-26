@@ -32,14 +32,16 @@ export class BeginnerPage {
 		this.allElements = this.navParams.get( 'pushData' );
 		this.allElements =  [
 	        {
-	            "symbol": "H",
+	            
 	            "name": "Hydrogen",
-	            "type": "NONMETALS",
+	            
 	            "img_src": "http://sod-a.rsc-cdn.org/www.rsc.org/periodic-table/content/Images/Elements/Hydrogen-L.jpg?6.0.3.0",
 
-	            "discovery_date": "1766",
-	            "discovered_by": "Henry Cavendish",
-	            "origin_of_name": "The name is derived from the Greek 'hydro' and 'genes' meaning water forming. ",
+	            "basic_info": {
+	                "discovery_date": "1766",
+	                "discovered_by": "Henry Cavendish",
+	                "origin_of_name": "The name is derived from the Greek 'hydro' and 'genes' meaning water forming. "
+	            },
 
 	            "allotropes": [
 	                "H<sub>2</sub>"
@@ -48,6 +50,7 @@ export class BeginnerPage {
 	            "group": "1",
 	            "period": "1",
 	            "block": "s",
+	            "type": "NONMETALS",
 	            "state_at_20deg": "Gas",
 	            "melting_point": "−259.16°C, −434.49°F, 13.99 K",
 	            "boiling_point": "−252.879°C, −423.182°F, 20.271 K ",

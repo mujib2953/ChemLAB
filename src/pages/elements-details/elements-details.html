@@ -23,6 +23,21 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
+
+	<ion-row class="boderBottom">
+		<ion-col width-50>
+			<div> {{ element.symbol }} </div>
+		</ion-col>
+		<ion-col width-50>
+			<img [src]="element.img_src">
+		</ion-col>
+	</ion-row>
+	<ion-row class="boderBottom">
+		<ion-col width-100>
+			<h4 class="elmName">{{ element.name }}</h4>
+		</ion-col>
+	</ion-row>
+	<ion-row></ion-row>
 
 </ion-content>
