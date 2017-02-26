@@ -1,0 +1,177 @@
+//===========================================================================
+web resources
+http://www.chemspider.com/
+http://www.rsc.org/periodic-table/element/1/hydrogen
+
+
+//============================================================================
+
+
+What services do you use to send Push Notifications? *
+
+1. Firebase / GCM
+2. Amazon SNS
+3. oneSignal
+4. Urban Airship
+5. Pushwoosh
+6. Ionic push
+7. Custom push system ( node-apn, etc ) 
+
+
+What database(s) do you use for your backend? *
+
+1. Firebase
+2. Self-hosted SQL database ( MySQL, Postgres etc )
+3. AWS Dynamo DB
+4. AWS RDS
+5. Heroku Postgres
+6. Self-hosted MongoDB
+7. Cloud hosted MongoDB
+8. Ionic DB ( beta )
+
+
+How do you host the server-side of your app? *
+
+1. No Server! Firebase
+2. AWS Lambda
+3. Amazon ECS
+4. AWS LightSail
+5. Google App Engine / GCP Container
+6. Heroku
+7. Azure
+8. Digital Ocean
+9. Classic VPS provider ( Linode, Rackspace Cloud etc )
+10. Self-hosted Virtual Server
+11. Self-hosted docker containers
+12. self-hosted dedicated Server
+
+
+What backend technology does your app run on? *
+
+1. Node.js
+2. Python ( Django, Flask, etc )
+3. Ruby ( on Rail or other wise )
+4. Java
+5. C# / .Net
+
+
+What service do you use for Analytics? *
+
+1. Google Analytics
+2. Firebase Analytics
+3. Amazon Mobile Analytics
+4. Fabric Answers
+5. Mixpanels
+6. Keen
+7. Segment
+8. Amplitude
+9. Localytics
+10. Adobe
+11. Ionic Analytic
+
+
+How do you manage user authentication? *
+
+1. Firebase Auth
+2. GCP Auth
+3. Auth.io
+4. Auth0
+5. Stormpath
+6. Fabric Digits
+7. Amazon Cognito
+8. Azure Authentication
+9. Ionic Auth
+
+
+How do you test your app in the cloud? *
+
+1. AWS Device Farm
+2. Firebase Test Lab
+3. Browserstack
+4. Sauce Labs
+5. Custom device testing system
+
+How do you track errors and crashes in your app? *
+
+1. Fabric / Crashlytics
+2. Firebase crash reporting
+3. Sentry
+4. Track JS
+5. Bugsnag
+6. Opbeat
+7. Rollbar
+8. Custom System
+
+
+How do you update your apps remotely? *
+1. Ionic Deploy
+2. Code Push
+3. PhoneGap ContentSync
+4. PhoneGap Hydration
+5. Custom Update System
+
+//========================================================================================================
+
+Tooling and Testing
+
+
+What Text Editor or IDE do you use? *
+
+1. Visual Studio Code
+2. Visual Studio IDE
+3. Atom
+4. Webstorm
+5. Sublime Text
+6. TextMate
+7. Brackets
+
+Use any App Prototyping tools? *
+
+1. Ionic creator
+2. Invision
+3. Marvel
+4. Baslamiq
+5. Sketch
+
+
+How do you beta test and gather feedback? *
+
+1. Ionic view
+2. Hockeyapp
+3. Testflight
+4. TastFairy
+
+How do you distribute your apps to users? *
+
+1. App store ( Apple, Google play, etc )
+2. MobileIron
+3. Airwatch
+4. Microsoft Intune
+5. Ionic View 
+
+// ==============================================================================================
+
+Last page Meta stuff
+
+What platform do you develop your apps on? *
+
+1. Mac
+2. Windows
+3. Linux
+
+How big is your employer? *
+
+1. slef employe
+2. 2-10
+3. 11-50
+4. 51-500
+5. 500+
+
+
+Who are you building apps for? *
+
+1. App for my company
+2. App for a client
+3. Side project
+4. School
+

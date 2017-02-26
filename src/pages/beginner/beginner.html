@@ -24,7 +24,7 @@
 <ion-content>
 
 	<ion-list>
-		<ion-item *ngFor="let data of allElements" (click)="showOptions( data.$key )" >
+		<ion-item *ngFor="let data of allElements" (click)="showOptions( data.name )" >
 			{{ data.name }}
 		</ion-item>
 	</ion-list>

@@ -1,0 +1,19 @@
+page-elements-details {
+	
+	ion-icon {
+		transform: rotate( 180deg );
+	}
+	.customNav {
+		position: fixed;
+		bottom: 0;
+	}
+	.bg {
+		background-color: #000;
+	}
+	.nav {
+		background-color: #000;
+		color: #FFF;
+		text-align: center;
+		padding: 5px; 
+	}
+}
