@@ -3,14 +3,17 @@ page-beginner {
 	.customNav {
 		position: fixed;
 		bottom: 0;
+		height: 35px;
 	}
 
 	ion-searchbar {
 		background: rgba(0, 135, 255, 0.2) !important;
 	}
-
+	ion-list {
+		padding-bottom: 35px;
+	}
 	ion-item {
-		background-color: #A4E249 !important;
+		background-color: #ddffaa !important;
 	}
 
 	.bg {

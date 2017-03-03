@@ -6,6 +6,7 @@ import { AngularFireService } from '../../providers/angular-fire-service';
 
 // --- Pages
 import { BeginnerPage } from '../beginner/beginner';
+import { DummyPage } from '../dummy/dummy';
 
 @Component({
 	selector: 'page-home',
@@ -47,6 +48,21 @@ export class HomePage {
 					shareData = this.allElements
 				break;
 			
+			case 'Intermediate':
+				moveToPage = DummyPage;
+				shareData = 'Intermediate';
+			break;
+
+			case 'Master':
+				moveToPage = DummyPage;
+				shareData = 'Master';
+			break;
+
+			case 'Xtreamz':
+				moveToPage = DummyPage;
+				shareData = 'Xtreamz';
+			break;
+
 			default:
 				// code...
 				break;

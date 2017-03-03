@@ -22,7 +22,7 @@ export class AngularFireService {
 		'Beginner',
 		'Intermediate',
 		'Master',
-		'xtreamz'
+		'Xtreamz'
 	];
 
 	previousPage: any;

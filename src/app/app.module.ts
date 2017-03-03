@@ -4,6 +4,7 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { BeginnerPage } from '../pages/beginner/beginner';
 import { ElementsDetailsPage } from '../pages/elements-details/elements-details';
+import { DummyPage } from '../pages/dummy/dummy';
 
 // ---- Custom Services
 import { AngularFireService } from '../providers/angular-fire-service';
@@ -26,7 +27,8 @@ export const firebaseConfig = {
         MyApp,
         HomePage,
         BeginnerPage,
-        ElementsDetailsPage
+        ElementsDetailsPage,
+        DummyPage
     ],
     imports: [
         IonicModule.forRoot(MyApp),
@@ -37,7 +39,8 @@ export const firebaseConfig = {
         MyApp,
         HomePage,
         BeginnerPage,
-        ElementsDetailsPage
+        ElementsDetailsPage,
+        DummyPage
     ],
     providers: [
         {

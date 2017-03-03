@@ -21277,14 +21277,19 @@ sub {
 page-beginner .customNav {
   position: fixed;
   bottom: 0;
+  height: 35px;
 }
 
 page-beginner ion-searchbar {
   background: rgba(0, 135, 255, 0.2) !important;
 }
 
+page-beginner ion-list {
+  padding-bottom: 35px;
+}
+
 page-beginner ion-item {
-  background-color: #A4E249 !important;
+  background-color: #ddffaa !important;
 }
 
 page-beginner .bg {
@@ -21339,6 +21344,10 @@ page-elements-details img {
   display: block;
 }
 
+page-elements-details ion-list {
+  width: 100%;
+}
+
 page-elements-details .boderBottom {
   border-bottom: 0.55px solid green;
 }
@@ -21346,6 +21355,10 @@ page-elements-details .boderBottom {
 page-elements-details .elmName {
   text-align: center;
   margin: 5px 0px;
+}
+
+page-elements-details .originDetails {
+  white-space: normal;
 }
 
 page-home .scroll-content {
@@ -21361,6 +21374,10 @@ page-home .cursiveFont {
   font-family: 'Caveat Brush', cursive;
 }
 
+page-home ion-content {
+  background-color: #000 !important;
+}
+
 page-home ion-header {
   bottom: 0;
   top: initial;
@@ -21368,18 +21385,28 @@ page-home ion-header {
 
 page-home ion-row {
   height: 33%;
+  margin: 1.5%;
+  width: 97%;
+}
+
+page-home ion-col {
+  border-radius: 10px;
 }
 
 page-home .lvl_1 {
-  background-color: #A4E249;
+  background-color: #d0f17c;
 }
 
 page-home .lvl_2 {
-  background-color: #309494;
+  background-color: #72dada;
 }
 
 page-home .lvl_3 {
-  background-color: #39769E;
+  background-color: #7b7af5;
+}
+
+page-home .lvl_4 {
+  background-color: #f5ea7a;
 }
 
 page-home .commonProp {

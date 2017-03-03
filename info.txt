@@ -8,7 +8,7 @@ What services do you use to send Push Notifications? *
 3. oneSignal
 4. Urban Airship
 5. Pushwoosh
-6. Ionic push
+6. Ionic push  ***
 7. Custom push system ( node-apn, etc ) 
 
 
@@ -21,7 +21,7 @@ What database(s) do you use for your backend? *
 5. Heroku Postgres
 6. Self-hosted MongoDB
 7. Cloud hosted MongoDB
-8. Ionic DB ( beta )
+8. Ionic DB ( beta ) **
 
 
 How do you host the server-side of your app? *
@@ -61,7 +61,7 @@ What service do you use for Analytics? *
 8. Amplitude
 9. Localytics
 10. Adobe
-11. Ionic Analytic
+11. Ionic Analytic *************
 
 
 How do you manage user authentication? *
@@ -74,7 +74,7 @@ How do you manage user authentication? *
 6. Fabric Digits
 7. Amazon Cognito
 8. Azure Authentication
-9. Ionic Auth
+9. Ionic Auth **
 
 
 How do you test your app in the cloud? *
@@ -98,7 +98,7 @@ How do you track errors and crashes in your app? *
 
 
 How do you update your apps remotely? *
-1. Ionic Deploy
+1. Ionic Deploy **
 2. Code Push
 3. PhoneGap ContentSync
 4. PhoneGap Hydration
@@ -121,7 +121,7 @@ What Text Editor or IDE do you use? *
 
 Use any App Prototyping tools? *
 
-1. Ionic creator
+1. Ionic creator **
 2. Invision
 3. Marvel
 4. Baslamiq
@@ -130,14 +130,14 @@ Use any App Prototyping tools? *
 
 How do you beta test and gather feedback? *
 
-1. Ionic view
+1. Ionic view **
 2. Hockeyapp
 3. Testflight
 4. TastFairy
 
 How do you distribute your apps to users? *
 
-1. App store ( Apple, Google play, etc )
+1. App store ( Apple, Google play, etc ) **
 2. MobileIron
 3. Airwatch
 4. Microsoft Intune

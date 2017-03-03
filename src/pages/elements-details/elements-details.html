@@ -25,6 +25,14 @@
 
 <ion-content>
 
+	
+	<ion-row class="boderBottom">
+		<ion-col width-100>
+			<h4 class="elmName">{{ element.name }}</h4>
+			<h5 class="elmName" [innerHTML]=" element.allotropes " ></h5>
+		</ion-col>
+	</ion-row>
+
 	<ion-row class="boderBottom">
 		<ion-col width-50>
 			<div> {{ element.symbol }} </div>
@@ -33,11 +41,171 @@
 			<img [src]="element.img_src">
 		</ion-col>
 	</ion-row>
-	<ion-row class="boderBottom">
-		<ion-col width-100>
-			<h4 class="elmName">{{ element.name }}</h4>
-		</ion-col>
+
+	<h5 text-center>Basic details:</h5>
+		
+	<ion-row>
+
+		<ion-list>
+			<ion-item>
+				<ion-row>
+					<ion-col width-50 text-left>Discovery date</ion-col>
+					<ion-col width-50 text-right>{{ element.discovery_date }}</ion-col>
+				</ion-row>
+			</ion-item>
+
+			<ion-item>
+				<ion-row>
+					<ion-col width-50 text-left>Discovery by</ion-col>
+					<ion-col width-50 text-right>{{ element.discovered_by }}</ion-col>
+				</ion-row>
+			</ion-item>
+
+			<ion-item>
+				<ion-row class="originDetails">
+					<ion-col width-50 text-left>Origin of Name</ion-col>
+					<ion-col width-50 text-left>{{ element.origin_of_name }}</ion-col>
+				</ion-row>
+			</ion-item>
+		</ion-list>
+				
 	</ion-row>
-	<ion-row></ion-row>
+
+	<h5 text-center>Technical details:</h5>
+
+	<ion-row>
+
+		<ion-list>
+			<ion-item>
+				<ion-row>
+					<ion-col width-50 text-left>Group</ion-col>
+					<ion-col width-50 text-right>{{ element.group }}</ion-col>
+				</ion-row>
+			</ion-item>
+
+			<ion-item>
+				<ion-row>
+					<ion-col width-50 text-left>Period</ion-col>
+					<ion-col width-50 text-right>{{ element.period }}</ion-col>
+				</ion-row>
+			</ion-item>
+
+			<ion-item>
+				<ion-row>
+					<ion-col width-50 text-left>Block</ion-col>
+					<ion-col width-50 text-right>{{ element.block }}</ion-col>
+				</ion-row>
+			</ion-item>
+
+			<ion-item>
+				<ion-row>
+					<ion-col width-50 text-left>Type</ion-col>
+					<ion-col width-50 text-right>{{ element.type }}</ion-col>
+				</ion-row>
+			</ion-item>
+
+			<ion-item>
+				<ion-row>
+					<ion-col width-50 text-left>State at 20deg</ion-col>
+					<ion-col width-50 text-right>{{ element.state_at_20deg }}</ion-col>
+				</ion-row>
+			</ion-item>
+
+			<ion-item>
+				<ion-row class="originDetails">
+					<ion-col width-50 text-left>Melting point</ion-col>
+					<ion-col width-50 text-right>{{ element.melting_point }}</ion-col>
+				</ion-row>
+			</ion-item>
+
+			<ion-item>
+				<ion-row class="originDetails">
+					<ion-col width-50 text-left>Boiling point</ion-col>
+					<ion-col width-50 text-right>{{ element.boiling_point }}</ion-col>
+				</ion-row>
+			</ion-item>
+
+			<ion-item>
+				<ion-row>
+					<ion-col width-50 text-left>Density</ion-col>
+					<ion-col width-50 text-right>{{ element.density }}</ion-col>
+				</ion-row>
+			</ion-item>
+
+		</ion-list>
+		
+	</ion-row>
+
+	<h5 text-center>Atomic details:</h5>
+	<ion-row>
+		
+		<ion-list>
+			
+			<ion-item>
+				<ion-row>
+					<ion-col width-50 text-left>Number of Protons</ion-col>
+					<ion-col width-50 text-right>{{ element.protons }}</ion-col>
+				</ion-row>
+			</ion-item>
+
+			<ion-item>
+				<ion-row>
+					<ion-col width-50 text-left>Number of Neutrons</ion-col>
+					<ion-col width-50 text-right>{{ element.neutrons }}</ion-col>
+				</ion-row>
+			</ion-item>
+
+			<ion-item>
+				<ion-row>
+					<ion-col width-50 text-left>Number of Electrons</ion-col>
+					<ion-col width-50 text-right>{{ element.electrons }}</ion-col>
+				</ion-row>
+			</ion-item>
+
+			<ion-item>
+				<ion-row>
+					<ion-col width-50 text-left>Relative atomic mass</ion-col>
+					<ion-col width-50 text-right>{{ element.relative_atomic_mass }}</ion-col>
+				</ion-row>
+			</ion-item>
+
+			<ion-item>
+				<ion-row>
+					<ion-col width-50 text-left>Atomic number</ion-col>
+					<ion-col width-50 text-right>{{ element.atomic_number }}</ion-col>
+				</ion-row>
+			</ion-item>
+
+			<ion-item>
+				<ion-row>
+					<ion-col width-50 text-left>Electron radius</ion-col>
+					<ion-col width-50 text-right>{{ element.electron_radius }}</ion-col>
+				</ion-row>
+			</ion-item>
+
+			<ion-item>
+				<ion-row>
+					<ion-col width-50 text-left>Covalent radius</ion-col>
+					<ion-col width-50 text-right>{{ element.covalent_radius }}</ion-col>
+				</ion-row>
+			</ion-item>
+
+			<ion-item>
+				<ion-row>
+					<ion-col width-50 text-left>Electron affinity</ion-col>
+					<ion-col width-50 text-right>{{ element.electron_affinity }}</ion-col>
+				</ion-row>
+			</ion-item>
+
+			<ion-item>
+				<ion-row>
+					<ion-col width-50 text-left>Electron negativity</ion-col>
+					<ion-col width-50 text-right>{{ element.electronegativity }}</ion-col>
+				</ion-row>
+			</ion-item>
+
+		</ion-list>
+
+	</ion-row>
 
 </ion-content>

@@ -10,7 +10,9 @@ page-home {
 	.cursiveFont {
 		font-family: 'Caveat Brush', cursive;
 	}
-
+	ion-content {
+		background-color: #000 !important;
+	}
 	ion-header {
 		bottom: 0 ;
 		top: initial;
@@ -18,16 +20,25 @@ page-home {
 
 	ion-row {
 		height: 33%;
+		margin: 1.5%;
+		width: 97%;
+	}
+
+	ion-col {
+		border-radius: 10px;
 	}
 
 	.lvl_1 {
-		background-color: #A4E249;
+		background-color: #d0f17c;
 	}
 	.lvl_2 {
-		background-color: #309494;
+		background-color: #72dada;
 	}
 	.lvl_3 {
-		background-color: #39769E;
+		background-color: #7b7af5;
+	}
+	.lvl_4 {
+		background-color: #f5ea7a;
 	}
 
 	.commonProp {
@@ -39,9 +50,9 @@ page-home {
 	}
 
 	.vcenter {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
 	}
 	
 }

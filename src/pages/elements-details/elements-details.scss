@@ -24,11 +24,17 @@ page-elements-details {
 	    margin-right: auto;
 	    display: block;
 	}
+	ion-list {
+		width: 100%;
+	}
 	.boderBottom {
 		border-bottom: 0.55px solid green;
 	}
 	.elmName {
 		text-align: center;
 		margin: 5px 0px;
+	}
+	.originDetails {
+		white-space: normal;
 	}
 }
