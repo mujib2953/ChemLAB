@@ -21274,157 +21274,35 @@ sub {
   }
 }
 
-page-beginner .customNav {
-  position: fixed;
-  bottom: 0;
-  height: 35px;
-}
-
-page-beginner ion-searchbar {
-  background: rgba(0, 135, 255, 0.2) !important;
-}
-
-page-beginner ion-list {
-  padding-bottom: 35px;
-}
-
-page-beginner ion-item {
-  background-color: #ddffaa !important;
-}
-
-page-beginner .bg {
-  background-color: #000;
-}
-
-page-beginner .item-ios.item-block .item-inner {
-  border-bottom: 0.55px solid #4629bb;
-}
-
-page-beginner .nav {
-  background-color: #000;
-  color: #FFF;
-  text-align: center;
-  padding: 5px;
-}
-
-page-beginner ion-icon {
-  -webkit-transform: rotate(180deg);
-  transform: rotate(180deg);
-}
-
-page-elements-details {
-  /*other css*/
-}
-
-page-elements-details ion-icon {
-  -webkit-transform: rotate(180deg);
-  transform: rotate(180deg);
-}
-
-page-elements-details .customNav {
-  position: fixed;
-  bottom: 0;
-}
-
-page-elements-details .bg {
-  background-color: #000;
-}
-
-page-elements-details .nav {
-  background-color: #000;
-  color: #FFF;
-  text-align: center;
-  padding: 5px;
-}
-
-page-elements-details img {
-  width: 50%;
-  margin-left: auto;
-  margin-right: auto;
+custom-spacer .spacer {
   display: block;
+  height: 3em;
+  background-color: red;
 }
 
-page-elements-details ion-list {
-  width: 100%;
-}
-
-page-elements-details .boderBottom {
-  border-bottom: 0.55px solid green;
-}
-
-page-elements-details .elmName {
+page-home .brandName {
+  font-size: 4.5em;
   text-align: center;
-  margin: 5px 0px;
 }
 
-page-elements-details .originDetails {
-  white-space: normal;
+page-home .button-inner {
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
 }
 
-page-home .scroll-content {
-  margin-top: 0px !important;
-  padding: 0 !important;
+page-home ion-icon {
+  margin-left: 15em;
+  margin-top: -2em;
+  float: right;
+  position: absolute;
+  font-size: 1.4em;
 }
 
-page-home .fixed-content {
-  display: none;
+page-home .customBtn {
+  height: 4em;
 }
 
-page-home .cursiveFont {
+.cursiveFont {
   font-family: 'Caveat Brush', cursive;
-}
-
-page-home ion-content {
-  background-color: #000 !important;
-}
-
-page-home ion-header {
-  bottom: 0;
-  top: initial;
-}
-
-page-home ion-row {
-  height: 33%;
-  margin: 1.5%;
-  width: 97%;
-}
-
-page-home ion-col {
-  border-radius: 10px;
-}
-
-page-home .lvl_1 {
-  background-color: #d0f17c;
-}
-
-page-home .lvl_2 {
-  background-color: #72dada;
-}
-
-page-home .lvl_3 {
-  background-color: #7b7af5;
-}
-
-page-home .lvl_4 {
-  background-color: #f5ea7a;
-}
-
-page-home .commonProp {
-  text-align: center;
-  vertical-align: middle;
-  height: 100%;
-  font-size: 3.5em;
-  color: purple;
-}
-
-page-home .vcenter {
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
 }

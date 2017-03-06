@@ -1,77 +1,44 @@
 import { Component } from '@angular/core';
+import { NavController, NavParams } from 'ionic-angular';
 
-import { NavController } from 'ionic-angular';
-
+// --- services
 import { AngularFireService } from '../../providers/angular-fire-service';
 
 // --- Pages
-import { BeginnerPage } from '../beginner/beginner';
-import { DummyPage } from '../dummy/dummy';
 
+
+/*
+  Generated class for the Home page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+*/
 @Component({
 	selector: 'page-home',
 	templateUrl: 'home.html'
 })
 export class HomePage {
 
-	allElements: any;	
 	levels: any;
 
-
 	constructor(
-		public navCtrl: NavController,
+		public navCtrl: NavController, 
+		public navParams: NavParams,
 
-		private AFS: AngularFireService 
+		// --- custom services
+		public AFS: AngularFireService
 	) {
 
 		this.levels = this.AFS.difficultyLevel;
-
-		let tempData = this.AFS.getAllElements();
-		tempData.subscribe( data=> {
-			this.allElements = data;
-		} );
+		console.log( this.levels );
 	}
 
-	ngOnInit() {
-
+	ionViewDidLoad() {
+		console.log('ionViewDidLoad HomePage');
 	}
 
-	goToPage( name: string ): void {
-		console.log( name );
-		
-		let moveToPage: any;
-		let shareData: any = {};
-		
-		switch ( name ) {
-			case "Beginner":
-					moveToPage = BeginnerPage;
-					shareData = this.allElements
-				break;
-			
-			case 'Intermediate':
-				moveToPage = DummyPage;
-				shareData = 'Intermediate';
-			break;
 
-			case 'Master':
-				moveToPage = DummyPage;
-				shareData = 'Master';
-			break;
-
-			case 'Xtreamz':
-				moveToPage = DummyPage;
-				shareData = 'Xtreamz';
-			break;
-
-			default:
-				// code...
-				break;
-		}
-		this.AFS.previousPage = moveToPage;
-		this.navCtrl.push( moveToPage, {
-			pushData: shareData
-		} );
+	put( data: any ): void {
+		console.log( data );
 	}
-
-	
 }

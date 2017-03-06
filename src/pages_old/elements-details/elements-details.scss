@@ -1,0 +1,40 @@
+page-elements-details {
+	
+	ion-icon {
+		transform: rotate( 180deg );
+	}
+	.customNav {
+		position: fixed;
+		bottom: 0;
+	}
+	.bg {
+		background-color: #000;
+	}
+	.nav {
+		background-color: #000;
+		color: #FFF;
+		text-align: center;
+		padding: 5px; 
+	}
+
+	/*other css*/
+	img {
+		width: 50%;
+		margin-left: auto;
+	    margin-right: auto;
+	    display: block;
+	}
+	ion-list {
+		width: 100%;
+	}
+	.boderBottom {
+		border-bottom: 0.55px solid green;
+	}
+	.elmName {
+		text-align: center;
+		margin: 5px 0px;
+	}
+	.originDetails {
+		white-space: normal;
+	}
+}

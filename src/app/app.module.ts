@@ -1,10 +1,16 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
-import { BeginnerPage } from '../pages/beginner/beginner';
-import { ElementsDetailsPage } from '../pages/elements-details/elements-details';
+
+// --- Pages
+import { CustomSpacerPage } from '../pages/custom-spacer/custom-spacer';
 import { DummyPage } from '../pages/dummy/dummy';
+import { HomePage } from '../pages/home/home';
+
+
+// import { BeginnerPage } from '../pages/beginner/beginner';
+// import { ElementsDetailsPage } from '../pages/elements-details/elements-details';
+
 
 // ---- Custom Services
 import { AngularFireService } from '../providers/angular-fire-service';
@@ -25,10 +31,9 @@ export const firebaseConfig = {
 @NgModule({
     declarations: [
         MyApp,
-        HomePage,
-        BeginnerPage,
-        ElementsDetailsPage,
-        DummyPage
+        CustomSpacerPage,
+        DummyPage,
+        HomePage
     ],
     imports: [
         IonicModule.forRoot(MyApp),
@@ -37,10 +42,10 @@ export const firebaseConfig = {
     bootstrap: [IonicApp],
     entryComponents: [
         MyApp,
-        HomePage,
-        BeginnerPage,
-        ElementsDetailsPage,
-        DummyPage
+        CustomSpacerPage,
+        DummyPage,
+        HomePage
+
     ],
     providers: [
         {
