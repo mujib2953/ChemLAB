@@ -1,5 +1,8 @@
 page-beginner {
 	
+	ion-content {
+		margin-top: 44px;
+	}
 	.elmName {
 		display: inline;
 		color: #444444;
@@ -8,5 +11,13 @@ page-beginner {
 		display: inline;
 		float: right;
 		color: #AAAAAA;
+		text-align: left;
+    	width: 30px;
+	}
+	.fixedSearch {
+		width: 100%;
+	}
+	.searchBox {
+		margin-top: -44px;
 	}
 }
