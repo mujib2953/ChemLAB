@@ -2,21 +2,99 @@ page-home {
 	.brandName {
 		font-size: 4.5em; 
 		text-align: center;
+		margin: 0.7em auto;
 	}
 
 	.button-inner {
 		justify-content: flex-start;
 	}
+
+	ion-content {
+		/*background-color: #151515 !important;
+		color: #FFFFFF !important;*/
+	}
+
 	ion-icon {
-		margin-left: 15em;
-		margin-top: -2em;
+		
 	    float: right;
 	    position: absolute;
 	    font-size: 1.4em;
+
+	    color: #FFFFFF;
 	}
 	.customBtn {
-		height: 4em;
+		/*height: 3.2em;*/
+		font-size: 20px;
+
+		border-radius: 0px;
+	    margin-bottom: 0.4em;
 	}
+
+	/* --- Beginner Button ---*/
+	.btn_1 button {
+		background-color: #886aea;
+	}
+	/* --- Intermediate Button ---*/
+	.btn_2 button {
+		background-color: #33cd5f;
+	}
+
+	/* --- Expert Button ---*/
+	.btn_3 button {
+		background-color: #11c1f3;
+	}
+
+	/* --- Expert Button ---*/
+	.btn_4 button {
+		background-color: #ef473a;
+	}
+
+	.button-block-md.activated, .activated, .button-ios.activated {
+		background-color: #000000;
+	}
+
+	.icon-tube {
+		width: 90px;
+	    height: 129px;
+	    margin: 0px 0px;
+	    z-index: 2222;
+	    background-position-x: -160px;
+	    background-position-y: -138px;
+
+	    background: url(/assets/images/chemSprite_5.jpg) no-repeat;
+    	display: block;
+	}
+
+	/*
+	** Portrait Mode
+	*/
+	@media screen and (orientation:portrait) {
+
+		.customBtn {
+			height: 3.2em;
+			
+		}
+
+		ion-icon {
+			margin-left: 14em;
+			margin-top: -2.3em;
+		}
+	}
+	/*
+	** Landscape Mode
+	*/
+ 	@media screen and (orientation:landscape) {
+ 		
+ 		.customBtn {
+			height: 4em;
+		}
+
+		ion-icon {
+			margin-left: 26em;
+			margin-top: -2.7em;
+		}
+
+ 	}
 }
 .cursiveFont {
 	font-family: 'Caveat Brush', cursive;

@@ -13,15 +13,20 @@
 	    <ion-icon class="homeIcons" name="car" ></ion-icon>
 	    TextFoo
 	</button> -->
-	<div *ngFor="let d of levels; let i = index; ">
-		<button class="customBtn" [ngClass]=" {{ 'myBtn_' + ( i + 1 ) }} "  ion-button block icon-right >
+	<div *ngFor="let d of levels; let i = index; " class="btn_{{ ( i + 1 ) }}">
+		<button class="customBtn"  ion-button block icon-right (click)="moveToPage( d )" >
 			{{ d }}
 			<!-- <ion-icon name="star"></ion-icon> -->
 		</button>	
 		<ion-icon name="star"></ion-icon>
 	</div>
 	
-
+	<!-- <div class="btn_1">
+		<button class="customBtn"  ion-button block icon-right >
+			Mujib
+		</button>	
+		<ion-icon class="icon-tube"></ion-icon>
+	</div> -->
 
 
 </ion-content>

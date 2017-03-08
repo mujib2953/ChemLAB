@@ -6,9 +6,10 @@ import { MyApp } from './app.component';
 import { CustomSpacerPage } from '../pages/custom-spacer/custom-spacer';
 import { DummyPage } from '../pages/dummy/dummy';
 import { HomePage } from '../pages/home/home';
-
-
-// import { BeginnerPage } from '../pages/beginner/beginner';
+import { BeginnerPage } from '../pages/beginner/beginner';
+import { IntermediatePage } from '../pages/intermediate/intermediate';
+import { MasterPage } from '../pages/master/master';
+import { XtremzPage } from '../pages/xtremz/xtremz';
 // import { ElementsDetailsPage } from '../pages/elements-details/elements-details';
 
 
@@ -33,7 +34,11 @@ export const firebaseConfig = {
         MyApp,
         CustomSpacerPage,
         DummyPage,
-        HomePage
+        HomePage,
+        BeginnerPage,
+        IntermediatePage,
+        MasterPage,
+        XtremzPage
     ],
     imports: [
         IonicModule.forRoot(MyApp),
@@ -44,7 +49,11 @@ export const firebaseConfig = {
         MyApp,
         CustomSpacerPage,
         DummyPage,
-        HomePage
+        HomePage,
+        BeginnerPage,
+        IntermediatePage,
+        MasterPage,
+        XtremzPage
 
     ],
     providers: [

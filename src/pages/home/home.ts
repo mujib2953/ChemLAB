@@ -5,8 +5,11 @@ import { NavController, NavParams } from 'ionic-angular';
 import { AngularFireService } from '../../providers/angular-fire-service';
 
 // --- Pages
-
-
+import { DummyPage } from '../dummy/dummy';
+import { BeginnerPage } from '../beginner/beginner';
+import { IntermediatePage } from '../intermediate/intermediate';
+import { MasterPage } from '../master/master';
+import { XtremzPage } from '../xtremz/xtremz';
 /*
   Generated class for the Home page.
 
@@ -37,6 +40,42 @@ export class HomePage {
 		console.log('ionViewDidLoad HomePage');
 	}
 
+	// --- for navigation
+	moveToPage( pageName: string ): void {
+
+		console.log( pageName );
+
+		let page: any;
+		let sharedData: any = {};
+		let pageFound: boolean = true;
+
+		switch ( pageName ) {
+			case "Beginner":
+				page = BeginnerPage;
+			break;
+			
+			case "Intermediate":
+				page = IntermediatePage;
+			break;
+
+			case 'Master':
+				page = MasterPage;
+			break;
+
+			case 'Xtreamz':
+				page = XtremzPage;
+			break;
+
+			default:
+				pageFound = false;
+				console.warn( pageName + ' :: page is not found in the list' );
+			break;
+		}
+
+		if( pageFound )
+			this.navCtrl.push( page, sharedData );
+
+	}
 
 	put( data: any ): void {
 		console.log( data );
