@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
+import { Database } from '@ionic/cloud-angular';
+
 // --- services
 import { AngularFireService } from '../../providers/angular-fire-service';
 
 // --- Pages
-import { DummyPage } from '../dummy/dummy';
+// import { DummyPage } from '../dummy/dummy';
 import { BeginnerPage } from '../beginner/beginner';
 import { IntermediatePage } from '../intermediate/intermediate';
 import { MasterPage } from '../master/master';
@@ -24,16 +26,38 @@ export class HomePage {
 
 	levels: any;
 
+	// --- temp vars
+	chats: any;
 	constructor(
 		public navCtrl: NavController, 
 		public navParams: NavParams,
 
 		// --- custom services
-		public AFS: AngularFireService
+		public AFS: AngularFireService,
+
+		public db: Database
 	) {
+
+		this.commonDBFunc();
 
 		this.levels = this.AFS.difficultyLevel;
 		console.log( this.levels );
+	}
+
+	commonDBFunc(): void {
+
+		this.db.connect();
+		this.sendMessage( 'Hello Ionic' );
+		// this.db.collection('chats').watch().subscribe( (chats) => {
+		// 	this.chats = chats;
+		// }, (error) => {
+		// 	console.error(error);
+		// });
+
+	}
+
+	sendMessage(message: string) {
+		this.db.collection('chats').store({text: message, time: Date.now()});
 	}
 
 	ionViewDidLoad() {

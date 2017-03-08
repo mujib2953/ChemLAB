@@ -2,6 +2,9 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
+
+import { CloudSettings, CloudModule } from '@ionic/cloud-angular';
+
 // --- Pages
 import { CustomSpacerPage } from '../pages/custom-spacer/custom-spacer';
 import { DummyPage } from '../pages/dummy/dummy';
@@ -29,6 +32,21 @@ export const firebaseConfig = {
 };
 
 
+// interface CloudSettings {
+//     core: {}
+//     // push: PushOptions
+//     // database: IonicDBOptions
+//     // auth: AuthOptions
+//     // insights: InsightsOptions
+//     // logger: LoggerOptions
+// }
+
+const cloudSettings: CloudSettings = {
+  'core': {
+    'app_id': '50b0c8e3'
+  }
+};
+
 @NgModule({
     declarations: [
         MyApp,
@@ -42,7 +60,8 @@ export const firebaseConfig = {
     ],
     imports: [
         IonicModule.forRoot(MyApp),
-        AngularFireModule.initializeApp(firebaseConfig)
+        AngularFireModule.initializeApp(firebaseConfig),
+        CloudModule.forRoot(cloudSettings)
     ],
     bootstrap: [IonicApp],
     entryComponents: [
