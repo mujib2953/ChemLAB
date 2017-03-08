@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, LoadingController } from 'ionic-angular';
 
 import { Database } from '@ionic/cloud-angular';
 
@@ -25,6 +25,7 @@ import { XtremzPage } from '../xtremz/xtremz';
 export class HomePage {
 
 	levels: any;
+	loader: any;
 
 	// --- temp vars
 	chats: any;
@@ -32,32 +33,25 @@ export class HomePage {
 		public navCtrl: NavController, 
 		public navParams: NavParams,
 
+		public loadingCtrl: LoadingController,
+
 		// --- custom services
 		public AFS: AngularFireService,
 
 		public db: Database
 	) {
+		let scope: any = this;
 
-		this.commonDBFunc();
-
+		this.toggleLoader( true );
+		
 		this.levels = this.AFS.difficultyLevel;
-		console.log( this.levels );
-	}
+		// console.log( this.levels );
 
-	commonDBFunc(): void {
-
-		this.db.connect();
-		this.sendMessage( 'Hello Ionic' );
-		// this.db.collection('chats').watch().subscribe( (chats) => {
-		// 	this.chats = chats;
-		// }, (error) => {
-		// 	console.error(error);
-		// });
-
-	}
-
-	sendMessage(message: string) {
-		this.db.collection('chats').store({text: message, time: Date.now()});
+		this.AFS.elementsList.subscribe( data => {
+			console.log( data );
+			scope.AFS.elmList = data;
+			scope.toggleLoader( false );
+		} );
 	}
 
 	ionViewDidLoad() {
@@ -98,6 +92,18 @@ export class HomePage {
 
 		if( pageFound )
 			this.navCtrl.push( page, sharedData );
+
+	}
+
+	// --- loader
+	toggleLoader( status: boolean ): void {
+
+		if( status ) {
+			this.loader = this.loadingCtrl.create({});
+			this.loader.present();
+		} else {
+			this.loader.dismiss();
+		}
 
 	}
 

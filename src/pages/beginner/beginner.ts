@@ -1,6 +1,11 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
+// --- services
+import { AngularFireService } from '../../providers/angular-fire-service';
+
+// --- pages
+import { ElementsDetailsPage } from '../elements-details/elements-details';
 /*
   Generated class for the Beginner page.
 
@@ -18,7 +23,9 @@ export class BeginnerPage {
 
 	constructor(
 		public navCtrl: NavController, 
-		public navParams: NavParams
+		public navParams: NavParams,
+
+		public AFS: AngularFireService
 	) {
 		this.initializeItems();
 	}
@@ -28,10 +35,7 @@ export class BeginnerPage {
 	}
 
 	initializeItems() {
-		this.items = [
-			'Amsterdam',
-			'Bogota'
-		];
+		this.items = this.AFS.elmList
 	}
 
 	getItems( ev: any ): void {
@@ -40,13 +44,22 @@ export class BeginnerPage {
 
 		// set val to the value of the searchbar
 		let val = ev.target.value;
-
+		
 		// if the value is an empty string don't filter the items
 		if (val && val.trim() != '') {
 			this.items = this.items.filter((item) => {
-				return (item.toLowerCase().indexOf(val.toLowerCase()) > -1);
+				return (item[ 'name' ].toLowerCase().indexOf(val.toLowerCase()) > -1);
 			})
 		}
+	}
+
+	// --- navigatoion
+	moveToPage( data: any ): void {
+
+		this.navCtrl.push( ElementsDetailsPage, {
+			urlData: data
+		} );
+
 	}
 
 }

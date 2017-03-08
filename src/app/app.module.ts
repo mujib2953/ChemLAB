@@ -13,7 +13,7 @@ import { BeginnerPage } from '../pages/beginner/beginner';
 import { IntermediatePage } from '../pages/intermediate/intermediate';
 import { MasterPage } from '../pages/master/master';
 import { XtremzPage } from '../pages/xtremz/xtremz';
-// import { ElementsDetailsPage } from '../pages/elements-details/elements-details';
+import { ElementsDetailsPage } from '../pages/elements-details/elements-details';
 
 
 // ---- Custom Services
@@ -56,7 +56,8 @@ const cloudSettings: CloudSettings = {
         BeginnerPage,
         IntermediatePage,
         MasterPage,
-        XtremzPage
+        XtremzPage,
+        ElementsDetailsPage
     ],
     imports: [
         IonicModule.forRoot(MyApp),
@@ -72,7 +73,8 @@ const cloudSettings: CloudSettings = {
         BeginnerPage,
         IntermediatePage,
         MasterPage,
-        XtremzPage
+        XtremzPage,
+        ElementsDetailsPage
 
     ],
     providers: [

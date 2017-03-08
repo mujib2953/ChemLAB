@@ -16,7 +16,8 @@ import { AngularFire } from 'angularfire2';
 export class AngularFireService {
 
 	// elementsList: FirebaseListObservable<any>;
-	elementsList: any;
+	elementsList: any; //--- holds subscriber data from API
+	elmList: any; //--- holds actual json list
 
 	difficultyLevel: Array<String> = [
 		'Beginner',
@@ -37,12 +38,4 @@ export class AngularFireService {
 		this.elementsList = this.af.database.list('/elements');
 	}
 
-	getAllElements(): any {
-		return this.elementsList;
-	}
-
-	getElement( name: string ): any {
-
-		return '';
-	}
 }
