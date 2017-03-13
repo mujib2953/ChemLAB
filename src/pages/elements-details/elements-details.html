@@ -1,18 +1,117 @@
 <!--
-  Generated template for the ElementsDetails page.
+Generated template for the ElementsDetails page.
 
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
+See http://ionicframework.com/docs/v2/components/#navigation for more info on
+Ionic pages and navigation.
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>{{ element.name }}</ion-title>
-  </ion-navbar>
+	<ion-navbar>
+		<ion-title>{{ element.name }}</ion-title>
+	</ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
+	
+	<!-- Top card -->
+	<ion-card>
+
+		<ion-card-content>
+			<!-- Add card content here! -->
+			<ion-row>
+				<ion-col width-25>
+					<ion-item class="item-thumbnail-left" id="hydrogen-list-item13"></ion-item>
+				</ion-col>
+				<ion-col width-75>
+					<h2>Hydrogen H<sub>2</sub>
+					</h2>
+					<p style="white-space:normal;">This is the description of the Hydrogen Elements. Hwo discovered. How the named formed Hydrogen etc etc...</p>
+
+				</ion-col>
+			</ion-row>
+
+		</ion-card-content>
+
+	</ion-card>
+
+	<!-- spacer -->
+	<ion-row class="spacer-25"></ion-row>
+
+	<!-- History card -->
+	<ion-card>
+		<ion-card-header>
+			History
+		</ion-card-header>
+
+		<ion-card-content>
+			<!-- Add card content here! -->
+			Hydrogen was discovered by **Henry Cavendish** around **1766**. The name is derived from the Greek 'hydro' and 'genes' meaning water forming. 
+		</ion-card-content>
+	</ion-card>
+
+	<!-- Properties card -->
+	<ion-card>
+
+		<ion-card-header>
+			Properties
+		</ion-card-header>
+
+		<ion-card-content>
+			<ion-list>
+				
+				<ion-item >
+					<div class="blockElm">
+						Group
+						<ion-icon name="help-circle" (click)="showHelp( 'group' )" ></ion-icon>
+					</div>
+					<div class="blockElm textRight">1</div>
+				</ion-item>
+
+				<ion-item >
+					<div class="blockElm">
+						Period
+						<ion-icon name="help-circle" (click)="showHelp( 'period' )" ></ion-icon>
+					</div>
+					<div class="blockElm textRight">1</div>
+				</ion-item>
+
+				<ion-item >
+					<div class="blockElm">
+						Block
+						<ion-icon name="help-circle" (click)="showHelp( 'block' )" ></ion-icon>
+					</div>
+					<div class="blockElm textRight">1</div>
+				</ion-item>
+
+				<ion-item >
+					<div class="blockElm">
+						Type
+						<ion-icon name="help-circle" (click)="showHelp( 'type' )" ></ion-icon>
+					</div>
+					<div class="blockElm textRight">1</div>
+				</ion-item>
+
+				<ion-item >
+					<div class="blockElm">
+						Allotropes
+						<ion-icon name="help-circle" (click)="showHelp( 'allotropes' )" ></ion-icon>
+					</div>
+					<div class="blockElm textRight">1</div>
+				</ion-item>
+
+				<ion-item >
+					<div class="blockElm">
+						State at 20&deg;
+					</div>
+					<div class="blockElm textRight">127</div>
+				</ion-item>
+
+			</ion-list>
+		</ion-card-content>
+
+	</ion-card>
+
 
 </ion-content>

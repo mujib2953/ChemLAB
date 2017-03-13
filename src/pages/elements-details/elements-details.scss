@@ -2,4 +2,16 @@ page-elements-details {
 	ion-title {
 		text-align: end;
 	}
+	.item-thumbnail-left {
+		background: url( '/assets/images//Hydrogen.png' ) no-repeat;
+		background-size: 100%;
+		height: 55px;
+		border-radius: 5px;
+	}
+	.blockElm {
+		display: inline-block;
+	}
+	.textRight {
+	    float: right;
+	}
 }

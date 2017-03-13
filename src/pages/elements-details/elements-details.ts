@@ -27,4 +27,7 @@ export class ElementsDetailsPage {
 		console.log('ionViewDidLoad ElementsDetailsPage');
 	}
 
+	showHelp( type: string ): void {
+		console.log( type );
+	}
 }
