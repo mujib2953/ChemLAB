@@ -14,5 +14,21 @@
 
 
 <ion-content padding>
-	<button ion-button block (click)='selectReactantCount'>Number of Reactants</button>
+	<button ion-button block (click)='selectReactantCount()'>Number of Reactants</button>
+	<ion-row>
+		<input type="range" name="">
+		<ion-range min="20" max="80" step="2"></ion-range>
+	</ion-row>
+
+  <ion-list>
+  
+  <ion-item>
+    <ion-range min="2" max="5" step="1" snaps="true" [(ngModel)]="singleValue" color="secondary" pin="true"></ion-range>
+  </ion-item>
+
+  
+
+</ion-list>
+
+
 </ion-content>

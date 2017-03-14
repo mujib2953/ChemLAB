@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, ActionSheet } from 'ionic-angular';
+import { NavController, NavParams, ActionSheetController, AlertController } from 'ionic-angular';
 
 /*
   Generated class for the Intermediate page.
@@ -17,7 +17,8 @@ export class IntermediatePage {
 		public navCtrl: NavController,
 		public navParams: NavParams,
 
-		public actionSheetCtrl: ActionSheet
+		public actionSheetCtrl: ActionSheetController,
+		public alertCtrl: AlertController
 	) {
 
 	}
@@ -28,6 +29,30 @@ export class IntermediatePage {
 
 
 	selectReactantCount(): void {
+		let alert = this.alertCtrl.create();
+		alert.setTitle('Number of Reactants');
 
+		alert.addInput({
+			type: 'range',
+			label: 'Blue',
+			// min: 0, 
+			// max: 50,
+			// value: 0,
+			// step: 5
+			// value: 'blue',
+			// checked: true
+		});
+
+		alert.addButton('Cancel');
+		alert.addButton({
+			text: 'OK',
+			handler: data => {
+			// this.testRadioOpen = false;
+			// this.testRadioResult = data;
+			}
+		});
+		
+		alert.present();
+		
 	}
 }
