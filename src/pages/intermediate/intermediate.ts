@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, ActionSheet } from 'ionic-angular';
 
 /*
   Generated class for the Intermediate page.
@@ -13,10 +13,21 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class IntermediatePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+	constructor(
+		public navCtrl: NavController,
+		public navParams: NavParams,
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad IntermediatePage');
-  }
+		public actionSheetCtrl: ActionSheet
+	) {
 
+	}
+
+	ionViewDidLoad() {
+		console.log('ionViewDidLoad IntermediatePage');
+	}
+
+
+	selectReactantCount(): void {
+
+	}
 }
