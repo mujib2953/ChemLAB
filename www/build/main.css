@@ -4771,10 +4771,6 @@ textarea::-webkit-input-placeholder {
   padding-left: 2px;
 }
 
-textarea::-moz-placeholder {
-  padding-left: 2px;
-}
-
 textarea:-ms-input-placeholder {
   padding-left: 2px;
 }
@@ -21317,10 +21313,14 @@ page-elements-details ion-icon {
   color: #387ef5;
 }
 
+page-elements-details ion-card-header {
+  font-size: 1.8rem !important;
+}
+
 page-elements-details .item-thumbnail-left {
   background: url("/assets/images//Hydrogen.png") no-repeat;
   background-size: 100%;
-  height: 55px;
+  height: 58px;
   border-radius: 5px;
 }
 
