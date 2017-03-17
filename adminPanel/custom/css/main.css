@@ -1,0 +1,17 @@
+/*
+* @Author: mujibur
+* @Date:   2017-03-17 19:04:05
+* @Last Modified by:   mujibur
+* @Last Modified time: 2017-03-17 19:50:29
+*/
+
+#loader {
+	position: absolute;
+	top: 0;
+	left: 0;
+
+	height: 100%;
+	width: 100%;
+
+	background-color: rgba( 0, 0, 0, 0.5 );
+}

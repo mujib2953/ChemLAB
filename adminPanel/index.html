@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+
+        <title>Admin Panel</title>
+
+
+        <!-- firebase -->
+        <script src="https://www.gstatic.com/firebasejs/3.7.2/firebase.js"></script>
+		<script>
+			// Initialize Firebase
+			var config = {
+				apiKey: "AIzaSyAGTwZIbcgCToM49vt4W2GYfWH1XsF7644",
+				authDomain: "test-3823e.firebaseapp.com",
+				databaseURL: "https://test-3823e.firebaseio.com",
+				storageBucket: "test-3823e.appspot.com",
+				messagingSenderId: "549062744875"
+			};
+			firebase.initializeApp(config);
+		</script>
+
+        <!-- Vendor -->
+        <link rel="stylesheet" type="text/css" href="vendor/css/bootstrap.min.css">
+
+        <script type="text/javascript" src="vendor/js/jquery-3.2.0.min.js"></script>
+        <script type="text/javascript" src="vendor/js/bootstrap.min.js"></script>
+        <!-- custom -->
+
+        <link rel="stylesheet" type="text/css" href="custom/css/main.css">
+        <script type="text/javascript" src="custom/js/main.js" ></script>
+
+    </head>
+    <body>
+
+    	<div id="loader">
+    		
+    	</div>
+
+    	<div class="container">
+    		
+    		<div class="jumbotron">
+    			<button id="allElm" type="button" class="btn btn-primary">All Elements</button>
+
+    			<button id="addElm" type="button" class="btn btn-success">Add Elements</button>
+    		</div>
+
+    	</div>
+
+
+    </body>
+</html>
