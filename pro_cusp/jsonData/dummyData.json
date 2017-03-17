@@ -166,6 +166,157 @@
         "AtomicRadius": 0.25,
         "ElementColor": "rgb(235,235,235)",
         "ElementColor": "colourless"
+    }, {
+        "name": "Lithium",
+        "symbol": "Li",
+        "img_src": "http://sod-a.rsc-cdn.org/www.rsc.org/periodic-table/content/Images/Elements/Lithium-L.jpg?6.0.3.0",
+        "discovery_date": "1817",
+        "discovered_by": "Johan August Arfvedson",
+        "origin_of_name": "The name is derived from the Greek 'lithos' meaning stone. ",
+        "group": "1",
+        "period": "2",
+        "block": "s",
+        "type": "ALKALI METALS",
+        "state_at_20deg": "Solid",
+        "melting_point": "180.50°C, 356.90°F, 453.65 K",
+        "boiling_point": "1342°C, 2448°F, 1615 K",
+        "density": "0.534",
+        "allotropes": "N/A",
+        "protons": 2,
+        "neutrons": 2,
+        "electrons": 2,
+        "relative_atomic_mass": "4.002602",
+        "atomic_number": "3",
+        "electron_radius": "1.82",
+        "covalent_radius": "1.30",
+        "electron_affinity": "59.633",
+        "electronegativity": "0.98",
+        "electron_config": "[He] 2s<sup>1</sup>",
+        "key_isotopes": [
+            "7<sup>Li</sup>"
+        ],
+        "ionisation_energies": [
+            "520.222",
+            "7298.15",
+            "11815.044",
+            "-",
+            "-",
+            "-",
+            "-",
+            "-"
+        ],
+        "oxidation_state": {
+            "common_oxidation_state": "1",
+            "isotopes": {
+                "0": {
+                    "isotope": "<sup>6</sup>Li",
+                    "atomic_mass": "6.015",
+                    "natural_abundance": "7.59",
+                    "half_life": "-",
+                    "mode_of_decay": "-"
+                },
+                "1": {
+                    "isotope": "<sup>7</sup>Li",
+                    "atomic_mass": "7.016",
+                    "natural_abundance": "92.41",
+                    "half_life": "-",
+                    "mode_of_decay": "-"
+                }
+            }
+        },
+        "pressure_temprature": {
+            "specific_heat_capacity": "3582",
+            "youngs_modulus": "-",
+            "shear_modulus": "-",
+            "bulk_modulus": "-",
+            "vapour_pressure": {
+                "400": "7.90 x 10-11",
+                "600": "0.000489",
+                "800": "1.08",
+                "1000": "109",
+                "1200": "-",
+                "1400": "-",
+                "1600": "-",
+                "1800": "-",
+                "2000": "-",
+                "2200": "-",
+                "2400": "-"
+            }
+        },
+        "AtomicRadius": 0.25,
+        "ElementColor": "rgb(235,235,235)"
+    }, {
+        "name": "Beryllium",
+        "symbol": "Be",
+        "img_src": "http://sod-a.rsc-cdn.org/www.rsc.org/periodic-table/content/Images/Elements/Beryllium-L.jpg?6.0.3.0",
+        "discovery_date": "1797",
+        "discovered_by": "Nicholas Louis Vauquelin",
+        "origin_of_name": "The name is derived from the Greek name for beryl, 'beryllo'. ",
+        "group": "2",
+        "period": "2",
+        "block": "s",
+        "type": "ALKALINE EARTH METALS",
+        "state_at_20deg": "Solid",
+        "melting_point": "1287°C, 2349°F, 1560 K",
+        "boiling_point": "2468°C, 4474°F, 2741 K",
+        "density": "1.85",
+        "allotropes": "N/A",
+        "protons": 4,
+        "neutrons": 5,
+        "electrons": 4,
+        "relative_atomic_mass": "9.012",
+        "atomic_number": "4",
+        "electron_radius": "1.53",
+        "covalent_radius": "0.99",
+        "electron_affinity": "Not stable",
+        "electronegativity": "1.57",
+        "electron_config": "1s<sup>1</sup>",
+        "key_isotopes": [
+            "9<sup>Be</sup>"
+        ],
+        "ionisation_energies": [
+            "899.504",
+            "1757.108",
+            "14848.767",
+            "21006.658",
+            "-",
+            "-",
+            "-",
+            "-"
+        ],
+        "oxidation_state": {
+            "common_oxidation_state": "2",
+            "isotopes": {
+                "0": {
+                    "isotope": "<sup>9</sup>Be",
+                    "atomic_mass": "9.012",
+                    "natural_abundance": "100",
+                    "half_life": "-",
+                    "mode_of_decay": "-"
+                }
+            }
+        },
+        "pressure_temprature": {
+            "specific_heat_capacity": "1825",
+            "youngs_modulus": "-",
+            "shear_modulus": "-",
+            "bulk_modulus": "-",
+            "vapour_pressure": {
+                "400": "-",
+                "600": "-",
+                "800": "3.04 x 10-10",
+                "1000": "4.96 x 10-6",
+                "1200": "0.00314",
+                "1400": "0.312",
+                "1600": "9.12",
+                "1800": "113",
+                "2000": "-",
+                "2200": "-",
+                "2400": "-"
+            }
+        },
+        "AtomicRadius": 0.25,
+        "ElementColor": "rgb(235,235,235)"
     }
 ]
 
