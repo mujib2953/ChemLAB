@@ -1,8 +1,8 @@
 /*
 * @Author: mujibur
 * @Date:   2017-03-17 19:04:05
-* @Last Modified by:   mujibur
-* @Last Modified time: 2017-03-17 19:50:29
+* @Last Modified by:   ansar
+* @Last Modified time: 2017-03-18 19:56:20
 */
 
 #loader {
@@ -14,4 +14,51 @@
 	width: 100%;
 
 	background-color: rgba( 0, 0, 0, 0.5 );
+}
+
+.editELmWrapper {
+	position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba( 0, 0, 0, 0.5 );
+}
+.editELmContainer {
+	position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: 25px 25px;
+    padding: 25px;
+    background: #efeaea;
+    border: 1px solid red;
+    border-radius: 10px;
+}
+.editElmHeader {
+	height: 6%;
+	border-bottom: 1px solid grey; 
+}
+.editElmFooter {
+	height: 10%;
+	position: absolute;
+	width: 94%;
+	bottom: 0;
+	border-top: 1px solid grey;
+    padding-top: 10px;
+}
+.editElmBody {
+	height: 80%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding: 20px;
+}
+.scrollable-menu {
+    height: auto;
+    max-height: 200px;
+    overflow-x: hidden;
+}
+li {
+	text-align: center;
 }
