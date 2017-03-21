@@ -2,8 +2,17 @@
 * @Author: mujibur
 * @Date:   2017-03-17 19:04:05
 * @Last Modified by:   mujibur
-* @Last Modified time: 2017-03-20 16:25:16
+* @Last Modified time: 2017-03-21 17:58:12
 */
+
+/* arrow in the input box  */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+/* ends here arrow input */
 
 #loader {
 	position: absolute;
@@ -35,7 +44,7 @@
     margin: 25px 25px;
     padding: 25px;
     background: #efeaea;
-    border: 1px solid red;
+    /*border: 1px solid red;*/
     border-radius: 10px;
 }
 .editElmHeader {
@@ -63,4 +72,10 @@
 }
 li {
 	text-align: center;
+}
+
+.customOxidationInput {
+    width: 90%;
+    display: inline-block;
+    margin-bottom: 10px;
 }

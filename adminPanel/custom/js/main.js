@@ -2,14 +2,15 @@
 * @Author: mujibur
 * @Date:   2017-03-17 19:04:15
 * @Last Modified by:   mujibur
-* @Last Modified time: 2017-03-20 19:34:05
+* @Last Modified time: 2017-03-21 18:27:22
 */
 
 'use strict';
 ( function () {
 	var oScope = {
 
-		baseURL: 'http://localhost:8080/All%20Projects/adminPanel/'
+		baseURL: 'http://localhost:8080/All%20Projects/adminPanel/',
+		oxidationIsotopesCount: 0,
 
 	};
 	$( document ).ready( function () {
@@ -69,16 +70,25 @@
 		
 		$( '#allElm' ).off( 'click' ).on( 'click', function() {
 			oScope.log( 'allElm' );
+			$( 'body #allElmContainer' ).removeClass( 'hidden' );
 			// window.location.href = 'custom/pages/allElm.html';
 
 		} );
 
-		$( '#addElm' ).off( 'click' ).on( 'click', function() {
-			oScope.log( 'addElm' );
-			// window.location.href = 'custom/pages/addElm.html';
+		$( '#allElmHide' ).off( 'click' ).on('click', function() {
+			$( 'body #allElmContainer' ).addClass( 'hidden' );
 		} );
 
-		
+
+
+		$( '#addElm' ).off( 'click' ).on( 'click', function() {
+			oScope.log( 'addElm' );
+			$( 'body #addElmContainer' ).removeClass( 'hidden' );
+		} );
+
+		$( '#addElmHide' ).off( 'click' ).on('click', function() {
+			$( 'body #addElmContainer' ).addClass( 'hidden' );
+		} );
 
 		$( '.tableBody' ).off( 'click' ).on( 'click', function( e ) {
 			// console.log( e.target.id );
@@ -89,7 +99,6 @@
 			} else if ( e.target.id == 'delete' ) {
 				deleteElement.call( oScope, e );
 			}
-
 		} );
 	}
 
@@ -175,19 +184,7 @@
 	            "youngs_modulus": "-",
 	            "shear_modulus": "-",
 	            "bulk_modulus": "-",
-	            "vapour_pressure": {
-	                "400": "-",
-	                "600": "-",
-	                "800": "-",
-	                "1000": "-",
-	                "1200": "-",
-	                "1400": "-",
-	                "1600": "-",
-	                "1800": "-",
-	                "2000": "-",
-	                "2200": "-",
-	                "2400": "-"
-	            }
+	            "vapour_pressure": [ "-","-","-","-","-","-","-","-","-","-","-" ]
 	        },
 	        "AtomicRadius": 0.25,
 	        "ElementColor": "rgb(235,235,235)"
@@ -213,237 +210,372 @@
 							<input type="text" class="form-control" id="elementName" placeholder="Name of elment" value="` + showObj.name + `">
 						</div>
 
-						<!-- Allotrope -->
+						<!-- Element Symbol -->
 						<div class="form-group">
-							<label for="exampleInputEmail1">2. Allotrope ( html )</label>
-							<input type="text" class="form-control" id="allotrope" placeholder="Allotrope of element" value="` + showObj.stableState + `">
+							<label for="exampleInputEmail1">2. Element Symbol</label>
+							<input type="text" class="form-control" id="elementSymbol" placeholder="Symbol of elment" value="` + showObj.symbol + `">
+						</div>
+
+						<!-- Stable State -->
+						<div class="form-group">
+							<label for="exampleInputEmail1">3. Stable State ( html )</label>
+							<input type="text" class="form-control" id="stableState" placeholder="Stable State of element" value="` + showObj.stableState + `">
 						</div>
 
 						<!-- Description -->
 						<div class="form-group">
-							<label for="exampleInputEmail1">3. Description</label>
+							<label for="exampleInputEmail1">4. Description</label>
 							<input type="text" class="form-control" id="elementDesc" placeholder="Description" value="` + showObj.desc + `">
 						</div>
 
-						<!-- Inventor -->
+						<!-- Image Src -->
 						<div class="form-group">
-							<label for="exampleInputEmail1">4. Inventor</label>
-							<input type="text" class="form-control" id="inventor" placeholder="Inventor of element" value="` + showObj.discovered_by + `">
+							<label for="exampleInputEmail1">5. Image Source</label>
+							<input type="text" class="form-control" id="srcImage" placeholder="Image link" value="` + showObj.img_src + `">
 						</div>
 
-						<!-- Invention Year -->
+						<!-- Discovery Date / Year -->
 						<div class="form-group">
-							<label for="exampleInputEmail1">5. Invention Year</label>
-							<input type="number" class="form-control" id="inventionYear" placeholder="Invention Year of element" value="` + showObj.discovery_date + `">
+							<label for="exampleInputEmail1">6. Discovery Date / Year</label>
+							<input type="number" class="form-control" id="discoveryDate" placeholder="Discovery Date / Year" value="` + showObj.discovery_date + `">
 						</div>
 
+						<!-- Discovered By -->
+						<div class="form-group">
+							<label for="exampleInputEmail1">7. Discovered By</label>
+							<input type="text" class="form-control" id="discoveredBy" placeholder="Discovered By" value="` + showObj.discovered_by + `">
+						</div>
+
+						
 						<!-- Origin Name -->
 						<div class="form-group">
-							<label for="exampleInputEmail1">6. Origin of Name</label>
+							<label for="exampleInputEmail1">8. Origin of Name</label>
 							<input type="text" class="form-control" id="nameOrigin" placeholder="Origin of Name" value="` + showObj.origin_of_name + `">
 						</div>
 
-						<!-- Group -->
-						<div class="dropup">
-							<label>7. Group of Element</label>
-							<br />
-							<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Group of Element
-								<span class="caret"></span>
-							</button>
-							
-							<ul class="dropdown-menu scrollable-menu">
-								<li> 1 </li>
-								<li> 2 </li>
-								<li> 3 </li>
-								<li> 4 </li>
-								<li> 5 </li>
-								<li> 6 </li>
-								<li> 7 </li>
-								<li> 8 </li>
-								<li> 9 </li>
-								<li> 10 </li>
-								<li> 11 </li>
-								<li> 12 </li>
-								<li> 13 </li>
-								<li> 14 </li>
-								<li> 15 </li>
-								<li> 16 </li>
-								<li> 17 </li>
-								<li> 18 </li>
-								
-							</ul>
-						</div>
-
-						<!-- Blocks -->
-						<div>
-							<label for="exampleInputEmail1">8. Blocks</label>
-							<br />
-							<label class="radio-inline">
-								<input type="radio" name="optradio">s
-							</label>
-							<label class="radio-inline">
-								<input type="radio" name="optradio">p
-							</label>
-							<label class="radio-inline">
-								<input type="radio" name="optradio">d
-							</label>
-							<label class="radio-inline">
-								<input type="radio" name="optradio">f
-							</label>
-						</div>
-
-						<!-- Period -->
-						<div class="dropup">
-							<label>9. Period of Element</label>
-							<br />
-							<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Period of Element
-								<span class="caret"></span>
-							</button>
-							
-							<ul class="dropdown-menu scrollable-menu">
-								<li> 1 </li>
-								<li> 2 </li>
-								<li> 3 </li>
-								<li> 4 </li>
-								<li> 5 </li>
-								<li> 6 </li>
-								<li> 7 </li>
-								<li> Lathanides </li>
-								<li> Actinides </li>
-							</ul>
-						</div>
-
-						<!-- Types -->
-						<div>
-							<label for="exampleInputEmail1">10. Types</label>
-							<br />
-							<label class="radio-inline">
-								<input type="radio" name="optradio">Metals
-							</label>
-							<label class="radio-inline">
-								<input type="radio" name="optradio">Non-Metals
-							</label>
-						</div>
+						
 
 						<!-- Color -->
 						<div class="form-group">
-							<label for="exampleInputEmail1">11. Color</label>
+							<label for="exampleInputEmail1">9. Color</label>
 							<input type="text" class="form-control" id="color" placeholder="Color of element" value="` + showObj.ElementColor + `">
 						</div>
 
-						<!-- Allotropes -->
+						<!-- Allotropes 
+
+						Not Using
+
 						<div class="form-group">
-							<label for="exampleInputEmail1">12. Allotrope ( html )</label>
+							<label for="exampleInputEmail1">10. Allotrope ( html )</label>
 							<input type="text" class="form-control" id="allotrope_" placeholder="Allotrope of element" value="` + showObj.allotropes + `H<sub>2</sub>">
-						</div>
+						</div> -->
 
-						<!-- states -->
-						<div>
-							<label for="exampleInputEmail1">13. State at 20&deg;</label>
-							<br />
-							<label class="radio-inline">
-								<input type="radio" name="optradio">Gas
-							</label>
-							<label class="radio-inline">
-								<input type="radio" name="optradio">Solid
-							</label>
-							<label class="radio-inline">
-								<input type="radio" name="optradio">Liquid
-							</label>
-						</div>
-
+						
 						<!-- Number of electron -->
 						<div class="form-group">
-							<label for="exampleInputEmail1">14. Number of electon</label>
+							<label for="exampleInputEmail1">10. Number of electon</label>
 							<input type="number" class="form-control" id="electron" placeholder="Number of electon" value="` + showObj.electrons + `">
 						</div>
 
 						<!-- Number of proton -->
 						<div class="form-group">
-							<label for="exampleInputEmail1">15. Number of proton</label>
+							<label for="exampleInputEmail1">11. Number of proton</label>
 							<input type="number" class="form-control" id="proton" placeholder="Number of proton" value="` + showObj.protons + `">
 						</div>
 
 						<!-- Number of neutron -->
 						<div class="form-group">
-							<label for="exampleInputEmail1">16. Number of neutron</label>
+							<label for="exampleInputEmail1">12. Number of neutron</label>
 							<input type="number" class="form-control" id="neutron" placeholder="Number of neutron" value="` + showObj.neutrons + `">
 						</div>
 
-						<!-- Number of atomic mass -->
+						<!-- atomic mass -->
 						<div class="form-group">
-							<label for="exampleInputEmail1">17. Atomic mass</label>
+							<label for="exampleInputEmail1">13. Atomic mass</label>
 							<input type="number" class="form-control" id="atomicMass" placeholder="Atomic mass of proton" value="` + showObj.relative_atomic_mass + `">
 						</div>
 
-						<!-- Number of atomic number -->
+						<!-- atomic number -->
 						<div class="form-group">
-							<label for="exampleInputEmail1">18. Atomic number</label>
+							<label for="exampleInputEmail1">14. Atomic number</label>
 							<input type="number" class="form-control" id="atomicNumber" placeholder="Atomic number" value="` + showObj.atomic_number + `">
 						</div>
 
-						<!-- Number of electron radius -->
+						<!-- electron radius -->
 						<div class="form-group">
-							<label for="exampleInputEmail1">19. Electron radius</label>
+							<label for="exampleInputEmail1">15. Electron radius</label>
 							<input type="number" class="form-control" id="electronRadius" placeholder="Electron radius" value="` + showObj.electron_radius + `">
 						</div>
 
-						<!-- Number of electron radius -->
+						<!-- Covalent radius -->
 						<div class="form-group">
-							<label for="exampleInputEmail1">20. Covalent Radius</label>
+							<label for="exampleInputEmail1">16. Covalent Radius</label>
 							<input type="number" class="form-control" id="covalentRadius" placeholder="Covalent Radius" value="` + showObj.covalent_radius + `">
 						</div>
 
 						<!-- electron affinity -->
 						<div class="form-group">
-							<label for="exampleInputEmail1">21. Electron Affinity</label>
+							<label for="exampleInputEmail1">17. Electron Affinity</label>
 							<input type="number" class="form-control" id="electronAffinity" placeholder="Electron Affinity" value="` + showObj.electron_affinity + `">
 						</div>
 
 						<!-- electron negativity -->
 						<div class="form-group">
-							<label for="exampleInputEmail1">22. Electron negativity</label>
+							<label for="exampleInputEmail1">18. Electron negativity</label>
 							<input type="number" class="form-control" id="electronNegativity" placeholder="Electron Negativity" value="` + showObj.electron_negativity + `">
 						</div>
 
 						<!-- electron configuration -->
 						<div class="form-group">
-							<label for="exampleInputEmail1">23. Electron configuration</label>
-							<input type="text" class="form-control" id="electronConfiguration" placeholder="Electron Configuration" value="` + showObj.electron_config + `1s<sup>1</sup>">
+							<label for="exampleInputEmail1">19. Electron configuration</label>
+							<input type="text" class="form-control" id="electronConfiguration" placeholder="Electron Configuration" value="` + showObj.electron_config + `">
 						</div>
 
 						<!-- boiling point -->
 						<div class="form-group">
-							<label for="exampleInputEmail1">24. Boiling Point</label>
+							<label for="exampleInputEmail1">20. Boiling Point</label>
 							<input type="text" class="form-control" id="boilingPoint" placeholder="Boiling Point" value="` + showObj.boiling_point + `">
 						</div>
 
 						<!-- Melting point -->
 						<div class="form-group">
-							<label for="exampleInputEmail1">25. Melting Point</label>
+							<label for="exampleInputEmail1">21. Melting Point</label>
 							<input type="text" class="form-control" id="meltingPoint" placeholder="Melting Point" value="` + showObj.melting_point + `">
 						</div>
 
+
+						<!-- Density -->
+						<div class="form-group">
+							<label for="exampleInputEmail1">22. Density</label>
+							<input type="number" class="form-control" id="density" placeholder="Density" value="` + showObj.density + `">
+						</div>
+
+
 						<!-- Isotopes -->
 						<div class="form-group">
-							<label for="exampleInputEmail1">26. Key Isotopes</label>
-							<input type="text" class="form-control" id="isotopes" placeholder="Isotopes" value="` + showObj.isotopes + `<sup>1</sup>H, <sup>2</sup>H">
+							<label for="exampleInputEmail1">23. Key Isotopes</label>
+							<input type="text" class="form-control" id="isotopes" placeholder="Isotopes" value="` + showObj.key_isotopes.join( '|' ) + `">
 						</div>
 
 						<!-- Ionisation -->
 						<div class="form-group">
-							<label for="exampleInputEmail1">27. Ionisation</label>
-							<input type="text" class="form-control" id="ionisation" placeholder="Ionisation" value="` + showObj.ionisation_energies.join( ',' ) + `1312.05, -, -, -, -, -, -, -">
+							<label for="exampleInputEmail1">24. Ionisation ( 8 values )</label>
+							<input type="text" class="form-control" id="ionisation" placeholder="Ionisation" value="` + showObj.ionisation_energies.join( '|' ) + `">
 						</div>
+
+						<!-- Specific Heat Capacity specific_heat_capacity -->
+						<div class="form-group">
+							<label for="exampleInputEmail1">25. Specific Heat Capacity </label>
+							<input type="number" class="form-control" id="specificHeatCapacity" placeholder="Specific Heat Capacity" value="` + showObj.pressure_temprature.specific_heat_capacity + `">
+						</div>
+
+						<!-- Youngs Modulus youngs_modulus -->
+						<div class="form-group">
+							<label for="exampleInputEmail1">26. Youngs Modulus </label>
+							<input type="text" class="form-control" id="youngsModulus" placeholder="Youngs Modulus" value="` + showObj.pressure_temprature.youngs_modulus + `">
+						</div>
+
+						<!-- Shear Modulus shear_modulus -->
+						<div class="form-group">
+							<label for="exampleInputEmail1">27. Shear Modulus </label>
+							<input type="text" class="form-control" id="shearModulus" placeholder="Shear Modulus" value="` + showObj.pressure_temprature.shear_modulus + `">
+						</div>
+
+						<!-- Bulk Modulus bulk_modulus -->
+						<div class="form-group">
+							<label for="exampleInputEmail1">28. Bulk Modulus </label>
+							<input type="text" class="form-control" id="bulkModulus" placeholder="Bulk Modulus" value="` + showObj.pressure_temprature.bulk_modulus + `">
+						</div>
+
+
+						<!-- Vapour Pressure vapour_pressure -->
+						<div class="form-group">
+							<label for="exampleInputEmail1">29. Vapour Pressure ( 11. values ) </label>
+							<input type="text" class="form-control" id="vapourPressure" placeholder="Vapour Pressure" value="` + showObj.pressure_temprature.vapour_pressure.join( '|' ) + `">
+						</div>
+
+
+						<!-- Common Oxidation State   common_oxidation_state-->
+						<div class="form-group">
+							<label for="exampleInputEmail1">30. Common Oxidation State</label>
+							<input type="text" class="form-control" id="common_oxidation_state" placeholder="Common Oxidation State" value="` + showObj.oxidation_state.common_oxidation_state + `">
+
+						</div>`;
+
+
+					// ---- adding oxidation properties of the isotopes
+					markUp += `
 
 						<!-- Ionisation -->
 						<div class="form-group" id="oxidationSate">
-							<label for="exampleInputEmail1">28. Oxidation</label>
-							<input type="text" class="form-control" id="oxidation" placeholder="Oxidation" value="` + showObj.oxidation + `<sup>1</sup>H, 1.008, 99.9885, -, -">
+							<label for="exampleInputEmail1">31. Oxidation state of the Isotopes</label>
+							`
 
-							<button id="addProp" type="button" class="btn btn-primary" style="float: right;">Add Row</button>
+							oScope.oxidationIsotopesCount = 0;
+							for( var i in showObj.oxidation_state.isotopes ) {
+
+								oScope.oxidationIsotopesCount++;
+
+								var tempData = showObj.oxidation_state.isotopes[ i ];
+
+								var sValue = tempData.atomic_mass + '|' + tempData.half_life + '|' + tempData.isotope + '|' + tempData.mode_of_decay + '|' + tempData.natural_abundance;
+
+								markUp += '<input type="text" class="form-control" id="oxidation_ ' + i + '" placeholder="Oxidation of isotopes" value=" ' + sValue + ' "><br />';
+
+
+
+							}
+							
+
+
+							markUp += `<button id="addProp" type="button" class="btn btn-primary" style="float: right;">Add Row</button><br /><br />
 						</div>
-		    		</div>
+					`;
+					// ---- oxidation properties of the isotopes Ends here
+
+					// ------ adding Group
+					markUp += `
+
+						<div class="form-group">
+							<label for="sel1">32. Group of Element</label>
+							<select class="form-control" id="sel1" id="group" >`;
+
+								for( var i = 1; i <= 18; i++ ) {
+
+									if( i == Number( showObj.group ) )
+										markUp += '<option selected>' + i + '</option>'
+									else
+										markUp += '<option>' + i + '</option>'
+
+								}
+
+								markUp += `
+
+							</select>
+						</div>
+					`;
+					// ------ Group ends here
+
+					// ------ Period starts here
+
+					markUp += `
+
+						<div class="form-group">
+							<label for="sel1">33. Period of Element</label>
+							<select class="form-control" id="sel1" id="period" >`;
+
+							for( var i = 1; i <= 7; i++ ) {
+
+									if( i == showObj.period )
+										markUp += '<option selected>' + i + '</option>'
+									else
+										markUp += '<option>' + i + '</option>'
+
+								}
+
+
+								if( showObj.period == 'Lathanides' )
+									markUp += '<option selected>Lathanides</option>';
+								else
+									markUp += '<option>Lathanides</option>';
+
+								if( showObj.period == 'Actinides' )
+									markUp += '<option selected>Actinides</option>';
+								else
+									markUp += '<option>Actinides</option>';
+
+
+								markUp += `
+
+							</select>
+						</div>
+					`;
+					// ------ Period ends here
+
+					// ---- Blocks code starts here
+					markUp += `
+						<!-- Blocks -->
+						<div>
+							<label for="exampleInputEmail1">34. Blocks</label>
+							<br />`
+
+							var blockArr = [ 's', 'p', 'd', 'f' ];
+							for( var i in blockArr ) {
+
+								markUp += '<label class="radio-inline">';
+
+								if( blockArr[ i ] == showObj.block )
+									markUp += '<input type="radio" name="blocksRadio" checked>' + blockArr[ i ];
+								else
+									markUp += '<input type="radio" name="blocksRadio">' + blockArr[ i ];
+
+								markUp += '</label>';
+
+							}
+
+						markUp += `
+						</div>
+					`;
+					// ---- Blocks code ends here
+
+
+
+					// ------ Types codes starts here
+					markUp += `
+						<!-- Blocks -->
+						<br />
+						<div>
+							<label for="exampleInputEmail1">35. Types of Elements</label>
+							<br />`
+
+							var typeskArr = [ 'Metals', 'Non-Metals' ];
+							for( var i in typeskArr ) {
+
+								markUp += '<label class="radio-inline">';
+
+								if( typeskArr[ i ].toLowerCase() == showObj.type.toLowerCase() )
+									markUp += '<input type="radio" name="typesRadio" checked>' + typeskArr[ i ];
+								else
+									markUp += '<input type="radio" name="typesRadio">' + typeskArr[ i ];
+
+								markUp += '</label>';
+
+							}
+
+						markUp += `
+						</div>
+					`;
+					// ------ Types codes ends here
+
+					// ---- State code starts here
+					markUp += `
+						<!-- Blocks -->
+						<br />
+						<div>
+							<label for="exampleInputEmail1">36. Types of Elements</label>
+							<br />`
+
+							var stateskArr = [ 'Solid', 'Liquid', 'Gas' ];
+							for( var i in stateskArr ) {
+
+								markUp += '<label class="radio-inline">';
+
+								if( stateskArr[ i ].toLowerCase() == showObj.state_at_20deg.toLowerCase() )
+									markUp += '<input type="radio" name="statesRadio" checked>' + stateskArr[ i ];
+								else
+									markUp += '<input type="radio" name="statesRadio">' + stateskArr[ i ];
+
+								markUp += '</label>';
+
+							}
+
+						markUp += `
+						</div>
+					`;
+					// ---- State code ends here
+
+		markUp += `
+					</div>
 
 	    		</div>
 	    		
@@ -466,6 +598,27 @@
 			$( '.editELmWrapper' ).remove();
 
 		} );
+
+		$( 'body #addProp' ).off( 'click' ).on( 'click', function ( e ) {
+			oScope.log( 'adding Row.' );
+			oScope.oxidationIsotopesCount++;
+
+			$( 'body #oxidationSate' ).append( '<input type="text" class="form-control customOxidationInput" id="oxidation_' + oScope.oxidationIsotopesCount + '" placeholder="Oxidation of isotopes" ><button id="removeRow_' + oScope.oxidationIsotopesCount + '" type="button" class="btn btn-danger oxiRemove" >Remove</button>' );
+
+			$( 'body .oxiRemove' ).off( 'click' ).on( 'click', function( e ) {
+
+				var Id = $( this ).attr( 'id' );
+				// oScope.oxidationIsotopesCount--;
+				var toRemove = 'body #oxidation_' + Id.split( '_' )[ 1 ];
+				oScope.log( toRemove );
+				$( toRemove ).remove();
+				$( this ).remove();
+
+			} );
+
+		} );
+
+
 
 	}
 
