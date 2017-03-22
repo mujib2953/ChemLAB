@@ -1,28 +1,28 @@
 /*
 * @Author: mujibur
 * @Date:   2017-03-17 19:04:15
-* @Last Modified by:   mujibur
-* @Last Modified time: 2017-03-21 18:27:22
+* @Last Modified by:   ansar
+* @Last Modified time: 2017-03-22 23:04:07
 */
 
 'use strict';
 ( function () {
-	var oScope = {
+	var oS = {
 
 		baseURL: 'http://localhost:8080/All%20Projects/adminPanel/',
 		oxidationIsotopesCount: 0,
 
 	};
 	$( document ).ready( function () {
-		toggleLoader.call( oScope, true );
+		toggleLoader.call( oS, true );
 		
-		if( !oScope.jsonData )
-			firebaseManage.call( oScope );
+		if( !oS.jsonData )
+			firebaseManage.call( oS );
 
 		
-		oScope.log( 'hello' );
-		console.log( oScope );
-		( !window.oScope ) ? ( window.oScope = oScope ) : null;
+		oS.log( 'hello' );
+		console.log( oS );
+		( !window.oS ) ? ( window.oS = oS ) : null;
 	} );
 
 	// --- reads the data from the firebase database
@@ -32,19 +32,18 @@
 
 
 		var allElementsRef = database.ref('elements/');
-		allElementsRef.on('value', function(snapshot) {
-			console.log( snapshot.val() );
+		allElementsRef.on('value', function( data ) {
 
-			oScope.jsonData = snapshot.val();
+			oS.jsonData = data.val();
+			
+			addData.call( oS );
+			addEvents.call( oS );
 
-			addData.call( oScope );
-			addEvents.call( oScope );
-
-			toggleLoader.call( oScope, false );
+			toggleLoader.call( oS, false );
 		});
 	}
 
-	// --- create the view
+	// --- create the view of all the elements and the edit button
 	function addData() {
 		
 		var i,
@@ -68,36 +67,60 @@
 	// --- move to corresponding page
 	function addEvents() {
 		
-		$( '#allElm' ).off( 'click' ).on( 'click', function() {
-			oScope.log( 'allElm' );
-			$( 'body #allElmContainer' ).removeClass( 'hidden' );
-			// window.location.href = 'custom/pages/allElm.html';
+		// --- dummy Adding data
+		$( '#dummyAdd' ).off( 'click' ).on( 'click', function( e ) {
+	
+			// Get a reference to the database service
+			var database = firebase.database();
+
+			var data = {
+				name: 'Mujib',
+				age: 26,
+				gender: 'male',
+				occupation: 'JS programmer'
+			};
+
+			database.ref('dummyData/' + 'data_one' ).set( data );
+
+			console.log(  );
 
 		} );
 
+
+		// --- All element list will be shown
+		$( '#allElm' ).off( 'click' ).on( 'click', function() {
+			oS.log( 'allElm' );
+			$( 'body #addElmContainer' ).addClass( 'hidden' );
+			$( 'body #allElmContainer' ).removeClass( 'hidden' );
+			// window.location.href = 'custom/pages/allElm.html';
+		} );
+
+		// --- All elements Hide button
 		$( '#allElmHide' ).off( 'click' ).on('click', function() {
 			$( 'body #allElmContainer' ).addClass( 'hidden' );
 		} );
 
 
-
+		// --- Add elements 
 		$( '#addElm' ).off( 'click' ).on( 'click', function() {
-			oScope.log( 'addElm' );
+			oS.log( 'addElm' );
+			$( 'body #allElmContainer' ).addClass( 'hidden' );
 			$( 'body #addElmContainer' ).removeClass( 'hidden' );
 		} );
-
+		// --- Add elements Hide button
 		$( '#addElmHide' ).off( 'click' ).on('click', function() {
 			$( 'body #addElmContainer' ).addClass( 'hidden' );
 		} );
 
+		// --- edit or delete button events
 		$( '.tableBody' ).off( 'click' ).on( 'click', function( e ) {
 			// console.log( e.target.id );
 			e.preventDefault();
 			e.stopPropagation();
 			if( e.target.id == 'edit' ) {
-				editElement.call( oScope, e );
+				editElement.call( oS, e );
 			} else if ( e.target.id == 'delete' ) {
-				deleteElement.call( oScope, e );
+				deleteElement.call( oS, e );
 			}
 		} );
 	}
@@ -106,7 +129,7 @@
 		// console.log( e );
 		var editingElm = $( e.target ).attr( 'data' ).trim(),
 			markUp = '',
-			showObj = oScope.jsonData[ editingElm ];
+			showObj = oS.jsonData[ editingElm ];
 
 		console.log( editingElm );
 		
@@ -411,10 +434,10 @@
 							<label for="exampleInputEmail1">31. Oxidation state of the Isotopes</label>
 							`
 
-							oScope.oxidationIsotopesCount = 0;
+							oS.oxidationIsotopesCount = 0;
 							for( var i in showObj.oxidation_state.isotopes ) {
 
-								oScope.oxidationIsotopesCount++;
+								oS.oxidationIsotopesCount++;
 
 								var tempData = showObj.oxidation_state.isotopes[ i ];
 
@@ -591,37 +614,36 @@
 		`;
 
 		$( 'body' ).append( markUp );
-		// addEvents.call( oScope );
+		// addEvents.call( oS );
 
+		// --- edit elements close button
 		$( 'body #editElmClose' ).off( 'click' ).on( 'click', function( e ) {
 			console.log( 'closing..' );
 			$( '.editELmWrapper' ).remove();
-
 		} );
 
+		// --- Adding the row of the Oxidation state
 		$( 'body #addProp' ).off( 'click' ).on( 'click', function ( e ) {
-			oScope.log( 'adding Row.' );
-			oScope.oxidationIsotopesCount++;
+			oS.log( 'adding Row.' );
+			oS.oxidationIsotopesCount++;
 
-			$( 'body #oxidationSate' ).append( '<input type="text" class="form-control customOxidationInput" id="oxidation_' + oScope.oxidationIsotopesCount + '" placeholder="Oxidation of isotopes" ><button id="removeRow_' + oScope.oxidationIsotopesCount + '" type="button" class="btn btn-danger oxiRemove" >Remove</button>' );
+			$( 'body #oxidationSate' ).append( '<input type="text" class="form-control customOxidationInput" id="oxidation_' + oS.oxidationIsotopesCount + '" placeholder="Oxidation of isotopes" ><button id="removeRow_' + oS.oxidationIsotopesCount + '" type="button" class="btn btn-danger oxiRemove" >Remove</button>' );
 
+			// --- Oxidation row remove button
 			$( 'body .oxiRemove' ).off( 'click' ).on( 'click', function( e ) {
 
 				var Id = $( this ).attr( 'id' );
-				// oScope.oxidationIsotopesCount--;
+				// oS.oxidationIsotopesCount--;
 				var toRemove = 'body #oxidation_' + Id.split( '_' )[ 1 ];
-				oScope.log( toRemove );
+				oS.log( toRemove );
 				$( toRemove ).remove();
 				$( this ).remove();
 
 			} );
-
 		} );
-
-
-
 	}
 
+	// --- delete the elements
 	function deleteElement( e ) {
 		console.log( e );
 	}
@@ -637,9 +659,8 @@
 
 	}
 
-	// ---- adding properties to oScope
-
-	oScope.log = function ( text, bg, color ) {
+	// ---- adding properties to oS
+	oS.log = function ( text, bg, color ) {
 		
 		var _bg = ( bg ) ? bg : '#000',
 			_color = ( color ) ? color : '#FFF';
@@ -648,7 +669,7 @@
 
 	};
 
-	oScope.logData = function ( data ) {
+	oS.logData = function ( data ) {
 		console.log( logData );
 	}
 
