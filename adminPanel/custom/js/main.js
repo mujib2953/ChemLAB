@@ -1,8 +1,8 @@
 /*
 * @Author: mujibur
 * @Date:   2017-03-17 19:04:15
-* @Last Modified by:   ansar
-* @Last Modified time: 2017-03-22 23:04:07
+* @Last Modified by:   mujibur
+* @Last Modified time: 2017-03-23 19:33:24
 */
 
 'use strict';
@@ -122,6 +122,91 @@
 			} else if ( e.target.id == 'delete' ) {
 				deleteElement.call( oS, e );
 			}
+		} );
+
+
+		// --- Add button in the Add elements
+		$( '#addPropADD' ).off( 'click' ).on( 'click', function( e ) {
+			oS.log( 'adding from add Element' );
+
+			oS.oxidationIsotopesCount++;
+
+			$( 'body #oxidationSateAdd' ).append( '<input type="text" class="form-control customOxidationInput" id="oxidationAdd_' + oS.oxidationIsotopesCount + '" placeholder="Oxidation of isotopes" ><button id="removeRow_' + oS.oxidationIsotopesCount + '" type="button" class="btn btn-danger oxiRemove" >Remove</button>' );
+
+			// --- Oxidation row remove button
+			$( 'body .oxiRemove' ).off( 'click' ).on( 'click', function( e ) {
+
+				var Id = $( this ).attr( 'id' );
+				// oS.oxidationIsotopesCount--;
+				var toRemove = 'body #oxidationAdd_' + Id.split( '_' )[ 1 ];
+				oS.log( toRemove );
+				$( toRemove ).remove();
+				$( this ).remove();
+
+			} );
+
+		} );
+
+		// --- saveing data of the new Elements
+		$( '#saveADD' ).off( 'click' ).on( 'click', function( e ) {
+
+			var obj = {
+
+				name: $( '#elementNameAdd' ).val(),
+				symbol: $( '#elementSymbolAdd' ).val(),
+				stableState: $( '#stableStateAdd' ).val(),
+				desc: $( '#elementDescAdd' ).val(),
+				img_src: $( '#srcImageAdd' ).val(),
+				discovery_date: $( '#discoveryDateAdd' ).val(),
+				discovered_by: $( '#discoveredByAdd' ).val(),
+				origin_of_name: $( '#nameOriginAdd' ).val(),
+				electrons: $( '#electronAdd' ).val(),
+				protons: $( '#protonAdd' ).val(),
+				neutrons: $( '#neutronAdd' ).val(),
+				relative_atomic_mass: $( '#atomicMassAdd' ).val(),
+				atomic_number: $( '#atomicNumberAdd' ).val(),
+				electron_radius: $( '#electronRadiusAdd' ).val(),
+				covalent_radius: $( '#covalentRadiusAdd' ).val(),
+				electron_affinity: $( '#electronAffinityAdd' ).val(),
+				electron_negativity: $( '#electronNegativityAdd' ).val(),
+				electron_config: $( '#electronConfigurationAdd' ).val(),
+				boiling_point: $( '#boilingPointAdd' ).val(),
+				melting_point: $( '#meltingPointAdd' ).val(),
+				density: $( '#densityAdd' ).val(),
+				
+				
+				
+				pressure_temprature: {
+					specific_heat_capacity: $( '#specificHeatCapacityAdd' ).val(),
+					youngs_modulus: $( '#youngsModulusAdd' ).val(),
+					shear_modulus: $( '#shearModulusAdd' ).val(),
+					bulk_modulus: $( '#bulkModulusAdd' ).val(),
+					
+					vapour_pressure: $( '#vapourPressureAdd' ).val(),
+					// : $( '#' ).val()
+				},
+
+				oxidation_state: {
+					
+					common_oxidation_state: $( '#common_oxidation_stateAdd' ).val()
+					// isotopes: $( '#' ).val()  oxidationAdd_0 from oxidationAdd_x
+				},
+				
+				group: $( '#GroupAdd' ).val(),
+				period: $( '#PeriodAdd' ).val(),
+				block: $("input[name='blocksRadio']:checked").val(),
+				type: $("input[name='typesRadio']:checked").val(),
+				// : $( '#' ).val(),
+				// : $( '#' ).val(),
+
+
+
+				key_isotopes: $( '#isotopesAdd' ).val(),
+				
+				ionisation_energies: $( '#ionisationAdd' ).val(),
+			}
+			console.log( obj );
+
 		} );
 	}
 
@@ -545,7 +630,7 @@
 
 					// ------ Types codes starts here
 					markUp += `
-						<!-- Blocks -->
+						<!-- Types of elements -->
 						<br />
 						<div>
 							<label for="exampleInputEmail1">35. Types of Elements</label>
