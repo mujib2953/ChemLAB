@@ -44,7 +44,6 @@
     			<div class="buttonContainer">
     				<button id="allElm" type="button" class="btn btn-primary">All Elements</button>
     				<button id="addElm" type="button" class="btn btn-success">Add Elements</button>	
-    				<button id="dummyAdd" type="button" class="btn btn-primary">Dummy Add</button>
     			</div>
 
     			
@@ -67,7 +66,7 @@
     								<th>Delete</th>
 								</tr>
 							</thead>
-							<tbody class="tableBody" >
+							<tbody class="tableBody" id="AllElementsTable" >
 								
 							</tbody>
 						</table>
@@ -185,13 +184,13 @@
 								<!-- electron affinity -->
 								<div class="form-group">
 									<label for="exampleInputEmail1">17. Electron Affinity</label>
-									<input type="number" class="form-control" id="electronAffinityAdd" placeholder="Electron Affinity">
+									<input type="text" class="form-control" id="electronAffinityAdd" placeholder="Electron Affinity">
 								</div>
 
 								<!-- electron negativity -->
 								<div class="form-group">
 									<label for="exampleInputEmail1">18. Electron negativity</label>
-									<input type="number" class="form-control" id="electronNegativityAdd" placeholder="Electron Negativity">
+									<input type="text" class="form-control" id="electronNegativityAdd" placeholder="Electron Negativity">
 								</div>
 
 								<!-- electron configuration -->
@@ -228,7 +227,7 @@
 
 								<!-- Ionisation -->
 								<div class="form-group">
-									<label for="exampleInputEmail1">24. Ionisation ( 8 values )</label>
+									<label for="exampleInputEmail1">24. Ionisation ( 8 values ) ( 1312.05|-|-|-|-|-|-|- )</label>
 									<input type="text" class="form-control" id="ionisationAdd" placeholder="Ionisation">
 								</div>
 
@@ -259,7 +258,7 @@
 
 								<!-- Vapour Pressure vapour_pressure -->
 								<div class="form-group">
-									<label for="exampleInputEmail1">29. Vapour Pressure ( 11. values ) </label>
+									<label for="exampleInputEmail1">29. Vapour Pressure ( 11. values ) ( -|-|-|-|-|-|-|-|-|-|- ) </label>
 									<input type="text" class="form-control" id="vapourPressureAdd" placeholder="Vapour Pressure">
 								</div>
 
@@ -271,7 +270,7 @@
 
 								<!-- Ionisation -->
 								<div class="form-group" id="oxidationSateAdd">
-									<label for="exampleInputEmail1">31. Oxidation state of the Isotopes</label>
+									<label for="exampleInputEmail1">31. Oxidation state of the Isotopes (  <sup>3</sup>H|3.016|-|12.31 years|beta-  )</label>
 									<input type="text" class="form-control" id="oxidationAdd_0" placeholder="Oxidation of isotopes"><br />
 
 									<button id="addPropADD" type="button" class="btn btn-primary" style="float: right;">Add Row</button>
@@ -333,8 +332,8 @@
 								<div>
 									<label for="exampleInputEmail1">35. Types of Elements</label>
 									<br />
-									<input type="radio" name="typesRadio" checked>Metals
-									<input type="radio" name="typesRadio">Non-Metals
+									<input type="radio" value="Metals" name="typesRadio" checked>Metals
+									<input type="radio" value="Non-Metals" name="typesRadio">Non-Metals
 								</div>
 
 								<!-- Blocks -->
@@ -343,9 +342,9 @@
 									<label for="exampleInputEmail1">36. State at 20 deg</label>
 									<br />
 
-									<input type="radio" name="statesRadio" checked> Solid
-									<input type="radio" name="statesRadio"> Liquid
-									<input type="radio" name="statesRadio"> Gas
+									<input type="radio" value="Solid" name="statesRadio" checked> Solid
+									<input type="radio" value="Liquid" name="statesRadio"> Liquid
+									<input type="radio" value="Gas" name="statesRadio"> Gas
 								</div>
 
 								<br />

@@ -1,17 +1,14 @@
 /*
 * @Author: mujibur
 * @Date:   2017-03-17 19:04:15
-* @Last Modified by:   mujibur
-* @Last Modified time: 2017-03-23 19:33:24
+* @Last Modified by:   ansar
+* @Last Modified time: 2017-03-25 14:16:03
 */
 
 'use strict';
 ( function () {
 	var oS = {
-
-		baseURL: 'http://localhost:8080/All%20Projects/adminPanel/',
 		oxidationIsotopesCount: 0,
-
 	};
 	$( document ).ready( function () {
 		toggleLoader.call( oS, true );
@@ -19,19 +16,19 @@
 		if( !oS.jsonData )
 			firebaseManage.call( oS );
 
-		
-		oS.log( 'hello' );
-		console.log( oS );
 		( !window.oS ) ? ( window.oS = oS ) : null;
 	} );
 
 	// --- reads the data from the firebase database
 	function firebaseManage() {
+
+		toggleLoader.call( oS, true );
 		// Get a reference to the database service
 		var database = firebase.database();
+		$( '#AllElementsTable' ).empty();
 
-
-		var allElementsRef = database.ref('elements/');
+		// var allElementsRef = database.ref('elements/');
+		var allElementsRef = database.ref('newElements/');
 		allElementsRef.on('value', function( data ) {
 
 			oS.jsonData = data.val();
@@ -43,19 +40,22 @@
 		});
 	}
 
+
 	// --- create the view of all the elements and the edit button
 	function addData() {
 		
 		var i,
 			target = $( '.tableBody' ),
 			nCount = 0;
+			
+		sortData.call( oS );
 
 		for( i in this.jsonData ) {
 			nCount++;
 
 			var tempData = this.jsonData[ i ];
-
-			var markUp = '<tr><th scope="row"> ' + nCount + ' </th><td> ' + i + ' </td><td> ' + tempData.Symbol + ' </td><td><button id="edit" type="button" class="btn btn-warning" data=" ' + i + ' " data-toggle="modal" data-target="#myModal" >Edit</button></td><td><button id="delete" type="button" class="btn btn-danger" data=" ' + i + ' " >Delete</button></td></tr>'
+			// console.log( tempData );
+			var markUp = '<tr><th scope="row"> ' + nCount + ' </th><td> ' + i + ' </td><td> ' + tempData.symbol + ' </td><td><button id="edit" type="button" class="btn btn-warning" data=" ' + i + ' " data-toggle="modal" data-target="#myModal" >Edit</button></td><td><button id="delete" type="button" class="btn btn-danger" data=" ' + i + ' " >Delete</button></td></tr>'
 			// console.log( i );
 			target.append( markUp );
 
@@ -63,30 +63,26 @@
 
 	}
 
+	// ---- sort data according to Atomic number
+	function sortData() {
+
+		var tempData = [];
+
+		for( var i in this.jsonData ) {
+
+			// tempData[ i ] = this.jsonData[ i ];
+
+			// console.log( i, this.jsonData[ i ] );
+
+			tempData[ i ] = this.jsonData[ i ];
+		}
+
+		console.log( tempData );
+	}
 	
 	// --- move to corresponding page
 	function addEvents() {
 		
-		// --- dummy Adding data
-		$( '#dummyAdd' ).off( 'click' ).on( 'click', function( e ) {
-	
-			// Get a reference to the database service
-			var database = firebase.database();
-
-			var data = {
-				name: 'Mujib',
-				age: 26,
-				gender: 'male',
-				occupation: 'JS programmer'
-			};
-
-			database.ref('dummyData/' + 'data_one' ).set( data );
-
-			console.log(  );
-
-		} );
-
-
 		// --- All element list will be shown
 		$( '#allElm' ).off( 'click' ).on( 'click', function() {
 			oS.log( 'allElm' );
@@ -111,6 +107,8 @@
 		$( '#addElmHide' ).off( 'click' ).on('click', function() {
 			$( 'body #addElmContainer' ).addClass( 'hidden' );
 		} );
+
+
 
 		// --- edit or delete button events
 		$( '.tableBody' ).off( 'click' ).on( 'click', function( e ) {
@@ -150,9 +148,38 @@
 		// --- saveing data of the new Elements
 		$( '#saveADD' ).off( 'click' ).on( 'click', function( e ) {
 
+
+			addToDB.call( oS, true );
+			return;
+			var name = $( '#elementNameAdd' ).val();
+
+			var oxiIsotopes = [];
+			// var temp = $( '#' ).val()  oxidationAdd_0 from oxidationAdd_x
+			for( var i = 0; i <= oS.oxidationIsotopesCount; i++ ) {
+
+				if( $( '#oxidationAdd_' + i ).length > 0 ) {
+
+					var oVal = $( '#oxidationAdd_' + i ).val().split( '|' );
+
+					console.log( oVal );
+
+					var saveObj = {
+						"isotope": oVal[ 0 ],
+						"atomic_mass": oVal[ 1 ],
+						"natural_abundance": oVal[ 2 ],
+						"half_life": oVal[ 3 ],
+						"mode_of_decay": oVal[ 4 ],
+					}
+
+					oxiIsotopes.push( saveObj );
+
+				}
+
+			}
+
 			var obj = {
 
-				name: $( '#elementNameAdd' ).val(),
+				name: name,
 				symbol: $( '#elementSymbolAdd' ).val(),
 				stableState: $( '#stableStateAdd' ).val(),
 				desc: $( '#elementDescAdd' ).val(),
@@ -160,6 +187,7 @@
 				discovery_date: $( '#discoveryDateAdd' ).val(),
 				discovered_by: $( '#discoveredByAdd' ).val(),
 				origin_of_name: $( '#nameOriginAdd' ).val(),
+				elementColor: $( '#colorAdd' ).val(),
 				electrons: $( '#electronAdd' ).val(),
 				protons: $( '#protonAdd' ).val(),
 				neutrons: $( '#neutronAdd' ).val(),
@@ -174,38 +202,30 @@
 				melting_point: $( '#meltingPointAdd' ).val(),
 				density: $( '#densityAdd' ).val(),
 				
-				
-				
+				group: $( '#GroupAdd' ).val(),
+				period: $( '#PeriodAdd' ).val(),
+				block: $("input[name='blocksRadio']:checked").val(),
+				type: $("input[name='typesRadio']:checked").val(),
+				state_at_20deg: $("input[name='statesRadio']:checked").val(),
+				key_isotopes: $( '#isotopesAdd' ).val().split( ',' ),
+				ionisation_energies: $( '#ionisationAdd' ).val().split( '|' ),
+
+				oxidation_state: {
+					
+					common_oxidation_state: $( '#common_oxidation_stateAdd' ).val(),
+					isotopes: oxiIsotopes
+				},
 				pressure_temprature: {
 					specific_heat_capacity: $( '#specificHeatCapacityAdd' ).val(),
 					youngs_modulus: $( '#youngsModulusAdd' ).val(),
 					shear_modulus: $( '#shearModulusAdd' ).val(),
 					bulk_modulus: $( '#bulkModulusAdd' ).val(),
-					
-					vapour_pressure: $( '#vapourPressureAdd' ).val(),
+					vapour_pressure: $( '#vapourPressureAdd' ).val().split( '|' ),
 					// : $( '#' ).val()
-				},
-
-				oxidation_state: {
-					
-					common_oxidation_state: $( '#common_oxidation_stateAdd' ).val()
-					// isotopes: $( '#' ).val()  oxidationAdd_0 from oxidationAdd_x
-				},
-				
-				group: $( '#GroupAdd' ).val(),
-				period: $( '#PeriodAdd' ).val(),
-				block: $("input[name='blocksRadio']:checked").val(),
-				type: $("input[name='typesRadio']:checked").val(),
-				// : $( '#' ).val(),
-				// : $( '#' ).val(),
-
-
-
-				key_isotopes: $( '#isotopesAdd' ).val(),
-				
-				ionisation_energies: $( '#ionisationAdd' ).val(),
+				}
 			}
 			console.log( obj );
+			firebase.database().ref('newElements/' + name ).set( obj );
 
 		} );
 	}
@@ -217,86 +237,6 @@
 			showObj = oS.jsonData[ editingElm ];
 
 		console.log( editingElm );
-		
-
-		showObj = {
-	        "name": "Hydrogen",
-	        "symbol": "H",
-	        "stableState": "H<sub>2</sub>",
-	        "desc": " description gonna come ",
-	        "img_src": "http://sod-a.rsc-cdn.org/www.rsc.org/periodic-table/content/Images/Elements/Hydrogen-L.jpg?6.0.3.0",
-	        "discovery_date": "1766",
-	        "discovered_by": "Henry Cavendish",
-	        "origin_of_name": "The name is derived from the Greek 'hydro' and 'genes' meaning water forming. ",
-	        "group": "1",
-	        "period": "1",
-	        "block": "s",
-	        "type": "NON-METALS",
-	        "state_at_20deg": "Gas",
-	        "melting_point": "−259.16°C, −434.49°F, 13.99 K",
-	        "boiling_point": "−252.879°C, −423.182°F, 20.271 K ",
-	        "density": "0.000082",
-	        "allotropes": "H<sub>2</sub>",
-	        "protons": 1,
-	        "neutrons": 1,
-	        "electrons": 1,
-	        "relative_atomic_mass": "1.00794",
-	        "atomic_number": "1",
-	        "electron_radius": "1.10",
-	        "covalent_radius": "0.32",
-	        "electron_affinity": "72.769",
-	        "electron_negativity": "2.20",
-	        "electron_config": "1s<sup>1</sup>",
-	        "key_isotopes": [
-	            "1<sup></sup>H",
-	            "2<sup></sup>H"
-	        ],
-	        "ionisation_energies": [
-	            "1312.05",
-	            "-",
-	            "-",
-	            "-",
-	            "-",
-	            "-",
-	            "-",
-	            "-"
-	        ],
-	        "oxidation_state": {
-	            "common_oxidation_state": "1, -1",
-	            "isotopes": {
-	                "0": {
-	                    "isotope": "<sup>1</sup>H",
-	                    "atomic_mass": "1.008",
-	                    "natural_abundance": "99.9885",
-	                    "half_life": "-",
-	                    "mode_of_decay": "-"
-	                },
-	                "1": {
-	                    "isotope": "<sup>2</sup>H",
-	                    "atomic_mass": "2.014",
-	                    "natural_abundance": "0.0115",
-	                    "half_life": "-",
-	                    "mode_of_decay": "-"
-	                },
-	                "2": {
-	                    "isotope": "<sup>3</sup>H",
-	                    "atomic_mass": "3.016",
-	                    "natural_abundance": "-",
-	                    "half_life": "12.31 years",
-	                    "mode_of_decay": "beta-"
-	                }
-	            }
-	        },
-	        "pressure_temprature": {
-	            "specific_heat_capacity": "14304",
-	            "youngs_modulus": "-",
-	            "shear_modulus": "-",
-	            "bulk_modulus": "-",
-	            "vapour_pressure": [ "-","-","-","-","-","-","-","-","-","-","-" ]
-	        },
-	        "AtomicRadius": 0.25,
-	        "ElementColor": "rgb(235,235,235)"
-	    }
 
 	    console.log( showObj );
 
@@ -366,7 +306,7 @@
 						<!-- Color -->
 						<div class="form-group">
 							<label for="exampleInputEmail1">9. Color</label>
-							<input type="text" class="form-control" id="color" placeholder="Color of element" value="` + showObj.ElementColor + `">
+							<input type="text" class="form-control" id="color" placeholder="Color of element" value="` + showObj.elementColor + `">
 						</div>
 
 						<!-- Allotropes 
@@ -424,13 +364,13 @@
 						<!-- electron affinity -->
 						<div class="form-group">
 							<label for="exampleInputEmail1">17. Electron Affinity</label>
-							<input type="number" class="form-control" id="electronAffinity" placeholder="Electron Affinity" value="` + showObj.electron_affinity + `">
+							<input type="text" class="form-control" id="electronAffinity" placeholder="Electron Affinity" value="` + showObj.electron_affinity + `">
 						</div>
 
 						<!-- electron negativity -->
 						<div class="form-group">
 							<label for="exampleInputEmail1">18. Electron negativity</label>
-							<input type="number" class="form-control" id="electronNegativity" placeholder="Electron Negativity" value="` + showObj.electron_negativity + `">
+							<input type="text" class="form-control" id="electronNegativity" placeholder="Electron Negativity" value="` + showObj.electron_negativity + `">
 						</div>
 
 						<!-- electron configuration -->
@@ -526,11 +466,9 @@
 
 								var tempData = showObj.oxidation_state.isotopes[ i ];
 
-								var sValue = tempData.atomic_mass + '|' + tempData.half_life + '|' + tempData.isotope + '|' + tempData.mode_of_decay + '|' + tempData.natural_abundance;
+								var sValue = tempData.isotope + '|' + tempData.atomic_mass + '|' + tempData.natural_abundance + '|' + tempData.half_life + '|' + tempData.mode_of_decay;
 
-								markUp += '<input type="text" class="form-control" id="oxidation_ ' + i + '" placeholder="Oxidation of isotopes" value=" ' + sValue + ' "><br />';
-
-
+								markUp += '<input type="text" class="form-control" id="oxidation_' + i + '" placeholder="Oxidation of isotopes" value=" ' + sValue + ' "><br />';
 
 							}
 							
@@ -546,7 +484,7 @@
 
 						<div class="form-group">
 							<label for="sel1">32. Group of Element</label>
-							<select class="form-control" id="sel1" id="group" >`;
+							<select class="form-control" id="Group" >`;
 
 								for( var i = 1; i <= 18; i++ ) {
 
@@ -570,7 +508,7 @@
 
 						<div class="form-group">
 							<label for="sel1">33. Period of Element</label>
-							<select class="form-control" id="sel1" id="period" >`;
+							<select class="form-control" id="Period" >`;
 
 							for( var i = 1; i <= 7; i++ ) {
 
@@ -613,9 +551,9 @@
 								markUp += '<label class="radio-inline">';
 
 								if( blockArr[ i ] == showObj.block )
-									markUp += '<input type="radio" name="blocksRadio" checked>' + blockArr[ i ];
+									markUp += '<input type="radio" value="' + blockArr[ i ] + '" name="blocksRadio" checked>' + blockArr[ i ];
 								else
-									markUp += '<input type="radio" name="blocksRadio">' + blockArr[ i ];
+									markUp += '<input type="radio" value="' + blockArr[ i ] + '" name="blocksRadio">' + blockArr[ i ];
 
 								markUp += '</label>';
 
@@ -642,9 +580,9 @@
 								markUp += '<label class="radio-inline">';
 
 								if( typeskArr[ i ].toLowerCase() == showObj.type.toLowerCase() )
-									markUp += '<input type="radio" name="typesRadio" checked>' + typeskArr[ i ];
+									markUp += '<input type="radio" value="' + typeskArr[ i ] + '" name="typesRadio" checked>' + typeskArr[ i ];
 								else
-									markUp += '<input type="radio" name="typesRadio">' + typeskArr[ i ];
+									markUp += '<input type="radio" value="' + typeskArr[ i ] + '" name="typesRadio">' + typeskArr[ i ];
 
 								markUp += '</label>';
 
@@ -660,7 +598,7 @@
 						<!-- Blocks -->
 						<br />
 						<div>
-							<label for="exampleInputEmail1">36. Types of Elements</label>
+							<label for="exampleInputEmail1">36. State at 20 deg</label>
 							<br />`
 
 							var stateskArr = [ 'Solid', 'Liquid', 'Gas' ];
@@ -669,9 +607,9 @@
 								markUp += '<label class="radio-inline">';
 
 								if( stateskArr[ i ].toLowerCase() == showObj.state_at_20deg.toLowerCase() )
-									markUp += '<input type="radio" name="statesRadio" checked>' + stateskArr[ i ];
+									markUp += '<input type="radio" value="' + stateskArr[ i ] + '" name="statesRadio" checked>' + stateskArr[ i ];
 								else
-									markUp += '<input type="radio" name="statesRadio">' + stateskArr[ i ];
+									markUp += '<input type="radio" value="' + stateskArr[ i ] + '" name="statesRadio">' + stateskArr[ i ];
 
 								markUp += '</label>';
 
@@ -701,6 +639,10 @@
 		$( 'body' ).append( markUp );
 		// addEvents.call( oS );
 
+		$( 'body #editElmSave' ).off( 'click' ).on( 'click', function ( e ) {
+			addToDB.call( oS, false );
+		} );
+
 		// --- edit elements close button
 		$( 'body #editElmClose' ).off( 'click' ).on( 'click', function( e ) {
 			console.log( 'closing..' );
@@ -728,9 +670,108 @@
 		} );
 	}
 
+	function addToDB( bIsAdd ) {
+		
+		var str = ( bIsAdd ) ? 'Add' : '';
+
+		var name = $( '#elementName' + str ).val();
+
+		var oxiIsotopes = [];
+		// var temp = $( '#' ).val()  oxidationAdd_0 from oxidationAdd_x
+		var bForCond;
+		if( bIsAdd ) {
+			bForCond = oS.oxidationIsotopesCount;
+		} else {
+			bForCond = oS.jsonData[ name ].oxidation_state.isotopes.length;
+		}
+		for( var i = 0; i <= bForCond; i++ ) {
+
+			var bCond;
+			if( bIsAdd ) {
+				bCond = $( '#oxidationAdd_' + i )
+			} else {
+				bCond = $( '#oxidation_' + i )
+			}
+			if( bCond.length > 0 ) {
+
+				var oVal = bCond.val().split( '|' );
+				var saveObj = {
+					"isotope": oVal[ 0 ],
+					"atomic_mass": oVal[ 1 ],
+					"natural_abundance": oVal[ 2 ],
+					"half_life": oVal[ 3 ],
+					"mode_of_decay": oVal[ 4 ],
+				}
+
+				oxiIsotopes.push( saveObj );
+
+			}
+
+		}
+
+		var obj = {
+
+			name: name,
+			symbol: $( '#elementSymbol' + str ).val(),
+			stableState: $( '#stableState' + str ).val(),
+			desc: $( '#elementDesc' + str ).val(),
+			img_src: $( '#srcImage' + str ).val(),
+			discovery_date: $( '#discoveryDate' + str ).val(),
+			discovered_by: $( '#discoveredBy' + str ).val(),
+			origin_of_name: $( '#nameOrigin' + str ).val(),
+			elementColor: $( '#color' + str ).val(),
+			electrons: $( '#electron' + str ).val(),
+			protons: $( '#proton' + str ).val(),
+			neutrons: $( '#neutron' + str ).val(),
+			relative_atomic_mass: $( '#atomicMass' + str ).val(),
+			atomic_number: $( '#atomicNumber' + str ).val(),
+			electron_radius: $( '#electronRadius' + str ).val(),
+			covalent_radius: $( '#covalentRadius' + str ).val(),
+			electron_affinity: $( '#electronAffinity' + str ).val(),
+			electron_negativity: $( '#electronNegativity' + str ).val(),
+			electron_config: $( '#electronConfiguration' + str ).val(),
+			boiling_point: $( '#boilingPoint' + str ).val(),
+			melting_point: $( '#meltingPoint' + str ).val(),
+			density: $( '#density' + str ).val(),
+			
+			group: $( '#Group' + str ).val(),
+			period: $( '#Period' + str ).val(),
+			block: $("input[name='blocksRadio']:checked").val(),
+			type: $("input[name='typesRadio']:checked").val(),
+			state_at_20deg: $("input[name='statesRadio']:checked").val(),
+			key_isotopes: $( '#isotopes' + str ).val().split( '|' ),
+			ionisation_energies: $( '#ionisation' + str ).val().split( '|' ),
+
+			oxidation_state: {
+				
+				common_oxidation_state: $( '#common_oxidation_state' + str ).val(),
+				isotopes: oxiIsotopes
+			},
+			pressure_temprature: {
+				specific_heat_capacity: $( '#specificHeatCapacity' + str ).val(),
+				youngs_modulus: $( '#youngsModulus' + str ).val(),
+				shear_modulus: $( '#shearModulus' + str ).val(),
+				bulk_modulus: $( '#bulkModulus' + str ).val(),
+				vapour_pressure: $( '#vapourPressure' + str ).val().split( '|' ),
+				// : $( '#' ).val()
+			}
+		}
+		
+		console.log( obj );
+		firebase.database().ref('newElements/' + name ).set( obj );
+
+		firebaseManage.call( oS );
+		$( '#allElm' ).trigger( 'click' );
+	}
+
 	// --- delete the elements
 	function deleteElement( e ) {
-		console.log( e );
+		
+		var editingElm = $( e.target ).attr( 'data' ).trim();
+		console.log( 'deleting ' + editingElm );
+		firebase.database().ref('newElements/' + editingElm ).remove();
+
+		firebaseManage.call( oS );
 	}
 
 
