@@ -2,7 +2,7 @@
 * @Author: mujibur
 * @Date:   2017-03-17 19:04:15
 * @Last Modified by:   ansar
-* @Last Modified time: 2017-03-25 14:16:03
+* @Last Modified time: 2017-03-25 17:06:02
 */
 
 'use strict';
@@ -340,7 +340,7 @@
 						<!-- atomic mass -->
 						<div class="form-group">
 							<label for="exampleInputEmail1">13. Atomic mass</label>
-							<input type="number" class="form-control" id="atomicMass" placeholder="Atomic mass of proton" value="` + showObj.relative_atomic_mass + `">
+							<input type="text" class="form-control" id="atomicMass" placeholder="Atomic mass of proton" value="` + showObj.relative_atomic_mass + `">
 						</div>
 
 						<!-- atomic number -->
@@ -352,7 +352,7 @@
 						<!-- electron radius -->
 						<div class="form-group">
 							<label for="exampleInputEmail1">15. Electron radius</label>
-							<input type="number" class="form-control" id="electronRadius" placeholder="Electron radius" value="` + showObj.electron_radius + `">
+							<input type="text" class="form-control" id="electronRadius" placeholder="Electron radius" value="` + showObj.electron_radius + `">
 						</div>
 
 						<!-- Covalent radius -->
@@ -395,7 +395,7 @@
 						<!-- Density -->
 						<div class="form-group">
 							<label for="exampleInputEmail1">22. Density</label>
-							<input type="number" class="form-control" id="density" placeholder="Density" value="` + showObj.density + `">
+							<input type="text" class="form-control" id="density" placeholder="Density" value="` + showObj.density + `">
 						</div>
 
 
@@ -414,7 +414,7 @@
 						<!-- Specific Heat Capacity specific_heat_capacity -->
 						<div class="form-group">
 							<label for="exampleInputEmail1">25. Specific Heat Capacity </label>
-							<input type="number" class="form-control" id="specificHeatCapacity" placeholder="Specific Heat Capacity" value="` + showObj.pressure_temprature.specific_heat_capacity + `">
+							<input type="text" class="form-control" id="specificHeatCapacity" placeholder="Specific Heat Capacity" value="` + showObj.pressure_temprature.specific_heat_capacity + `">
 						</div>
 
 						<!-- Youngs Modulus youngs_modulus -->
@@ -641,6 +641,7 @@
 
 		$( 'body #editElmSave' ).off( 'click' ).on( 'click', function ( e ) {
 			addToDB.call( oS, false );
+			$( '.editELmWrapper' ).remove();
 		} );
 
 		// --- edit elements close button
