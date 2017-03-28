@@ -47,11 +47,25 @@ export class HomePage {
 		this.levels = this.AFS.difficultyLevel;
 		// console.log( this.levels );
 
-		this.AFS.elementsList.subscribe( data => {
-			console.log( data );
-			scope.AFS.elmList = data;
+		if( typeof(Storage) !== "undefined" && localStorage.getItem( "allElements" ) == undefined ) {
+			console.log( ' Loading from DB ' );
+			this.AFS.elementsList.subscribe( data => {
+				console.log( data );
+				scope.AFS.elmList = data;
+
+				localStorage.setItem("allElements", JSON.stringify( data ) );
+
+				scope.toggleLoader( false );
+			} );
+
+		} else {
+			console.log( ' Loading from Local Storage ' );
+			scope.AFS.elmList = JSON.parse( localStorage.getItem( "allElements" ) );
 			scope.toggleLoader( false );
-		} );
+
+		}
+
+			
 	}
 
 	ionViewDidLoad() {

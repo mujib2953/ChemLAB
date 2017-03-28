@@ -35,7 +35,12 @@ export class AngularFireService {
 	) {
 		console.log('Hello AngularFireService Provider');
 
-		this.elementsList = this.af.database.list('/elements');
+		if( typeof(Storage) !== "undefined" && localStorage.getItem( "allElements" ) == undefined ) {
+			
+			// this.elementsList = this.af.database.list( '/elements' );
+			this.elementsList = this.af.database.list( '/newElements' );
+
+		} 
 	}
 
 }
