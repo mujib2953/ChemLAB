@@ -40,7 +40,11 @@ export class AngularFireService {
 			// this.elementsList = this.af.database.list( '/elements' );
 			this.elementsList = this.af.database.list( '/newElements' );
 
-		} 
-	}
+		}
+    }
+
+    put( msg: any ): void {
+        console.log( '%c ' + msg + ' ', 'background: #000; color: #FFF' );
+    }
 
 }

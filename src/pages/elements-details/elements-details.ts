@@ -29,5 +29,24 @@ export class ElementsDetailsPage {
 
 	showHelp( type: string ): void {
 		console.log( type );
-	}
+    }
+
+    getIonisationText( i: any ): any {
+
+        let index: number = parseInt(i) + 1;
+        let top: any = ['st', 'nd', 'rd', 'th'];
+        let retStr: string = ''
+
+        if (index == 1) {
+            retStr = (index + '<sup>' + top[0] +' </sup>' );
+        } else if (index == 2) {
+            retStr = (index + '<sup>' + top[1] + ' </sup>');
+        } else if (index == 3) {
+            retStr = (index + '<sup>' + top[2] + ' </sup>');
+        } else {
+            retStr = (index + '<sup>' + top[3] + ' </sup>');
+        }
+        //console.log( retStr );
+        return retStr;
+    }
 }

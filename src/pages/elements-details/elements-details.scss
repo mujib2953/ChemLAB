@@ -9,8 +9,7 @@ page-elements-details {
 		font-size: 1.8rem !important;
 	}
 	.item-thumbnail-left {
-		background: url( '/assets/images//Hydrogen.png' ) no-repeat;
-		background-size: 100%;
+		
 		height: 58px;
 		border-radius: 5px;
 	}
@@ -19,5 +18,14 @@ page-elements-details {
 	}
 	.textRight {
 	    float: right;
+	}
+
+	.nameHolder {
+		padding-bottom: 3px;
+		border-bottom: 0.5px solid grey;
+		margin-bottom: 3px;
+	}
+	.isotopes {
+		padding: 5px;
 	}
 }

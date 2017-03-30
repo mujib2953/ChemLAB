@@ -48,7 +48,7 @@ export class HomePage {
 		// console.log( this.levels );
 
 		if( typeof(Storage) !== "undefined" && localStorage.getItem( "allElements" ) == undefined ) {
-			console.log( ' Loading from DB ' );
+            scope.AFS.put( ' Loading from DB ' );
 			this.AFS.elementsList.subscribe( data => {
 				console.log( data );
 				scope.AFS.elmList = data;
@@ -59,7 +59,7 @@ export class HomePage {
 			} );
 
 		} else {
-			console.log( ' Loading from Local Storage ' );
+            scope.AFS.put( ' Loading from Local Storage ' );
 			scope.AFS.elmList = JSON.parse( localStorage.getItem( "allElements" ) );
 			scope.toggleLoader( false );
 
