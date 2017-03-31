@@ -21309,6 +21309,14 @@ custom-spacer .spacer {
   background-color: red;
 }
 
+page-elements-details .gf {
+  font-size: 1.5rem !important;
+}
+
+page-elements-details .bold {
+  font-weight: bold;
+}
+
 page-elements-details ion-title {
   text-align: end;
 }
