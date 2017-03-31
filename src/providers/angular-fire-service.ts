@@ -47,4 +47,23 @@ export class AngularFireService {
         console.log( '%c ' + msg + ' ', 'background: #000; color: #FFF' );
     }
 
+    getInfoMessage( msg: string ): any {
+
+        let retMsg: string = '';
+
+        switch (msg) {
+
+            case 'properties':
+                retMsg = 'Hola';
+            break;
+
+            default:
+            break;
+
+        }
+
+        return retMsg;
+
+    }
+
 }
