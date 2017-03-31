@@ -54,7 +54,7 @@ Ionic pages and navigation.
 		<ion-card-content>
 			<!-- Add card content here! -->
 			<!--Hydrogen was discovered by **Henry Cavendish** around **1766**. The name is derived from the Greek 'hydro' and 'genes' meaning water forming.--> 
-            {{ element.name }} was discovered by {{ element.discovered_by }} around {{ element.discovery_date }}. {{ element.origin_of_name }}
+            <span class="bold">{{ element.name }}</span> was discovered by <span class="bold">{{ element.discovered_by }}</span> around <span class="bold">{{ element.discovery_date }}</span>. {{ element.origin_of_name }}
             
 
 		</ion-card-content>
@@ -68,60 +68,60 @@ Ionic pages and navigation.
 			<ion-icon name="information-circle" (click)="showHelp( 'properties' )" ></ion-icon>
 		</ion-card-header>
 
-		<ion-card-content>
-			<ion-list>
-				
-				<ion-item >
-					<div class="blockElm">
-						Group
-					</div>
-					<div class="blockElm textRight">{{ element.group }}</div>
-				</ion-item>
+        <ion-card-content>
+            <ion-list>
 
-				<ion-item >
-					<div class="blockElm">
-						Period
-					</div>
-					<div class="blockElm textRight">{{ element.period }}</div>
-				</ion-item>
+                <ion-item class="gf">
+                    <div class="blockElm">
+                        Group
+                    </div>
+                    <div class="blockElm textRight">{{ element.group }}</div>
+                </ion-item>
 
-				<ion-item >
-					<div class="blockElm">
-						Block
-					</div>
-					<div class="blockElm textRight">{{ element.block }}</div>
-				</ion-item>
+                <ion-item class="gf">
+                    <div class="blockElm">
+                        Period
+                    </div>
+                    <div class="blockElm textRight">{{ element.period }}</div>
+                </ion-item>
 
-				<ion-item >
-					<div class="blockElm">
-						Type
-					</div>
-					<div class="blockElm textRight">{{ element.type }}</div>
-				</ion-item>
+                <ion-item class="gf">
+                    <div class="blockElm">
+                        Block
+                    </div>
+                    <div class="blockElm textRight">{{ element.block }}</div>
+                </ion-item>
 
-				<ion-item >
-					<div class="blockElm">
-						Color
-					</div>
-					<div class="blockElm textRight">{{ element.elementColor }}</div>
-				</ion-item>
+                <ion-item class="gf">
+                    <div class="blockElm">
+                        Type
+                    </div>
+                    <div class="blockElm textRight">{{ element.type }}</div>
+                </ion-item>
 
-				<!--<ion-item >
-					<div class="blockElm">
-						Allotropes
-					</div>
-					<div class="blockElm textRight">1</div>
-				</ion-item>-->
+                <ion-item class="gf">
+                    <div class="blockElm">
+                        Color
+                    </div>
+                    <div class="blockElm textRight">{{ element.elementColor }}</div>
+                </ion-item>
 
-				<ion-item >
-					<div class="blockElm">
-						State at 20&deg;
-					</div>
-					<div class="blockElm textRight">{{ element.state_at_20deg }}</div>
-				</ion-item>
+                <!--<ion-item >
+                <div class="blockElm">
+                    Allotropes
+                </div>
+                <div class="blockElm textRight">1</div>
+            </ion-item>-->
 
-			</ion-list>
-		</ion-card-content>
+                <ion-item class="gf">
+                    <div class="blockElm">
+                        State at 20&deg;
+                    </div>
+                    <div class="blockElm textRight">{{ element.state_at_20deg }}</div>
+                </ion-item>
+
+            </ion-list>
+        </ion-card-content>
 
 	</ion-card>
 
@@ -138,76 +138,76 @@ Ionic pages and navigation.
 			<!-- Add card content here! -->
 			<ion-list>
 				
-				<ion-item >
-					<div class="blockElm">
-						Electron
-					</div>
-					<div class="blockElm textRight">{{ element.electrons }}</div>
-				</ion-item>
+                <ion-item class="gf">
+                    <div class="blockElm">
+                        Electron
+                    </div>
+                    <div class="blockElm textRight">{{ element.electrons }}</div>
+                </ion-item>
 
-				<ion-item >
-					<div class="blockElm">
-						Proton
-					</div>
-					<div class="blockElm textRight">{{ element.protons }}</div>
-				</ion-item>
+                <ion-item class="gf">
+                    <div class="blockElm">
+                        Proton
+                    </div>
+                    <div class="blockElm textRight">{{ element.protons }}</div>
+                </ion-item>
 
-				<ion-item >
-					<div class="blockElm">
-						Neutron
-					</div>
-					<div class="blockElm textRight">{{ element.neutrons }}</div>
-				</ion-item>
+                <ion-item class="gf">
+                    <div class="blockElm">
+                        Neutron
+                    </div>
+                    <div class="blockElm textRight">{{ element.neutrons }}</div>
+                </ion-item>
 
 
-				<ion-item >
-					<div class="blockElm">
-						Atomic mass
-					</div>
-					<div class="blockElm textRight">{{ element.relative_atomic_mass }}</div>
-				</ion-item>
+                <ion-item class="gf">
+                    <div class="blockElm">
+                        Atomic mass
+                    </div>
+                    <div class="blockElm textRight">{{ element.relative_atomic_mass }}</div>
+                </ion-item>
 
-				<ion-item >
-					<div class="blockElm">
-						Atomic number
-					</div>
-					<div class="blockElm textRight">{{ element.atomic_number }}</div>
-				</ion-item>
+                <ion-item class="gf">
+                    <div class="blockElm">
+                        Atomic number
+                    </div>
+                    <div class="blockElm textRight">{{ element.atomic_number }}</div>
+                </ion-item>
 
-				<ion-item >
-					<div class="blockElm">
-						Electron radius
-					</div>
-					<div class="blockElm textRight">{{ element.electron_radius }}</div>
-				</ion-item>
+                <ion-item class="gf">
+                    <div class="blockElm">
+                        Electron radius
+                    </div>
+                    <div class="blockElm textRight">{{ element.electron_radius }}</div>
+                </ion-item>
 
-				<ion-item >
-					<div class="blockElm">
-						Covalent radius
-					</div>
-					<div class="blockElm textRight">{{ element.covalent_radius }}</div>
-				</ion-item>
+                <ion-item class="gf">
+                    <div class="blockElm">
+                        Covalent radius
+                    </div>
+                    <div class="blockElm textRight">{{ element.covalent_radius }}</div>
+                </ion-item>
 
-				<ion-item >
-					<div class="blockElm">
-						Electron affinity
-					</div>
-					<div class="blockElm textRight">{{ element.electron_affinity }}</div>
-				</ion-item>
+                <ion-item class="gf">
+                    <div class="blockElm">
+                        Electron affinity
+                    </div>
+                    <div class="blockElm textRight">{{ element.electron_affinity }}</div>
+                </ion-item>
 
-				<ion-item >
-					<div class="blockElm">
-						Electron negativity
-					</div>
-					<div class="blockElm textRight">{{ element.electron_negativity }}</div>
-				</ion-item>
+                <ion-item class="gf">
+                    <div class="blockElm">
+                        Electron negativity
+                    </div>
+                    <div class="blockElm textRight">{{ element.electron_negativity }}</div>
+                </ion-item>
 
-				<ion-item >
-					<div class="blockElm">
-						Configuration
-					</div>
+                <ion-item class="gf">
+                    <div class="blockElm">
+                        Configuration
+                    </div>
                     <div class="blockElm textRight" [innerHtml]="element.electron_config"></div>
-				</ion-item>
+                </ion-item>
 
 			</ion-list>
 		</ion-card-content>
@@ -227,27 +227,27 @@ Ionic pages and navigation.
 			
 			<ion-list>
 				
-				<ion-item >
-					<div class="blockElm">
-						Melting point
-					</div>
-					<div class="blockElm textRight">{{ element.melting_point }}</div>
-				</ion-item>
+                <ion-item class="gf">
+                    <div class="blockElm">
+                        Melting point
+                    </div>
+                    <div class="blockElm textRight">{{ element.melting_point }}</div>
+                </ion-item>
 
 
-				<ion-item >
-					<div class="blockElm">
-						Boiling point
-					</div>
-					<div class="blockElm textRight">{{ element.boiling_point }}</div>
-				</ion-item>
+                <ion-item class="gf">
+                    <div class="blockElm">
+                        Boiling point
+                    </div>
+                    <div class="blockElm textRight">{{ element.boiling_point }}</div>
+                </ion-item>
 
-				<ion-item >
-					<div class="blockElm">
-						Density
-					</div>
-					<div class="blockElm textRight">{{ element.density }}</div>
-				</ion-item>
+                <ion-item class="gf">
+                    <div class="blockElm">
+                        Density
+                    </div>
+                    <div class="blockElm textRight">{{ element.density }}</div>
+                </ion-item>
 
 			</ion-list>
 
@@ -316,15 +316,26 @@ Ionic pages and navigation.
 
 		<ion-card-content>
 			
-			<ion-row>
-				
-				<ion-col>Isotope</ion-col>
-				<ion-col>Atomic mass</ion-col>
-				<ion-col>Natural abundance (%)</ion-col>
-				<ion-col>Half life</ion-col>
-				<ion-col>Mode of decay</ion-col>
+            <ion-list>
 
-			</ion-row>
+                <ion-item class="gf">
+                    <div class="blockElm">
+                        Common oxidation states
+                    </div>
+                    <div class="blockElm textRight">{{ element.oxidation_state.common_oxidation_state }}</div>
+                </ion-item>
+
+            </ion-list>
+
+            <ion-row>
+
+                <ion-col>Isotope</ion-col>
+                <ion-col>Atomic mass</ion-col>
+                <ion-col>Natural abundance (%)</ion-col>
+                <ion-col>Half life</ion-col>
+                <ion-col>Mode of decay</ion-col>
+
+            </ion-row>
 
             <ion-row *ngFor=" let data of element.oxidation_state.isotopes ">
                 <ion-col [innerHtml]="data.isotope"></ion-col>
@@ -337,5 +348,63 @@ Ionic pages and navigation.
 		</ion-card-content>
 
 	</ion-card>
+
+    <!-- Pressure and temprature -->
+    <ion-card>
+
+        <ion-card-header>
+            Pressure and Temperature
+            <ion-icon name="information-circle" (click)="showHelp( 'pressure' )"></ion-icon>
+        </ion-card-header>
+            
+        <ion-card-content>
+
+            <ion-list>
+
+                <ion-item class="gf">
+                    <div class="blockElm">
+                        Bulk Modulus
+                    </div>
+                    <div class="blockElm textRight">{{ element.pressure_temprature.bulk_modulus }}</div>
+                </ion-item>
+
+                <ion-item class="gf">
+                    <div class="blockElm">
+                        Youngs Modulus
+                    </div>
+                    <div class="blockElm textRight">{{ element.pressure_temprature.youngs_modulus }}</div>
+                </ion-item>
+
+                <ion-item class="gf">
+                    <div class="blockElm">
+                        Shear Modulus
+                    </div>
+                    <div class="blockElm textRight">{{ element.pressure_temprature.shear_modulus }}</div>
+                </ion-item>
+
+
+                <ion-item class="gf bold">
+                    <div class="blockElm">
+                        Temprature (K)
+                    </div>
+                    <div class="blockElm textRight">
+                        Pressure (Pa)
+                    </div>
+                </ion-item>
+
+                <ion-item class="gf" *ngFor=" let data of element.pressure_temprature.vapour_pressure; let i = index; ">
+                    <div class="blockElm" [innerHtml]="getTemprature( i )"></div>
+                    <div class="blockElm textRight" [innerHtml]="data"></div>
+                </ion-item>
+
+
+
+            </ion-list>
+
+
+
+        </ion-card-content>
+
+    </ion-card>
 
 </ion-content>

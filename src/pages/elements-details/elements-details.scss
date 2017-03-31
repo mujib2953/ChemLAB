@@ -1,4 +1,10 @@
 page-elements-details {
+	.gf {
+		font-size: 1.5rem !important;
+	}
+	.bold {
+		font-weight: bold;
+	}
 	ion-title {
 		text-align: end;
 	}
@@ -28,4 +34,5 @@ page-elements-details {
 	.isotopes {
 		padding: 5px;
 	}
+	
 }

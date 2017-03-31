@@ -49,4 +49,10 @@ export class ElementsDetailsPage {
         //console.log( retStr );
         return retStr;
     }
+
+    getTemprature(i: any): any {
+
+        return 400 + Number(i) * 200;
+
+    }
 }
