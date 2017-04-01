@@ -4771,10 +4771,6 @@ textarea::-webkit-input-placeholder {
   padding-left: 2px;
 }
 
-textarea::-moz-placeholder {
-  padding-left: 2px;
-}
-
 textarea:-ms-input-placeholder {
   padding-left: 2px;
 }
@@ -21275,11 +21271,11 @@ sub {
 }
 
 page-beginner ion-content {
-  margin-top: 44px;
+  /*margin-top: 44px;*/
 }
 
 page-beginner ion-list {
-  margin: -1px 0 45px 0;
+  /*margin: -1px 0 50px 0 !important;*/
 }
 
 page-beginner .elmName {
@@ -21297,10 +21293,11 @@ page-beginner .elmSymbol {
 
 page-beginner .fixedSearch {
   width: 100%;
+  bottom: 0px;
 }
 
 page-beginner .searchBox {
-  margin-top: -44px;
+  /*margin-top: -44px;*/
 }
 
 custom-spacer .spacer {
@@ -21352,6 +21349,82 @@ page-elements-details .isotopes {
   padding: 5px;
 }
 
+page-elements-details .alert-title-my {
+  border-bottom: 0.55px solid #c8c7cc !important;
+}
+
+page-elements-details .item-inner {
+  border-bottom: 0.55px solid #c8c7cc !important;
+}
+
+page-elements-details .no-border {
+  border-bottom: 0px solid #c8c7cc !important;
+}
+
+page-elements-details .custom-loader {
+  background-color: rgba(0, 0, 0, 0.3);
+  /*opacity: 0.3;*/
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+  z-index: 1000;
+}
+
+page-elements-details .loaderWrapper {
+  background: white;
+  opacity: 1;
+  position: absolute;
+  top: 15%;
+  left: 2.5%;
+  height: 70%;
+  width: 95%;
+  border-radius: 10px;
+}
+
+page-elements-details .loaderTitle {
+  height: 8%;
+  text-align: center;
+  border-bottom: 0.55px solid #c8c7cc;
+}
+
+page-elements-details .loaderBody {
+  height: 80%;
+  /*overflow: hidden;*/
+  padding: 15px;
+}
+
+page-elements-details .loaderBtn {
+  height: 12%;
+  border-top: 0.55px solid #c8c7cc;
+}
+
+page-elements-details .loaderBtn button {
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+page-elements-details .loaderContents {
+  overflow-y: scroll;
+  /*overflow: hidden;*/
+  height: 100%;
+}
+
+page-elements-details .gHide {
+  display: none;
+}
+
+page-elements-details table {
+  width: 100%;
+}
+
+page-elements-details td {
+  width: 50%;
+  padding: 5px;
+  border-bottom: 0.55px solid grey;
+}
+
 page-home {
   /* --- Beginner Button ---*/
   /* --- Intermediate Button ---*/
@@ -21387,6 +21460,10 @@ page-home ion-icon {
   position: absolute;
   font-size: 1.4em;
   color: #FFFFFF;
+  right: 20px;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 
 page-home .customBtn {
@@ -21394,6 +21471,10 @@ page-home .customBtn {
   font-size: 20px;
   border-radius: 0px;
   margin-bottom: 0.4em;
+}
+
+page-home .posRel {
+  position: relative;
 }
 
 page-home .btn_1 button {
@@ -21432,8 +21513,8 @@ page-home .icon-tube {
     height: 3.2em;
   }
   page-home ion-icon {
-    margin-left: 14em;
-    margin-top: -2.3em;
+    /*margin-left: 14em;*/
+    /*margin-top: -2.3em;*/
   }
 }
 
@@ -21442,8 +21523,8 @@ page-home .icon-tube {
     height: 4em;
   }
   page-home ion-icon {
-    margin-left: 26em;
-    margin-top: -2.7em;
+    /*margin-left: 26em;*/
+    /*margin-top: -2.7em;*/
   }
 }
 
