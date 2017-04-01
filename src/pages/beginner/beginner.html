@@ -7,19 +7,20 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Beginner</ion-title>
+    <ion-searchbar (ionInput)="getItems($event)" class="searchBox"></ion-searchbar>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content>
-	<div ion-fixed class="fixedSearch"><ion-searchbar (ionInput)="getItems($event)" class="searchBox"></ion-searchbar></div>
-		<ion-list>
-			<ion-item *ngFor="let item of items" (click)="moveToPage( item )" >
-				<div class="elmName">{{ item.name }}</div>
-				<div class="elmSymbol">{{ item.Symbol }}</div>
-				
-			</ion-item>
-		</ion-list>
+	
+	<ion-list>
+		<ion-item *ngFor="let item of items" (click)="moveToPage( item )" >
+			<div class="elmName">{{ item.name }}</div>
+			<div class="elmSymbol">{{ item.symbol }}</div>
+			
+		</ion-item>
+	</ion-list>
+	<!-- <div ion-fixed class="fixedSearch"><ion-searchbar (ionInput)="getItems($event)" class="searchBox"></ion-searchbar></div> -->
 </ion-content>

@@ -1,4 +1,4 @@
-<!--
+﻿<!--
 Generated template for the ElementsDetails page.
 
 See http://ionicframework.com/docs/v2/components/#navigation for more info on
@@ -24,87 +24,87 @@ Ionic pages and navigation.
 				<ion-col width-25>
 					<!--<ion-item class="item-thumbnail-left"  id="hydrogen-list-item13"></ion-item>-->
                     <div class="item-thumbnail-left" [ngStyle]="{ 'background': 'url(' +  element.img_src + ')', 'background-size': '100%' }"></div>
-				</ion-col>
-				<ion-col width-75>
+                </ion-col>
+                <ion-col width-75>
                     <div class="nameHolder">
                         <div class="blockElm">{{ element.name }}</div>
                         <div class="blockElm textRight">{{ element.symbol }}</div>
                     </div>
                     
-					
-					<!--<p style="white-space:normal;">This is the description of the Hydrogen Elements. Hwo discovered. How the named formed Hydrogen etc etc...</p>-->
+
+                    <!--<p style="white-space:normal;">This is the description of the Hydrogen Elements. Hwo discovered. How the named formed Hydrogen etc etc...</p>-->
                     <p style="white-space:normal;">{{ element.desc }}</p>
 
-				</ion-col>
-			</ion-row>
+                </ion-col>
+            </ion-row>
 
-		</ion-card-content>
+        </ion-card-content>
 
-	</ion-card>
+    </ion-card>
 
-	<!-- spacer -->
-	<ion-row class="spacer-25"></ion-row>
+    <!-- spacer -->
+    <ion-row class="spacer-25"></ion-row>
 
-	<!-- History card -->
-	<ion-card>
-		<ion-card-header>
-			History
-		</ion-card-header>
+    <!-- History card -->
+    <ion-card>
+      <ion-card-header>
+         History
+     </ion-card-header>
 
-		<ion-card-content>
-			<!-- Add card content here! -->
-			<!--Hydrogen was discovered by **Henry Cavendish** around **1766**. The name is derived from the Greek 'hydro' and 'genes' meaning water forming.--> 
-            <span class="bold">{{ element.name }}</span> was discovered by <span class="bold">{{ element.discovered_by }}</span> around <span class="bold">{{ element.discovery_date }}</span>. {{ element.origin_of_name }}
-            
+     <ion-card-content>
+         <!-- Add card content here! -->
+         <!--Hydrogen was discovered by **Henry Cavendish** around **1766**. The name is derived from the Greek 'hydro' and 'genes' meaning water forming.--> 
+         <span class="bold">{{ element.name }}</span> was discovered by <span class="bold">{{ element.discovered_by }}</span> around <span class="bold">{{ element.discovery_date }}</span>. {{ element.origin_of_name }}
 
-		</ion-card-content>
-	</ion-card>
 
-	<!-- Properties card -->
-	<ion-card>
+     </ion-card-content>
+ </ion-card>
 
-		<ion-card-header>
-			Properties
-			<ion-icon name="information-circle" (click)="showHelp( 'properties' )" ></ion-icon>
-		</ion-card-header>
+ <!-- Properties card -->
+ <ion-card>
 
-        <ion-card-content>
-            <ion-list>
+  <ion-card-header>
+     Properties
+     <ion-icon name="information-circle" (click)="showHelp( 'properties' )" ></ion-icon>
+ </ion-card-header>
 
-                <ion-item class="gf">
-                    <div class="blockElm">
-                        Group
-                    </div>
-                    <div class="blockElm textRight">{{ element.group }}</div>
-                </ion-item>
+ <ion-card-content>
+    <ion-list>
 
-                <ion-item class="gf">
-                    <div class="blockElm">
-                        Period
-                    </div>
-                    <div class="blockElm textRight">{{ element.period }}</div>
-                </ion-item>
+        <ion-item class="gf">
+            <div class="blockElm">
+                Group
+            </div>
+            <div class="blockElm textRight">{{ element.group }}</div>
+        </ion-item>
 
-                <ion-item class="gf">
-                    <div class="blockElm">
-                        Block
-                    </div>
-                    <div class="blockElm textRight">{{ element.block }}</div>
-                </ion-item>
+        <ion-item class="gf">
+            <div class="blockElm">
+                Period
+            </div>
+            <div class="blockElm textRight">{{ element.period }}</div>
+        </ion-item>
 
-                <ion-item class="gf">
-                    <div class="blockElm">
-                        Type
-                    </div>
-                    <div class="blockElm textRight">{{ element.type }}</div>
-                </ion-item>
+        <ion-item class="gf">
+            <div class="blockElm">
+                Block
+            </div>
+            <div class="blockElm textRight">{{ element.block }}</div>
+        </ion-item>
 
-                <ion-item class="gf">
-                    <div class="blockElm">
-                        Color
-                    </div>
-                    <div class="blockElm textRight">{{ element.elementColor }}</div>
-                </ion-item>
+        <ion-item class="gf">
+            <div class="blockElm">
+                Type
+            </div>
+            <div class="blockElm textRight">{{ element.type }}</div>
+        </ion-item>
+
+        <ion-item class="gf">
+            <div class="blockElm">
+                Color
+            </div>
+            <div class="blockElm textRight">{{ element.elementColor }}</div>
+        </ion-item>
 
                 <!--<ion-item >
                 <div class="blockElm">
@@ -113,298 +113,541 @@ Ionic pages and navigation.
                 <div class="blockElm textRight">1</div>
             </ion-item>-->
 
-                <ion-item class="gf">
-                    <div class="blockElm">
-                        State at 20&deg;
-                    </div>
-                    <div class="blockElm textRight">{{ element.state_at_20deg }}</div>
-                </ion-item>
+            <ion-item class="gf no-border">
+                <div class="blockElm">
+                    State at 20&deg;
+                </div>
+                <div class="blockElm textRight">{{ element.state_at_20deg }}</div>
+            </ion-item>
 
-            </ion-list>
-        </ion-card-content>
+        </ion-list>
+    </ion-card-content>
 
-	</ion-card>
-
-
-	<!-- Atomic properties -->
-	<ion-card>
-
-		<ion-card-header>
-			Atomic properties
-			<ion-icon name="information-circle" (click)="showHelp( 'atomic_prop' )" ></ion-icon>
-		</ion-card-header>
-
-		<ion-card-content>
-			<!-- Add card content here! -->
-			<ion-list>
-				
-                <ion-item class="gf">
-                    <div class="blockElm">
-                        Electron
-                    </div>
-                    <div class="blockElm textRight">{{ element.electrons }}</div>
-                </ion-item>
-
-                <ion-item class="gf">
-                    <div class="blockElm">
-                        Proton
-                    </div>
-                    <div class="blockElm textRight">{{ element.protons }}</div>
-                </ion-item>
-
-                <ion-item class="gf">
-                    <div class="blockElm">
-                        Neutron
-                    </div>
-                    <div class="blockElm textRight">{{ element.neutrons }}</div>
-                </ion-item>
+</ion-card>
 
 
-                <ion-item class="gf">
-                    <div class="blockElm">
-                        Atomic mass
-                    </div>
-                    <div class="blockElm textRight">{{ element.relative_atomic_mass }}</div>
-                </ion-item>
+<!-- Atomic properties -->
+<ion-card>
 
-                <ion-item class="gf">
-                    <div class="blockElm">
-                        Atomic number
-                    </div>
-                    <div class="blockElm textRight">{{ element.atomic_number }}</div>
-                </ion-item>
+  <ion-card-header>
+     Atomic properties
+     <ion-icon name="information-circle" (click)="showHelp( 'atomic_prop' )" ></ion-icon>
+ </ion-card-header>
 
-                <ion-item class="gf">
-                    <div class="blockElm">
-                        Electron radius
-                    </div>
-                    <div class="blockElm textRight">{{ element.electron_radius }}</div>
-                </ion-item>
+ <ion-card-content>
+     <!-- Add card content here! -->
+     <ion-list>
 
-                <ion-item class="gf">
-                    <div class="blockElm">
-                        Covalent radius
-                    </div>
-                    <div class="blockElm textRight">{{ element.covalent_radius }}</div>
-                </ion-item>
+        <ion-item class="gf">
+            <div class="blockElm">
+                Electron
+            </div>
+            <div class="blockElm textRight">{{ element.electrons }}</div>
+        </ion-item>
 
-                <ion-item class="gf">
-                    <div class="blockElm">
-                        Electron affinity
-                    </div>
-                    <div class="blockElm textRight">{{ element.electron_affinity }}</div>
-                </ion-item>
+        <ion-item class="gf">
+            <div class="blockElm">
+                Proton
+            </div>
+            <div class="blockElm textRight">{{ element.protons }}</div>
+        </ion-item>
 
-                <ion-item class="gf">
-                    <div class="blockElm">
-                        Electron negativity
-                    </div>
-                    <div class="blockElm textRight">{{ element.electron_negativity }}</div>
-                </ion-item>
-
-                <ion-item class="gf">
-                    <div class="blockElm">
-                        Configuration
-                    </div>
-                    <div class="blockElm textRight" [innerHtml]="element.electron_config"></div>
-                </ion-item>
-
-			</ion-list>
-		</ion-card-content>
-
-	</ion-card>
+        <ion-item class="gf">
+            <div class="blockElm">
+                Neutron
+            </div>
+            <div class="blockElm textRight">{{ element.neutrons }}</div>
+        </ion-item>
 
 
-	<!-- Other properties -->
-	<ion-card>
+        <ion-item class="gf">
+            <div class="blockElm">
+                Atomic mass
+            </div>
+            <div class="blockElm textRight">{{ element.relative_atomic_mass }}</div>
+        </ion-item>
 
-		<ion-card-header>
-			Other properties
-			<ion-icon name="information-circle" (click)="showHelp( 'other_prop' )" ></ion-icon>
-		</ion-card-header>
+        <ion-item class="gf">
+            <div class="blockElm">
+                Atomic number
+            </div>
+            <div class="blockElm textRight">{{ element.atomic_number }}</div>
+        </ion-item>
 
-		<ion-card-content>
-			
-			<ion-list>
-				
-                <ion-item class="gf">
-                    <div class="blockElm">
-                        Melting point
-                    </div>
-                    <div class="blockElm textRight">{{ element.melting_point }}</div>
-                </ion-item>
+        <ion-item class="gf">
+            <div class="blockElm">
+                Electron radius
+            </div>
+            <div class="blockElm textRight">{{ element.electron_radius }}</div>
+        </ion-item>
+
+        <ion-item class="gf">
+            <div class="blockElm">
+                Covalent radius
+            </div>
+            <div class="blockElm textRight">{{ element.covalent_radius }}</div>
+        </ion-item>
+
+        <ion-item class="gf">
+            <div class="blockElm">
+                Electron affinity
+            </div>
+            <div class="blockElm textRight">{{ element.electron_affinity }}</div>
+        </ion-item>
+
+        <ion-item class="gf">
+            <div class="blockElm">
+                Electron negativity
+            </div>
+            <div class="blockElm textRight">{{ element.electron_negativity }}</div>
+        </ion-item>
+
+        <ion-item class="gf no-border">
+            <div class="blockElm">
+                Configuration
+            </div>
+            <div class="blockElm textRight" [innerHtml]="element.electron_config"></div>
+        </ion-item>
+
+    </ion-list>
+</ion-card-content>
+
+</ion-card>
 
 
-                <ion-item class="gf">
-                    <div class="blockElm">
-                        Boiling point
-                    </div>
-                    <div class="blockElm textRight">{{ element.boiling_point }}</div>
-                </ion-item>
+<!-- Other properties -->
+<ion-card>
 
-                <ion-item class="gf">
-                    <div class="blockElm">
-                        Density
-                    </div>
-                    <div class="blockElm textRight">{{ element.density }}</div>
-                </ion-item>
+  <ion-card-header>
+     Other properties
+     <ion-icon name="information-circle" (click)="showHelp( 'other_prop' )" ></ion-icon>
+ </ion-card-header>
 
-			</ion-list>
+ <ion-card-content>
 
-		</ion-card-content>
+     <ion-list>
 
-	</ion-card>
+        <ion-item class="gf">
+            <div class="blockElm">
+                Melting point
+            </div>
+            <div class="blockElm textRight">{{ element.melting_point }}</div>
+        </ion-item>
 
 
-	<!-- Isotopes -->
-	<ion-card>
+        <ion-item class="gf">
+            <div class="blockElm">
+                Boiling point
+            </div>
+            <div class="blockElm textRight">{{ element.boiling_point }}</div>
+        </ion-item>
 
-		<ion-card-header>
-			Key Isotopes
-			<ion-icon name="information-circle" (click)="showHelp( 'isotopes' )" ></ion-icon>
-		</ion-card-header>
+        <ion-item class="gf no-border">
+            <div class="blockElm">
+                Density
+            </div>
+            <div class="blockElm textRight">{{ element.density }}</div>
+        </ion-item>
 
-		<ion-card-content>
-			
+    </ion-list>
+
+</ion-card-content>
+
+</ion-card>
+
+
+<!-- Isotopes -->
+<ion-card>
+
+  <ion-card-header>
+     Key Isotopes
+     <ion-icon name="information-circle" (click)="showHelp( 'isotopes' )" ></ion-icon>
+ </ion-card-header>
+
+ <ion-card-content>
+
 			<!--<ion-item >
 				
                 <ion-list *ngFor="let iso of element.key_isotopes">
                     <div class="blockElm" [innerHtml]="iso" ></div>
                 </ion-list>
                 		
-			</ion-item>-->
+            </ion-item>-->
 
             <div class="isotopeHeader" >
                 <div class="isotopes" *ngFor="let iso of element.key_isotopes" [innerHtml]="iso"></div>
             </div>
 
-		</ion-card-content>
-
-	</ion-card>
-
-	<!-- Ionisation energies -->
-	<ion-card>
-
-		<ion-card-header>
-			Ionisation energies
-			<ion-icon name="information-circle" (click)="showHelp( 'ionisation' )" ></ion-icon>
-		</ion-card-header>
-
-		<ion-card-content>
-			
-			<ion-row>
-				<ion-col width-50>Energy Level</ion-col>
-				<ion-col width-50>Values</ion-col>
-			</ion-row>
-
-            <ion-row *ngFor=" let energy of element.ionisation_energies; let i = index; ">
-                <ion-col width-50 [innerHtml]="getIonisationText( i )" ></ion-col>
-                <ion-col width-50>{{ energy }}</ion-col>
-            </ion-row>
-
-		</ion-card-content>
-
-	</ion-card>
-
-	<!-- Oxidation state -->
-	<ion-card>
-
-		<ion-card-header>
-			Oxidation states and isotopes
-			<ion-icon name="information-circle" (click)="showHelp( 'oxidation' )" ></ion-icon>
-		</ion-card-header>
-
-		<ion-card-content>
-			
-            <ion-list>
-
-                <ion-item class="gf">
-                    <div class="blockElm">
-                        Common oxidation states
-                    </div>
-                    <div class="blockElm textRight">{{ element.oxidation_state.common_oxidation_state }}</div>
-                </ion-item>
-
-            </ion-list>
-
-            <ion-row>
-
-                <ion-col>Isotope</ion-col>
-                <ion-col>Atomic mass</ion-col>
-                <ion-col>Natural abundance (%)</ion-col>
-                <ion-col>Half life</ion-col>
-                <ion-col>Mode of decay</ion-col>
-
-            </ion-row>
-
-            <ion-row *ngFor=" let data of element.oxidation_state.isotopes ">
-                <ion-col [innerHtml]="data.isotope"></ion-col>
-                <ion-col>{{ data.atomic_mass }}</ion-col>
-                <ion-col>{{ data.natural_abundance }}</ion-col>
-                <ion-col [innerHtml]="data.half_life"></ion-col>
-                <ion-col>{{ data.mode_of_decay }}</ion-col>
-            </ion-row>
-
-		</ion-card-content>
-
-	</ion-card>
-
-    <!-- Pressure and temprature -->
-    <ion-card>
-
-        <ion-card-header>
-            Pressure and Temperature
-            <ion-icon name="information-circle" (click)="showHelp( 'pressure' )"></ion-icon>
-        </ion-card-header>
-            
-        <ion-card-content>
-
-            <ion-list>
-
-                <ion-item class="gf">
-                    <div class="blockElm">
-                        Bulk Modulus
-                    </div>
-                    <div class="blockElm textRight">{{ element.pressure_temprature.bulk_modulus }}</div>
-                </ion-item>
-
-                <ion-item class="gf">
-                    <div class="blockElm">
-                        Youngs Modulus
-                    </div>
-                    <div class="blockElm textRight">{{ element.pressure_temprature.youngs_modulus }}</div>
-                </ion-item>
-
-                <ion-item class="gf">
-                    <div class="blockElm">
-                        Shear Modulus
-                    </div>
-                    <div class="blockElm textRight">{{ element.pressure_temprature.shear_modulus }}</div>
-                </ion-item>
-
-
-                <ion-item class="gf bold">
-                    <div class="blockElm">
-                        Temprature (K)
-                    </div>
-                    <div class="blockElm textRight">
-                        Pressure (Pa)
-                    </div>
-                </ion-item>
-
-                <ion-item class="gf" *ngFor=" let data of element.pressure_temprature.vapour_pressure; let i = index; ">
-                    <div class="blockElm" [innerHtml]="getTemprature( i )"></div>
-                    <div class="blockElm textRight" [innerHtml]="data"></div>
-                </ion-item>
-
-
-
-            </ion-list>
-
-
-
         </ion-card-content>
 
     </ion-card>
 
+    <!-- Ionisation energies -->
+    <ion-card>
+
+      <ion-card-header>
+         Ionisation energies
+         <ion-icon name="information-circle" (click)="showHelp( 'ionisation' )" ></ion-icon>
+     </ion-card-header>
+
+     <ion-card-content>
+
+         <ion-row>
+            <ion-col width-50>Energy Level</ion-col>
+            <ion-col width-50>Values</ion-col>
+        </ion-row>
+
+        <ion-row *ngFor=" let energy of element.ionisation_energies; let i = index; ">
+            <ion-col width-50 [innerHtml]="getIonisationText( i )" ></ion-col>
+            <ion-col width-50>{{ energy }}</ion-col>
+        </ion-row>
+
+    </ion-card-content>
+
+</ion-card>
+
+<!-- Oxidation state -->
+<ion-card>
+
+  <ion-card-header>
+     Oxidation states and isotopes
+     <ion-icon name="information-circle" (click)="showHelp( 'oxidation' )" ></ion-icon>
+ </ion-card-header>
+
+ <ion-card-content>
+
+    <ion-list>
+
+        <ion-item class="gf no-border">
+            <div class="blockElm">
+                Common oxidation states
+            </div>
+            <div class="blockElm textRight">{{ element.oxidation_state.common_oxidation_state }}</div>
+        </ion-item>
+
+    </ion-list>
+
+    <ion-row>
+
+        <ion-col>Isotope</ion-col>
+        <ion-col>Atomic mass</ion-col>
+        <ion-col>Natural abundance (%)</ion-col>
+        <ion-col>Half life</ion-col>
+        <ion-col>Mode of decay</ion-col>
+
+    </ion-row>
+
+    <ion-row *ngFor=" let data of element.oxidation_state.isotopes ">
+        <ion-col [innerHtml]="data.isotope"></ion-col>
+        <ion-col>{{ data.atomic_mass }}</ion-col>
+        <ion-col>{{ data.natural_abundance }}</ion-col>
+        <ion-col [innerHtml]="data.half_life"></ion-col>
+        <ion-col>{{ data.mode_of_decay }}</ion-col>
+    </ion-row>
+
+</ion-card-content>
+
+</ion-card>
+
+<!-- Pressure and temprature -->
+<ion-card>
+
+    <ion-card-header>
+        Pressure and Temperature
+        <ion-icon name="information-circle" (click)="showHelp( 'pressure' )"></ion-icon>
+    </ion-card-header>
+
+    <ion-card-content>
+
+        <ion-list>
+
+            <ion-item class="gf">
+                <div class="blockElm">
+                    Bulk Modulus
+                </div>
+                <div class="blockElm textRight">{{ element.pressure_temprature.bulk_modulus }}</div>
+            </ion-item>
+
+            <ion-item class="gf">
+                <div class="blockElm">
+                    Youngs Modulus
+                </div>
+                <div class="blockElm textRight">{{ element.pressure_temprature.youngs_modulus }}</div>
+            </ion-item>
+
+            <ion-item class="gf">
+                <div class="blockElm">
+                    Shear Modulus
+                </div>
+                <div class="blockElm textRight">{{ element.pressure_temprature.shear_modulus }}</div>
+            </ion-item>
+
+
+            <ion-item class="gf bold">
+                <div class="blockElm">
+                    Temprature (K)
+                </div>
+                <div class="blockElm textRight">
+                    Pressure (Pa)
+                </div>
+            </ion-item>
+
+            <ion-item class="gf" *ngFor=" let data of element.pressure_temprature.vapour_pressure; let i = index; ">
+                <div class="blockElm" [innerHtml]="getTemprature( i )"></div>
+                <div class="blockElm textRight" [innerHtml]="data"></div>
+            </ion-item>
+
+
+
+        </ion-list>
+
+
+
+    </ion-card-content>
+
+</ion-card>
+
 </ion-content>
+
+
+<div class="custom-loader gHide" #loaderElem>
+
+    <div class="loaderWrapper">
+        <div class="loaderTitle">
+            <h3>Details</h3>
+        </div>
+        <div class="loaderBody">
+            <div class="loaderContents">
+                <!-- {{ pageObj.helpMsg }} -->
+                <div *ngIf=" pageObj.helpMsg == 'properties' ">
+                    <span class="bold">Group</span>
+                    <br />
+                    A group (also known as a family) is a column of elements in the periodic table of the chemical elements. There are <span class="bold">18</span> numbered groups in the periodic table, but the <span class="bold">f-block</span> columns (between groups 2 and 3) are not numbered.
+                    <br /><br />
+                    
+                    <span class="bold">Period</span>
+                    <br />
+                    In each period (horizontal row), the atomic numbers increase from left to right. The periods are numbered <span class="bold">1</span> through <span class="bold">7</span> on the left-hand side of the table. Elements that are in the same period have chemical properties that are not all that similar.
+                    <br /><br />
+                    
+                    <span class="bold">Block</span>
+                    <br />
+                    A block of the periodic table of elements is a set of adjacent groups. The term appears to have been first used by <span class="bold">Charles Janet</span>. The respective highest-energy electrons in each element in a block belong to the same atomic orbital type. Each block is named after its characteristic orbital. Thus, the blocks are:
+                    <ul style="font-weight: bold;">
+                        <li>s-block</li>
+                        <li>p-block</li>
+                        <li>d-block</li>
+                        <li>f-block</li>
+                        <li>g-block (hypothetical)</li>
+                    </ul>
+                    The block names (s, p, d, f and g) are derived from the spectroscopic notation for the associated atomic orbitals: <span class="bold">s</span>harp, <span class="bold">p</span>rincipal, <span class="bold">d</span>iffuse and <span class="bold">f</span>undamental, and then <span class="bold">g</span> which follows <span class="bold">f</span> in the alphabet.
+                    <br /><br />
+
+                    <span class="bold">Type</span>
+                    <br />
+                    Type is bascially classification of elements in periodic table. Following are the basic types of elements in the periodic table.
+                    <ul style="font-weight: bold;">
+                        <li>Metals</li>
+                        <li>Non-Metals</li>
+                        <li>Noble Gas</li>
+                        <li>Alkaly Metals</li>
+                        <li>Alkaline Metals</li>
+                    </ul>
+
+                </div>
+                <div *ngIf=" pageObj.helpMsg == 'atomic_prop' ">
+                    <span class="bold">Electrons</span>
+                    <br />
+                    Here electrons means the number of electrons in and elements.
+                    <br /><br />
+
+                    <span class="bold">Protons</span>
+                    <br />
+                    Here protons means the number of protons in and elements.
+                    <br /><br />
+
+                    <span class="bold">Neutrons</span>
+                    <br />
+                    Here neutrons means the number of neutrons in and elements.
+                    <br /><br />
+
+                    <span class="bold">Atomic Mass</span>
+                    <br />
+                    Relative atomic mass (symbol: <span class="bold">A<sub>r</sub></span>) is a dimensionless (number only) physical quantity. In its modern definition, it is the ratio of the <span class="bold">average mass of atoms of an element</span>  in a given sample to <span class="bold">one unified atomic mass unit</span> . The unified atomic mass unit, symbol <span class="bold">u</span>, is defined being  1⁄12 of the mass of a <span class="bold">carbon-12</span> atom. The mass of atoms can vary (between atoms of the same element), due to the presence of various isotopes of that element. Since both values in the ratio are expressed in the same unit (<span class="bold">u</span>), the resulting value is dimensionless; hence the value is relative.
+                    <br /><br />
+
+                    <span class="bold">Atomic Number</span>
+                    <br />
+                    The atomic number or proton number (<span class="bold">symbol Z</span>) of a chemical element is the number of protons found in the nucleus of an atom of that element. It is identical to the charge number of the nucleus. The atomic number uniquely identifies a chemical element. In an uncharged atom, the atomic number is also equal to the number of electrons.
+                    <br /><br />
+
+                    <span class="bold">Atomic radius, non-bonded</span>
+                    <br />
+                    Half of the distance between two unbonded atoms of the same element when the electrostatic forces are balanced. These values were determined using several different methods. The unit is <span class="bold">Å</span>.
+                    <br /><br />
+
+                    <span class="bold">Covalent radius</span>
+                    <br />
+                    Half of the distance between two atoms within a single covalent bond. Values are given for typical oxidation number and coordination. The unit is <span class="bold">Å</span>.
+                    <br /><br />
+
+                    <span class="bold">Electron affinity</span>
+                    <br />
+                    The energy released when an electron is added to the neutral atom and a negative ion is formed. Here values are in <span class="bold">kJ mol<sup>-1</sup></span>.
+                    <br /><br />
+
+                    <span class="bold">Electronegativity</span>
+                    <br />
+                    The tendency of an atom to attract electrons towards itself, expressed on a relative scale. Here values are measured in <span class="bold">Pauling scale</span>.
+                    <br /><br />
+
+                    <span class="bold">Electron Configuration</span>
+                    <br />
+                    The electron configuration is the distribution of electrons of an atom or molecule (or other physical structure) in atomic or molecular orbitals. For example, the electron configuration of the <span class="bold">Neon</span> atom is <span class="bold">1s<sup>2</sup> 2s<sup>2</sup> 2p<sup>6</sup></span>. Here The arrangements of electrons above the last (closed shell) noble gas.
+
+                </div>
+
+                <div *ngIf=" pageObj.helpMsg == 'other_prop' ">
+
+                    <span class="bold">Melting Point</span>
+                    <br />
+                    The melting point (or, rarely, <span class="bold">liquefaction point</span>) of a solid is the temperature at which it changes state from solid to liquid at atmospheric pressure. At the melting point the solid and liquid phase exist in equilibrium. The melting point of a substance depends on pressure and is usually specified at standard pressure.
+                    <br /><br />
+
+                    <span class="bold">Freezing Point</span>
+                    <br />
+                    When considered as the temperature of the reverse change from liquid to solid, it is referred to as the freezing point or <span class="bold">crystallization point</span>. Because of the ability of some substances to supercool, the freezing point is not considered as a characteristic property of a substance.
+                    <br /><br />
+
+                    <span class="bold">Boiling Point</span>
+                    <br />
+                    The boiling point of a substance is the temperature at which the vapor pressure of the liquid equals the pressure surrounding the liquid and the liquid changes into a vapor.
+                    <br /><br />
+
+                    <span class="bold">Density</span>
+                    <br />
+                    Density is the mass of a substance that would fill <span class="bold">1 cm<sup>3</sup></span> at room temperature. The unit is <span class="bold">g cm<sup>-3</sup> </span>
+
+                </div>
+
+                <div *ngIf=" pageObj.helpMsg == 'isotopes' ">
+
+                    <span class="bold">Isotope</span>
+                    <br />
+                    Isotopes are variants of a particular chemical element which differ in <span class="bold">neutron number</span>. All isotopes of a given element have the same number of protons in each atom. The term isotope is formed from the Greek roots <span class="bold">isos (ἴσος "equal") and topos (τόπος "place")</span>, meaning "the same place"; thus, the meaning behind the name is that different isotopes of a single element occupy the same position on the periodic table.
+                </div>
+
+                <div *ngIf=" pageObj.helpMsg == 'ionisation' ">
+
+                    <span class="bold">Isotope</span>
+                    <br />
+                    The ionization energy (<span class="bold">IE</span>) is qualitatively defined as the amount of energy required to remove the most loosely bound electron, the valence electron, of an isolated gaseous atom to form a cation. It is quantitatively expressed in symbols as <br/><br/>
+                    <div style="text-align: center;">
+                        X + energy → X<sup>+</sup> + e<sup>−</sup>
+                    </div><br />
+                    where X is any atom or molecule capable of being ionized, X<sup>+</sup> is that atom or molecule with an electron removed, and e<sup>−</sup> is the removed electron. This is an <span class="bold">endothermic</span> process.
+
+                </div>
+
+                <div *ngIf=" pageObj.helpMsg == 'oxidation' ">
+
+                    <span class="bold">Common oxidation states</span>
+                    <br />
+                    The oxidation state of an atom is a measure of the degree of oxidation of an atom. It is defined as being the charge that an atom would have if all bonds were ionic. Uncombined elements have an oxidation state of 0. The sum of the oxidation states within a compound or ion must equal the overall charge.
+                    <br /><br />
+                    
+                    <span class="bold">Key for Isotopes</span>
+                    <br /><br />
+                    Half Life
+                    <table>
+                        <tr>
+                            <td>y</td>
+                            <td>Years</td>
+                        </tr>
+                        <tr>
+                            <td>d</td>
+                            <td>Days</td>
+                        </tr>
+                        <tr>
+                            <td>h</td>
+                            <td>Hours</td>
+                        </tr>
+                        <tr>
+                            <td>m</td>
+                            <td>Minutes</td>
+                        </tr>
+                        <tr>
+                            <td>s</td>
+                            <td>Seconds</td>
+                        </tr>
+
+                    </table>
+                    <br /><br />
+
+                    Mode of decay
+                    <table>
+                        <tr>
+                            <td>α</td>
+                            <td>alpha particle emission</td>
+                        </tr>
+                        <tr>
+                            <td>β</td>
+                            <td>negative beta (electron) emission</td>
+                        </tr>
+                        <tr>
+                            <td>β+</td>
+                            <td>positron emission</td>
+                        </tr>
+                        <tr>
+                            <td>EC</td>
+                            <td>orbital electron capture</td>
+                        </tr>
+                        <tr>
+                            <td>sf</td>
+                            <td>spontaneous fission</td>
+                        </tr>
+                        <tr>
+                            <td>ββ</td>
+                            <td>double beta emission</td>
+                        </tr>
+                        <tr>
+                            <td>ECEC</td>
+                            <td>double orbital electron capture</td>
+                        </tr>
+                    </table>
+                </div>
+
+
+                <div *ngIf=" pageObj.helpMsg == 'pressure' ">
+                    
+
+                    <span class="bold">Young's modulus</span>
+                    <br />
+                    A measure of the stiffness of a substance. It provides a measure of how difficult it is to extend a material, with a value given by the ratio of tensile strength to tensile strain.
+                    <br /><br />
+
+                    <span class="bold">Shear modulus</span>
+                    <br />
+                    A measure of how difficult it is to deform a material. It is given by the ratio of the shear stress to the shear strain.
+                    <br /><br />
+
+                    <span class="bold">Bulk modulus</span>
+                    <br />
+                    A measure of how difficult it is to compress a substance. It is given by the ratio of the pressure on a body to the fractional decrease in volume.
+                    <br /><br />
+
+                    <span class="bold">Vapour pressure</span>
+                    <br />
+                    A measure of the propensity of a substance to evaporate. It is defined as the equilibrium pressure exerted by the gas produced above a substance in a closed system.
+                    <br /><br />
+
+                </div>
+
+            </div>
+        </div>
+        <div class="loaderBtn">
+            <button color="light" ion-button full (click)="dismissLoader()" >Ok</button>
+        </div>
+    </div>
+
+</div>

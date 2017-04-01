@@ -1,4 +1,4 @@
-page-elements-details {
+﻿page-elements-details {
 	.gf {
 		font-size: 1.5rem !important;
 	}
@@ -34,5 +34,76 @@ page-elements-details {
 	.isotopes {
 		padding: 5px;
 	}
-	
+	.alert-title-my {
+		border-bottom: 0.55px solid #c8c7cc !important;
+	}
+	.item-inner {
+		border-bottom: 0.55px solid #c8c7cc !important;
+	}
+	.no-border {
+		border-bottom: 0px solid #c8c7cc !important;	
+	}
+
+	.custom-loader {
+		background-color: rgba( 0, 0, 0, 0.3 ); 
+		/*opacity: 0.3;*/
+		position: absolute;
+		top: 0px;
+		left: 0px;
+
+		height: 100%;
+		width: 100%;
+
+		z-index: 1000;
+	}
+	.loaderWrapper {
+		background: white;
+	    opacity: 1;
+	    position: absolute;
+	    top: 15%;
+	    left: 2.5%;
+	    height: 70%;
+	    width: 95%;
+	    border-radius: 10px;
+	}
+
+	.loaderTitle {
+	    height: 8%;
+	    text-align: center;
+	    border-bottom: 0.55px solid #c8c7cc;
+	}
+	.loaderBody {
+		height: 80%;
+		/*overflow: hidden;*/
+
+		padding: 15px;
+	}
+	.loaderBtn {
+		height: 12%;
+		border-top: 0.55px solid #c8c7cc;
+	}
+	.loaderBtn button {
+		border-bottom-left-radius: 15px;
+    	border-bottom-right-radius: 15px;
+	}
+
+	.loaderContents {
+		overflow-y: scroll;
+		/*overflow: hidden;*/
+		height: 100%;
+	}
+
+	.gHide {
+		display: none;
+	}
+
+	table {
+		width: 100%;
+	}
+	td {
+		width: 50%;
+		padding: 5px;
+		border-bottom: 0.55px solid grey;
+	}
+
 }

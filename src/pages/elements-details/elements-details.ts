@@ -1,5 +1,9 @@
-import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { NavController, NavParams, AlertController } from 'ionic-angular';
+
+// --- services
+import { AngularFireService } from '../../providers/angular-fire-service';
+
 
 /*
   Generated class for the ElementsDetails page.
@@ -14,10 +18,20 @@ import { NavController, NavParams } from 'ionic-angular';
 export class ElementsDetailsPage {
 
 	element: any;
+    pageObj: any = {
+        helpMsg: ''    
+    };
+    
+
+    @ViewChild( 'loaderElem' ) loaderElem: any;
 
 	constructor(
 		public navCtrl: NavController, 
-		public navParams: NavParams
+		public navParams: NavParams,
+
+        public AFS: AngularFireService,
+
+        public alertCtrl: AlertController
 	) {
 		this.element = this.navParams.get( 'urlData' )
 		console.log( this.element );
@@ -29,6 +43,16 @@ export class ElementsDetailsPage {
 
 	showHelp( type: string ): void {
 		console.log( type );
+        let elem = this.loaderElem.nativeElement;
+
+        this.pageObj.helpMsg = type;
+        this.AFS.removeClass( elem, 'gHide' );
+
+    }
+
+    dismissLoader(): void {
+        let elem = this.loaderElem.nativeElement;
+        this.AFS.addClass( elem, 'gHide' );
     }
 
     getIonisationText( i: any ): any {

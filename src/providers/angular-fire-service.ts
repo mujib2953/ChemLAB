@@ -47,23 +47,12 @@ export class AngularFireService {
         console.log( '%c ' + msg + ' ', 'background: #000; color: #FFF' );
     }
 
-    getInfoMessage( msg: string ): any {
+    addClass( elem: any, className: string ): void {
+    	elem.classList.add( className );
+    }
 
-        let retMsg: string = '';
-
-        switch (msg) {
-
-            case 'properties':
-                retMsg = 'Hola';
-            break;
-
-            default:
-            break;
-
-        }
-
-        return retMsg;
-
+    removeClass( elem: any, className: string ): void {
+    	elem.classList.remove( className );
     }
 
 }

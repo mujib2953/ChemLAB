@@ -1,10 +1,10 @@
 page-beginner {
 	
 	ion-content {
-		margin-top: 44px;
+		/*margin-top: 44px;*/
 	}
 	ion-list {
-		margin: -1px 0 45px 0;
+		/*margin: -1px 0 50px 0 !important;*/
 	}
 	.elmName {
 		display: inline;
@@ -19,8 +19,9 @@ page-beginner {
 	}
 	.fixedSearch {
 		width: 100%;
+		bottom: 0px;
 	}
 	.searchBox {
-		margin-top: -44px;
+		/*margin-top: -44px;*/
 	}
 }

@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, LoadingController } from 'ionic-angular';
 
-import { Database } from '@ionic/cloud-angular';
-
 // --- services
 import { AngularFireService } from '../../providers/angular-fire-service';
 
@@ -36,9 +34,7 @@ export class HomePage {
 		public loadingCtrl: LoadingController,
 
 		// --- custom services
-		public AFS: AngularFireService,
-
-		public db: Database
+		public AFS: AngularFireService
 	) {
 		let scope: any = this;
 
