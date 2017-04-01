@@ -21,6 +21,10 @@ page-home {
 	    font-size: 1.4em;
 
 	    color: #FFFFFF;
+	    
+	    right: 20px;
+	    top: 50%;
+	    transform: translate(-50%, -50%);
 	}
 	.customBtn {
 		/*height: 3.2em;*/
@@ -28,6 +32,10 @@ page-home {
 
 		border-radius: 0px;
 	    margin-bottom: 0.4em;
+	}
+
+	.posRel {
+		position: relative;
 	}
 
 	/* --- Beginner Button ---*/
@@ -76,8 +84,8 @@ page-home {
 		}
 
 		ion-icon {
-			margin-left: 14em;
-			margin-top: -2.3em;
+			/*margin-left: 14em;*/
+			/*margin-top: -2.3em;*/
 		}
 	}
 	/*
@@ -90,8 +98,8 @@ page-home {
 		}
 
 		ion-icon {
-			margin-left: 26em;
-			margin-top: -2.7em;
+			/*margin-left: 26em;*/
+			/*margin-top: -2.7em;*/
 		}
 
  	}
