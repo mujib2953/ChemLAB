@@ -21508,6 +21508,21 @@ page-home .icon-tube {
   display: block;
 }
 
+page-home .bottomRow {
+  position: absolute;
+  bottom: 0px;
+}
+
+page-home .knowUs {
+  width: 100%;
+}
+
+page-home .knowUs .button-inner {
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
 @media screen and (orientation: portrait) {
   page-home .customBtn {
     height: 3.2em;
