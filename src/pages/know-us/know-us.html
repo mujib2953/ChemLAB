@@ -54,7 +54,11 @@
 	<div [ngSwitch]="pageObj.activeTab">
 		
 		<ion-list *ngSwitchCase="'about-us'">
-			
+			<ion-row>
+				<ion-col>
+					<h2 class="centered title">&lt;adna_coderz /&gt;&trade;</h2>
+				</ion-col>
+			</ion-row>			
 			<ion-card *ngFor=" let devloper of pageObj.developer " >
 
 				<ion-item>
@@ -71,22 +75,29 @@
 
 				<ion-row>
 					<ion-col>
-						<button ion-button icon-left clear small>
-							<ion-icon name="thumbs-up"></ion-icon>
-							<div>12 Likes</div>
+						<button class="lowercase" ion-button icon-left clear small>
+							<ion-icon name="at"></ion-icon>
+							<div>{{ devloper.email }}</div>
 						</button>
 					</ion-col>
-					<ion-col>
+				</ion-row>
+
+				<ion-row>
+					<ion-col class="centered">
 						<button ion-button icon-left clear small>
-							<ion-icon name="text"></ion-icon>
-							<div>4 Comments</div>
+							<a href="{{ devloper.fb }}" target="_blank">
+								<ion-icon name="logo-facebook"></ion-icon>
+							</a>
 						</button>
 					</ion-col>
-					<ion-col center text-center>
-						<ion-note>
-							11h ago
-						</ion-note>
+					<ion-col class="centered">
+						<button ion-button icon-left clear small>
+							<a href="{{ devloper.gPlus }}" target="_blank">
+								<ion-icon name="logo-googleplus"></ion-icon>
+							</a>
+						</button>
 					</ion-col>
+					
 				</ion-row>
 
 			</ion-card>	
@@ -94,6 +105,12 @@
 
 		<ion-list *ngSwitchCase="'refrence'">
 			
+			<ion-list>
+				<ion-item *ngFor=" let data of pageObj.refrences">
+					<a class="no-underline" href="{{ data.link }}" target="_blank" >{{ data.name }}</a>
+				</ion-item>
+			</ion-list>
+
 		</ion-list>
 
 	</div>

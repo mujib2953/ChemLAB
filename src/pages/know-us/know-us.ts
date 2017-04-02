@@ -28,7 +28,7 @@ export class KnowUsPage {
 	) {
 
     	this.pageObj.developer = this.AFS.getDeveloper();
-
+    	this.pageObj.refrences = this.AFS.getRefrences();
 	}
 
     ionViewDidLoad() {

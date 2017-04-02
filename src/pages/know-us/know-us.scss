@@ -1,3 +1,14 @@
 page-know-us {
-
+	.centered {
+		text-align: center;
+	}
+	.lowercase {
+		text-transform: lowercase !important;
+	}
+	.title {
+		font-family: cursive;
+	}
+	.no-underline {
+		text-decoration: none;
+	}
 }
