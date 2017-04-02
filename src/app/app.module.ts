@@ -14,7 +14,7 @@ import { IntermediatePage } from '../pages/intermediate/intermediate';
 import { MasterPage } from '../pages/master/master';
 import { XtremzPage } from '../pages/xtremz/xtremz';
 import { ElementsDetailsPage } from '../pages/elements-details/elements-details';
-
+import { KnowUsPage } from '../pages/know-us/know-us';
 
 // ---- Custom Services
 import { AngularFireService } from '../providers/angular-fire-service';
@@ -57,7 +57,8 @@ const cloudSettings: CloudSettings = {
         IntermediatePage,
         MasterPage,
         XtremzPage,
-        ElementsDetailsPage
+        ElementsDetailsPage,
+        KnowUsPage
     ],
     imports: [
         IonicModule.forRoot(MyApp),
@@ -74,7 +75,8 @@ const cloudSettings: CloudSettings = {
         IntermediatePage,
         MasterPage,
         XtremzPage,
-        ElementsDetailsPage
+        ElementsDetailsPage,
+        KnowUsPage
 
     ],
     providers: [

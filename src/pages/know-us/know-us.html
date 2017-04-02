@@ -1,0 +1,102 @@
+<!--
+  Generated template for the KnowUs page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+	<ion-navbar>
+		<ion-title>Know Us</ion-title>
+	</ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+	<!-- <ion-row>
+		<ion-col width-50>
+			<div class="tabs abou-us">About Us</div>
+		</ion-col>
+		<ion-col width-50>
+			<div class="tabs refrences">Refrences</div>
+		</ion-col>
+	</ion-row>
+
+	<ion-slides>
+
+		<ion-slide style="background-color: green">
+			<h2>Slide 1</h2>
+		</ion-slide>
+
+		<ion-slide style="background-color: blue">
+			<h2>Slide 2</h2>
+		</ion-slide>
+
+		<ion-slide style="background-color: red">
+			<h2>Slide 3</h2>
+		</ion-slide>
+
+	</ion-slides> -->
+
+	<div padding>
+		<ion-segment [(ngModel)]="pageObj.activeTab">
+		<ion-segment-button value="about-us">
+				About Us
+			</ion-segment-button>
+			<ion-segment-button value="refrence">
+				Refrences
+			</ion-segment-button>
+		</ion-segment>
+	</div>
+
+	<div [ngSwitch]="pageObj.activeTab">
+		
+		<ion-list *ngSwitchCase="'about-us'">
+			
+			<ion-card *ngFor=" let devloper of pageObj.developer " >
+
+				<ion-item>
+					<ion-avatar item-left>
+						<img src="{{ devloper.img_src }}">
+					</ion-avatar>
+					<h2>{{ devloper.name }}</h2>
+					<p>{{ devloper.about }}</p>
+				</ion-item>
+
+				<ion-card-content>
+					<p>{{ devloper.desc }}</p>
+				</ion-card-content>
+
+				<ion-row>
+					<ion-col>
+						<button ion-button icon-left clear small>
+							<ion-icon name="thumbs-up"></ion-icon>
+							<div>12 Likes</div>
+						</button>
+					</ion-col>
+					<ion-col>
+						<button ion-button icon-left clear small>
+							<ion-icon name="text"></ion-icon>
+							<div>4 Comments</div>
+						</button>
+					</ion-col>
+					<ion-col center text-center>
+						<ion-note>
+							11h ago
+						</ion-note>
+					</ion-col>
+				</ion-row>
+
+			</ion-card>	
+		</ion-list>
+
+		<ion-list *ngSwitchCase="'refrence'">
+			
+		</ion-list>
+
+	</div>
+
+
+</ion-content>
