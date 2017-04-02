@@ -1,0 +1,33 @@
+<ion-icon name="at"></ion-icon>
+<ion-icon name="logo-facebook"></ion-icon>
+<ion-icon name="logo-googleplus"></ion-icon>
+<ion-icon name="logo-linkedin"></ion-icon>
+<ion-icon name="logo-pinterest"></ion-icon>
+<ion-icon name="logo-reddit"></ion-icon>
+<ion-icon name="logo-skype"></ion-icon>
+<ion-icon name="logo-snapchat"></ion-icon>
+<ion-icon name="logo-tumblr"></ion-icon>
+<ion-icon name="logo-tux"></ion-icon>
+<ion-icon name="logo-twitter"></ion-icon>
+<ion-icon name="logo-vimeo"></ion-icon>
+<ion-icon name="logo-whatsapp"></ion-icon>
+<ion-icon name="logo-windows"></ion-icon>
+<ion-icon name="logo-youtube"></ion-icon>
+
+<ion-icon name="flask"></ion-icon>
+<ion-icon name="funnel"></ion-icon>
+<ion-icon name="heart"></ion-icon>
+<ion-icon name="magnet"></ion-icon>
+<ion-icon name="nuclear"></ion-icon>
+<ion-icon name="thermometer"></ion-icon>
+
+
+<ion-icon name="logo-html5"></ion-icon>
+<ion-icon name="ionic"></ion-icon>
+<ion-icon name="logo-javascript"></ion-icon>
+<ion-icon name="logo-python"></ion-icon>
+<ion-icon name="logo-sass"></ion-icon>
+<ion-icon name="analytics"></ion-icon>
+<ion-icon name="logo-android"></ion-icon>
+<ion-icon name="logo-angular"></ion-icon>
+<ion-icon name="logo-apple"></ion-icon>
