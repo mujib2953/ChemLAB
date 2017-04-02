@@ -36,7 +36,7 @@ export class BeginnerPage {
 
 	initializeItems() {
 		this.items = this.AFS.elmList;
-		console.log( this.items );
+		// console.log( this.items );
 	}
 
 	getItems( ev: any ): void {
