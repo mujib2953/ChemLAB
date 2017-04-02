@@ -21475,6 +21475,7 @@ page-home .customBtn {
 
 page-home .posRel {
   position: relative;
+  font-family: cursive;
 }
 
 page-home .btn_1 button {
@@ -21511,6 +21512,7 @@ page-home .icon-tube {
 page-home .bottomRow {
   position: absolute;
   bottom: 0px;
+  font-family: cursive;
 }
 
 page-home .knowUs {
@@ -21545,4 +21547,20 @@ page-home .knowUs .button-inner {
 
 .cursiveFont {
   font-family: 'Caveat Brush', cursive;
+}
+
+page-know-us .centered {
+  text-align: center;
+}
+
+page-know-us .lowercase {
+  text-transform: lowercase !important;
+}
+
+page-know-us .title {
+  font-family: cursive;
+}
+
+page-know-us .no-underline {
+  text-decoration: none;
 }
