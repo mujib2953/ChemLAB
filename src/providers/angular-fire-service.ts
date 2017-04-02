@@ -82,4 +82,24 @@ export class AngularFireService {
     	return list;
     }
 
+    getRefrences(): any {
+
+    	let list: any = [
+    		{
+    			link: 'https://en.wikipedia.org',
+    			name: 'Wikipedia'
+    		}, {
+    			link: 'https://www.google.com',
+    			name: 'Google'
+    		}, {
+    			link: 'http://www.rsc.org/',
+    			name: 'Royal Society of Chemistry'
+    		}, {
+    			link: 'http://www.chemicool.com',
+    			name: 'Chemicool'
+    		}
+    	];
+    	return list;
+    }
+
 }
