@@ -10,6 +10,7 @@ import { BeginnerPage } from '../beginner/beginner';
 import { IntermediatePage } from '../intermediate/intermediate';
 import { MasterPage } from '../master/master';
 import { XtremzPage } from '../xtremz/xtremz';
+import { KnowUsPage } from '../know-us/know-us';
 /*
   Generated class for the Home page.
 
@@ -115,6 +116,11 @@ export class HomePage {
 			this.loader.dismiss();
 		}
 
+	}
+
+	gotoKnowUs(): void {
+		console.log( 'Moving KNow US' );
+		this.navCtrl.push( KnowUsPage );
 	}
 
 	put( data: any ): void {

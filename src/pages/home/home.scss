@@ -73,6 +73,17 @@ page-home {
     	display: block;
 	}
 
+	.bottomRow {
+		position: absolute;
+		bottom: 0px;
+	}
+	.knowUs {
+		width: 100%;
+	}
+	.knowUs .button-inner {
+		justify-content: center;
+	}
+
 	/*
 	** Portrait Mode
 	*/
