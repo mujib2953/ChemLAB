@@ -13,6 +13,10 @@ import { NavController, NavParams, ActionSheetController, AlertController } from
 })
 export class IntermediatePage {
 
+	gObj: any = {
+		nReactantCount: true // --- True --> 2 and False --> 3, Reactants
+	};
+
 	constructor(
 		public navCtrl: NavController,
 		public navParams: NavParams,
@@ -27,32 +31,9 @@ export class IntermediatePage {
 		console.log('ionViewDidLoad IntermediatePage');
 	}
 
-
-	selectReactantCount(): void {
-		let alert = this.alertCtrl.create();
-		alert.setTitle('Number of Reactants');
-
-		alert.addInput({
-			type: 'range',
-			label: 'Blue',
-			// min: 0, 
-			// max: 50,
-			// value: 0,
-			// step: 5
-			// value: 'blue',
-			// checked: true
-		});
-
-		alert.addButton('Cancel');
-		alert.addButton({
-			text: 'OK',
-			handler: data => {
-			// this.testRadioOpen = false;
-			// this.testRadioResult = data;
-			}
-		});
-		
-		alert.present();
-		
+	changeReactantCount(): void {
+		this.gObj.nReactantCount = !this.gObj.nReactantCount;
 	}
+
+	
 }

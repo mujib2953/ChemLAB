@@ -1,3 +1,15 @@
 page-intermediate {
+	.toggle-icon {
+		background-color: #33cd5f !important;
+	}
+	.toggle-icon::before {
+		background-color: #33cd5f !important;	
+	}
 
+	.vCenter {
+		margin: auto;
+	}
+	.b {
+		font-weight: bold;
+	}
 }
