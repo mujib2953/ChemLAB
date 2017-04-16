@@ -21549,6 +21549,22 @@ page-home .knowUs .button-inner {
   font-family: 'Caveat Brush', cursive;
 }
 
+page-intermediate .toggle-icon {
+  background-color: #33cd5f !important;
+}
+
+page-intermediate .toggle-icon::before {
+  background-color: #33cd5f !important;
+}
+
+page-intermediate .vCenter {
+  margin: auto;
+}
+
+page-intermediate .b {
+  font-weight: bold;
+}
+
 page-know-us .centered {
   text-align: center;
 }
