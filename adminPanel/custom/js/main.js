@@ -1,8 +1,8 @@
 /*
 * @Author: mujibur
 * @Date:   2017-03-17 19:04:15
-* @Last Modified by:   ansar
-* @Last Modified time: 2017-03-25 17:06:02
+* @Last Modified by:   Mujib Ansari
+* @Last Modified time: 2017-04-09 12:43:59
 */
 
 'use strict';
@@ -285,7 +285,7 @@
 						<!-- Discovery Date / Year -->
 						<div class="form-group">
 							<label for="exampleInputEmail1">6. Discovery Date / Year</label>
-							<input type="number" class="form-control" id="discoveryDate" placeholder="Discovery Date / Year" value="` + showObj.discovery_date + `">
+							<input type="text" class="form-control" id="discoveryDate" placeholder="Discovery Date / Year" value="` + showObj.discovery_date + `">
 						</div>
 
 						<!-- Discovered By -->
