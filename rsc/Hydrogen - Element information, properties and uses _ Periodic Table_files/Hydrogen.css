@@ -1,0 +1,97 @@
+﻿/*For new Style*/
+.pc_bg_img {
+    background-image: url("../images/Popupcard_BG_1.png");
+    background-repeat: no-repeat;
+}
+
+table.element_hover_table td.tlbox
+{
+    border-top: 1px solid #e7da7e;
+    border-right: 1px solid #ab880f;
+    border-bottom: 1px solid #ab880f;
+}
+
+table.element_hover_table td.tlbox_he
+{
+    border-bottom: 1px solid #c2c2c2;
+    border-right: 1px solid #c2c2c2;
+}
+
+table.element_hover_table td.trbox
+{
+    border-top: 1px solid #e7da7e;
+    border-left: 1px solid #e7da7e;
+    border-bottom: 1px solid #ab880f;
+}
+
+table.element_hover_table td.trbox_he
+{
+    border-bottom: 1px solid #c2c2c2;
+}
+table.element_hover_table td.tlbox_even_he
+{
+    
+}
+
+table.element_hover_table td.tlbox_even
+{
+    border-top: 1px solid #e7da7e;
+}
+
+.pc_element_colr
+{
+    color: #ffffff;
+	font-family: museo_sans_500regular;
+}
+
+.w_accordian_m {
+    background-position: 3px -22px;
+    color: #000000;
+    font-size: 16px;
+    font-weight: bold;
+    padding-left: 5px;
+    width: 350px;
+}
+/*For new Style*/
+.plus_position
+{
+	background-position:0px -2px !important;
+}
+/*For new Style*/
+.minus_position
+{
+	background-position:0px -22px !important;
+}
+/*For new Style*/
+.hlp_position
+{
+	background-position:0px -44px !important;
+	_height:20px !important;
+	_line-height:20px !important;
+}
+/*For new Style*/
+.hlp_position_topCard
+{
+ background-position:-65px -65px !important;
+ _height:20px !important;
+ _line-height:20px !important;   
+}
+.accordian_title_position
+{
+	background-position: 100% -25px !important;
+}
+.accordian_title_inner{
+    display:inline-block;
+    color:#2D4245;
+    padding-right:8px;
+}
+.blt_Color
+{
+    background: url("../images/blt_darkblue.jpg") no-repeat scroll 0 48% transparent;
+    padding-left:14px;
+    display:inline-block;
+}
+.bullet_position {
+    background-position: -157px -67px !important;
+}
+

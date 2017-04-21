@@ -1,0 +1,181 @@
+﻿/* Media query for 320 resolution */
+
+/*@media screen and (min-device-width: 320px) and (max-device-width: 1024px) { */
+.period_table_app {
+	margin:0px;
+	width:100%;
+	background-color:#f0f4f5;
+	display:table;
+}
+.period_table_app p {
+	color:#636363;
+	font-size:18px;
+	line-height:18px;
+	text-align:left;
+    margin: 15px 0 0 2px;
+}
+.period_table_app .upper_section {
+	border-bottom:1px solid #ccc;
+	display:inline-block;
+	padding:13px 10px 5px 10px;
+    width: 960px;
+}
+.period_table_app .closbtn {
+	float:left;
+	padding:26px 10px 0 5px;
+}
+.period_table_app .periodic_table_img {
+	float:left;
+	margin:0 11px 0 0;
+}
+.period_table_app .app_text {
+	float:left;
+	margin:0 4px 0 0;
+}
+.period_table_app .app_text h2 {
+	margin:0 0 5px 0;
+	font-size:40px;
+	color:#1c2c2c;
+    line-height:32px;
+}
+.period_table_app .open_app_btn {
+	float:right;
+	padding:24px 17px 0 0;
+}
+
+.period_table_app .open_app_btn .app_btn a {
+    padding: 0px;
+    color: #FFF;
+    text-decoration: none;
+}
+
+.period_table_app .open_app_btn .app_btn {
+	padding: 2px 10px;
+    background-color: #9d1885;
+    border: 0px;
+    color: #fff;
+    font-size: 26px;
+    font-weight: bold;
+    width: 130px;
+    height: 38px;
+    text-align: center;
+    line-height: 35px;
+}
+.period_table_app .down_section {
+	padding:10px 10px 8px 10px;
+	display:inline-block;
+    width: 100%;
+}
+.period_table_app .notification_icon {
+	float:left;
+	width: 35px;
+    height: 40px;
+}
+.period_table_app .app_text_down {
+	color:#636363;
+	font-size:16px;
+    margin: 7px 0 0 5px;
+}
+/*}*/
+
+/* Media query for 360 resolution */
+
+/*@media screen and (min-device-width: 360px) {   
+.period_table_app .periodic_table_img {
+    width:20%;
+} 
+.period_table_app .app_text {
+    width: 50%;
+}
+.period_table_app .open_app_btn {
+    padding: 6px 17px 0 0;
+}
+.period_table_app  .open_app_btn  .app_btn {
+	padding:6px 5px;
+    width: 86%;
+}
+}*/
+
+/* Media query for 480 resolution */
+
+/*@media screen and (min-device-width: 480px) {  
+.period_table_app .closbtn {
+    width: 4%;
+}
+.period_table_app .periodic_table_img {
+    width: 15%;
+}
+.period_table_app .app_text {
+    width: 56%;
+}
+.period_table_app .open_app_btn {
+    width:16%;
+}
+.period_table_app .notification_icon {
+    width: 5.5%;
+}
+.period_table_app .app_text_down {
+    width: 92%;
+}
+}*/
+
+/* Media query for 640 resolution */
+
+/*@media screen and (min-device-width: 640px) {
+.period_table_app .closbtn {
+    width: 3%;
+}
+.period_table_app .periodic_table_img {
+    width: 11%;
+}
+.period_table_app .app_text {
+    width: 78%;
+}
+.period_table_app .open_app_btn {
+    width:12.4%;
+}
+.period_table_app .notification_icon {
+    width: 4%;
+}
+.period_table_app .app_text_down {
+    width: 93%;
+}
+}*/
+
+/* Media query for 768 resolution */
+
+/*@media screen and (min-device-width: 768px) {
+.period_table_app .closbtn {
+    width: 3%;
+}
+.period_table_app .periodic_table_img {
+    width: 9%;
+}
+.period_table_app .app_text {
+    width: 81%;
+}
+.period_table_app .open_app_btn {
+    width:10.4%;
+}
+.period_table_app .notification_icon {
+    width: 4.5%;
+}
+.period_table_app .app_text_down {
+    margin: 7px 0 0;
+    width: 94%;
+}
+}*/
+
+/* Media query for 1024 resolution */
+
+/*@media screen and (min-device-width: 1024px) {
+.period_table_app .closbtn {
+    width: 2.3%;
+}
+.period_table_app .periodic_table_img {
+    width: 7%;
+}
+.period_table_app .open_app_btn {
+    width:8%;
+}
+}*/

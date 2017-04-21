@@ -4771,6 +4771,10 @@ textarea::-webkit-input-placeholder {
   padding-left: 2px;
 }
 
+textarea::-moz-placeholder {
+  padding-left: 2px;
+}
+
 textarea:-ms-input-placeholder {
   padding-left: 2px;
 }
@@ -21563,6 +21567,20 @@ page-intermediate .vCenter {
 
 page-intermediate .b {
   font-weight: bold;
+}
+
+page-intermediate .toggle-md .toggle-icon {
+  height: 25px;
+  width: 39px;
+}
+
+page-intermediate .toggle-md .toggle-inner {
+  top: 2px;
+  left: 1px;
+}
+
+page-intermediate .toggle-md .toggle-checked .toggle-inner {
+  background-color: #fff !important;
 }
 
 page-know-us .centered {

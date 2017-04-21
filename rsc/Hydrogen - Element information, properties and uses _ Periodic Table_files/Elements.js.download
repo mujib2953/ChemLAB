@@ -1,0 +1,454 @@
+﻿
+// Global variables
+var _click = 'click';
+
+$(document).ready(function () {
+
+    //Bind the click event to helpbox for FactBox Section
+    $('.FactBox_popup_click').unbind(_click).bind(_click, function (event) {
+        ProcessHelpClick('Factbox');
+        event.preventDefault();
+    });
+
+    //Bind the click event to helpbox for TopCard Section
+    $('.TopCard_popup_click').unbind(_click).bind(_click, function (event) {
+        ProcessHelpClick('TopCard');
+        event.preventDefault();
+    });
+
+    //Bind the click event to helpbox for Uses InterestingFacts Section
+    $('.Uses_popup_click').unbind(_click).bind(_click, function (event) {
+        ProcessHelpClick('Uses');
+        event.preventDefault();
+    });
+
+    //Bind the click event to helpbox for Atomic Data Section
+    $('.AtomicData_popup_click').unbind(_click).bind(_click, function (event) {
+        ProcessHelpClick('AtomicData');
+        event.preventDefault();
+    });
+
+    //Bind the click event to helpbox for BondingEnthalpies Section
+    $('.Bonding_popup_click').unbind(_click).bind(_click, function (event) {
+        ProcessHelpClick('Bonding');
+        event.preventDefault();
+    });
+
+    //Bind the click event to helpbox for Mining Sourcing Section
+    $('.SupplyRisk_popup_click').unbind(_click).bind(_click, function (event) {
+        ProcessHelpClick('SupplyRisk');
+        event.preventDefault();
+    });
+
+    //Bind the click event to helpbox for Oxidation State Section
+    $('.OxidationStates_popup_click').unbind(_click).bind(_click, function (event) {
+        ProcessHelpClick('OxidationStates');
+        event.preventDefault();
+    });
+
+    //Bind the click event to helpbox for Pressure Temperature Section
+    $('.Pressure_popup_click').unbind(_click).bind(_click, function (event) {
+        ProcessHelpClick('Pressure');
+        event.preventDefault();
+    });
+
+    //Bind the click event to helpbox for Podcasts Section
+    $('.Podcasts_popup_click').unbind(_click).bind(_click, function (event) {
+        ProcessHelpClick('Podcasts');
+        event.preventDefault();
+    });
+
+    //Bind the click event to helpbox for Video Section
+    $('.Video_popup_click').unbind(_click).bind(_click, function (event) {
+        ProcessHelpClick('Video');
+        event.preventDefault();
+    });
+
+    //Bind the click event to helpbox for Video Section
+    $('.History_popup_click').unbind(_click).bind(_click, function (event) {
+        ProcessHelpClick('History');
+        event.preventDefault();
+    });
+
+    //Bind the click event to helpbox for Video Section
+    $('.Resources_popup_click').unbind(_click).bind(_click, function (event) {
+        ProcessHelpClick('Resources');
+        event.preventDefault();
+    });
+
+    //Bind the click event to helpbox for References Section
+    $('.References_popup_click').unbind(_click).bind(_click, function (event) {
+        ProcessHelpClick('References');
+        event.preventDefault();
+    });
+
+    // Bind "escape key" press event to fadeout the helpbox popup
+    $(document).keyup(function (e) {
+        if ($('#outerpopupblock').length > 0) {
+            if (e.keyCode == 27) { fadeoutcall(); }
+        }
+    });
+
+    // Bind click event on outer section of helpbox popup to fade it out
+//    $('#outerpopupblock').live(_click, function () {
+//        fadeoutcall();
+//    });
+
+    $('body').on('click', '#outerpopupblock', function () {
+        fadeoutcall();
+    });
+
+    // Bind click event on helpbox close button
+    $('.close').unbind(_click).bind(_click, function (event) {
+        fadeoutcall();
+        event.preventDefault();
+    });
+
+    //default collapsed all section in javascript
+
+    if ($('#hdn_atomicdata').val() == '0') {
+        Collapse('atomicdata');
+    }
+    if ($('#hdn_uses').val() == '0') {
+        Collapse('uses');
+    }
+    if ($('#hdn_bonding').val() == '0') {
+        Collapse('bonding');
+    }
+    if ($('#hdn_mining').val() == '0') {
+        Collapse('mining');
+    }
+    if ($('#hdn_oxidation').val() == '0') {
+        Collapse('oxidation');
+    }
+    if ($('#hdn_pressure').val() == '0') {
+        Collapse('pressure');
+    }
+    if ($('#hdn_podcast').val() == '0') {
+        Collapse('podcast');
+    }
+    if ($('#hdn_video').val() == '0') {
+        Collapse('video');
+    }
+    if ($('#hdn_history').val() == '0') {
+        Collapse('history');
+    }
+    if ($('#hdn_resources').val() == '0') {
+        Collapse('resources');
+    }
+    
+    Collapse('references');
+
+    //Bind the click event to the Fact box collapsed section. 
+    $('#hdr_col_factbox').unbind(_click).bind(_click, function (event) {
+        Expand('factbox');
+    });
+
+    //Bind the click event to the Fact box expanded section. 
+    $('#hdr_exp_factbox').unbind(_click).bind(_click, function (event) {
+        Collapse('factbox');
+    });
+
+    //Bind the click event to the Atomic Data collapsed section. 
+    $('#hdr_col_atomicdata').unbind(_click).bind(_click, function (event) {
+        Expand('atomicdata');
+    });
+
+    //Bind the click event to the Atomic Data expanded section. 
+    $('#hdr_exp_atomicdata').unbind(_click).bind(_click, function (event) {
+        Collapse('atomicdata');
+    });
+
+    //Bind the click event to the Uses/Interesting Facts collapsed section. 
+    $('#hdr_col_uses').unbind(_click).bind(_click, function (event) {
+        Expand('uses');
+    });
+
+    //Bind the click event to the Uses/Interesting Facts expanded section. 
+    $('#hdr_exp_uses').unbind(_click).bind(_click, function (event) {
+        Collapse('uses');
+    });
+
+    //Bind the click event to the Bonding / Enthalpies collapsed section. 
+    $('#hdr_col_bonding').unbind(_click).bind(_click, function (event) {
+        Expand('bonding');
+    });
+
+    //Bind the click event to theBonding / Enthalpies expanded section. 
+    $('#hdr_exp_bonding').unbind(_click).bind(_click, function (event) {
+        Collapse('bonding');
+    });
+
+    //Bind the click event to the Mining / Sourcing collapsed section. 
+    $('#hdr_col_mining').unbind(_click).bind(_click, function (event) {
+        Expand('mining');
+    });
+
+    //Bind the click event to the Mining / Sourcing expanded section. 
+    $('#hdr_exp_mining').unbind(_click).bind(_click, function (event) {
+        Collapse('mining');
+    });
+
+    //Bind the click event to the Oxidation States / Isotopes collapsed section. 
+    $('#hdr_col_oxidation').unbind(_click).bind(_click, function (event) {
+        Expand('oxidation');
+    });
+
+    //Bind the click event to the Oxidation States / Isotopes expanded section. 
+    $('#hdr_exp_oxidation').unbind(_click).bind(_click, function (event) {
+        Collapse('oxidation');
+    });
+
+    //Bind the click event to the Pressure / Temperature - Advanced collapsed section. 
+    $('#hdr_col_pressure').unbind(_click).bind(_click, function (event) {
+        Expand('pressure');
+    });
+
+    //Bind the click event to the Pressure / Temperature - Advanced expanded section. 
+    $('#hdr_exp_pressure').unbind(_click).bind(_click, function (event) {
+        Collapse('pressure');
+    });
+
+    //Bind the click event to the Podcast collapsed section. 
+    $('#hdr_col_podcast').unbind(_click).bind(_click, function (event) {
+        Expand('podcast');
+    });
+
+    //Bind the click event to the Podcast expanded section. 
+    $('#hdr_exp_podcast').unbind(_click).bind(_click, function (event) {
+        Collapse('podcast');
+    });
+
+    //Bind the click event to the Video collapsed section. 
+    $('#hdr_col_video').unbind(_click).bind(_click, function (event) {
+        Expand('video');
+    });
+
+    //Bind the click event to the Video expanded section. 
+    $('#hdr_exp_video').unbind(_click).bind(_click, function (event) {
+        Collapse('video');
+    });
+
+    //Bind the click event to the History collapsed section. 
+    $('#hdr_col_history').unbind(_click).bind(_click, function (event) {
+        Expand('history');
+    });
+
+    //Bind the click event to the History expanded section. 
+    $('#hdr_exp_history').unbind(_click).bind(_click, function (event) {
+        Collapse('history');
+    });
+
+    //Bind the click event to the Resources collapsed section. 
+    $('#hdr_col_resources').unbind(_click).bind(_click, function (event) {
+        Expand('resources');
+    });
+
+    //Bind the click event to the Resources expanded section. 
+    $('#hdr_exp_resources').unbind(_click).bind(_click, function (event) {
+        Collapse('resources');
+    });
+
+    //Bind the click event to the References collapsed section. 
+    $('#hdr_col_references').unbind(_click).bind(_click, function (event) {
+        Expand('references');
+    });
+
+    //Bind the click event to the References expanded section. 
+    $('#hdr_exp_references').unbind(_click).bind(_click, function (event) {
+        Collapse('references');
+    });
+
+    if (document.URL.lastIndexOf('#') != -1) {
+        var symbol = document.URL.substring(document.URL.lastIndexOf('#') + 1);
+        Expand(symbol);
+    }
+    var videoIDs = "";
+    if (elementsvideoData != null) {
+        for (var i = 0; i < elementsvideoData.length; i++) {
+            var videoObject = elementsvideoData[i];
+            if (videoObject != null) {
+                if (videoObject["ElementID"] == elementID) {
+                    videoIDs = videoObject['YoutubeVideoList'];
+                }
+            }
+        }
+    }
+    if (videoIDs != '' && videoIDs != undefined) {
+        $('#element_hover_caption')[0].innerHTML = _hoverContent + ' ' + elementName;
+    }
+    else {
+        $('#element_hover_caption')[0].innerHTML = _hoverNoVideoContent + ' ' + elementName;
+    }
+
+    var duration = '';
+    var veImg = '';
+    var veTitle = '';
+    var veLK = '';
+    var imageHtmldiv = '';
+    var imageHtmldivAppend = '';
+    var image_width = 0;
+    var altTitle = '';
+    if (videoIDs != '') {
+        var arrayVideoID = videoIDs.split(',');
+        for (var i = 0; i < arrayVideoID.length; i++) {
+            var arrayVidCategoryID = arrayVideoID[i].split('#');
+            if (arrayVidCategoryID != undefined) {
+                var categoryid = arrayVidCategoryID[1];
+                imageHtmldiv = '';
+                duration = arrayVidCategoryID[2];
+                veImg = YoutubeDefaultImagePath($.trim(arrayVidCategoryID[0]));
+                veTitle = $.trim(arrayVidCategoryID[3]);
+                veLK = vURL + '?videoid=' + $.trim(arrayVidCategoryID[0]);
+
+                altTitle = categoryid == 1 ? 'Visual Elements Video' : 'University of Nottingham – Periodic Table of Video';
+
+                imageHtmldiv = '<div class="fl vd_image_popup" id="dvVid' + i + '" style="position: relative"><a id="lkVeVid' + i + '" style="position:relative;" href="' + veLK + '" title="' + veTitle + '" ><img width="122" height="101" src="' + veImg + '" alt="' + altTitle + '" title="' + altTitle + '" class="youtube_image_border" id="ytVeVid' + i + '" style="border:0px;"/><span style="margin-top: -20px; background-color: #000; color: #ffffff; filter: alpha(opacity=70);font-size: 11px; font-weight: bold; opacity: 0.7; -khtml-opacity: 0.7; -moz-opacity: 0.7;padding: 1px 3px; position: absolute; text-align: right; text-decoration: none;bottom: 3px; right: 3px; *bottom: 3px;">►&nbsp;<span id="veDuration' + i + '">' + duration + '</span></span></a></div>'
+                if (i == 4) {
+                    break;
+                }
+                image_width = image_width + 130;
+                imageHtmldivAppend = imageHtmldivAppend + imageHtmldiv;
+
+            }
+            $("div.content_default_img").html(imageHtmldivAppend);
+        }
+        if (image_width != 0) {
+            $("#dvNoImage").hide();
+        }
+        else {
+            image_width = image_width + 130;
+        }
+        image_width = image_width + 5;
+
+        $(".video_desc_text").css('width', (738 - image_width) + 'px');
+        $(".content_default_img").css('width', image_width + 'px');
+        $(".video_desc_text").show();
+        $(".content_default_img").show();
+    }
+    else {
+        $("div.content_default_img").show();
+        $("#UCVideoAccordian").hide();
+    }
+
+    if ($("#UCResourcesdiv > div").length < 1) {
+        $("#UCResourcesAccordian").hide();
+    }
+
+    if ($("#UCReferencesdiv > strong").length < 1) {
+        $("#UCReferencesAccordian").hide();
+    }
+    $(".video_desc_text").css('width', (740 - image_width) + 'px');
+    $(".content_default_img").css('width', image_width + 'px');
+    $(".video_desc_text").show();
+    $(".content_default_img").show();
+});
+
+
+function Expand(id) {
+    $('#col_' + id).hide();
+    $('#exp_' + id).show();
+    $('#hdn_' + id).val('1');
+}
+
+function Collapse(id) {
+    $('#col_' + id).show();
+    $('#exp_' + id).hide();
+    $('#hdn_' + id).val('0');
+}
+
+function fadeoutcall() {
+    $('#outerpopupblock,.rem_popup').fadeOut(function () {
+        $('#outerpopupblock').remove();
+    });
+    $('#fadeNewsletterwidget,#divNewsletterPopup').fadeOut(function () {
+        $('#fadeNewsletterwidget').remove();
+    });
+    $('.social_newsletter_image').removeClass('social_icons_newsletter_selected').addClass('social_icons_newsletter');
+
+    $('#fadeFeedbackwidget,#divFeedbackPopUp').fadeOut(function () {
+        $('#fadeFeedbackwidget').remove();
+    });
+    $('.social_feedback_image').removeClass('social_icons_feedback_selected').addClass('social_icons_feedback');
+}
+
+function ProcessHelpClick(id) {
+    var $id_popup_div = $('#' + id + '_popup_div');
+    $id_popup_div.css("position", "absolute");
+    //if ($id_popup_div.outerHeight() > 560) {
+    //    $id_popup_div.css("top", "15%");
+    //    scrolltarget();
+    //} else {
+        $id_popup_div.css("top", (($(window).height() - $id_popup_div.outerHeight()) / 2) + $(window).scrollTop() + "px");
+    //}
+    //div was not opening in center of screen so left is not required 
+   // $id_popup_div.css("left", (($(window).width() - $id_popup_div.outerWidth()) / 2) + $(window).scrollLeft() + "px");    
+    //if ($.browser.msie && $.browser.version.substr(0, 1) < 9) {
+    if (getIEVersion() == '7' || getIEVersion() == '8') {
+        $id_popup_div.css("margin-right", "58px");
+    }
+    else {
+        $id_popup_div.css("margin-right", "30px");
+    }
+      
+    $id_popup_div.fadeIn();
+    $('body').append('<div id="outerpopupblock"></div>');
+    var $outerpopupblock = $('#outerpopupblock');
+    $outerpopupblock.css({ 'opacity': '0.8' }).fadeIn();
+    //if ($.browser.msie && $.browser.version.substr(0, 1) < 7) {
+    if (getIEVersion() == '7') { 
+        $outerpopupblock.css("height", $(document).height());
+        $outerpopupblock.css("width", $(document).width());
+    }
+    else {
+        $outerpopupblock.css('height', '100%');
+        $outerpopupblock.css('width', '100%');
+    }
+    
+}
+
+function ShowImagePopup(imgUrl, imgName) {
+    window.open(imgUrl, imgName, 'height=440,width=440,left=50,top=50,resizable=yes,scrollbars=no,toolbar=no,menubar=no,location=no,directories=no,status=yes');
+}
+
+function scrolltarget() {
+    $('html, body').animate({ scrollTop: '15% ' }, 0);
+}
+//This function expand section when Enter is presses
+function ExpandSection(event, sectionName) {
+    if (event.keyCode == 13) {
+        Expand(sectionName);
+        $('#hdr_exp_' + sectionName).focus();
+    }
+}
+//This function collapse section when Enter is presses
+function CollapseSection(event, sectionName) {
+    if (event.keyCode == 13) {
+        Collapse(sectionName);
+        $('#hdr_col_' + sectionName).focus();
+    }
+}
+
+function _count(percentage) {
+    if (percentage == 25) {
+        if (setCurrentPercentage != percentage) {
+            setCurrentPercentage = percentage;
+            gaTracker(percentage);
+        }
+    } else if (percentage == 50) {
+        if (setCurrentPercentage != percentage) {
+            setCurrentPercentage = percentage;
+            gaTracker(percentage);
+        }
+    } else if (percentage == 75) {
+        if (setCurrentPercentage != percentage) {
+            setCurrentPercentage = percentage;
+            gaTracker(percentage);
+        }
+    }
+}
+
+function gaTracker(percent) {
+   // _gaq.push(['_trackEvent', 'podcast', 'play', 'podcast of ' + elementNameCurrent.toLowerCase() + ' played ' + percent + '%']);
+}
+

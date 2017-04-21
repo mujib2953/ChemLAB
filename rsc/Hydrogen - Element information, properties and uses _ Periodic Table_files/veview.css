@@ -1,0 +1,109 @@
+﻿
+body
+{
+	color: #000000;
+	font-family: helvetica,arial,sans-serif;
+	font-size: 12px;
+	line-height: 15px;
+}
+.rb_block2_mid_Olympics
+{
+	width: 755px;
+	border-color: #D0D0D0;
+	border-width: 1px;
+}
+.rb_inner_blocks_v2_sprite_Olympics
+{
+	background: url("../images/resource_panel_top_btm_bg_new.gif") no-repeat scroll 0 0 transparent;
+}
+.rb_inner_blocks_v2
+{
+	margin-right: 9px;
+	width: 239px;
+}
+.fl
+{
+	float: left;
+}
+.rb_inner_blocks_v2_top
+{
+	margin-top: 10px;
+	background-position: 0 0;
+	padding-top: 5px;
+}
+.rb_inner_blocks_v2_bottom
+{
+	background-position: 0 100%;
+	padding-bottom: 5px;
+}
+.rb_inner_blocks_v2_mid
+{
+	-moz-border-bottom-colors: none;
+	-moz-border-image: none;
+	-moz-border-left-colors: none;
+	-moz-border-right-colors: none;
+	-moz-border-top-colors: none;
+	border-color: #A2A2A2;
+	border-style: none solid;
+	border-width: 1px;
+}
+.rb_inner_blocks_v2_title
+{
+	background: none repeat scroll 0 0 transparent;
+	font-size: 12px;
+	font-weight: bold;
+	height: 35px;
+	padding-left: 15px;
+	padding-top: 15px;
+}
+
+.rb_short_title
+{
+ width: 180px;
+ float: left;
+ height:30px;
+ overflow:hidden;
+}
+.rb_inner_blocks_v2_content_Olympics
+{
+	background: none repeat scroll 0 0 #FFFFFF;
+	height: 250px;
+}
+.rb_inner_blocks_v2_content_img
+{
+	height: 128px;
+	margin-left: 6px;
+	margin-right: 5px;
+}
+.rb_inner_blocks_v2_content_desc
+{
+	padding: 7px 0 0 6px;
+}
+.desc_highlight, .desc_text
+{
+	display: inline-block;
+	text-decoration: none;
+}
+
+.desc_highlight
+{
+	color: #72267B;	
+}
+a.DisplayData, a.DisplayData:active, a.DisplayData:visited, a.DisplayData:link, a.DisplayDataChemSchool, a.DisplayDataChemSchool:active, a.DisplayDataChemSchool:visited, a.DisplayDataChemSchool:link
+{
+	color: #000000;
+	font-weight: bold;
+	text-decoration: none;
+}
+.outer_border_align
+{
+	padding-left: 10px;
+	padding-bottom: 10px;
+}
+.bottom_right_text
+{
+	float: right;
+	padding: 10px;
+	text-align: right;
+	width: 755px;
+}

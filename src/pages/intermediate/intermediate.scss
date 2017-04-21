@@ -12,4 +12,13 @@ page-intermediate {
 	.b {
 		font-weight: bold;
 	}
+	.toggle-md .toggle-icon {
+		height: 25px;
+		width: 39px;
+	}
+	.toggle-md .toggle-inner {
+		top: 2px;
+		left: 1px;
+	}
+	.toggle-md .toggle-checked .toggle-inner{background-color:#fff!important}
 }
