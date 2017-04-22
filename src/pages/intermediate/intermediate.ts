@@ -14,7 +14,8 @@ import { NavController, NavParams, ActionSheetController, AlertController } from
 export class IntermediatePage {
 
 	gObj: any = {
-		nReactantCount: true // --- True --> 2 and False --> 3, Reactants
+		nReactantCount: true, // --- True --> 2 and False --> 3, Reactants,
+		gaming: 'NES' // --- First dropdown always selected the first value
 	};
 
 	constructor(
@@ -33,6 +34,7 @@ export class IntermediatePage {
 
 	changeReactantCount(): void {
 		this.gObj.nReactantCount = !this.gObj.nReactantCount;
+		console.log( this.gObj.nReactantCount );
 	}
 
 	

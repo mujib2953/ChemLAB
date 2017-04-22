@@ -37,30 +37,30 @@ export class HomePage {
 		// --- custom services
 		public AFS: AngularFireService
 	) {
-		let scope: any = this;
+		// let 	scope: any = this;
 
-		this.toggleLoader( true );
+		// this.toggleLoader( true );
 		
 		this.levels = this.AFS.difficultyLevel;
 		// console.log( this.levels );
 
-		if( typeof(Storage) !== "undefined" && localStorage.getItem( "allElements" ) == undefined ) {
-            scope.AFS.put( ' Loading from DB ' );
-			this.AFS.elementsList.subscribe( data => {
-				console.log( data );
-				scope.AFS.elmList = data;
+		// if( typeof(Storage) !== "undefined" && localStorage.getItem( "allElements" ) == undefined ) {
+        //		scope.AFS.put( ' Loading from DB ' );
+		// 	this.AFS.elementsList.subscribe( data => {
+		// 		console.log( data );
+		// 		scope.AFS.elmList = data;
 
-				localStorage.setItem("allElements", JSON.stringify( data ) );
+		// 		localStorage.setItem("allElements", JSON.stringify( data ) );
 
-				scope.toggleLoader( false );
-			} );
+		// 		scope.toggleLoader( false );
+		// 	} );
 
-		} else {
-            scope.AFS.put( ' Loading from Local Storage ' );
-			scope.AFS.elmList = JSON.parse( localStorage.getItem( "allElements" ) );
-			scope.toggleLoader( false );
+		// } else {
+  		//     scope.AFS.put( ' Loading from Local Storage ' );
+		// 	scope.AFS.elmList = JSON.parse( localStorage.getItem( "allElements" ) );
+		// 	scope.toggleLoader( false );
 
-		}
+		// }
 
 			
 	}

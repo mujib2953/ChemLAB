@@ -8,17 +8,70 @@ page-intermediate {
 
 	.vCenter {
 		margin: auto;
+		font-size: 16px;
 	}
 	.b {
 		font-weight: bold;
 	}
-	.toggle-md .toggle-icon {
-		height: 25px;
-		width: 39px;
+	.toggle-icon {
+		height: 46px !important;
+		width: 65px !important;
+		border-radius: 40px !important;
 	}
 	.toggle-md .toggle-inner {
 		top: 2px;
-		left: 1px;
+		left: 3px;
+	}
+	.toggle-md .toggle-icon {
+		width: 63px !important;
+	}
+	.toggle-inner {
+		top: 2px;
+		left: 3px !important;
+		width: 40px !important;
+		height: 40px !important;
+		border-radius: 20px !important;
+
 	}
 	.toggle-md .toggle-checked .toggle-inner{background-color:#fff!important}
+
+	.line {
+		border-top: 1px solid grey;
+		height: 1px;
+		margin-top: 10px;
+	}
+	.reactant_1 {
+		margin-top: 10px;
+	}
+	.reactantNumber {
+		width: 30%;
+	}
+	.reactantInner {
+		margin-top: 14px;
+	}
+	.reactantDD {
+		width: 80%;
+	}
+	.plus {
+		text-align: center;
+	    width: 100%;
+	    font-size: 30px;
+	    font-weight: bold;
+	}
+	.list-ios {
+		margin: 0;
+	}
+	.reactBtnWrapper {
+		position: absolute;
+		bottom: 0;
+	}
+	.reactBtn {
+		background-color: #33cd5f;
+		margin: 0 auto;
+		margin-top: 15px;
+		width: 250px;
+	}
+	.reactantWrapper {
+		margin-top: 70px;
+	}
 }

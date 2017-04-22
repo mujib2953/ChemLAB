@@ -16,12 +16,89 @@
 <ion-content padding>
 
 	<ion-row>
-		<ion-col class="vCenter b" width-43>2 Reactants</ion-col>
-		<ion-col width-14>
+		<div class="vCenter b">2 Reactants</div>
+		<div>
 			<ion-toggle (ionChange)="changeReactantCount()" ></ion-toggle>
-		</ion-col>
-		<ion-col class="vCenter b" width-43>3 Reactants</ion-col>
+		</div>
+		<div class="vCenter b" width-43>3 Reactants</div>
 	</ion-row>
+	<div class="line"></div>
 
+	<div class="reactantWrapper">
+		<ion-row class="reactant_1">
+			<div class="reactantNumber">
+				<div class="reactantInner">Reactant #1</div>
+			</div>
+			<div class="reactantDD">
+				<ion-list>
+					<ion-item>
+						<ion-label>Gaming</ion-label>
+						<ion-select [(ngModel)]="gObj.gaming">
+							<ion-option value="nes">NES</ion-option>
+							<ion-option value="n64">Nintendo64</ion-option>
+							<ion-option value="ps">PlayStation</ion-option>
+							<ion-option value="genesis">Sega Genesis</ion-option>
+							<ion-option value="saturn">Sega Saturn</ion-option>
+							<ion-option value="snes">SNES</ion-option>
+						</ion-select>
+					</ion-item>
+				</ion-list>
+			</div>
+		</ion-row>
 
+		<ion-row>
+			<div class="plus"> + </div>
+		</ion-row>
+		
+		<ion-row class="reactant_2">
+			<div class="reactantNumber">
+				<div class="reactantInner">Reactant #2</div>
+			</div>
+			<div class="reactantDD">
+				<ion-list>
+					<ion-item>
+						<ion-label>Gaming</ion-label>
+						<ion-select [(ngModel)]="gObj.gaming">
+							<ion-option value="nes">NES</ion-option>
+							<ion-option value="n64">Nintendo64</ion-option>
+							<ion-option value="ps">PlayStation</ion-option>
+							<ion-option value="genesis">Sega Genesis</ion-option>
+							<ion-option value="saturn">Sega Saturn</ion-option>
+							<ion-option value="snes">SNES</ion-option>
+						</ion-select>
+					</ion-item>
+				</ion-list>
+			</div>
+		</ion-row>
+
+		<ion-row *ngIf=" !gObj.nReactantCount ">
+			<div class="plus"> + </div>
+		</ion-row>
+		
+		<ion-row class="reactant_3" *ngIf=" !gObj.nReactantCount ">
+			<div class="reactantNumber">
+				<div class="reactantInner">Reactant #3</div>
+			</div>
+			<div class="reactantDD">
+				<ion-list>
+					<ion-item>
+						<ion-label>Gaming</ion-label>
+						<ion-select [(ngModel)]="gObj.gaming">
+							<ion-option value="nes">NES</ion-option>
+							<ion-option value="n64">Nintendo64</ion-option>
+							<ion-option value="ps">PlayStation</ion-option>
+							<ion-option value="genesis">Sega Genesis</ion-option>
+							<ion-option value="saturn">Sega Saturn</ion-option>
+							<ion-option value="snes">SNES</ion-option>
+						</ion-select>
+					</ion-item>
+				</ion-list>
+			</div>
+		</ion-row>
+
+		<ion-row class="reactBtnWrapper">
+			<button class="reactBtn" ion-button>React</button>
+		</ion-row>
+	</div>
+	
 </ion-content>
