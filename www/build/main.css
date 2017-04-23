@@ -4771,10 +4771,6 @@ textarea::-webkit-input-placeholder {
   padding-left: 2px;
 }
 
-textarea::-moz-placeholder {
-  padding-left: 2px;
-}
-
 textarea:-ms-input-placeholder {
   padding-left: 2px;
 }
@@ -21563,24 +21559,93 @@ page-intermediate .toggle-icon::before {
 
 page-intermediate .vCenter {
   margin: auto;
+  font-size: 16px;
 }
 
 page-intermediate .b {
   font-weight: bold;
 }
 
-page-intermediate .toggle-md .toggle-icon {
-  height: 25px;
-  width: 39px;
+page-intermediate .toggle-icon {
+  height: 46px !important;
+  width: 65px !important;
+  border-radius: 40px !important;
 }
 
 page-intermediate .toggle-md .toggle-inner {
   top: 2px;
-  left: 1px;
+  left: 3px;
+}
+
+page-intermediate .toggle-md .toggle-icon {
+  width: 63px !important;
+}
+
+page-intermediate .toggle-inner {
+  top: 2px;
+  left: 3px !important;
+  width: 40px !important;
+  height: 40px !important;
+  border-radius: 20px !important;
 }
 
 page-intermediate .toggle-md .toggle-checked .toggle-inner {
   background-color: #fff !important;
+}
+
+page-intermediate .line {
+  border-top: 1px solid grey;
+  height: 1px;
+  margin-top: 10px;
+}
+
+page-intermediate .reactant_1 {
+  margin-top: 10px;
+}
+
+page-intermediate .reactantDD {
+  width: 100%;
+}
+
+page-intermediate .plus {
+  text-align: center;
+  width: 100%;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+page-intermediate .list-ios {
+  margin: 0;
+}
+
+page-intermediate .disableBtn {
+  background-color: #EEE;
+  color: #444;
+}
+
+page-intermediate .reactBtnWrapper {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  background-color: #33cd5f;
+  color: #FFF;
+}
+
+page-intermediate .reactBtn {
+  text-align: center;
+  font-size: 2.5em;
+  margin-top: 11px;
+}
+
+page-intermediate .reactantWrapper {
+  margin-top: 60px;
+}
+
+page-intermediate ion-item {
+  border-bottom: 0.55px solid #c8c7cc !important;
+  border-top: 0.55px solid #c8c7cc !important;
 }
 
 page-know-us .centered {
