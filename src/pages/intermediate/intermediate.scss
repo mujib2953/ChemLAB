@@ -43,14 +43,8 @@ page-intermediate {
 	.reactant_1 {
 		margin-top: 10px;
 	}
-	.reactantNumber {
-		width: 30%;
-	}
-	.reactantInner {
-		margin-top: 14px;
-	}
 	.reactantDD {
-		width: 80%;
+		width: 100%;
 	}
 	.plus {
 		text-align: center;
@@ -61,17 +55,29 @@ page-intermediate {
 	.list-ios {
 		margin: 0;
 	}
+	.disableBtn {
+		background-color: #EEE;
+		color: #444;
+	}
 	.reactBtnWrapper {
 		position: absolute;
 		bottom: 0;
+		left: 0;
+		width: 100%;
+		height: 70px;
+		background-color: #33cd5f;
+		color: #FFF;
 	}
 	.reactBtn {
-		background-color: #33cd5f;
-		margin: 0 auto;
-		margin-top: 15px;
-		width: 250px;
+		text-align: center;
+		font-size: 2.5em;
+		margin-top: 11px;
 	}
 	.reactantWrapper {
-		margin-top: 70px;
+		margin-top: 60px;
+	}
+	ion-item {
+		border-bottom: 0.55px solid #c8c7cc !important;
+		border-top: 0.55px solid #c8c7cc !important;
 	}
 }

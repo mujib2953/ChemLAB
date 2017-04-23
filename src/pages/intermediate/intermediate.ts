@@ -14,8 +14,9 @@ import { NavController, NavParams, ActionSheetController, AlertController } from
 export class IntermediatePage {
 
 	gObj: any = {
-		nReactantCount: true, // --- True --> 2 and False --> 3, Reactants,
-		gaming: 'NES' // --- First dropdown always selected the first value
+		nReactantCount: true, 	// --- True --> 2 and False --> 3, Reactants,
+		gaming: 'nes', 			// --- First dropdown always selected the first value
+		isButtonActive: false,  // --- responsible for activating and deactivating the React button
 	};
 
 	constructor(
