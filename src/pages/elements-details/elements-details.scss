@@ -71,6 +71,7 @@
 	    height: 8%;
 	    text-align: center;
 	    border-bottom: 0.55px solid #c8c7cc;
+	    color: #886aea;
 	}
 	.loaderBody {
 		height: 80%;
@@ -105,5 +106,10 @@
 		padding: 5px;
 		border-bottom: 0.55px solid grey;
 	}
-
+	.popUp {
+		background-color: #886aea;
+	}
+	ion-card-header ion-icon {
+		color: #886aea;
+	}
 }
