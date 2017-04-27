@@ -2,12 +2,14 @@
 * @Author: mujibur
 * @Date:   2017-04-18 18:48:30
 * @Last Modified by:   mujibur
-* @Last Modified time: 2017-04-21 20:42:21
+* @Last Modified time: 2017-04-27 19:00:37
 */
 
 'use strict';
 (function(){
-	var oScope = {};
+	var oScope = {
+		chemTree: {}
+	};
 
 	$( document ).ready( function() {
 
@@ -111,6 +113,7 @@
 			combiElements = getUniqueElements.call( oScope, combiElements, molecule );
 
 		} );
+		console.log( this.chemTree );
 	};
 
 	/*
@@ -120,7 +123,7 @@
 	*/
 	function getUniqueElements( p_String, p_Molecule ) {
 
-		console.log( p_String );
+		// console.log( p_String );
 		var elemArr = p_String.split( ',' ),
 			uniqueArr = [],
 			i;
@@ -133,8 +136,10 @@
 				uniqueArr.push( elemArr[ i ] );
 
 		}
+		// console.log( '===============' );
 		// console.log( elemArr );
 		// console.log( uniqueArr );
+		// console.log( p_Molecule );
 
 		saveUnique.call( oScope, uniqueArr, p_Molecule );
 
@@ -163,10 +168,52 @@
 	};
 
 	/*
-	* 
+	* @Params :: An array of the unique elements in the molucule
+	* @Params :: A molucule
+	* This will create the chemTree i.e element and Molcule Tree
 	*/
+	function saveUnique( p_unqArr, p_Mol ) {
 
-	function manageReactions() {
+		var i = 0,
+			j,
+			nLen = p_unqArr.length;
+
+		for( ; i < nLen; i++ ) {
+
+			for( j = 0; j < nLen; j++ ) {
+
+				if( p_unqArr[ i ] != p_unqArr[ j ] ) {
+
+					var assignedObj = {
+						elm: p_unqArr[ j ],
+						molucule: p_Mol
+					}
+
+					if( isPresentInChemTree.call( oScope, p_unqArr[ i ] ) == false ) {
+						
+						this.chemTree[ p_unqArr[ i ] ] = {};
+						addElement.call( oScope, p_unqArr[ i ], p_unqArr[ j ], assignedObj );
+					}
+					else
+						addElement.call( oScope, p_unqArr[ i ], p_unqArr[ j ], assignedObj );
+					
+				}
+			}
+		}
 	};
+
+	function addElement( p_I, p_J, p_AssignedObj ) {
+
+		if( this.chemTree[ p_I ][ p_J ] == undefined )
+			this.chemTree[ p_I ][ p_J ] = [ p_AssignedObj ];
+		else
+			this.chemTree[ p_I ][ p_J ].push( p_AssignedObj );
+
+	}
+
+	function isPresentInChemTree( p_Elem ) {
+		return !!( this.chemTree[ p_Elem ] )
+	}
+
 
 }());

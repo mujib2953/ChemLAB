@@ -4,7 +4,17 @@
         <meta charset="utf-8">
 
         <script type="text/javascript" src="js/jquery.js"></script>
-        <script type="text/javascript" src="js/logic.js"></script>
+
+        <script type="text/javascript">
+        	var timeStamp = Date.now();
+
+        	var sc = document.createElement( 'script' )
+        	$( sc ).attr( 'type', 'text/javascript' );
+        	$( sc ).attr( 'src', 'js/logic.js?tp=' + timeStamp );
+        	// $( document.header ).append( sc );
+        	$('head').append(sc);
+        </script>
+        <!-- <script type="text/javascript" src="js/logic.js"></script> -->
     </head>
     <body>
     	<div id="wrapper"></div>
