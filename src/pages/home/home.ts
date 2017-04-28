@@ -37,32 +37,22 @@ export class HomePage {
 		// --- custom services
 		public AFS: AngularFireService
 	) {
-		// let 	scope: any = this;
+		let scope: any = this;
 
-		// this.toggleLoader( true );
-		
 		this.levels = this.AFS.difficultyLevel;
-		// console.log( this.levels );
+		
+		/*
+        * If elmList is not initialozed then again call the function.
+        * First time it was called in app.component.ts
+        */
+		if( this.AFS.elmList == undefined ) {
 
-		// if( typeof(Storage) !== "undefined" && localStorage.getItem( "allElements" ) == undefined ) {
-        //		scope.AFS.put( ' Loading from DB ' );
-		// 	this.AFS.elementsList.subscribe( data => {
-		// 		console.log( data );
-		// 		scope.AFS.elmList = data;
+			this.toggleLoader( true );
+			this.AFS.loadJSON( function(){
+                scope.toggleLoader( false );
+            } );
 
-		// 		localStorage.setItem("allElements", JSON.stringify( data ) );
-
-		// 		scope.toggleLoader( false );
-		// 	} );
-
-		// } else {
-  		//     scope.AFS.put( ' Loading from Local Storage ' );
-		// 	scope.AFS.elmList = JSON.parse( localStorage.getItem( "allElements" ) );
-		// 	scope.toggleLoader( false );
-
-		// }
-
-			
+		}	
 	}
 
 	ionViewDidLoad() {
@@ -72,7 +62,7 @@ export class HomePage {
 	// --- for navigation
 	moveToPage( pageName: string ): void {
 
-		console.log( pageName );
+		// console.log( pageName );
 
 		let page: any;
 		let sharedData: any = {};
@@ -106,7 +96,9 @@ export class HomePage {
 
 	}
 
-	// --- loader
+	/*
+	* Responsible for the loader to show and hide
+	*/
 	toggleLoader( status: boolean ): void {
 
 		if( status ) {
@@ -118,6 +110,9 @@ export class HomePage {
 
 	}
 
+	/*
+	* Navigation 
+	*/
 	gotoKnowUs(): void {
 		console.log( 'Moving KNow US' );
 		this.navCtrl.push( KnowUsPage );

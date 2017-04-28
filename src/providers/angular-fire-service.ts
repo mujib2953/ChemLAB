@@ -15,8 +15,8 @@ import { AngularFire } from 'angularfire2';
 @Injectable()
 export class AngularFireService {
 
-	// elementsList: FirebaseListObservable<any>;
-	elementsList: any; //--- holds subscriber data from API
+	// elm_DB_Ref: FirebaseListObservable<any>;
+	elm_DB_Ref: any; //--- holds subscriber data from API
 	elmList: any; //--- holds actual json list
 
 	difficultyLevel: Array<String> = [
@@ -34,21 +34,80 @@ export class AngularFireService {
 		public af: AngularFire
 	) {
 		console.log('Hello AngularFireService Provider');
-
-		if( typeof(Storage) !== "undefined" && localStorage.getItem( "allElements" ) == undefined ) {
-			
-			// this.elementsList = this.af.database.list( '/elements' );
-			this.elementsList = this.af.database.list( '/newElements' );
-
-		}
     }
-
+    
+    /*
+    * Coloured Console
+    */
     put( msg: any ): void {
         console.log( '%c ' + msg + ' ', 'background: #000; color: #FFF' );
     }
 
+    /*
+    * Add class to element
+    */
     addClass( elem: any, className: string ): void {
     	elem.classList.add( className );
+    }
+
+    /*
+    * Loads the Elements JSON
+    */
+    loadJSON( p_fCallback: any ): void {
+
+        let scope: any = this;
+    	let isToDownload: boolean = this.readDate();
+
+        if( ( typeof(Storage) !== "undefined" && localStorage.getItem( "allElements" ) == undefined ) || isToDownload ) {
+            
+            scope.put( ' Loading from DB ' );
+        	this.elm_DB_Ref = this.af.database.list( '/newElements' );
+            this.elm_DB_Ref.subscribe( data => {
+                
+                scope.elmList = data;
+                localStorage.setItem("allElements", JSON.stringify( data ) );
+
+                if( p_fCallback )
+                    p_fCallback();
+            } );
+
+        } else {
+            scope.put( ' Loading from Local Storage ' );
+            scope.elmList = JSON.parse( localStorage.getItem( "allElements" ) );
+
+            if( p_fCallback )
+                p_fCallback();
+        }
+        console.log( scope.elmList );
+
+    }
+
+    loadReaction( p_cb: any ): void {
+
+
+        if( p_cb )
+            p_cb();
+    }
+
+    readDate(): any {
+
+    	let currentDate: any = new Date();
+    	let criticalHrsDiff: number = 48;
+
+		if( typeof(Storage) !== "undefined" && localStorage.getItem( "elmDates" ) == undefined ) {
+			localStorage.setItem("elmDates", JSON.stringify( currentDate ) );
+			return true;
+		} else {
+
+			let lastDownloadDate: any = localStorage.getItem( "elmDates" );
+			let hoursDiff: any = Math.abs(lastDownloadDate - currentDate) / 36e5;
+
+			if( hoursDiff > criticalHrsDiff )
+				return true;
+			else
+				return false;
+		}
+
     }
 
     removeClass( elem: any, className: string ): void {
