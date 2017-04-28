@@ -2,7 +2,7 @@
 * @Author: mujibur
 * @Date:   2017-04-18 18:48:30
 * @Last Modified by:   mujibur
-* @Last Modified time: 2017-04-27 19:00:37
+* @Last Modified time: 2017-04-28 09:10:28
 */
 
 'use strict';
@@ -38,7 +38,6 @@
 		console.log( 'Reading file :: info.xml' );
 		xhttp.open( 'GET', 'xml/info.xml', true );
 		xhttp.send();
-
 	};
 
 
@@ -114,6 +113,8 @@
 
 		} );
 		console.log( this.chemTree );
+
+		addToDB.call( oScope );
 	};
 
 	/*
@@ -142,8 +143,6 @@
 		// console.log( p_Molecule );
 
 		saveUnique.call( oScope, uniqueArr, p_Molecule );
-
-
 	}
 
 	/*
@@ -170,7 +169,7 @@
 	/*
 	* @Params :: An array of the unique elements in the molucule
 	* @Params :: A molucule
-	* This will create the chemTree i.e element and Molcule Tree
+	* This will create the structure of chemTree
 	*/
 	function saveUnique( p_unqArr, p_Mol ) {
 
@@ -202,18 +201,37 @@
 		}
 	};
 
+	/*
+	* @Params :: a parent element like Na in NaCl
+	* @params :: a child element like Cl in NaCl since Na is used in parent and vice-versa
+	* This will create the chemTree i.e element and Molcule Tree
+	*/
 	function addElement( p_I, p_J, p_AssignedObj ) {
 
 		if( this.chemTree[ p_I ][ p_J ] == undefined )
 			this.chemTree[ p_I ][ p_J ] = [ p_AssignedObj ];
 		else
 			this.chemTree[ p_I ][ p_J ].push( p_AssignedObj );
-
 	}
 
+	/*
+	* @Param :: an element like Na as an input.
+	* This will just checks given element is present or not in the parent nodes of chemTree
+	*/
 	function isPresentInChemTree( p_Elem ) {
 		return !!( this.chemTree[ p_Elem ] )
 	}
+
+	/*
+	* This will add the json to the firebase data-base
+	* NOTE :: For safty the code in the below function is commented. 
+	* Like when we need to add the json just uncomment tthe code
+	*/
+	function addToDB() {
+		// Get a reference to the database service
+		var database = firebase.database();
+		database.ref('reactions/').set( this.chemTree );
+	};
 
 
 }());
