@@ -4771,6 +4771,10 @@ textarea::-webkit-input-placeholder {
   padding-left: 2px;
 }
 
+textarea::-moz-placeholder {
+  padding-left: 2px;
+}
+
 textarea:-ms-input-placeholder {
   padding-left: 2px;
 }
@@ -21387,6 +21391,7 @@ page-elements-details .loaderTitle {
   height: 8%;
   text-align: center;
   border-bottom: 0.55px solid #c8c7cc;
+  color: #886aea;
 }
 
 page-elements-details .loaderBody {
@@ -21423,6 +21428,14 @@ page-elements-details td {
   width: 50%;
   padding: 5px;
   border-bottom: 0.55px solid grey;
+}
+
+page-elements-details .popUp {
+  background-color: #886aea;
+}
+
+page-elements-details ion-card-header ion-icon {
+  color: #886aea;
 }
 
 page-home {
