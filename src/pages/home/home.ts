@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, LoadingController } from 'ionic-angular';
+import { NavController, NavParams, LoadingController, ToastController } from 'ionic-angular';
 
 // --- services
 import { AngularFireService } from '../../providers/angular-fire-service';
@@ -33,6 +33,7 @@ export class HomePage {
 		public navParams: NavParams,
 
 		public loadingCtrl: LoadingController,
+		public toastCtrl: ToastController,
 
 		// --- custom services
 		public AFS: AngularFireService
@@ -60,13 +61,18 @@ export class HomePage {
 	}
 
 	// --- for navigation
-	moveToPage( pageName: string ): void {
+	moveToPage( pageName: string, isActive: boolean ): void {
 
 		// console.log( pageName );
 
 		let page: any;
 		let sharedData: any = {};
 		let pageFound: boolean = true;
+
+		if( !isActive ) {
+			this.showToast();
+			return;
+		}
 
 		switch ( pageName ) {
 			case "Beginner":
@@ -116,6 +122,14 @@ export class HomePage {
 	gotoKnowUs(): void {
 		console.log( 'Moving KNow US' );
 		this.navCtrl.push( KnowUsPage );
+	}
+
+	showToast(): void {
+		let toast: any = this.toastCtrl.create({
+			message: 'This is under development, will come soon.',
+			duration: 1500
+		});
+		toast.present();
 	}
 
 	put( data: any ): void {

@@ -19,11 +19,11 @@ export class AngularFireService {
 	elm_DB_Ref: any; //--- holds subscriber data from API
 	elmList: any; //--- holds actual json list
 
-	difficultyLevel: Array<String> = [
-		'Beginner',
-		'Intermediate',
-		'Master',
-		'Xtreamz'
+	difficultyLevel: Array<any> = [
+		{ "name": 'Beginner', isActive: true },
+		{ "name": 'Intermediate', isActive: true },
+        { "name": 'Master', isActive: false },
+        { "name": 'Xtreamz', isActive: false }
 	];
 
 	previousPage: any;
