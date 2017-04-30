@@ -20,10 +20,10 @@ export class AngularFireService {
 	elmList: any; //--- holds actual json list
 
 	difficultyLevel: Array<any> = [
-		{ "name": 'Beginner', isActive: true },
-		{ "name": 'Intermediate', isActive: true },
-        { "name": 'Master', isActive: false },
-        { "name": 'Xtreamz', isActive: false }
+		{ dispName: "Basic Elements", name: 'Beginner', isActive: true },
+		{ dispName: "Elements reaction", name: 'Intermediate', isActive: true },
+        { dispName: "Molucule reaction", name: 'Master', isActive: false },
+        { dispName: "Organic Chemistry", name: 'Xtreamz', isActive: false }
 	];
 
 	previousPage: any;

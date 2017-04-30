@@ -15,7 +15,7 @@
 	</button> -->
 	<div *ngFor="let d of levels; let i = index; " class="posRel btn_{{ ( i + 1 ) }}">
 		<button class="customBtn"  ion-button block icon-right (click)="moveToPage( d.name, d.isActive )" >
-			{{ d.name }}
+			{{ d.dispName }}
 			<!-- <ion-icon name="star"></ion-icon> -->
 		</button>	
 		<ion-icon name="flask" *ngIf=" i == 0 " ></ion-icon>
