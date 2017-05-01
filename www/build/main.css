@@ -4771,10 +4771,6 @@ textarea::-webkit-input-placeholder {
   padding-left: 2px;
 }
 
-textarea::-moz-placeholder {
-  padding-left: 2px;
-}
-
 textarea:-ms-input-placeholder {
   padding-left: 2px;
 }
@@ -21579,6 +21575,14 @@ page-intermediate .b {
   font-weight: bold;
 }
 
+page-intermediate .reactionText {
+  color: #777;
+}
+
+page-intermediate .activeText {
+  color: #33cd5f;
+}
+
 page-intermediate .toggle-icon {
   height: 46px !important;
   width: 65px !important;
@@ -21632,8 +21636,8 @@ page-intermediate .list-ios {
 }
 
 page-intermediate .disableBtn {
-  background-color: #EEE;
-  color: #444;
+  background-color: #EEE !important;
+  color: #444 !important;
 }
 
 page-intermediate .reactBtnWrapper {
