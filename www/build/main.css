@@ -21657,12 +21657,17 @@ page-intermediate .reactBtn {
 }
 
 page-intermediate .reactantWrapper {
-  margin-top: 60px;
+  margin-top: 50px;
 }
 
 page-intermediate ion-item {
   border-bottom: 0.55px solid #c8c7cc !important;
   border-top: 0.55px solid #c8c7cc !important;
+}
+
+page-intermediate .info {
+  font-style: italic;
+  padding-top: 15px;
 }
 
 page-know-us .centered {
