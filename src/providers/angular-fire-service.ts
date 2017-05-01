@@ -27,6 +27,8 @@ export class AngularFireService {
 	];
 
 	previousPage: any;
+    reactionJSON: any;
+    reactionFormattedJSON: any;
 
 	constructor(
 		public http: Http,
@@ -78,15 +80,35 @@ export class AngularFireService {
             if( p_fCallback )
                 p_fCallback();
         }
-        console.log( scope.elmList );
-
+        // console.log( scope.elmList );
     }
 
-    loadReaction( p_cb: any ): void {
+    loadReaction( p_fCallback: any ): void {
+
+        if( this.reactionJSON ) {
+            if( p_fCallback )
+                p_fCallback();
+        } else {
+            
+            this.af.database.list( '/reactions' ).subscribe( data => {
+                
+                let tempData: any = {};
+
+                for( let i in data ) {
+                    tempData[  data[ i ].$key ] = data[ 0 ]
+                }
+                
+                this.reactionJSON = data;
+                this.reactionFormattedJSON = tempData;
+                
+                if( p_fCallback )
+                    p_fCallback();
+            } );
+
+        }
 
 
-        if( p_cb )
-            p_cb();
+        
     }
 
     readDate(): any {

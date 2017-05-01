@@ -16,14 +16,14 @@
 <ion-content padding>
 
 	<ion-row>
-		<div class="vCenter b">2 Reactants</div>
+		<div class="reactionText vCenter b" [ngClass]="{ 'activeText': gObj.nReactantCount }" >2 Reactants</div>
 		<div>
 			<ion-toggle (ionChange)="changeReactantCount()" ></ion-toggle>
 		</div>
-		<div class="vCenter b" width-43>3 Reactants</div>
+		<div class="reactionText vCenter b" [ngClass]="{ 'activeText': !gObj.nReactantCount }">3 Reactants</div>
 	</ion-row>
 	<div class="line"></div>
-
+	<div class="info">Please select the elements from the drop-down and click <span class="b">React</span> to react the elements.</div>
 	<div class="reactantWrapper">
 		<ion-row class="reactant_1">
 			
@@ -31,13 +31,8 @@
 				<ion-list>
 					<ion-item>
 						<ion-label>Reactant #1</ion-label>
-						<ion-select [(ngModel)]="gObj.gaming">
-							<ion-option value="nes">NES</ion-option>
-							<ion-option value="n64">Nintendo64</ion-option>
-							<ion-option value="ps">PlayStation</ion-option>
-							<ion-option value="genesis">Sega Genesis</ion-option>
-							<ion-option value="saturn">Sega Saturn</ion-option>
-							<ion-option value="snes">SNES</ion-option>
+						<ion-select [(ngModel)]="gObj.userData.elm_1" (ionChange)="ractant_1_Selection()" >
+							<ion-option *ngFor="let data of gObj.ractant_1" value="{{ data.$key }}">{{ data.$key }}</ion-option>
 						</ion-select>
 					</ion-item>
 				</ion-list>
@@ -53,13 +48,9 @@
 				<ion-list>
 					<ion-item>
 						<ion-label>Reactant #2</ion-label>
-						<ion-select [(ngModel)]="gObj.gaming">
-							<ion-option value="nes">NES</ion-option>
-							<ion-option value="n64">Nintendo64</ion-option>
-							<ion-option value="ps">PlayStation</ion-option>
-							<ion-option value="genesis">Sega Genesis</ion-option>
-							<ion-option value="saturn">Sega Saturn</ion-option>
-							<ion-option value="snes">SNES</ion-option>
+						<ion-select [(ngModel)]="gObj.userData.elm_2" (ionChange)="ractant_2_Selection()">
+							<!-- reactionFormattedJSON -->
+							<ion-option *ngFor="let data of gObj.ractant_2" value="{{ data.$key }}">{{ data.$key }}</ion-option>
 						</ion-select>
 					</ion-item>
 				</ion-list>
@@ -75,7 +66,7 @@
 				<ion-list>
 					<ion-item>
 						<ion-label>Reactant #3</ion-label>
-						<ion-select [(ngModel)]="gObj.gaming">
+						<ion-select [(ngModel)]="gObj.userData.elm_3" (ionChange)="ractant_3_Selection()">
 							<ion-option value="nes">NES</ion-option>
 							<ion-option value="n64">Nintendo64</ion-option>
 							<ion-option value="ps">PlayStation</ion-option>
@@ -89,7 +80,7 @@
 		</ion-row>
 
 		
-		<div class="reactBtnWrapper" [ngClass]="{ 'disableBtn': !gObj.isButtonActive }">
+		<div class="reactBtnWrapper" [ngClass]="{ 'disableBtn': !gObj.isButtonActive }" (click)="reactElements()">
 			<div class="reactBtn">React</div>
 		</div>
 	</div>

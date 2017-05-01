@@ -13,6 +13,12 @@ page-intermediate {
 	.b {
 		font-weight: bold;
 	}
+	.reactionText {
+		color: #777;
+	}
+	.activeText {
+		color: #33cd5f;
+	}
 	.toggle-icon {
 		height: 46px !important;
 		width: 65px !important;
@@ -56,8 +62,8 @@ page-intermediate {
 		margin: 0;
 	}
 	.disableBtn {
-		background-color: #EEE;
-		color: #444;
+		background-color: #EEE !important;
+		color: #444 !important;
 	}
 	.reactBtnWrapper {
 		position: absolute;
@@ -74,10 +80,14 @@ page-intermediate {
 		margin-top: 11px;
 	}
 	.reactantWrapper {
-		margin-top: 60px;
+		margin-top: 50px;
 	}
 	ion-item {
 		border-bottom: 0.55px solid #c8c7cc !important;
 		border-top: 0.55px solid #c8c7cc !important;
+	}
+	.info {
+		font-style: italic;
+		padding-top: 15px;
 	}
 }
