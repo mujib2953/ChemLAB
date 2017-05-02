@@ -158,7 +158,7 @@ export class AngularFireService {
 	    		name: 'Mujib Ansari',
 	    		about: 'JS developer, and thinker.',
 	    		img_src: 'https://lh3.googleusercontent.com/-Nx5ingytOns/AAAAAAAAAAI/AAAAAAAAAAA/AMcAYi8KjPn7_tIQ58aRgI6QWB_qSpGj-w/s48-c-mo/photo.jpg',
-	    		desc: 'JS developer currently working at Sportz Interactive, Mumbai as Associate Developer JS. Always want to learn new technology. Loves Physics, Chemistry, AeroSpace and AeroPhysics.',
+	    		desc: 'JS developer, who loves to code. Always want to learn new technology. Loves Physics, Chemistry, AeroSpace and AeroPhysics.',
 	    		email: 'ansarimujiburrehman@gmail.com',
 	    		fb: 'https://www.facebook.com/Mujib2953',
 	    		gPlus: 'https://plus.google.com/110340391375900201569',
