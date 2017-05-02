@@ -16,17 +16,17 @@
 <ion-content>
 
 	<div padding>
-		<ion-segment [(ngModel)]="pageObj.activeTab">
-		<ion-segment-button value="about-us">
+		<ion-segment>
+			<ion-segment-button [ngClass]="{ 'segment-activated': pageObj.activeTab == 'about-us' }" value="about-us" (click)="tabChanged( 'about-us' )">
 				About Us
 			</ion-segment-button>
-			<ion-segment-button value="refrence">
+			<ion-segment-button [ngClass]="{ 'segment-activated': pageObj.activeTab == 'refrence' }" value="refrence" (click)="tabChanged( 'refrence' )">
 				Refrences
 			</ion-segment-button>
 		</ion-segment>
 	</div>
 
-	<div [ngSwitch]="pageObj.activeTab">
+	<!-- <div [ngSwitch]="pageObj.activeTab">
 		
 		<ion-list *ngSwitchCase="'about-us'">
 			<ion-row>
@@ -88,6 +88,87 @@
 
 		</ion-list>
 
+	</div> -->
+	<div class="slideContainer" #slideContainer>
+		<ion-slides (ionSlideDidChange)="slideChanged()">
+			
+			<ion-slide>
+				<ion-row>
+					<ion-col>
+						<h2 class="centered cursiveFont">&lt;adna_coderz /&gt;</h2>
+					</ion-col>
+				</ion-row>			
+				<ion-card *ngFor=" let devloper of pageObj.developer " >
+
+					<ion-item>
+						<ion-avatar item-left>
+							<img src="{{ devloper.img_src }}">
+						</ion-avatar>
+						<h2>{{ devloper.name }}</h2>
+						<p>{{ devloper.about }}</p>
+					</ion-item>
+
+					<ion-card-content>
+						<p>{{ devloper.desc }}</p>
+					</ion-card-content>
+
+					<ion-row>
+						<ion-col>
+							<button class="lowercase" ion-button icon-left clear small>
+								<ion-icon name="at"></ion-icon>
+								<div>{{ devloper.email }}</div>
+							</button>
+						</ion-col>
+					</ion-row>
+
+					<ion-row>
+						<ion-col class="centered">
+							<button ion-button icon-left clear small>
+								<a href="{{ devloper.fb }}" target="_blank">
+									<ion-icon name="logo-facebook"></ion-icon>
+								</a>
+							</button>
+						</ion-col>
+						<ion-col class="centered">
+							<button ion-button icon-left clear small>
+								<a href="{{ devloper.gPlus }}" target="_blank">
+									<ion-icon name="logo-googleplus"></ion-icon>
+								</a>
+							</button>
+						</ion-col>
+						
+					</ion-row>
+
+				</ion-card>	
+			</ion-slide>
+
+			<ion-slide>
+				<ion-list>
+					<ion-item *ngFor=" let data of pageObj.refrences">
+						<a class="no-underline" href="{{ data.link }}" target="_blank" >{{ data.name }}</a>
+					</ion-item>
+				</ion-list>
+
+			</ion-slide>
+
+		</ion-slides>
 	</div>
+		
+
+	<!-- <ion-slides pager>
+
+		<ion-slide style="background-color: green">
+			<h2>Slide 1</h2>
+		</ion-slide>
+
+		<ion-slide style="background-color: blue">
+			<h2>Slide 2</h2>
+		</ion-slide>
+
+		<ion-slide style="background-color: red">
+			<h2>Slide 3</h2>
+		</ion-slide>
+
+	</ion-slides> -->
 
 </ion-content>

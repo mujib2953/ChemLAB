@@ -8,4 +8,12 @@ page-know-us {
 	.no-underline {
 		text-decoration: none;
 	}
+	.scroll-content {
+		overflow-y: hidden;
+	}
+	.slideContainer {
+		overflow-y: scroll;
+		max-height: 460px;
+		padding-bottom: 25px;
+	}
 }
