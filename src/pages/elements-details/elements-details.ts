@@ -44,11 +44,14 @@ export class ElementsDetailsPage {
     * Params<String> :: Name of the help message.
     */
 	showHelp( type: string ): void {
-		console.log( type );
+		// console.log( type );
         let elem = this.loaderElem.nativeElement;
-
+        let scrollElm: any = elem.querySelector( '.loaderContents' );
+        
         this.pageObj.helpMsg = type;
+        
         this.AFS.removeClass( elem, 'gHide' );
+        scrollElm.scrollTop = '0px';
     }
 
     /*

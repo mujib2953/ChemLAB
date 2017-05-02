@@ -84,7 +84,7 @@ Ionic pages and navigation.
                     <div class="blockElm">
                         Block
                     </div>
-                    <div class="blockElm textRight">{{ element.block }}</div>
+                    <div class="blockElm textRight toUpper">{{ element.block }}</div>
                 </ion-item>
 
                 <ion-item class="gf">
@@ -103,7 +103,7 @@ Ionic pages and navigation.
 
                 <ion-item class="gf no-border">
                     <div class="blockElm">
-                        State at 20&deg;
+                        State at 20&deg;C
                     </div>
                     <div class="blockElm textRight">{{ element.state_at_20deg }}</div>
                 </ion-item>
@@ -273,13 +273,13 @@ Ionic pages and navigation.
         <ion-card-content>
 
             <ion-row>
-                <ion-col width-50>Energy Level</ion-col>
-                <ion-col width-50>Values</ion-col>
+                <ion-col width-50 class="bold">Energy Level</ion-col>
+                <ion-col width-50 class="bold toCenter">Values</ion-col>
             </ion-row>
 
             <ion-row *ngFor=" let energy of element.ionisation_energies; let i = index; ">
                 <ion-col width-50 [innerHtml]="getIonisationText( i )"></ion-col>
-                <ion-col width-50>{{ energy }}</ion-col>
+                <ion-col width-50 class="toCenter">{{ energy }}</ion-col>
             </ion-row>
 
         </ion-card-content>
@@ -290,7 +290,7 @@ Ionic pages and navigation.
     <ion-card>
 
         <ion-card-header>
-            Oxidation states and isotopes
+            Oxidation states and Isotopes
             <ion-icon name="information-circle" (click)="showHelp( 'oxidation' )"></ion-icon>
         </ion-card-header>
 
@@ -309,20 +309,20 @@ Ionic pages and navigation.
 
             <ion-row>
 
-                <ion-col>Isotope</ion-col>
-                <ion-col>Atomic mass</ion-col>
-                <ion-col>Natural abundance (%)</ion-col>
-                <ion-col>Half life</ion-col>
-                <ion-col>Mode of decay</ion-col>
+                <ion-col width-21 class="bold">Isotope</ion-col>
+                <ion-col width-21 class="bold">Atomic mass</ion-col>
+                <ion-col width-21 class="bold">Natural abundance (%)</ion-col>
+                <ion-col width-17 class="bold">Half life</ion-col>
+                <ion-col width-20 class="bold">Mode of decay</ion-col>
 
             </ion-row>
 
             <ion-row *ngFor=" let data of element.oxidation_state.isotopes ">
-                <ion-col [innerHtml]="data.isotope"></ion-col>
-                <ion-col>{{ data.atomic_mass }}</ion-col>
-                <ion-col>{{ data.natural_abundance }}</ion-col>
-                <ion-col [innerHtml]="data.half_life"></ion-col>
-                <ion-col>{{ data.mode_of_decay }}</ion-col>
+                <ion-col width-21 class="toCenter" [innerHtml]="data.isotope"></ion-col>
+                <ion-col width-21 class="toCenter" >{{ data.atomic_mass }}</ion-col>
+                <ion-col width-21 class="toCenter" >{{ data.natural_abundance }}</ion-col>
+                <ion-col width-17 class="toCenter" [innerHtml]="data.half_life"></ion-col>
+                <ion-col width-20 class="toCenter" >{{ data.mode_of_decay }}</ion-col>
             </ion-row>
 
         </ion-card-content>
@@ -373,8 +373,8 @@ Ionic pages and navigation.
                 </ion-item>
 
                 <ion-item class="gf" *ngFor=" let data of element.pressure_temprature.vapour_pressure; let i = index; ">
-                    <div class="blockElm" [innerHtml]="getTemprature( i )"></div>
-                    <div class="blockElm textRight" [innerHtml]="data"></div>
+                    <ion-col width-50 class="blockElm" [innerHtml]="getTemprature( i )"></ion-col>
+                    <ion-col width-50 class="blockElm toCenter" [innerHtml]="data"></ion-col>
                 </ion-item>
                 
             </ion-list>

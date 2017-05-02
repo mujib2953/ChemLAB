@@ -36,6 +36,7 @@ page-home {
 
 	.posRel {
 		position: relative;
+		text-transform: capitalize;
 		/*font-family: cursive;*/
 	}
 
@@ -75,8 +76,8 @@ page-home {
 	}
 
 	.bottomRow {
-		position: absolute;
-		bottom: 0px;
+		/*position: absolute;*/
+		margin-top: 50px;
 		/*font-family: cursive;*/
 	}
 	.knowUs {
