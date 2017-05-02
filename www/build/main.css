@@ -21492,11 +21492,11 @@ page-home .customBtn {
   font-size: 20px;
   border-radius: 0px;
   margin-bottom: 0.4em;
+  text-transform: capitalize;
 }
 
 page-home .posRel {
   position: relative;
-  text-transform: capitalize;
   /*font-family: cursive;*/
 }
 
@@ -21710,4 +21710,8 @@ page-know-us .slideContainer {
     max-height: 240px;
     padding-bottom: 100px;
   }
+}
+
+page-reaction .back-button {
+  display: block;
 }
