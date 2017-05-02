@@ -4,8 +4,6 @@ import 'rxjs/add/operator/map';
 
 import { AngularFire } from 'angularfire2';
 
-
-
 /*
   Generated class for the AngularFireService provider.
 
@@ -16,8 +14,8 @@ import { AngularFire } from 'angularfire2';
 export class AngularFireService {
 
 	// elm_DB_Ref: FirebaseListObservable<any>;
-	elm_DB_Ref: any; //--- holds subscriber data from API
-	elmList: any; //--- holds actual json list
+	elm_DB_Ref: any;                      //--- holds subscriber data from API
+	elmList: any;                         //--- holds actual json list
 
 	difficultyLevel: Array<any> = [
 		{ dispName: "Basic Elements", name: 'Beginner', isActive: true },
@@ -26,7 +24,6 @@ export class AngularFireService {
         { dispName: "Organic Chemistry", name: 'Xtreamz', isActive: false }
 	];
 
-	previousPage: any;
     reactionJSON: any;
     reactionFormattedJSON: any;
 
@@ -40,6 +37,7 @@ export class AngularFireService {
     
     /*
     * Coloured Console
+    * Params<any> :: the msg to print on console. mainly it should not be an Array or Object
     */
     put( msg: any ): void {
         console.log( '%c ' + msg + ' ', 'background: #000; color: #FFF' );
@@ -47,13 +45,24 @@ export class AngularFireService {
 
     /*
     * Add class to element
+    * Params<any> :: Element refrence ( DOM refrence )
+    * Params<string> :: Name of class needs to add
     */
     addClass( elem: any, className: string ): void {
     	elem.classList.add( className );
     }
+    /*
+    * Remove class to element
+    * Params<any> :: Element refrence ( DOM refrence )
+    * Params<string> :: Name of class needs to remove
+    */
+    removeClass( elem: any, className: string ): void {
+        elem.classList.remove( className );
+    }
 
     /*
-    * Loads the Elements JSON
+    * Loads the All Element List in JSON format from firebase or local-Storage
+    * Params<function> :: A callback function which needs to be executed after data loads
     */
     loadJSON( p_fCallback: any ): void {
 
@@ -83,6 +92,11 @@ export class AngularFireService {
         // console.log( scope.elmList );
     }
 
+    /*
+    * Loads the All Reaction elements List in JSON format from firebase and-
+    * -store in service's 'reactionJSON' variable
+    * Params<function> :: A callback function which needs to be executed after data loads
+    */
     loadReaction( p_fCallback: any ): void {
 
         if( this.reactionJSON ) {
@@ -106,11 +120,14 @@ export class AngularFireService {
             } );
 
         }
-
-
-        
     }
 
+    /*
+    * Read or Write the dates to local storage.
+    * If return true Data needs to load from firebase otherwise from local-Storage.
+    * If the hours difference of last stored date and current date is greater than 48 Hrs then - 
+    * - data needs to load from Firebase.
+    */
     readDate(): any {
 
     	let currentDate: any = new Date();
@@ -129,13 +146,11 @@ export class AngularFireService {
 			else
 				return false;
 		}
-
     }
-
-    removeClass( elem: any, className: string ): void {
-    	elem.classList.remove( className );
-    }
-
+    
+    /*
+    * Return the developer Object for Know-Us page
+    */
     getDeveloper(): any {
 
     	let list: any = [
@@ -163,6 +178,9 @@ export class AngularFireService {
     	return list;
     }
 
+    /*
+    * Return the refrences Object for Know-Us page
+    */
     getRefrences(): any {
 
     	let list: any = [

@@ -16,11 +16,10 @@
 <ion-content>
 	
 	<ion-list>
-		<ion-item *ngFor="let item of items" (click)="moveToPage( item )" >
-			<div class="elmName">{{ item.name }}</div>
-			<div class="elmSymbol">{{ item.symbol }}</div>
+		<ion-item *ngFor="let elem of allElementList" (click)="moveToPage( elem )" >
+			<div class="elmName">{{ elem.name }}</div>
+			<div class="elmSymbol">{{ elem.symbol }}</div>
 			
 		</ion-item>
 	</ion-list>
-	<!-- <div ion-fixed class="fixedSearch"><ion-searchbar (ionInput)="getItems($event)" class="searchBox"></ion-searchbar></div> -->
 </ion-content>

@@ -18,8 +18,7 @@ import { ElementsDetailsPage } from '../elements-details/elements-details';
 })
 export class BeginnerPage {
 
-	searchQuery: string = '';
-  	items: string[];
+  	allElementList: string[];
 
 	constructor(
 		public navCtrl: NavController, 
@@ -34,13 +33,19 @@ export class BeginnerPage {
 		console.log('ionViewDidLoad BeginnerPage');
 	}
 
+	/*
+	* Assign element List to View
+	* Reading data from Service
+	*/
 	initializeItems() {
-		this.items = this.AFS.elmList;
-		// console.log( this.items );
+		this.allElementList = this.AFS.elmList;
 	}
 
+	/*
+	* On Seacrh
+	*/
 	getItems( ev: any ): void {
-		// Reset items back to all of the items
+		// Reset element List back to orginal state
 		this.initializeItems();
 
 		// set val to the value of the searchbar
@@ -48,13 +53,16 @@ export class BeginnerPage {
 		
 		// if the value is an empty string don't filter the items
 		if (val && val.trim() != '') {
-			this.items = this.items.filter((item) => {
+			this.allElementList = this.allElementList.filter((item) => {
 				return (item[ 'name' ].toLowerCase().indexOf(val.toLowerCase()) > -1);
 			})
 		}
 	}
 
-	// --- navigatoion
+	/*
+	* For Navigation from Home to specific page
+	* @Params :: Object of the elemnet
+	*/
 	moveToPage( data: any ): void {
 
 		this.navCtrl.push( ElementsDetailsPage, {

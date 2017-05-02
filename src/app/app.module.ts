@@ -3,7 +3,7 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
 
-import { CloudSettings, CloudModule } from '@ionic/cloud-angular';
+// import { CloudSettings, CloudModule } from '@ionic/cloud-angular';
 
 // --- Pages
 import { CustomSpacerPage } from '../pages/custom-spacer/custom-spacer';
@@ -15,6 +15,7 @@ import { MasterPage } from '../pages/master/master';
 import { XtremzPage } from '../pages/xtremz/xtremz';
 import { ElementsDetailsPage } from '../pages/elements-details/elements-details';
 import { KnowUsPage } from '../pages/know-us/know-us';
+import { ReactionPage } from '../pages/reaction/reaction';
 
 // ---- Custom Services
 import { AngularFireService } from '../providers/angular-fire-service';
@@ -41,11 +42,11 @@ export const firebaseConfig = {
 //     // logger: LoggerOptions
 // }
 
-const cloudSettings: CloudSettings = {
-  'core': {
-    'app_id': '50b0c8e3'
-  }
-};
+// const cloudSettings: CloudSettings = {
+//     'core': {
+//         'app_id': '50b0c8e3'
+//     }
+// };
 
 @NgModule({
     declarations: [
@@ -58,12 +59,13 @@ const cloudSettings: CloudSettings = {
         MasterPage,
         XtremzPage,
         ElementsDetailsPage,
-        KnowUsPage
+        KnowUsPage,
+        ReactionPage
     ],
     imports: [
         IonicModule.forRoot(MyApp),
         AngularFireModule.initializeApp(firebaseConfig),
-        CloudModule.forRoot(cloudSettings)
+        // CloudModule.forRoot(cloudSettings)
     ],
     bootstrap: [IonicApp],
     entryComponents: [
@@ -76,7 +78,8 @@ const cloudSettings: CloudSettings = {
         MasterPage,
         XtremzPage,
         ElementsDetailsPage,
-        KnowUsPage
+        KnowUsPage,
+        ReactionPage
 
     ],
     providers: [

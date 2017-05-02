@@ -8,15 +8,18 @@ import { NavController, NavParams } from 'ionic-angular';
   Ionic pages and navigation.
 */
 @Component({
-  selector: 'page-master',
-  templateUrl: 'master.html'
+	selector: 'page-master',
+	templateUrl: 'master.html'
 })
 export class MasterPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+	constructor(
+		public navCtrl: NavController, 
+		public navParams: NavParams
+	) {}
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad MasterPage');
-  }
+	ionViewDidLoad() {
+		console.log('ionViewDidLoad MasterPage');
+	}
 
 }

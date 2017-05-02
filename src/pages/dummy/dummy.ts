@@ -8,15 +8,15 @@ import { NavController, NavParams } from 'ionic-angular';
   Ionic pages and navigation.
 */
 @Component({
-  selector: 'page-dummy',
-  templateUrl: 'dummy.html'
+	selector: 'page-dummy',
+	templateUrl: 'dummy.html'
 })
 export class DummyPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+	constructor(public navCtrl: NavController, public navParams: NavParams) {}
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad DummyPage');
-  }
+	ionViewDidLoad() {
+		console.log('ionViewDidLoad DummyPage');
+	}
 
 }

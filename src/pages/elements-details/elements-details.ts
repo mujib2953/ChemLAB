@@ -22,7 +22,6 @@ export class ElementsDetailsPage {
         helpMsg: ''    
     };
     
-
     @ViewChild( 'loaderElem' ) loaderElem: any;
 
 	constructor(
@@ -33,28 +32,37 @@ export class ElementsDetailsPage {
 
         public alertCtrl: AlertController
 	) {
-		this.element = this.navParams.get( 'urlData' )
-		console.log( this.element );
+		this.element = this.navParams.get( 'urlData' );
 	}
 
 	ionViewDidLoad() {
 		console.log('ionViewDidLoad ElementsDetailsPage');
 	}
 
+    /*
+    * Show the help pop-up
+    * Params<String> :: Name of the help message.
+    */
 	showHelp( type: string ): void {
 		console.log( type );
         let elem = this.loaderElem.nativeElement;
 
         this.pageObj.helpMsg = type;
         this.AFS.removeClass( elem, 'gHide' );
-
     }
 
-    dismissLoader(): void {
+    /*
+    * On click, on Close btn from the help popup
+    */
+    dismissHelpPopup(): void {
         let elem = this.loaderElem.nativeElement;
         this.AFS.addClass( elem, 'gHide' );
     }
 
+    /*
+    * From the View it is called. It will return the strang like 1st, 2nd on so on.
+    * Params <String>:: The index of the for loop for 'ionisation_energies'
+    */
     getIonisationText( i: any ): any {
 
         let index: number = parseInt(i) + 1;
@@ -70,13 +78,14 @@ export class ElementsDetailsPage {
         } else {
             retStr = (index + '<sup>' + top[3] + ' </sup>');
         }
-        //console.log( retStr );
         return retStr;
     }
 
+    /*
+    * Create the left hand side table values for 'Pressure and Temperature' Card
+    * Params<String> :: The index of the for loop for 'pressure_temprature.vapour_pressure'
+    */
     getTemprature(i: any): any {
-
         return 400 + Number(i) * 200;
-
     }
 }

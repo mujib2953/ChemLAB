@@ -5,36 +5,22 @@
   Ionic pages and navigation.
 -->
 <ion-content>
-	<!-- <custom-spacer></custom-spacer> -->
 	<p class="cursiveFont brandName" >chemLab</p>
-	<!-- <custom-spacer></custom-spacer> -->
-
-	<!-- <button ion-button block icon-right color="danger">
-	    <ion-icon class="homeIcons" name="car" ></ion-icon>
-	    TextFoo
-	</button> -->
+	
 	<div *ngFor="let d of levels; let i = index; " class="posRel btn_{{ ( i + 1 ) }}">
 		<button class="customBtn"  ion-button block icon-right (click)="moveToPage( d.name, d.isActive )" >
 			{{ d.dispName }}
-			<!-- <ion-icon name="star"></ion-icon> -->
 		</button>	
 		<ion-icon name="flask" *ngIf=" i == 0 " ></ion-icon>
 		<ion-icon name="ionic" *ngIf=" i == 1 " ></ion-icon>
 		<ion-icon name="magnet" *ngIf=" i == 2 " ></ion-icon>
 		<ion-icon name="nuclear" *ngIf=" i == 3 " ></ion-icon>
 	</div>
-	
-	<!-- <div class="btn_1">
-		<button class="customBtn"  ion-button block icon-right >
-			Mujib
-		</button>	
-		<ion-icon class="icon-tube"></ion-icon>
-	</div> -->
 
 	<ion-row class="bottomRow">
 		<ion-col width-10></ion-col>
 		<ion-col width-80>
-			<button class="knowUs" ion-button color="secondary" outline round (click)="gotoKnowUs()">Know Us</button>
+			<button class="knowUs" ion-button color="secondary" outline round (click)="moveToPage( 'KnowUsPage', true )">Know Us</button>
 		</ion-col>
 		<ion-col width-10>
 			

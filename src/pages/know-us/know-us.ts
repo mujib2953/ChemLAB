@@ -16,20 +16,19 @@ import { AngularFireService } from '../../providers/angular-fire-service';
 })
 export class KnowUsPage {
 
-	pageObj: any = {
-		activeTab: 'about-us'
-	};
+    pageObj: any = {
+        activeTab: 'about-us'
+    };
 
     constructor(
-    	public navCtrl: NavController,
-    	public navParams: NavParams,
+        public navCtrl: NavController,
+        public navParams: NavParams,
 
-    	public AFS: AngularFireService
-	) {
-
-    	this.pageObj.developer = this.AFS.getDeveloper();
-    	this.pageObj.refrences = this.AFS.getRefrences();
-	}
+        public AFS: AngularFireService
+    ) {
+        this.pageObj.developer = this.AFS.getDeveloper();
+        this.pageObj.refrences = this.AFS.getRefrences();
+    }
 
     ionViewDidLoad() {
         console.log('ionViewDidLoad KnowUsPage');

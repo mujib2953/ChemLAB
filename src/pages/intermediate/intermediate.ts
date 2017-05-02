@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, AlertController, LoadingController } from 'ionic-angular';
 
-import { AngularFireService } from '../../providers/angular-fire-service'
+import { AngularFireService } from '../../providers/angular-fire-service';
+
+import { ReactionPage } from '../reaction/reaction';
+
 
 /*
   Generated class for the Intermediate page.
@@ -112,6 +115,8 @@ export class IntermediatePage {
 	* On Ract button clicked
 	*/
 	reactElements(): any {
+
+		this.navCtrl.push( ReactionPage );
 
 	}	
 

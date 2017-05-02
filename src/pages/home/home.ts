@@ -60,10 +60,12 @@ export class HomePage {
 		console.log('ionViewDidLoad HomePage');
 	}
 
-	// --- for navigation
+	/*
+	* For Navigation from Home to Specif page
+	* Params <string> :: The name of the page where we want to go.
+	* Params <Boolean> :: Whether that page is Active for end User or not.
+	*/
 	moveToPage( pageName: string, isActive: boolean ): void {
-
-		// console.log( pageName );
 
 		let page: any;
 		let sharedData: any = {};
@@ -91,6 +93,10 @@ export class HomePage {
 				page = XtremzPage;
 			break;
 
+			case 'KnowUsPage':
+				page = KnowUsPage;
+			break;
+
 			default:
 				pageFound = false;
 				console.warn( pageName + ' :: page is not found in the list' );
@@ -99,7 +105,6 @@ export class HomePage {
 
 		if( pageFound )
 			this.navCtrl.push( page, sharedData );
-
 	}
 
 	/*
@@ -113,17 +118,12 @@ export class HomePage {
 		} else {
 			this.loader.dismiss();
 		}
-
 	}
 
 	/*
-	* Navigation 
+	* Show Toast message if the page is not ready for end-user.
+	* i.e The page is under development
 	*/
-	gotoKnowUs(): void {
-		console.log( 'Moving KNow US' );
-		this.navCtrl.push( KnowUsPage );
-	}
-
 	showToast(): void {
 		let toast: any = this.toastCtrl.create({
 			message: 'This is under development, will come soon.',
@@ -132,6 +132,10 @@ export class HomePage {
 		toast.present();
 	}
 
+	/*
+	* Just to print the view data
+	* Params< any >:: the data which needs to print on console
+	*/
 	put( data: any ): void {
 		console.log( data );
 	}
