@@ -163,7 +163,7 @@ export class AngularFireService {
 	    		fb: 'https://www.facebook.com/Mujib2953',
 	    		gPlus: 'https://plus.google.com/110340391375900201569',
 	    		quora: 'https://www.quora.com/profile/Mujibur-Rehman-Ansari'
-	    	}, {
+	    	}/*, {
 	    		name: 'Mujib Ansari',
 	    		about: 'JS developer, and thinker.',
 	    		img_src: 'https://lh3.googleusercontent.com/-Nx5ingytOns/AAAAAAAAAAI/AAAAAAAAAAA/AMcAYi8KjPn7_tIQ58aRgI6QWB_qSpGj-w/s48-c-mo/photo.jpg',
@@ -172,7 +172,7 @@ export class AngularFireService {
 	    		fb: 'https://www.facebook.com/Mujib2953',
 	    		gPlus: 'https://plus.google.com/110340391375900201569',
 	    		quora: 'https://www.quora.com/profile/Mujibur-Rehman-Ansari'
-	    	}
+	    	}*/
     	];
 
     	return list;
