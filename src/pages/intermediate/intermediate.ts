@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, AlertController, LoadingController } from 'ionic-angular';
+import { NavController, NavParams, AlertController, LoadingController, ModalController  } from 'ionic-angular';
 
 import { AngularFireService } from '../../providers/angular-fire-service';
 
@@ -37,6 +37,7 @@ export class IntermediatePage {
 
 		public alertCtrl: AlertController,
 		public loadingCtrl: LoadingController,
+		public modalCtrl: ModalController,
 
 		public AFS: AngularFireService
 	) {
@@ -116,8 +117,9 @@ export class IntermediatePage {
 	*/
 	reactElements(): any {
 
-		this.navCtrl.push( ReactionPage );
-
+		// this.navCtrl.push( ReactionPage );
+		let modal = this.modalCtrl.create( ReactionPage );
+    	modal.present();
 	}	
 
 	/*
