@@ -1,0 +1,11 @@
+page-electron-model {
+	.myCanvasWrapper {
+		height: 150px;
+		margin: 10px;
+	}
+	canvas {
+		margin: 0 auto;
+		display: block;
+		border: 0.55px solid grey;
+	}
+}

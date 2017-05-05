@@ -4,7 +4,7 @@ import { NavController, NavParams, AlertController } from 'ionic-angular';
 // --- services
 import { AngularFireService } from '../../providers/angular-fire-service';
 
-
+import { ElectronModelPage } from '../electron-model/electron-model'
 /*
   Generated class for the ElementsDetails page.
 
