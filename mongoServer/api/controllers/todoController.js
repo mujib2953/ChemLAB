@@ -2,7 +2,7 @@
 * @Author: mujibur
 * @Date:   2017-05-10 14:12:36
 * @Last Modified by:   mujibur
-* @Last Modified time: 2017-05-10 17:09:49
+* @Last Modified time: 2017-05-11 14:35:19
 */
 
 'use strict';
@@ -22,6 +22,7 @@ exports.list_all_tasks = function(req, res) {
 
 
 exports.create_a_task = function(req, res) {
+	console.log( req.body );
 	var new_task = new Task(req.body);
 	new_task.save(function(err, task) {
 		if (err)
