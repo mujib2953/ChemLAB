@@ -1,0 +1,644 @@
+﻿/*Common section*/
+*, html
+{
+    margin: 0px;
+    padding: 0px;
+}
+body
+{
+    color: #404040;
+    font-family: arial, helvetica, sans-serif;
+    font-size: 12px;
+    line-height: 15px;
+    text-align: center;
+}
+img
+{
+	border: none;
+}
+.container
+{
+    margin: 10px auto;
+    padding: 0px;
+    width: 960px;
+    clear: both;
+    text-align: left;
+    position:relative;
+}
+/*
+.headercontainer
+{
+	margin: 0px auto;
+	text-align: center;
+}
+.footercontainer
+{
+	width: 980px;
+	margin: 0 auto;		
+}*/
+.rscidcontainer
+{
+    margin: 0px auto;
+    padding: 0px;
+    width: 960px;
+    clear: both;
+    text-align: left;
+}
+.block
+{
+    margin-bottom: 5px;
+    clear: both;
+}
+
+/* Site Logo */
+.blk2
+{
+    height: 70px;
+    margin-top: 5px;
+}
+
+.site_logo
+{
+    border: none;
+    display: block;
+    height: 70px;
+    width: 508px;
+    background: url("../images/Visual-elements-header-logo.jpg");
+    background-position: 0 70px;
+}
+.site_logo_Image
+{
+	border: none;
+	display: block;
+    height: 70px;
+    width: 508px;
+    background: url("../images/Visual-elements-header-logo.jpg");
+    text-indent: -99999px;
+    background-position: 0 69px;
+}
+.site_logo_Image:hover
+{
+    background-position: 0 0;
+}
+
+/* Bread Crumbs */
+.blk4
+{
+    height: 20px;
+    line-height: 25px;
+    padding-left: 5px;
+}
+
+.mainclass
+{
+    height: 600px;
+}
+
+
+/* ---Start Site Menu --- */
+.blk3
+{position:relative;
+ border-left: 1px solid #e8e8e8;
+ border-right: 1px solid #e8e8e8;
+ border-bottom: 1px solid #e8e8e8;
+ }
+.site_menu_bg_v2_left
+{
+    background-position: 0 0;
+}
+.site_menu
+{
+    background-color: transparent;
+    height: 30px;
+    position: relative;
+    z-index: 100;
+    _height: 25px;
+}
+.site_menu ul
+{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.site_menu li
+{
+  /*  border-right: 1px solid #FFFFFF;*/
+    float: left;
+    height: 29px;
+    _height: 27px;
+    position: relative;
+}
+.site_menu ul li a, .site_menu ul li a:visited
+{
+    border: none;
+    display: inline-block;
+    height: 26px;
+    text-align: center;
+    padding: 2px 0px;
+    width:120px;
+    text-decoration:none;
+    font-family: "Arial";
+    font-size: 12px;
+    _height: 29px;
+    *padding-bottom: 7px;
+    color: #000;
+    *position:relative;
+    *top:-2px;
+}
+
+.site_menu ul li a:hover
+{
+	background:url("../images/visualhover.jpg") scroll repeat-x 0px 0px transparent !important;
+	color: #fff !important;
+	text-decoration: none;
+}
+
+
+
+.dd_pointer
+{
+    background: url("../Images/menu_down_arrow.gif") no-repeat scroll -1px 55% transparent;
+    display: inline-block;
+    width: 8px;
+}
+
+.site_menu ul ul
+{
+    height: 0;
+    left: 0;
+    position: absolute;
+    top: 29px;
+    visibility: hidden;
+    width: 149px;
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: -moz-use-text-color #CDCDCD #CDCDCD;
+    border-right: 1px solid #CDCDCD !important;
+    border-style: none solid solid;
+    border-width: medium 1px 1px;
+}
+.site_menu ul ul li
+{
+    border-bottom: 1px solid #B086B3;
+    border-right: medium none;
+    height: 30px;
+}
+.site_menu ul ul a, .site_menu ul ul a:visited
+{
+    background: none repeat scroll 0 0 #83438C;
+    border-bottom: 1px solid #5F1367;
+    color: #FFFFFF;
+    height: 23px;
+    line-height: 24px;
+    margin-top: 0;
+    padding: 3px 3px 3px 10px;
+    text-align: left;
+    width: 143px;
+}
+
+.site_menu a:hover
+{
+    background: transparent;
+    text-decoration: underline;
+}
+div.site_menu_inner
+{
+    position: relative;
+    z-index: 100;
+}
+div.site_menu
+{
+    position: static;
+}
+.site_search_tb
+{
+    top: 9px;
+}
+a.s_menu_link
+{
+    top: 0px;
+    height: 27px;
+    line-height: 27px;
+    color: #404040 ;
+}
+a.s_menu_link:hover
+{
+    text-decoration: none;
+}
+ul.site_navg *:hover ul
+{
+    visibility: visible;
+}
+.site_menu ul li:hover ul, .site_menu ul a:hover ul
+{
+    visibility: visible;
+}
+ul.site_navg
+{
+    list-style-type: none;
+    float: left;
+    margin: 0px;
+    margin-left: 12px;
+    padding: 0px;
+    width: 656px;
+    padding-top: 4px;
+}
+ul.site_navg li
+{
+    float: left;
+    height: 42px;
+    width: 130px;
+    border-right: 1px solid #cdcdcd;
+    text-align: center;
+    position: relative;
+}
+ul.submenu
+{
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+    position: absolute;
+    left: 0px;
+    border: 1px solid #cdcdcd;
+    visibility: hidden;
+}
+ul.submenu li
+{
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+    background-color: #ececed;
+    border-bottom: 1px solid #cdcdcd;
+    height: 30px;
+    padding: 4px;
+    width: 90px;
+    text-align: left;
+}
+a.sub_menu
+{
+    color: #FFFFFF !important;
+    display: inline-block;
+    height: 30px;
+    width: 120px;
+    line-height: 30px;
+}
+.site_menu ul ul
+{
+    width: 149px; /* warren border:1px solid #d3d3d3;*/
+    border: 1px solid #cdcdcd;
+    border-top: none;
+}
+
+.site_menu ul ul li
+{
+    height: 30px;
+    border-bottom: 1px solid #b086b3;
+    border-right: none;
+}
+.site_menu ul ul li, .site_menu ul ul li a
+{
+    text-align: left;
+    _text-align: left;
+}
+.site_menu ul ul a:hover
+{
+    color: #fff !important;
+    background: #83438c;
+    font-weight: normal;
+    font-size: 12px;
+    _font-size: 12px;
+}
+.site_menu ul ul
+{
+    visibility: hidden;
+    position: absolute;
+    height: 0;
+    top: 29px;
+    _top: 27px;
+    left: 0;
+    width: 149px;
+}
+.site_menu table
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-collapse: collapse;
+}
+.site_menu_bg_v2, .site_search_bg_v2
+{
+    background: url(../Images/tabs_img.gif) scroll no-repeat 0 0 transparent;
+    height: 30px;
+}
+.site_menu_bg_v2_right
+{
+    background-position: 100% 0;
+}
+.site_menu_bg_center
+{
+    background: none repeat scroll 0 0 #EDEDEF;
+    margin: 0 11px;
+    height: 29px;
+    line-height: 28px;
+}
+.site_menu_v2
+{
+    /*
+    _padding-top: 2px;
+*/
+}
+/* ---End Site Menu --- */
+.info_img
+{
+    background-image: url("../images/rsc_info_non-javascript.png");
+    background-position: center top;
+    background-repeat: no-repeat;
+    border: 0 none;
+    cursor: pointer;
+    float: left;
+    height: 20px;
+    margin-right: 5px;
+    width: 20px;
+}
+.noscriptmsg
+{
+    background-color: #FFFFE1;
+    border: 1px solid #E4E4E4;
+    float: left;
+    padding: 2px 0 2px 5px;
+    width: 952px;
+}
+.container_inside
+{
+    margin-bottom: 2px !important; 
+    padding: 0px;
+    width: 960px;
+    clear: both;
+    text-align: left;
+}
+.separator {
+    color: #C0C0C0;
+    float: left;
+    margin-top: -1px;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+.star
+{
+    color: #900;
+}
+h4
+{
+    font-size: 14px;
+    color: #003c73;
+    font-weight: normal;
+    font-family: Verdana;
+    margin: 0;
+    padding: 0;
+}
+.field-validation-error
+{
+    color: #A20F08;
+    font-size: 10px;
+}
+
+.separator {
+    color: #C0C0C0;
+    float: left;
+    padding-left: 2px;
+}
+.ctn_tabs_new
+{
+   /*  background:url("../images/ve_menu_bg_mid.jpg") scroll repeat-x 0px 0px transparent;*/
+	background: #E7E8E9;
+	height: 30px;
+	line-height: 30px;
+	*line-height: 10px;
+	_line-height: 10px;
+	border-bottom: 1px solid #8d8d8d;
+   /* margin-left: 10px;
+    margin-right: 10px;
+    margin-left:8px;
+margin-right:8px;*/
+}
+ /*
+.ctn_tabs_left_new{
+background:url("../images/ve_menu_bg.gif") scroll no-repeat 0px 0px transparent;
+}
+.ctn_tabs_right_new{
+background:url("../images/ve_menu_bg.gif") scroll no-repeat 100% 0px transparent;
+}*/
+
+.tab_entry_new{
+display:inline-block;
+padding-right: 10px;
+padding-left: 10px;
+}
+.tab_entry_new a{
+color: #000;
+text-decoration: none;
+font-weight: bold;
+}
+.tab_entry_new a:hover{
+color: #C44BF9;
+text-decoration: none;
+font-weight: bold;
+}
+
+.tab_entry_divider{
+	display:inline-block;
+	background:url("../images/ve_menu_divider.jpg") scroll no-repeat  transparent;
+    height: 30px;
+    width:2px;
+}
+
+
+/*Menu after Page is visited*/
+.site_menu_visited
+{
+	font-weight:bold;
+	text-decoration:none;
+	color:#C44BF9;
+	padding-left:10px;
+	padding-right:10px;
+	cursor:default;
+	height: 29px;
+    line-height: 29px;
+}
+
+
+a.site_menu_visited_v2, .a.site_menu_visited_v2:visited
+{
+	/*background:url("../images/ve_nav_bg-selected.jpg") scroll repeat-x 0px 0px transparent !important;
+	color:#C44BF9 !important;*/
+	background:url("../images/visualhover.jpg") scroll repeat-x 0px 0px transparent !important;
+	color: #fff !important;
+}
+
+
+a.site_menu_visited_v2, .a.site_menu_visited_v2:hover
+{
+	/*background:url("../images/ve_nav_bg-selected.jpg") scroll repeat-x 0px 0px transparent !important;
+	color:#C44BF9 !important;*/
+	background:url("../images/visualhover.jpg") scroll repeat-x 0px 0px transparent !important;
+	color: #fff !important;
+}
+
+/* New Branding */
+
+.site-logo
+{
+	float: left;
+	color: #FFF;
+	padding: 0 !important;
+	margin: 0 0 10px 0;
+	height: 80px !important;
+}
+
+.rsc-logo-mobile { display: none; }
+
+.rsc-logo
+{ 
+	width: 120px; 
+	height: 80px; 
+	display: block; 
+	float: right;
+	margin: 10px 0 10px 0; 
+	background-image: url("../images/royal-society-of-chemistry-logo-purple.png"); 
+	background-repeat: no-repeat; 
+	background-position: left top; 
+	cursor: pointer;
+}
+
+.brand-header								{ width: 960px !important; padding: 0px !important; margin: 0px auto !important; clear: both; height: 100px !important; display: block; }
+
+/* Navigation */
+.content-nav-container						{ clear: both; width: 980px; background-color: #480C3C; height: 40px; line-height: 40px; margin: 0px auto; margin-bottom:14px;}
+.content-nav								{ margin: 0; padding: 0; font-family: museo_sans_500regular, Arial; list-style-type: none !important;  font-size: 1.33em !important; }
+.content-nav li								{ background-color: #480C3C; float: left; font-size: 0.95em; list-style-type: none !important;  }
+.content-nav li a:link						{ display: block; color: #FFF; padding: 0 10px; text-decoration: none; }
+.content-nav li a:visited					{ display: block; color: #FFF; padding: 0 10px; text-decoration: none; }
+.content-nav li a:hover						{ display: block; color: #FFF; padding: 0 10px; text-decoration: none; background: #833177; }
+.content-nav li a.selected					{ display: block; color: #FFF; padding: 0 10px; text-decoration: none; background: #833177; }
+
+#content-nav li ul							{ display: none; position: absolute; }
+#content-nav li ul li						{ float: none; }
+#content-nav li ul li:first-child			{ float: none; }
+
+#bodydiv								    { background: #FFF url("../images/learn-chemistry-header-white-bg.jpg") repeat-x top center !important; min-width:980px;}
+.container									{ width: 980px !important; margin: 0 auto !important; }
+.container_inside
+{
+	margin: 0 auto;
+	
+}
+
+
+.container_pinside
+{
+	margin: 0 auto;
+}
+.new_breadcrumb
+{
+    margin: 0px auto;
+    width: 960px;
+    height:30px;
+    line-height:30px;
+    margin-top:-10px;
+}
+
+
+/* CSS for app store and google play */
+
+.learn_chem_sec {
+	width:932px;
+	border-top:1px solid #d3d3d3;
+	margin:0 22px 10px 23px;
+	padding:15px 0 0 0;
+	color:#000;
+	font-size:14px;
+	display:table;
+}
+.learn_chem_sec  ul {
+	margin:0px;
+}
+.learn_chem_sec  li {
+	list-style-type:none;
+	display:inline-block;
+	float:left;
+}
+.learn_chem_lft {
+	float:left;
+	color:#000;
+}
+.learn_chem_rgt {
+	margin:0 0 0 143px;
+	color:#000;
+	float:left;
+}
+.learn_chem_sec_rgt {
+	width:131px;
+	margin:0 0 0 10px;
+	padding:0;
+	text-align:left;
+	font-size:14px;
+	float:left;
+}
+.learn_chem_sec_rgt ul {
+	margin:0px;	
+	padding:0 0 10px;
+	border-bottom:1px solid #d3d3d3;
+}
+.learn_chem_sec_rgt li {
+	list-style-type:none;
+	display:block;
+}
+
+.learnchemrightimg {
+    margin: 0px 0 0 0;
+    padding-bottom:7px;
+    border-bottom:1px solid #d3d3d3;
+    cursor: pointer;
+}
+
+.appstorerighttext {
+    margin: 10px 0 0 0;
+}
+
+.googleplayrightimg {
+    margin: 7px 0 0 0;
+    cursor: pointer;
+}
+
+.appstorerightimg {
+    margin: 7px 0 0 0;
+    cursor: pointer;
+}
+
+.learnchemimage {
+    margin: 0px 0 0 0;
+    cursor: pointer;
+}
+
+.visittext {
+    margin: 16px 12px 0 0;
+}
+
+.googleplayimage {
+    margin: 0 0 0 0;
+    cursor: pointer;
+}
+
+.appstoreimage {
+    cursor: pointer;
+}
+
+.appstoretext {
+    margin: 8px 10px 0 52px;
+}
+.imagesection {
+    margin: 0px 0 0 0;
+}

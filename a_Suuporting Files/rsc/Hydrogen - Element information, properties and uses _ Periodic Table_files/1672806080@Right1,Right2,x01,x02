@@ -1,0 +1,14 @@
+function OAS_RICH(position) {
+if (position == 'Right1') {
+document.write ('<A HREF="http://oas.rsc.org/5c/www.rsc.org/periodic-table/element/1/hydrogen/L34/1590115670/Right1/RSC/2010_Personalaccount_mkt/021424_banner_advert_white_pink.jpg/652f7947656c6a436f557341434b712f?x" target=" "><IMG SRC="http://cdn.oas-eu1.adnxs.com/0/RSC/2010_Personalaccount_mkt/021424_banner_advert_white_pink.jpg"  ALT="Looking for FREE content?  Find it here. . . "  BORDER="0"></A>');
+}
+if (position == 'Right2') {
+document.write ('<A HREF="http://oas.rsc.org/5c/www.rsc.org/periodic-table/element/1/hydrogen/L34/70601751/Right2/RSC/2010_CS_Call4papers/021424_ChemSciRecognition_20_x_90-pixels.jpg/652f7947656c6a436f557341434b712f?x" target=" "><IMG SRC="http://cdn.oas-eu1.adnxs.com/0/RSC/2010_CS_Call4papers/021424_ChemSciRecognition_20_x_90-pixels.jpg"  ALT="Chemical Science, recognition starts here"  BORDER="0"></A>');
+}
+if (position == 'x01') {
+document.write ('<A HREF="http://oas.rsc.org/5c/www.rsc.org/periodic-table/element/1/hydrogen/L34/865259025/x01/RSC/Advion_PublishingPlatform_2017/Advion_125x125_April.gif/652f7947656c6a436f557341434b712f?x" target="_top"><IMG SRC="http://cdn.oas-eu1.adnxs.com/0/RSC/Advion_PublishingPlatform_2017/Advion_125x125_April.gif"  WIDTH=125 HEIGHT=125 ALT="Advert: Mass spectrometry in drug discovery - download the webinar now from Advion"  BORDER="0"></A>');
+}
+if (position == 'x02') {
+document.write ('<A HREF="http://oas.rsc.org/5c/www.rsc.org/periodic-table/element/1/hydrogen/L34/1814390827/x02/RSC/Nanalysis_2017/Nanalysis_125x125_April.gif/652f7947656c6a436f557341434b712f?x" target="_top"><IMG SRC="http://cdn.oas-eu1.adnxs.com/0/RSC/Nanalysis_2017/Nanalysis_125x125_April.gif"  WIDTH=125 HEIGHT=125 ALT="Advert: Continuous-flow synthesis with integrated benchtop NMR"  BORDER="0"></A>');
+}
+}

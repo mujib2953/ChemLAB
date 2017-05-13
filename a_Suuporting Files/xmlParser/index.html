@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+
+
+        <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
+        <script>
+            // Initialize Firebase
+            var config = {
+                apiKey: "AIzaSyAGTwZIbcgCToM49vt4W2GYfWH1XsF7644",
+                authDomain: "test-3823e.firebaseapp.com",
+                databaseURL: "https://test-3823e.firebaseio.com",
+                projectId: "test-3823e",
+                storageBucket: "test-3823e.appspot.com",
+                messagingSenderId: "549062744875"
+            };
+            firebase.initializeApp(config);
+        </script>
+        <script type="text/javascript" src="js/jquery.js"></script>
+
+        <script type="text/javascript">
+        	var timeStamp = Date.now();
+
+        	var sc = document.createElement( 'script' )
+        	$( sc ).attr( 'type', 'text/javascript' );
+        	$( sc ).attr( 'src', 'js/logic.js?tp=' + timeStamp );
+        	// $( document.header ).append( sc );
+        	$('head').append(sc);
+        </script>
+        <!-- <script type="text/javascript" src="js/logic.js"></script> -->
+    </head>
+    <body>
+    	<div id="wrapper"></div>
+    </body>
+</html>

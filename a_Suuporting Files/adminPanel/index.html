@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+
+        <title>Admin Panel</title>
+
+
+        <!-- firebase -->
+        <script src="https://www.gstatic.com/firebasejs/3.7.2/firebase.js"></script>
+		<script>
+			// Initialize Firebase
+			var config = {
+				apiKey: "AIzaSyAGTwZIbcgCToM49vt4W2GYfWH1XsF7644",
+				authDomain: "test-3823e.firebaseapp.com",
+				databaseURL: "https://test-3823e.firebaseio.com",
+				storageBucket: "test-3823e.appspot.com",
+				messagingSenderId: "549062744875"
+			};
+			firebase.initializeApp(config);
+		</script>
+
+        <!-- Vendor -->
+        <link rel="stylesheet" type="text/css" href="vendor/css/bootstrap.min.css">
+
+        <script type="text/javascript" src="vendor/js/jquery-3.2.0.min.js"></script>
+        <script type="text/javascript" src="vendor/js/bootstrap.min.js"></script>
+        <!-- custom -->
+
+        <link rel="stylesheet" type="text/css" href="custom/css/main.css">
+        <script type="text/javascript" src="custom/js/main.js" ></script>
+
+    </head>
+    <body>
+
+    	<div id="loader">
+    		
+    	</div>
+
+    	<div class="container">
+    		
+    		<div class="jumbotron">
+
+    			<div class="buttonContainer">
+    				<button id="allElm" type="button" class="btn btn-primary">All Elements</button>
+    				<button id="addElm" type="button" class="btn btn-success">Add Elements</button>	
+    			</div>
+
+    			
+    			<br />
+    			<br />
+    			<br />
+    			<div id="allElmContainer" class="panel panel-primary hidden">
+    				<div class="panel-heading">
+    					<h3 class="panel-title" style="display: inline;">All Elements</h3>
+    					<button id="allElmHide" style="display: inline; float: right" type="button" class="btn btn-success">Hides</button>
+    				</div>
+    				<div class="panel-body">
+    					<table class="table table-hover">
+    						<thead>
+    							<tr>
+    								<th>#</th>
+    								<th>Element Name</th>
+    								<th>Element Symbol</th>
+    								<th>Edit</th>
+    								<th>Delete</th>
+								</tr>
+							</thead>
+							<tbody class="tableBody" id="AllElementsTable" >
+								
+							</tbody>
+						</table>
+    				</div>
+    			</div>
+
+    			<div id="addElmContainer" class="panel panel-primary hidden">
+    				<div class="panel-heading">
+    					<h3 class="panel-title" style="display: inline;">Add Elements</h3>
+    					<button id="addElmHide" style="display: inline; float: right" type="button" class="btn btn-success">Hides</button>
+    				</div>
+    				<div class="panel-body">
+    					
+    					<div class="addElmBody">
+    						
+    						<div class="row">
+    							
+    							<!-- Element Name -->
+								<div class="form-group">
+									<label for="exampleInputEmail1">1. Element Name</label>
+									<input type="text" class="form-control" id="elementNameAdd" placeholder="Name of elment">
+								</div>
+
+								<!-- Element Symbol -->
+								<div class="form-group">
+									<label for="exampleInputEmail1">2. Element Symbol</label>
+									<input type="text" class="form-control" id="elementSymbolAdd" placeholder="Symbol of elment">
+								</div>
+
+								<!-- Stable State -->
+								<div class="form-group">
+									<label for="exampleInputEmail1">3. Stable State ( html )</label>
+									<input type="text" class="form-control" id="stableStateAdd" placeholder="Stable State of element">
+								</div>
+
+								<!-- Description -->
+								<div class="form-group">
+									<label for="exampleInputEmail1">4. Description</label>
+									<input type="text" class="form-control" id="elementDescAdd" placeholder="Description">
+								</div>
+
+								<!-- Image Src -->
+								<div class="form-group">
+									<label for="exampleInputEmail1">5. Image Source</label>
+									<input type="text" class="form-control" id="srcImageAdd" placeholder="Image link">
+								</div>
+
+								<!-- Discovery Date / Year -->
+								<div class="form-group">
+									<label for="exampleInputEmail1">6. Discovery Date / Year</label>
+									<input type="text" class="form-control" id="discoveryDateAdd" placeholder="Discovery Date / Year">
+								</div>
+
+								<!-- Discovered By -->
+								<div class="form-group">
+									<label for="exampleInputEmail1">7. Discovered By</label>
+									<input type="text" class="form-control" id="discoveredByAdd" placeholder="Discovered By">
+								</div>
+
+								
+								<!-- Origin Name -->
+								<div class="form-group">
+									<label for="exampleInputEmail1">8. Origin of Name</label>
+									<input type="text" class="form-control" id="nameOriginAdd" placeholder="Origin of Name">
+								</div>								
+
+								<!-- Color -->
+								<div class="form-group">
+									<label for="exampleInputEmail1">9. Color</label>
+									<input type="text" class="form-control" id="colorAdd" placeholder="Color of element">
+								</div>
+
+								<!-- Number of electron -->
+								<div class="form-group">
+									<label for="exampleInputEmail1">10. Number of electon</label>
+									<input type="number" class="form-control" id="electronAdd" placeholder="Number of electon">
+								</div>
+
+								<!-- Number of proton -->
+								<div class="form-group">
+									<label for="exampleInputEmail1">11. Number of proton</label>
+									<input type="number" class="form-control" id="protonAdd" placeholder="Number of proton">
+								</div>
+
+								<!-- Number of neutron -->
+								<div class="form-group">
+									<label for="exampleInputEmail1">12. Number of neutron</label>
+									<input type="number" class="form-control" id="neutronAdd" placeholder="Number of neutron">
+								</div>
+
+								<!-- atomic mass -->
+								<div class="form-group">
+									<label for="exampleInputEmail1">13. Atomic mass</label>
+									<input type="text" class="form-control" id="atomicMassAdd" placeholder="Atomic mass of proton">
+								</div>
+
+								<!-- atomic number -->
+								<div class="form-group">
+									<label for="exampleInputEmail1">14. Atomic number</label>
+									<input type="number" class="form-control" id="atomicNumberAdd" placeholder="Atomic number">
+								</div>
+
+								<!-- electron radius -->
+								<div class="form-group">
+									<label for="exampleInputEmail1">15. Electron radius</label>
+									<input type="text" class="form-control" id="electronRadiusAdd" placeholder="Electron radius">
+								</div>
+
+								<!-- Covalent radius -->
+								<div class="form-group">
+									<label for="exampleInputEmail1">16. Covalent Radius</label>
+									<input type="number" class="form-control" id="covalentRadiusAdd" placeholder="Covalent Radius">
+								</div>
+
+								<!-- electron affinity -->
+								<div class="form-group">
+									<label for="exampleInputEmail1">17. Electron Affinity</label>
+									<input type="text" class="form-control" id="electronAffinityAdd" placeholder="Electron Affinity">
+								</div>
+
+								<!-- electron negativity -->
+								<div class="form-group">
+									<label for="exampleInputEmail1">18. Electron negativity</label>
+									<input type="text" class="form-control" id="electronNegativityAdd" placeholder="Electron Negativity">
+								</div>
+
+								<!-- electron configuration -->
+								<div class="form-group">
+									<label for="exampleInputEmail1">19. Electron configuration</label>
+									<input type="text" class="form-control" id="electronConfigurationAdd" placeholder="Electron Configuration">
+								</div>
+
+								<!-- boiling point -->
+								<div class="form-group">
+									<label for="exampleInputEmail1">20. Boiling Point</label>
+									<input type="text" class="form-control" id="boilingPointAdd" placeholder="Boiling Point">
+								</div>
+
+								<!-- Melting point -->
+								<div class="form-group">
+									<label for="exampleInputEmail1">21. Melting Point</label>
+									<input type="text" class="form-control" id="meltingPointAdd" placeholder="Melting Point">
+								</div>
+
+
+								<!-- Density -->
+								<div class="form-group">
+									<label for="exampleInputEmail1">22. Density</label>
+									<input type="text" class="form-control" id="densityAdd" placeholder="Density">
+								</div>
+
+
+								<!-- Isotopes -->
+								<div class="form-group">
+									<label for="exampleInputEmail1">23. Key Isotopes</label>
+									<input type="text" class="form-control" id="isotopesAdd" placeholder="Isotopes">
+								</div>
+
+								<!-- Ionisation -->
+								<div class="form-group">
+									<label for="exampleInputEmail1">24. Ionisation ( 8 values ) ( 1312.05|-|-|-|-|-|-|- )</label>
+									<input type="text" class="form-control" id="ionisationAdd" placeholder="Ionisation">
+								</div>
+
+								<!-- Specific Heat Capacity specific_heat_capacity -->
+								<div class="form-group">
+									<label for="exampleInputEmail1">25. Specific Heat Capacity </label>
+									<input type="text" class="form-control" id="specificHeatCapacityAdd" placeholder="Specific Heat Capacity">
+								</div>
+
+								<!-- Youngs Modulus youngs_modulus -->
+								<div class="form-group">
+									<label for="exampleInputEmail1">26. Youngs Modulus </label>
+									<input type="text" class="form-control" id="youngsModulusAdd" placeholder="Youngs Modulus">
+								</div>
+
+								<!-- Shear Modulus shear_modulus -->
+								<div class="form-group">
+									<label for="exampleInputEmail1">27. Shear Modulus </label>
+									<input type="text" class="form-control" id="shearModulusAdd" placeholder="Shear Modulus">
+								</div>
+
+								<!-- Bulk Modulus bulk_modulus -->
+								<div class="form-group">
+									<label for="exampleInputEmail1">28. Bulk Modulus </label>
+									<input type="text" class="form-control" id="bulkModulusAdd" placeholder="Bulk Modulus">
+								</div>
+
+
+								<!-- Vapour Pressure vapour_pressure -->
+								<div class="form-group">
+									<label for="exampleInputEmail1">29. Vapour Pressure ( 11. values ) ( -|-|-|-|-|-|-|-|-|-|- ) </label>
+									<input type="text" class="form-control" id="vapourPressureAdd" placeholder="Vapour Pressure">
+								</div>
+
+								<!-- Common Oxidation State   common_oxidation_state-->
+								<div class="form-group">
+									<label for="exampleInputEmail1">30. Common Oxidation State</label>
+									<input type="text" class="form-control" id="common_oxidation_stateAdd" placeholder="Common Oxidation State" >
+								</div>
+
+								<!-- Ionisation -->
+								<div class="form-group" id="oxidationSateAdd">
+									<label for="exampleInputEmail1">31. Oxidation state of the Isotopes (  <sup>3</sup>H|3.016|-|12.31 years|beta-  )</label>
+									<input type="text" class="form-control" id="oxidationAdd_0" placeholder="Oxidation of isotopes"><br />
+
+									<button id="addPropADD" type="button" class="btn btn-primary" style="float: right;">Add Row</button>
+								</div>
+
+								<!-- Group of Element -->
+								<div class="form-group">
+									<label for="sel1">32. Group of Element</label>
+									<select class="form-control" id="GroupAdd" id="group" >
+										<option> 1 </option>
+										<option> 2 </option>
+										<option> 3 </option>
+										<option> 4 </option>
+										<option> 5 </option>
+										<option> 6 </option>
+										<option> 7 </option>
+										<option> 8 </option>
+										<option> 9 </option>
+										<option> 10 </option>
+										<option> 11 </option>
+										<option> 12 </option>
+										<option> 13 </option>
+										<option> 14 </option>
+										<option> 15 </option>
+										<option> 16 </option>
+										<option> 17 </option>
+										<option> 18 </option>
+									</select>
+								</div>
+
+								<!-- Period -->
+								<div class="form-group">
+									<label for="sel1">33. Period of Element</label>
+									<select class="form-control" id="PeriodAdd" id="period" >
+										<option> 1 </option>
+										<option> 2 </option>
+										<option> 3 </option>
+										<option> 4 </option>
+										<option> 5 </option>
+										<option> 6 </option>
+										<option> 7 </option>
+										<option> Lathanides </option>
+										<option> Actinides </option>
+									</select>
+								</div>
+
+								<!-- Blocks -->
+								<div>
+									<label for="exampleInputEmail1">34. Blocks</label>
+									<br />
+									<input type="radio" name="blocksRadio" value="s" checked> s
+									<input type="radio" name="blocksRadio" value="p"> p
+									<input type="radio" name="blocksRadio" value="d"> d
+									<input type="radio" name="blocksRadio" value="f"> f
+								</div>
+
+								<!-- Types of elements -->
+								<br />
+								<div>
+									<label for="exampleInputEmail1">35. Types of Elements</label>
+									<br />
+									<input type="radio" value="Metals" name="typesRadio" checked>Metals
+									<input type="radio" value="Non-Metals" name="typesRadio">Non-Metals
+								</div>
+
+								<!-- Blocks -->
+								<br />
+								<div>
+									<label for="exampleInputEmail1">36. State at 20 deg</label>
+									<br />
+
+									<input type="radio" value="Solid" name="statesRadio" checked> Solid
+									<input type="radio" value="Liquid" name="statesRadio"> Liquid
+									<input type="radio" value="Gas" name="statesRadio"> Gas
+								</div>
+
+								<br />
+								<div>
+									<button id="saveADD" type="button" class="btn btn-success">Save</button>
+								</div>
+
+    						</div>
+
+    					</div>
+
+    				</div>
+    			</div>
+
+    		</div>
+
+    	</div>
+
+    </body>
+</html>

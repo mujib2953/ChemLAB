@@ -1,0 +1,25 @@
+{
+	"all2Elem":  [
+
+		{ "name": "Hydrogen bromide", "eq": "HBr", "og": "HBr" },
+		{ "name": "Hydrogen chloride", "eq": "HCl", "og": "HCl" },
+		{ "name": "Hydrogen fluoride", "eq": "HF", "og": "HF" },
+		{ "name": "Hydrogen iodide", "eq": "HI", "og": "HI" },
+		{ "name": "Water", "eq": "H<sub>2</sub>O", "og": "H2O" },
+		{ "name": "Trioxidane", "eq": "H<sub>2</sub>O<sub>3</sub>", "og": "H2O3" },
+		{ "name": "Hydrogen peroxide", "eq": "H<sub>2</sub>O<sub>2</sub>", "og": "H2O2" },
+		{ "name": "Hydrogen persulphide", "eq": "H<sub>2</sub>S<sub>2</sub>", "og": "H2S2" },
+		{ "name": "Hydrogen sulphide", "eq": "H<sub>2</sub>S", "og": "H2S" },
+		{ "name": "Hydrogen selenide", "eq": "H<sub>2</sub>Se", "og": "H2Se" },
+		{ "name": "Hydrogen telluride", "eq": "H<sub>2</sub>Te", "og": "H2Te" },
+		{ "name": "Ammonia", "eq": "NH<sub>3</sub>", "og": "NH3" },
+		{ "name": "Hydrazine", "eq": "H<sub>2</sub>NNH<sub>2</sub>", "og": "H2NNH2" },
+		{ "name": "Hydrogen astatide", "eq": "HAt", "og": "HAt" },
+		{ "name": "", "eq": "", "og": "" },
+		{ "name": "", "eq": "", "og": "" },
+		{ "name": "", "eq": "", "og": "" },
+		{ "name": "", "eq": "", "og": "" },
+		
+
+	]
+}
