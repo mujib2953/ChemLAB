@@ -1,8 +1,8 @@
 /*
 * @Author: mujibur
 * @Date:   2017-04-18 18:48:30
-* @Last Modified by:   mujibur
-* @Last Modified time: 2017-04-28 09:10:28
+* @Last Modified by:   Mujib Ansari
+* @Last Modified time: 2017-05-14 17:31:45
 */
 
 'use strict';
@@ -109,10 +109,14 @@
 			var combiElements = $( elem ).find( 'ELEMENTS' ).text(),
 				molecule = $( elem ).find( 'MOLECULE' ).text();
 
+			gReactions[ molecule ] = {
+				"elms": combiElements
+			}
 			combiElements = getUniqueElements.call( oScope, combiElements, molecule );
 
 		} );
 		console.log( this.chemTree );
+		console.log( gReactions );
 
 		addToDB.call( oScope );
 	};
