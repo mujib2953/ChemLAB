@@ -2,7 +2,7 @@
 * @Author: Mujib Ansari
 * @Date:   2017-05-13 14:32:44
 * @Last Modified by:   Mujib Ansari
-* @Last Modified time: 2017-05-14 15:30:50
+* @Last Modified time: 2017-05-14 15:43:19
 */
 
 'use strict';
@@ -188,35 +188,6 @@ app.post( '/api/deleteRow', function( req, res ) {
 		} );
 	} );
 } );
-
-
-function base64_encode(file) {
-    // read  binary data
-    var bitmap = fs.readFileSync(file);
-    // convert binary data to base64 encoded string
-    return new Buffer(bitmap).toString('base64');
-}
-
-function toDataURL(url, callback) {
-	var xhr = new XMLHttpRequest();
-	xhr.onload = function() {
-		var reader = new FileReader();
-		// reader.onloadend = function() {
-		// 	callback(reader.result);
-		// }
-
-		reader.addEventListener('load', function (ev) {
-			console.log("dataUrlSize:", ev.target.result.length);
-		});
-		reader.readAsDataURL(xhr.response);
-	};
-	xhr.open('GET', url);
-	xhr.responseType = 'blob';
-	xhr.send();
-	
-}
-
-
 
 
 // ------------------------- port -------------------------
