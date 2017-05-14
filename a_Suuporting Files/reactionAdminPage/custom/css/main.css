@@ -1,0 +1,71 @@
+/*
+* @Author: Mujib Ansari
+* @Date:   2017-05-13 14:07:21
+* @Last Modified by:   Mujib Ansari
+* @Last Modified time: 2017-05-14 15:23:01
+*/
+/* arrow in the input box  */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+/* ends here arrow input */
+
+#loader {
+	position: absolute;
+	top: 0;
+	left: 0;
+
+	height: 100%;
+	width: 100%;
+
+	background-color: rgb( 255, 255, 255 );
+
+	z-index: 1051;
+}
+.loadingImg {
+	background: url( '../images/loader.gif' ) no-repeat;
+	width: 60px;
+	height: 60px;
+
+	position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+table .width-10 {
+	width: 10%
+}
+table .width-20 {
+	width: 20%
+}
+table .width-30 {
+	width: 30%
+}
+table .width-40 {
+	width: 40%
+}
+table .width-50 {
+	width: 50%
+}
+table .width-60 {
+	width: 60%
+}
+.modal-body {
+ 	overflow-y: scroll;
+    max-height: 400px;
+}
+.addRowBtn {
+	float: right;
+}
+.myScrollTable {
+    max-height: 450px;
+    display: -webkit-inline-box;
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+}

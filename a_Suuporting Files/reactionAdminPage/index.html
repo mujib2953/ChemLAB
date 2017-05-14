@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+
+        <title>Reaction Admin panel</title>
+
+
+        <!-- firebase -->
+        <!-- <script src="https://www.gstatic.com/firebasejs/3.7.2/firebase.js"></script>
+		<script>
+			// Initialize Firebase
+			var config = {
+				apiKey: "AIzaSyAGTwZIbcgCToM49vt4W2GYfWH1XsF7644",
+				authDomain: "test-3823e.firebaseapp.com",
+				databaseURL: "https://test-3823e.firebaseio.com",
+				storageBucket: "test-3823e.appspot.com",
+				messagingSenderId: "549062744875"
+			};
+			firebase.initializeApp(config);
+		</script> -->
+
+        <!-- Vendor -->
+        <link rel="stylesheet" type="text/css" href="vendor/css/bootstrap.min.css">
+
+        <script type="text/javascript" src="vendor/js/jquery-3.2.0.min.js"></script>
+        <script type="text/javascript" src="vendor/js/bootstrap.min.js"></script>
+        <!-- custom -->
+
+        <link rel="stylesheet" type="text/css" href="custom/css/main.css">
+        <script type="text/javascript" src="custom/js/main.js" ></script>
+
+    </head>
+    <body>
+
+    	<div id="loader">
+    		<div class="loadingImg"></div>
+    	</div>
+
+    	<div class="container">
+			<h3> Reaction Tables </h3>
+
+			<table class="table" style="margin-bottom: 0;">
+    			<thead>
+    				<tr>
+    					<th class="width-10">#</th>
+    					<th class="width-60">Compound Name</th>
+    					<th class="width-20">Action</th>
+					</tr>
+				</thead>
+			</table>
+
+    		<table class="table table-striped table-hover myScrollTable">
+    			<tbody>
+				</tbody>
+			</table>
+
+			<button type="button" class="btn btn-success addRowBtn"> + Add Roow + </button>
+    	</div>
+
+    	<div class="modal fade" id="myModal" tabindex="-1" role="dialog">
+    		<div class="modal-dialog" role="document">
+    			<div class="modal-content">
+    				<div class="modal-header">
+    					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    					<h4 class="modal-title">Compound Details</h4>
+    				</div>
+    				<div class="modal-body">
+    					<form >
+    						<div class="form-group">
+    							<label for="IUPAC">IUPAC Name</label>
+    							<input type="text" class="form-control" id="IUPAC" placeholder="IUPAC Name">
+    						</div>
+    						<div class="form-group">
+    							<label for="CAS">CAS Number</label>
+    							<input type="text" class="form-control" id="CAS" placeholder="CAS Number">
+    						</div>
+
+    						<div class="form-group">
+    							<label for="Formula">Formula 2Ag|S|Ag< sub>2< /sub>S</label>
+    							<input type="text" class="form-control" id="formula" placeholder="Formula">
+    						</div>
+    						<div class="form-group">
+    							<label for="molar_mass">Molar mass</label>
+    							<input type="text" class="form-control" id="molar_mass" placeholder="Molar mass">
+    						</div>
+
+    						<div class="form-group">
+    							<label for="desc">Description</label>
+    							<input type="text" class="form-control" id="desc" placeholder="Description">
+    						</div>
+
+    						<div class="form-group">
+    							<label for="imgUrl">Img URL</label>
+    							<input type="text" class="form-control" id="imgUrl" placeholder="Image URL">
+    						</div>
+    						<div class="form-group">
+    							<label for="appearance">Appearance</label>
+    							<input type="text" class="form-control" id="appearance" placeholder="Appearance">
+    						</div>
+
+    						<div class="form-group">
+    							<label for="odor">Odor</label>
+    							<input type="text" class="form-control" id="odor" placeholder="Odor">
+    						</div>
+    						<div class="form-group">
+    							<label for="density">Density ( | <code>< sup></code> )</label>
+    							<input type="text" class="form-control" id="density" placeholder="Density">
+    						</div>
+
+    						<div class="form-group">
+    							<label for="mp">Melting point</label>
+    							<input type="text" class="form-control" id="mp" placeholder="Melting point">
+    						</div>
+    						<div class="form-group">
+    							<label for="bp">Boiling point</label>
+    							<input type="text" class="form-control" id="bp" placeholder="Boiling point">
+    						</div>
+
+    						<div class="form-group">
+    							<label for="sol_prod">Solubility product</label>
+    							<input type="text" class="form-control" id="sol_prod" placeholder="Solubility product">
+    						</div>
+
+    						<div class="form-group">
+    							<label for="sol_wat">Solubility in water</label>
+    							<input type="text" class="form-control" id="sol_wat" placeholder="Solubility in water">
+    						</div>
+    						<div class="form-group">
+    							<label for="solblty">Solubility</label>
+    							<input type="text" class="form-control" id="solblty" placeholder="Solubility">
+    						</div>
+    						<div class="form-group">
+    							<label for="SHC">Specific Heat Capacity</label>
+    							<input type="text" class="form-control" id="SHC" placeholder="Specific Heat Capacity">
+    						</div>
+
+    						<div class="form-group">
+    							<label for="SME">Std. Molar Entropy</label>
+    							<input type="text" class="form-control" id="SME" placeholder="Std. Molar Entropy">
+    						</div>
+
+    						<div class="form-group">
+    							<label for="SEF">Std. Enthalpy Formation</label>
+    							<input type="text" class="form-control" id="SEF" placeholder="Std. Enthalpy Formation">
+    						</div>
+
+    						<div class="form-group">
+    							<label for="GE">Gibbs Energy</label>
+    							<input type="text" class="form-control" id="GE" placeholder="Gibbs Energy">
+    						</div>
+    						<div class="form-group">
+    							<label for="LC">Lattice Constant</label>
+    							<input type="text" class="form-control" id="LC" placeholder="Lattice Constant">
+    						</div>
+
+    						<div class="form-group">
+    							<label for="GHS">GHS Pictogram</label>
+    							<input type="text" class="form-control" id="GHS" placeholder="GHS Pictogram">
+    						</div>
+
+    						<div class="form-group">
+    							<label for="EU_DSD">EU DSD</label>
+    							<input type="text" class="form-control" id="EU_DSD" placeholder="EU DSD">
+    						</div>
+    						<div class="form-group">
+    							<label for="NFPA">NFPA | </label>
+    							<input type="text" class="form-control" id="NFPA" placeholder="NFPA">
+    						</div>
+
+
+    						<div class="form-group">
+    							<label for="vp">Vapour Pressure</label>
+    							<input type="text" class="form-control" id="vp" placeholder="Vapour Pressure">
+    						</div>
+
+    						<div class="form-group">
+    							<label for="accidty">Acidity</label>
+    							<input type="text" class="form-control" id="accidty" placeholder="Acidity">
+    						</div>
+
+    						<div class="form-group">
+    							<label for="viscosty">Viscosoty</label>
+    							<input type="text" class="form-control" id="viscosty" placeholder="Viscosoty">
+    						</div>
+
+
+    					</form>
+    				</div>
+    				<div class="modal-footer">
+    					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    					<button type="button" class="btn btn-primary saveBtn">Save changes</button>
+    				</div>
+    			</div><!-- /.modal-content -->
+    		</div><!-- /.modal-dialog -->
+    	</div><!-- /.modal -->
+
+    </body>
+</html>
