@@ -1,0 +1,30 @@
+{
+  "name": "chem_server",
+  "version": "1.0.0",
+  "description": "Server for storing chemLab data and retriving it",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "MongoDB",
+    "Ionic",
+    "Bootstrap",
+    "HTML5",
+    "CSS3"
+  ],
+  "author": "Mujib Ansari",
+  "license": "MIT",
+  "devDependencies": {
+    "body-parser": "^1.17.1",
+    "cors": "^2.8.3",
+    "del": "^2.2.2",
+    "express": "^4.15.2",
+    "filereader": "^0.10.3",
+    "http": "0.0.0",
+    "method-override": "^2.3.8",
+    "mongoose": "^4.9.8",
+    "morgan": "^1.8.1",
+    "xmlhttprequest": "^1.8.0"
+  }
+}
