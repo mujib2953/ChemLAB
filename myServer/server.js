@@ -2,7 +2,7 @@
 * @Author: Mujib Ansari
 * @Date:   2017-05-13 14:32:44
 * @Last Modified by:   Mujib Ansari
-* @Last Modified time: 2017-05-14 15:43:19
+* @Last Modified time: 2017-05-14 21:01:08
 */
 
 'use strict';
@@ -187,6 +187,32 @@ app.post( '/api/deleteRow', function( req, res ) {
 			res.json( fileData );
 		} );
 	} );
+} );
+
+app.post( '/api/addGlobalProp', function( req, res ) {
+
+	var key = req.body.key;
+
+	fs.readFile( 'files/reactionDetails.json', 'utf8', function( err, fileData ) {
+
+		if( err ) res.send( err );
+
+		fileData = JSON.parse( fileData );
+
+		for( var i in fileData ) {
+
+			if( fileData[ i ][ key ] == undefined ) {
+				fileData[ i ][ key ] = '';
+			}
+
+		}
+
+		fs.writeFile( 'files/reactionDetails.json', JSON.stringify( fileData ), function() {
+			res.json( fileData );
+		} );
+
+	} );
+
 } );
 
 
