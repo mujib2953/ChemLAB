@@ -42,6 +42,7 @@
             
             <input type="text" class="form-control" id="gProp" placeholder="global Property">
             <button type="button" class="btn btn-success addProperty"> + Add global Property + </button>
+            <button type="button" class="btn btn-success remProperty"> + Del global Property + </button>
 
 			<table class="table" style="margin-bottom: 0;">
     			<thead>
@@ -74,15 +75,25 @@
     							<label for="IUPAC">IUPAC Name</label>
     							<input type="text" class="form-control" id="IUPAC" placeholder="IUPAC Name">
     						</div>
+                            <div class="form-group">
+                                <label for="otherName">Other Names</label>
+                                <input type="text" class="form-control" id="otherName" placeholder="Other Names">
+                            </div>
     						<div class="form-group">
     							<label for="CAS">CAS Number</label>
     							<input type="text" class="form-control" id="CAS" placeholder="CAS Number">
     						</div>
 
     						<div class="form-group">
-    							<label for="Formula">Formula 2Ag|S|Ag< sub>2< /sub>S</label>
-    							<input type="text" class="form-control" id="formula" placeholder="Formula">
+    							<label for="allElem">All Elements in Compound Ag|S</label>
+    							<input type="text" class="form-control" id="allElem" placeholder="All Elements in Compound">
     						</div>
+
+                            <div class="form-group">
+                                <label for="genEq">Equation to gerenate the compound</label>
+                                <input type="text" class="form-control" id="genEq" placeholder="Equation to gerenate the compound">
+                            </div>
+
     						<div class="form-group">
     							<label for="molar_mass">Molar mass</label>
     							<input type="text" class="form-control" id="molar_mass" placeholder="Molar mass">
@@ -186,6 +197,11 @@
     							<label for="viscosty">Viscosoty</label>
     							<input type="text" class="form-control" id="viscosty" placeholder="Viscosoty">
     						</div>
+
+                            <div class="form-group">
+                                <label for="oData">Other Data</label>
+                                <input type="text" class="form-control" id="oData" placeholder="Other Data">
+                            </div>
 
 
     					</form>

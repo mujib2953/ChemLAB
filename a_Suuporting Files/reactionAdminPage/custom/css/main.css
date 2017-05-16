@@ -2,7 +2,7 @@
 * @Author: Mujib Ansari
 * @Date:   2017-05-13 14:07:21
 * @Last Modified by:   Mujib Ansari
-* @Last Modified time: 2017-05-14 15:23:01
+* @Last Modified time: 2017-05-16 14:56:41
 */
 /* arrow in the input box  */
 input::-webkit-outer-spin-button,
@@ -15,7 +15,7 @@ input::-webkit-inner-spin-button {
 
 #loader {
 	position: absolute;
-	top: 0;
+	top: 22px;
 	left: 0;
 
 	height: 100%;

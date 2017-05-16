@@ -2,7 +2,7 @@
 * @Author: Mujib Ansari
 * @Date:   2017-05-13 14:06:53
 * @Last Modified by:   Mujib Ansari
-* @Last Modified time: 2017-05-14 20:51:29
+* @Last Modified time: 2017-05-16 15:03:28
 */
 
 'use strict';
@@ -57,6 +57,8 @@
 				"key": oScope.activeKey
 			}, function( data ) {
 			console.log( data );
+			oScope.API_data = data;
+			creatSkeleton.call( oScope );
 			p_fCallBack.call( oScope );
 		}, "json");
 
@@ -137,32 +139,67 @@
 
 		$( '.addRowBtn' ).off().on( 'click', function( e ) {
 
-			var res = readFormData.call( oScope );
-			
-			$.post( "http://localhost:8031/api/addDummyRow", {
-				"fileName": "reactionDetails",
-				"data": JSON.stringify( {} ),
-				"key": Math.floor( Math.random()*10000 )
-			}, function( data ) {
-				console.log( data );
-				oScope.API_data = data;
-				creatSkeleton.call( oScope );
-			}, "json");
+
+			var key = prompt( 'Please enter the Key for the element.' );
+
+			if( key != undefined && key != null ) {
+
+				var res = readFormData.call( oScope );
+				
+				$.post( "http://localhost:8031/api/addDummyRow", {
+					"fileName": "reactionDetails",
+					"data": JSON.stringify( {} ),
+					"key": key
+					// "key": Math.floor( Math.random()*10000 )
+				}, function( data ) {
+					console.log( data );
+					oScope.API_data = data;
+					creatSkeleton.call( oScope );
+				}, "json");
+
+			}
+
+				
 
 		} );
 
 		$( '.addProperty' ).off().on( 'click', function() {
 
-			var prop = $( '#gProp' ).val().trim();
+			var toCheck = confirm( 'Are you sure, You wanna Add global Property?' ); 
 
-			$.post( "http://localhost:8031/api/addGlobalProp", {
-				"key": prop
-			}, function( data ) {
+			if( toCheck ) {
+				var prop = $( '#gProp' ).val().trim();
 
-				oScope.API_data = data;
-				creatSkeleton.call( oScope );
+				$.post( "http://localhost:8031/api/addGlobalProp", {
+					"key": prop
+				}, function( data ) {
+
+					oScope.API_data = data;
+					creatSkeleton.call( oScope );
+					
+				} );
+
+			}
 				
-			} );
+		} );
+
+		$( '.remProperty' ).off().on( 'click', function() {
+
+			var toCheck = confirm( 'Are you sure, You wanna delete global property' );
+
+			if( toCheck ) {
+
+				var prop = $( '#gProp' ).val().trim();
+
+				$.post( "http://localhost:8031/api/deleteGlobalProp", {
+					"key": prop
+				}, function( data ) {
+					console.log( data );
+					oScope.API_data = data;
+					creatSkeleton.call( oScope );
+					
+				} );
+			}
 
 		} );
 	};
@@ -171,6 +208,7 @@
 
 		var obj = {
 			"name": $( '#IUPAC' ).val(),
+			"otherName": $( '#otherName' ).val(),
 			"CAS": $( '#CAS' ).val(),
 			"desc": $( '#desc' ).val(),
 			"imgUrl": $( '#imgUrl' ).val(),
@@ -194,7 +232,9 @@
 			"vp": $( '#vp' ).val(),
 			"accidty": $( '#accidty' ).val(),
 			"viscosty": $( '#viscosty' ).val(),
-			"eq": $( '#formula' ).val().split( '|' )
+			"allElem": $( '#allElem' ).val().split( '|' ),
+			"genEq": $( '#genEq' ).val(),
+			"oData": JSON.stringify( $( '#oData' ).val() ),
 		};
 		return obj;
 	};
@@ -204,6 +244,7 @@
 		var imgText = ( p_obj.imgUrl ) ? p_obj.imgUrl.length > 150 ? 'too long' : p_obj.imgUrl : '-';
 
 		$( '#IUPAC' ).val( p_obj.name || '-' );
+		$( '#otherName' ).val( p_obj.otherName || '-' );
 		$( '#CAS' ).val( p_obj.CAS || '-' );
 		$( '#desc' ).val( p_obj.desc || '-' );
 		$( '#imgUrl' ).val( imgText );
@@ -227,7 +268,9 @@
 		$( '#vp' ).val( p_obj.vp || '-' );
 		$( '#accidty' ).val( p_obj.accidty || '-' );
 		$( '#viscosty' ).val( p_obj.viscosty || '-' );
-		$( '#formula' ).val( p_obj.eq ? p_obj.eq.join( '|' ) : '-' || '-' );
+		$( '#allElem' ).val( p_obj.allElem ? p_obj.allElem.join( '|' ) : '-' || '-' );
+		$( '#genEq' ).val( p_obj.genEq || '-' );
+		$( '#oData' ).val( p_obj.oData || '-' );
 	};	
 
 	function getSpecificData( p_Id ) {
