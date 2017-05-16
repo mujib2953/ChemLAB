@@ -2,7 +2,7 @@
 * @Author: Mujib Ansari
 * @Date:   2017-05-13 14:32:44
 * @Last Modified by:   Mujib Ansari
-* @Last Modified time: 2017-05-14 21:01:08
+* @Last Modified time: 2017-05-16 16:05:26
 */
 
 'use strict';
@@ -129,22 +129,35 @@ app.post( '/api/writeToFile', function( req, res ) {
 
     	fileData = JSON.parse( fileData );
 
-    	fileData[ key ] = JSON.parse( data );
 
-		requestAPI.get( fileData[ key ].imgUrl, function (error, response, body) {
-			
-			if (!error && response.statusCode == 200) {
+    	if( fileData[ key ].imgUrl != data.imgUrl ) {
+
+    		fileData[ key ] = JSON.parse( data );
+
+			requestAPI.get( fileData[ key ].imgUrl, function (error, response, body) {
 				
-				data = "data:" + response.headers["content-type"] + ";base64," + new Buffer(body).toString('base64');
-				// console.log(data);
+				if (!error && response.statusCode == 200) {
+					
+					data = "data:" + response.headers["content-type"] + ";base64," + new Buffer(body).toString('base64');
+					// console.log(data);
 
-				fileData[ key ].imgBase64 = data;
-				fs.writeFile( 'files/' + fileName + '.json', JSON.stringify( fileData ), function() {
-					res.json( fileData );
-				} );
-			}
+					fileData[ key ].imgBase64 = data;
+					fs.writeFile( 'files/' + fileName + '.json', JSON.stringify( fileData ), function() {
+						res.json( fileData );
+					} );
+				}
 
-		});		
+			});		
+    	} else {
+
+    		fileData[ key ] = JSON.parse( data );
+    		
+    		fs.writeFile( 'files/' + fileName + '.json', JSON.stringify( fileData ), function() {
+				res.json( fileData );
+			} );
+    	}
+
+	    	
 
     } );
 } );
@@ -192,7 +205,7 @@ app.post( '/api/deleteRow', function( req, res ) {
 app.post( '/api/addGlobalProp', function( req, res ) {
 
 	var key = req.body.key;
-
+	console.log( 'key :: ' + key );
 	fs.readFile( 'files/reactionDetails.json', 'utf8', function( err, fileData ) {
 
 		if( err ) res.send( err );
@@ -200,7 +213,6 @@ app.post( '/api/addGlobalProp', function( req, res ) {
 		fileData = JSON.parse( fileData );
 
 		for( var i in fileData ) {
-
 			if( fileData[ i ][ key ] == undefined ) {
 				fileData[ i ][ key ] = '';
 			}
@@ -212,6 +224,30 @@ app.post( '/api/addGlobalProp', function( req, res ) {
 		} );
 
 	} );
+
+} );
+
+app.post( '/api/deleteGlobalProp', function( req, res ) {
+
+	var key = req.body.key;
+
+	fs.readFile( 'files/reactionDetails.json', 'utf8', function( err, fileData ) {
+
+		if( err ) res.send( err );
+
+		fileData = JSON.parse( fileData );
+
+		for( var i in fileData ) {
+
+			if( fileData[ i ][ key ] != undefined ) {
+				delete fileData[ i ][ key ];
+			}
+
+		}
+		fs.writeFile( 'files/reactionDetails.js', JSON.stringify( fileData ), function() {
+			res.send( fileData )
+		} );
+	} )
 
 } );
 
