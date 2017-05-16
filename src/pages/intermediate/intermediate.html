@@ -31,8 +31,8 @@
 				<ion-list>
 					<ion-item>
 						<ion-label>Reactant #1</ion-label>
-						<ion-select [(ngModel)]="gObj.userData.elm_1" (ionChange)="ractant_1_Selection()" >
-							<ion-option *ngFor="let data of gObj.ractant_1" value="{{ data.$key }}">{{ data.$key }}</ion-option>
+						<ion-select [(ngModel)]="gObj.userData.elm_1" (ionChange)="reactant_1_Selection()" >
+							<ion-option *ngFor="let data of gObj.reactant_1" value="{{ data }}">{{ data }}</ion-option>
 						</ion-select>
 					</ion-item>
 				</ion-list>
@@ -48,9 +48,9 @@
 				<ion-list>
 					<ion-item>
 						<ion-label>Reactant #2</ion-label>
-						<ion-select [(ngModel)]="gObj.userData.elm_2" (ionChange)="ractant_2_Selection()">
+						<ion-select [(ngModel)]="gObj.userData.elm_2" (ionChange)="reactant_2_Selection()">
 							<!-- reactionFormattedJSON -->
-							<ion-option *ngFor="let data of gObj.ractant_2" value="{{ data.$key }}">{{ data.$key }}</ion-option>
+							<ion-option *ngFor="let data of gObj.reactant_2" value="{{ data }}">{{ data }}</ion-option>
 						</ion-select>
 					</ion-item>
 				</ion-list>

@@ -201,4 +201,10 @@ export class AngularFireService {
     	return list;
     }
 
+    getCompundDetails(): any {
+
+        return this.http.get( 'assets/jsonFiles/reactionDetails.json' );
+
+    }
+
 }
