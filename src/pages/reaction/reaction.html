@@ -7,12 +7,165 @@
 <ion-header>
 
 	<ion-navbar>
-		<ion-title>reaction</ion-title>
+		<ion-title>Reaction</ion-title>
 	</ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+	<div class="titleWrapper">
+		<div class="title">{{ compDetails.name }}</div>
+	</div>
 
+	<div class="imgWrapper">
+		<div class="item-thumbnail-left" [ngStyle]="{ 'backgroundImage': 'url(' +  compDetails.imgBase64 + ')', 'background-size': '100%', 'height': '275px', 'background-repeat': 'no-repeat' }"></div>
+	</div>
+
+	<!-- Descriptions -->
+	<ion-card>
+		<ion-card-content>
+			{{ compDetails.desc }}
+		</ion-card-content>
+	</ion-card>
+
+	<!-- Other names -->
+	<ion-card *ngIf="compDetails.otherName != '-'">
+		<ion-card-header>
+			Other names
+		</ion-card-header>
+		<ion-card-content>
+			{{ compDetails.otherName }}
+		</ion-card-content>
+	</ion-card>
+
+	<ion-card>
+		<ion-card-header>
+			Equation to genarate
+		</ion-card-header>
+		<ion-card-content>
+			<div class="genEqu" [innerHtml]="compDetails.genEq" ></div>
+		</ion-card-content>
+	</ion-card>
+
+
+	<ion-list>
+		<ion-list-header>
+			Molecular Properties
+		</ion-list-header>
+		<ion-item>
+			<div class="blockElm">
+				CAS #
+			</div>
+			<div class="blockElm textRight" [innerHtml]="compDetails.CAS"></div>
+		</ion-item>
+
+		<ion-item>
+			<div class="blockElm">
+				Molar Mass
+			</div>
+			<div class="blockElm textRight" [innerHtml]="compDetails.molar_mass"></div>
+		</ion-item>
+
+
+		<ion-list-header>
+			Physical Properties
+		</ion-list-header>
+		<ion-item>
+			<div class="blockElm">
+				Appearance
+			</div>
+			<div class="blockElm textRight" [innerHtml]="compDetails.appearance"></div>
+		</ion-item>
+
+		<ion-item>
+			<div class="blockElm">
+				Odor
+			</div>
+			<div class="blockElm textRight" [innerHtml]="compDetails.odor"></div>
+		</ion-item>
+
+		<ion-item>
+			<div class="blockElm">
+				Melting Point
+			</div>
+			<div class="blockElm textRight" [innerHtml]="compDetails.mp"></div>
+		</ion-item>
+		<ion-item>
+			<div class="blockElm">
+				Bioling Point
+			</div>
+			<div class="blockElm textRight" [innerHtml]="compDetails.bp"></div>
+		</ion-item>
+
+		<ion-item>
+			<div class="blockElm">
+				Density
+			</div>
+			<div class="blockElm textRight" [innerHtml]="compDetails.density"></div>
+		</ion-item>
+
+		<ion-list-header>
+			Soluble Properties
+		</ion-list-header>
+
+		<ion-item>
+			<div class="blockElm">
+				Solubility product (<i>K</i>sp)
+			</div>
+			<div class="blockElm textRight" [innerHtml]="compDetails.sol_prod"></div>
+		</ion-item>
+		<ion-item>
+			<div class="blockElm">
+				Solubility in water
+			</div>
+			<div class="blockElm textRight" [innerHtml]="compDetails.sol_wat"></div>
+		</ion-item>
+		<ion-item>
+			<div class="blockElm">
+				Solubility
+			</div>
+			<div class="blockElm textRight wrapText" [innerHtml]="compDetails.solblty"></div>
+		</ion-item>
+
+		<ion-list-header>
+			Thermo-chemistry Properties
+		</ion-list-header>
+		<ion-item>
+			<div class="blockElm">
+				Specific heat capacity (C)
+			</div>
+			<div class="blockElm textRight" [innerHtml]="compDetails.SHC"></div>
+		</ion-item>
+		<ion-item>
+			<div class="blockElm">
+				Std molar entropy
+			</div>
+			<div class="blockElm textRight" [innerHtml]="compDetails.SME"></div>
+		</ion-item>
+		<ion-item>
+			<div class="blockElm">
+				Std enthalpy of formation
+			</div>
+			<div class="blockElm textRight" [innerHtml]="compDetails.SEF"></div>
+		</ion-item>
+		<ion-item>
+			<div class="blockElm">
+				Gibbs free energy
+			</div>
+			<div class="blockElm textRight" [innerHtml]="compDetails.GE"></div>
+		</ion-item>
+		<ion-list-header>
+			Other Properties
+		</ion-list-header>
+		<ion-item>
+			<div class="blockElm">
+				Lattice constant
+			</div>
+			<div class="blockElm textRight" [innerHtml]="compDetails.LC"></div>
+		</ion-item>
+
+	</ion-list>
+	
+	
 </ion-content>

@@ -132,7 +132,8 @@ export class IntermediatePage {
 	reactElements(): any {
 
 		let modal = this.modalCtrl.create( ReactionPage, {
-			sharedData: this.gObj.gData[ this.gObj.userData.elm_1 ][ this.gObj.userData.elm_2 ]
+			// sharedData: this.gObj.gData[ this.gObj.userData.elm_1 ][ this.gObj.userData.elm_2 ]
+			sharedData: "Ag2S"
 		} );
     	modal.present();
 	}	

@@ -16,6 +16,7 @@ export class ReactionPage {
 
 	loader: any;
 	gObj: any = {};
+    compDetails: any = {};
     constructor(
         public navCtrl: NavController,
         public navParams: NavParams,
@@ -26,7 +27,7 @@ export class ReactionPage {
     ) {
     	console.log( this.navParams.data );
     	this.toggleLoader( true );
-    	this.gObj.currentCompound = this.navParams.get( 'sharedData' ).elm;
+    	this.gObj.currentCompound = this.navParams.get( 'sharedData' );
     	this.getData();
 
     }
@@ -63,8 +64,9 @@ export class ReactionPage {
     	.map( res=> res.json() )
         .subscribe( res=> {
             console.log( res );
-            this.gObj.compDetails = res;
-            console.log( this.gObj.compDetails[ this.gObj.currentCompound ] );
+            this.gObj.allComp = res;
+            this.compDetails = this.gObj.allComp[ this.gObj.currentCompound ]
+            console.log( this.compDetails );
         } );
 
     }

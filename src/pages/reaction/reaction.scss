@@ -2,4 +2,36 @@ page-reaction {
 	.back-button {
 		display: block;
 	}
+	.titleWrapper {
+		text-align: center;
+		.title {
+			font-size: 1.85em;
+			border-bottom: 0.55px solid #c5c5c5;
+		}
+	}
+
+	.imgWrapper {
+		border: 1px solid #444;
+    	border-radius: 10px;
+	}
+	.genEqu {
+		text-align: center;
+		font-size: 1.2em;
+	}
+
+	ion-item {
+		font-size: 1.5rem !important;
+	}
+	.blockElm {
+		display: inline-block;
+	}
+	.textRight {
+	 	float: right;
+	}
+	ion-list-header {
+		color: #387ef5 !important;
+	}
+	.wrapText {
+		white-space: normal;
+	}
 }
