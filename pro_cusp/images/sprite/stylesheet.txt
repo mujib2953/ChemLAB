@@ -1,0 +1,209 @@
+.sprite {
+    background-image: url(spritesheet.png);
+    background-repeat: no-repeat;
+    display: block;
+}
+
+.sprite-compressed_gas {
+    width: 150px;
+    height: 150px;
+    background-position: -5px -5px;
+}
+
+.sprite-corresive {
+    width: 150px;
+    height: 150px;
+    background-position: -165px -5px;
+}
+
+.sprite-evs_hazardous {
+    width: 150px;
+    height: 150px;
+    background-position: -325px -5px;
+}
+
+.sprite-explosive {
+    width: 150px;
+    height: 150px;
+    background-position: -485px -5px;
+}
+
+.sprite-explosive_T13 {
+    width: 150px;
+    height: 150px;
+    background-position: -645px -5px;
+}
+
+.sprite-explosive_T14 {
+    width: 150px;
+    height: 150px;
+    background-position: -5px -165px;
+}
+
+.sprite-explosive_T15 {
+    width: 150px;
+    height: 149px;
+    background-position: -165px -165px;
+}
+
+.sprite-explosive_T16 {
+    width: 150px;
+    height: 150px;
+    background-position: -325px -165px;
+}
+
+.sprite-flammable {
+    width: 150px;
+    height: 150px;
+    background-position: -485px -165px;
+}
+
+.sprite-gas_T21 {
+    width: 150px;
+    height: 151px;
+    background-position: -645px -165px;
+}
+
+.sprite-gas_T21_1 {
+    width: 80px;
+    height: 80px;
+    background-position: -5px -326px;
+}
+
+.sprite-gas_T22 {
+    width: 150px;
+    height: 149px;
+    background-position: -95px -326px;
+}
+
+.sprite-gas_T22_1 {
+    width: 80px;
+    height: 80px;
+    background-position: -255px -326px;
+}
+
+.sprite-gas_T23 {
+    width: 150px;
+    height: 150px;
+    background-position: -345px -326px;
+}
+
+.sprite-gas_T3 {
+    width: 150px;
+    height: 149px;
+    background-position: -505px -326px;
+}
+
+.sprite-gas_T3_1 {
+    width: 80px;
+    height: 80px;
+    background-position: -665px -326px;
+}
+
+.sprite-gas_T41 {
+    width: 150px;
+    height: 150px;
+    background-position: -665px -416px;
+}
+
+.sprite-gas_T42 {
+    width: 150px;
+    height: 150px;
+    background-position: -5px -576px;
+}
+
+.sprite-gas_T43 {
+    width: 150px;
+    height: 150px;
+    background-position: -165px -576px;
+}
+
+.sprite-gas_T43_1 {
+    width: 80px;
+    height: 80px;
+    background-position: -5px -416px;
+}
+
+.sprite-gas_T51 {
+    width: 150px;
+    height: 150px;
+    background-position: -325px -576px;
+}
+
+.sprite-gas_T52 {
+    width: 150px;
+    height: 150px;
+    background-position: -485px -576px;
+}
+
+.sprite-gas_T52_1 {
+    width: 80px;
+    height: 80px;
+    background-position: -255px -416px;
+}
+
+.sprite-gas_T62 {
+    width: 75px;
+    height: 75px;
+    background-position: -645px -576px;
+}
+
+.sprite-gas_T71 {
+    width: 75px;
+    height: 75px;
+    background-position: -730px -576px;
+}
+
+.sprite-gas_T72 {
+    width: 75px;
+    height: 75px;
+    background-position: -645px -661px;
+}
+
+.sprite-gas_T73 {
+    width: 75px;
+    height: 75px;
+    background-position: -730px -661px;
+}
+
+.sprite-gas_T74 {
+    width: 75px;
+    height: 75px;
+    background-position: -805px -5px;
+}
+
+.sprite-gas_T8 {
+    width: 150px;
+    height: 150px;
+    background-position: -5px -746px;
+}
+
+.sprite-gas_T9 {
+    width: 75px;
+    height: 75px;
+    background-position: -805px -90px;
+}
+
+.sprite-harmful {
+    width: 150px;
+    height: 150px;
+    background-position: -165px -746px;
+}
+
+.sprite-hurtful {
+    width: 150px;
+    height: 150px;
+    background-position: -325px -746px;
+}
+
+.sprite-nausea {
+    width: 150px;
+    height: 150px;
+    background-position: -485px -746px;
+}
+
+.sprite-oxidiser {
+    width: 150px;
+    height: 150px;
+    background-position: -645px -746px;
+}
