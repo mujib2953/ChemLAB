@@ -16,7 +16,6 @@ import { XtremzPage } from '../pages/xtremz/xtremz';
 import { ElementsDetailsPage } from '../pages/elements-details/elements-details';
 import { KnowUsPage } from '../pages/know-us/know-us';
 import { ReactionPage } from '../pages/reaction/reaction';
-import { ElectronModelPage } from '../pages/electron-model/electron-model';
 
 // ---- Custom Services
 import { AngularFireService } from '../providers/angular-fire-service';
@@ -61,8 +60,7 @@ export const firebaseConfig = {
         XtremzPage,
         ElementsDetailsPage,
         KnowUsPage,
-        ReactionPage,
-        ElectronModelPage
+        ReactionPage
     ],
     imports: [
         IonicModule.forRoot(MyApp),
