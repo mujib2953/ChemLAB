@@ -27,12 +27,18 @@ export class AngularFireService {
     reactionJSON: any;
     reactionFormattedJSON: any;
 
+
+    //  ---- New
+    private MongoUrl: string = 'http://localhost:8031/';
+    AllElmList: any = [];
+
 	constructor(
 		public http: Http,
 
 		public af: AngularFire
 	) {
 		console.log('Hello AngularFireService Provider');
+        this.getAllElementList();
     }
     
     /*
@@ -204,6 +210,30 @@ export class AngularFireService {
     getCompundDetails(): any {
 
         return this.http.get( 'assets/jsonFiles/reactionDetails.json' );
+
+    }
+
+
+    /*
+    * Get data from Node Server
+    */
+    getAllElementList(): void {
+
+        // AllElmList
+        this.aGet( this.MongoUrl + 'api/getAllElms' )
+            .map( res=> res.json() )
+            .subscribe( res=> {
+                this.AllElmList = res;
+                console.log( this.AllElmList );
+            } );
+
+    }
+
+
+
+    aGet( p_url ): any {
+
+        return this.http.get( p_url );
 
     }
 
