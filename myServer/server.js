@@ -2,7 +2,7 @@
 * @Author: Mujib Ansari
 * @Date:   2017-05-13 14:32:44
 * @Last Modified by:   Mujib Ansari
-* @Last Modified time: 2017-05-16 16:05:26
+* @Last Modified time: 2017-05-21 17:26:23
 */
 
 'use strict';
@@ -33,6 +33,11 @@ app.use( bodyParser.json( { type: 'application/vnd.api+json' } ) ); // --- parse
 app.use( methodOverride() );
 app.use( cors() );
 
+
+/*----- Application Vars ----- */
+var allElements;
+
+
 /* --- Below is the code for HTTP header --- */
 // app.use( function( req, res, next ) {
 // 	res.header( 'Access-Control-Allow-Origin', '*' );
@@ -49,7 +54,6 @@ var ReviewModel = mongoose.model('ReviewModel', {
 /* --- Model creation ends --- */
 
 // ------------------- GET Request ----------------------
-
 app.get( '/api/getRatings', function( req, res ) {
 	console.log( '****** Reading ratings *******' );
 
@@ -65,7 +69,6 @@ app.get( '/api/getRatings', function( req, res ) {
 // ------------------- GET Request Ends -----------------
 
 // ------------------- POST Request ----------------------
-
 app.post( '/api/postRatings', function( req, res ) {
 	console.log( '****** Storing ratings *******' );
 
@@ -91,7 +94,6 @@ app.post( '/api/postRatings', function( req, res ) {
 // ------------------- POST Request Ends -----------------
 
 // ------------------- DELETE Request ----------------------
-
 app.delete( '/api/deletReview/:id', function( req, res ) {
 
 	ReviewModel.remove({
@@ -109,7 +111,6 @@ app.delete( '/api/deletReview/:id', function( req, res ) {
 /* ---------------------------------------------------------
 -------------------- File System API -----------------------
 ------------------------------------------------------------*/
-
 app.get( '/api/readFile', function( req, res ) {
 	fs.readFile( 'files/reactionDetails.json', 'utf8', function( err, data ) {
 		if( err ) res.send( err );
@@ -251,6 +252,158 @@ app.post( '/api/deleteGlobalProp', function( req, res ) {
 
 } );
 
+
+
+
+// -------------- All Elements -------------------------
+app.get( '/api/allElmConvertBase64', function( req, res ) {
+
+	fs.readFile( 'files/allElements.json', function( err, fileData ) {
+
+		if( err ) res.send( err );
+
+		fileData = JSON.parse( fileData );
+
+		var myKey = 0,
+			fileSize = fileData.length,
+			imgArr = {};
+
+		var doTask = function() {
+			console.log( myKey + ' Starting..' );
+
+			if( fileData[ myKey ].imgBase64 == undefined ) {
+				requestAPI.get( fileData[ myKey ].img_src, function (error, response, body) {
+				
+					if (!error && response.statusCode == 200) {
+						
+						var data = "data:" + response.headers["content-type"] + ";base64," + new Buffer(body).toString('base64');
+			
+						fileData[ myKey ].imgBase64 = data;
+						console.log( myKey + 'writting to file...' );
+						
+						imgArr[ myKey ] = data
+						fs.writeFile( 'files/allElements.json', JSON.stringify( fileData ), function() {
+							console.log( myKey + 'writting Completed...' );
+							
+							if( myKey > fileSize-2 ){
+								console.log( ' *** Completed *** ' );
+								res.json( fileData );
+							}
+							else {
+								myKey++;
+								doTask();
+							}
+
+						} );
+					}
+
+				});
+			} else {
+				if( myKey > fileSize-2 ){
+					console.log( ' *** Completed *** ' );
+					res.json( fileData );
+				}
+				else {
+					myKey++;
+					doTask();
+				}
+			}
+
+		}
+		doTask();
+
+	} );
+
+} );
+
+
+app.get( '/api/rearrange', function( req, res ) {
+
+	
+	// fs.readFile( 'files/allElements.json', function( err, fileData ) {
+
+	// 	if( err ) res.send( err );
+	// 	fileData = JSON.parse( fileData );
+
+	// 	var newJSon = {};
+
+	// 	for( var i in fileData ) {
+
+	// 		newJSon[ fileData[ i ].symbol ] = fileData[ i ];
+
+	// 	}
+
+	// 	fs.writeFile( 'files/allElements.json', JSON.stringify( newJSon ), function() {
+	// 		console.log( 'writting Completed..' );
+	// 		res.send( newJSon )
+	// 	});
+
+	// } );
+
+
+
+	fs.readFile( 'files/allElements.json', function( err, fileData ) {
+
+		if( err ) res.send( err );
+		fileData = JSON.parse( fileData );
+
+		var AllElements = [];
+
+		for( var i in fileData ) {
+			AllElements.push( {
+				symbol: fileData[ i ].symbol,
+				name: fileData[ i ].name,
+			} );
+		}
+
+		fileData[ 'AllElements' ] = AllElements;
+
+		fs.writeFile( 'files/allElements.json', JSON.stringify( fileData ), function() {
+			console.log( 'writting Completed..' );
+			res.send( fileData )
+		});
+	});
+
+} );
+
+
+app.get( '/api/getElements/:name', function( req, res ) {
+	var elm = req.params.name;
+
+	if( allElements ) {
+		res.send( allElements[ elm ] );
+	} else {
+		readFileData( req, res , function() {
+			res.send( allElements[ elm ] );
+		} );
+	}
+
+} );
+
+app.get( '/api/getAllElms', function( req, res ) {
+
+	if( allElements ) {
+		res.send( allElements[ 'AllElements' ] );
+	} else {
+		readFileData( req, res , function() {
+			res.send( allElements[ 'AllElements' ] );
+		} );
+	}
+
+} );
+
+
+
+function readFileData( req, res, p_fCallback ) {
+
+	fs.readFile( 'files/allElements.json', function( err, fileData ) {
+		if( err ) res.send( err );
+		allElements = JSON.parse( fileData );
+		if( p_fCallback )
+			p_fCallback();
+	} );
+
+}
 
 // ------------------------- port -------------------------
 app.listen(8031);
