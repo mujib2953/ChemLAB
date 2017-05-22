@@ -1,8 +1,8 @@
 /*
 * @Author: Mujib Ansari
 * @Date:   2017-05-13 14:32:44
-* @Last Modified by:   Mujib Ansari
-* @Last Modified time: 2017-05-21 17:26:23
+* @Last Modified by:   mujibur
+* @Last Modified time: 2017-05-22 20:04:59
 */
 
 'use strict';
@@ -18,7 +18,8 @@ var fs 					= require( 'fs' ),					// ---
 	XMLHttpRequest 		= require("xmlhttprequest").XMLHttpRequest,
 	FileReader 			= require('filereader'),
 	requestAPI 			= require('request').defaults({ encoding: null }),
-	http 				= require( 'http' );				// --- 
+	http 				= require( 'http' ),				// --- 
+	https 				= require( 'https' );				// --- 
 
 var dbURL = 'mongodb://127.0.0.1:27017',
 	db = '/chemLab';
@@ -35,7 +36,8 @@ app.use( cors() );
 
 
 /*----- Application Vars ----- */
-var allElements;
+var allElements,
+	AllReaction;
 
 
 /* --- Below is the code for HTTP header --- */
@@ -316,7 +318,7 @@ app.get( '/api/allElmConvertBase64', function( req, res ) {
 
 } );
 
-
+var gJSON = {};
 app.get( '/api/rearrange', function( req, res ) {
 
 	
@@ -342,29 +344,90 @@ app.get( '/api/rearrange', function( req, res ) {
 
 
 
-	fs.readFile( 'files/allElements.json', function( err, fileData ) {
+	// fs.readFile( 'files/allElements.json', function( err, fileData ) {
 
+	// 	if( err ) res.send( err );
+	// 	fileData = JSON.parse( fileData );
+
+	// 	var AllElements = [];
+
+	// 	for( var i in fileData ) {
+	// 		AllElements.push( {
+	// 			symbol: fileData[ i ].symbol,
+	// 			name: fileData[ i ].name,
+	// 		} );
+	// 	}
+
+	// 	fileData[ 'AllElements' ] = AllElements;
+
+	// 	fs.writeFile( 'files/allElements.json', JSON.stringify( fileData ), function() {
+	// 		console.log( 'writting Completed..' );
+	// 		res.send( fileData )
+	// 	});
+	// });
+
+
+	fs.readFile( 'files/reactionDetails.json', function( err, reactionDD ) {
 		if( err ) res.send( err );
-		fileData = JSON.parse( fileData );
 
-		var AllElements = [];
+		
+		reactionDD = JSON.parse( reactionDD );
 
-		for( var i in fileData ) {
-			AllElements.push( {
-				symbol: fileData[ i ].symbol,
-				name: fileData[ i ].name,
-			} );
+
+		for( var i in reactionDD ) {
+
+			var allElem = reactionDD[ i ][ 'allElem' ];
+			creatReact( allElem, i );		
+
 		}
 
-		fileData[ 'AllElements' ] = AllElements;
+		
 
-		fs.writeFile( 'files/allElements.json', JSON.stringify( fileData ), function() {
-			console.log( 'writting Completed..' );
-			res.send( fileData )
-		});
-	});
+		fs.writeFile( 'files/reactions.json', JSON.stringify( gJSON ), function() {
+			
+			res.send( gJSON );
+		} );
+	} );
 
 } );
+
+function creatReact( p_arr, p_comp ) {
+	console.log( p_arr );
+	console.log( p_comp );
+	for( var i in p_arr ) {
+
+
+		for( var j in p_arr ) {
+
+			if( p_arr[ i ] != p_arr[ j ] ) {
+
+
+				if( gJSON[ p_arr[ i ] ] == undefined ) {
+
+					gJSON[ p_arr[ i ] ] = {};
+					
+					if( gJSON[ p_arr[ i ] ][ p_arr[ j ] ] == undefined )
+						gJSON[ p_arr[ i ] ][ p_arr[ j ] ] = [ p_comp ]
+				  else
+					gJSON[ p_arr[ i ] ][ p_arr[ j ] ].push( p_comp );
+
+				} else {
+
+					console.log( gJSON[ p_arr[ i ] ][ p_arr[ j ] ] );
+					if( gJSON[ p_arr[ i ] ][ p_arr[ j ] ] == undefined )
+						gJSON[ p_arr[ i ] ][ p_arr[ j ] ] = [ p_comp ]
+				  else
+					gJSON[ p_arr[ i ] ][ p_arr[ j ] ].push( p_comp );
+
+				}
+
+			}
+
+		}
+
+	}
+  console.log( gJSON );
+}
 
 
 app.get( '/api/getElements/:name', function( req, res ) {
@@ -392,6 +455,18 @@ app.get( '/api/getAllElms', function( req, res ) {
 
 } );
 
+app.get( '/api/getAllReaction', function( req, res ) {
+
+	if( AllReaction ) {
+
+	} else {
+		readReactionFile( req, res, function() {
+
+		} );
+	}
+
+} );
+
 
 
 function readFileData( req, res, p_fCallback ) {
@@ -402,6 +477,22 @@ function readFileData( req, res, p_fCallback ) {
 		if( p_fCallback )
 			p_fCallback();
 	} );
+
+}
+
+function readReactionFile( req, res, p_fCallback ) {
+
+	fs.readFile( 'files/reactionDetails.json', function( err, allReact ) {
+		if( err ) res.send( err );
+
+		AllReaction = JSON.parse( allReact );
+		if( p_fCallback )
+			p_fCallback();
+	} );
+
+};
+
+function createReaction() {
 
 }
 
