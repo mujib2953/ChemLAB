@@ -21526,17 +21526,6 @@ custom-spacer .spacer {
   background-color: red;
 }
 
-page-electron-model .myCanvasWrapper {
-  height: 150px;
-  margin: 10px;
-}
-
-page-electron-model canvas {
-  margin: 0 auto;
-  display: block;
-  border: 0.55px solid grey;
-}
-
 page-elements-details .gf {
   font-size: 1.5rem !important;
 }
