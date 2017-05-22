@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 
-import { AngularFire } from 'angularfire2';
+// import { AngularFire } from 'angularfire2';
 
 /*
   Generated class for the AngularFireService provider.
@@ -35,7 +35,7 @@ export class AngularFireService {
 	constructor(
 		public http: Http,
 
-		public af: AngularFire
+		// public af: AngularFire
 	) {
 		console.log('Hello AngularFireService Provider');
     }
@@ -70,30 +70,30 @@ export class AngularFireService {
     * -store in service's 'reactionJSON' variable
     * Params<function> :: A callback function which needs to be executed after data loads
     */
-    loadReaction( p_fCallback: any ): void {
+    // loadReaction( p_fCallback: any ): void {
 
-        if( this.reactionJSON ) {
-            if( p_fCallback )
-                p_fCallback();
-        } else {
+    //     if( this.reactionJSON ) {
+    //         if( p_fCallback )
+    //             p_fCallback();
+    //     } else {
             
-            this.af.database.list( '/reactions' ).subscribe( data => {
+    //         this.af.database.list( '/reactions' ).subscribe( data => {
                 
-                let tempData: any = {};
+    //             let tempData: any = {};
 
-                for( let i in data ) {
-                    tempData[  data[ i ].$key ] = data[ 0 ]
-                }
+    //             for( let i in data ) {
+    //                 tempData[  data[ i ].$key ] = data[ 0 ]
+    //             }
                 
-                this.reactionJSON = data;
-                this.reactionFormattedJSON = tempData;
+    //             this.reactionJSON = data;
+    //             this.reactionFormattedJSON = tempData;
                 
-                if( p_fCallback )
-                    p_fCallback();
-            } );
+    //             if( p_fCallback )
+    //                 p_fCallback();
+    //         } );
 
-        }
-    }
+    //     }
+    // }
 
     /*
     * Read or Write the dates to local storage.

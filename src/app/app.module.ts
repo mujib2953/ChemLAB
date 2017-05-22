@@ -17,35 +17,19 @@ import { ElementsDetailsPage } from '../pages/elements-details/elements-details'
 import { KnowUsPage } from '../pages/know-us/know-us';
 import { ReactionPage } from '../pages/reaction/reaction';
 
-// ---- Custom Services
+// // ---- Custom Services
 import { AngularFireService } from '../providers/angular-fire-service';
 
-// Import the AF2 Module
-import { AngularFireModule } from 'angularfire2';
+// // Import the AF2 Module
+// import { AngularFireModule } from 'angularfire2';
 
 // AF2 Settings
-export const firebaseConfig = {
-    apiKey: "AIzaSyAGTwZIbcgCToM49vt4W2GYfWH1XsF7644",
-    authDomain: "test-3823e.firebaseapp.com",
-    databaseURL: "https://test-3823e.firebaseio.com",
-    storageBucket: "test-3823e.appspot.com",
-    messagingSenderId: "549062744875"
-};
-
-
-// interface CloudSettings {
-//     core: {}
-//     // push: PushOptions
-//     // database: IonicDBOptions
-//     // auth: AuthOptions
-//     // insights: InsightsOptions
-//     // logger: LoggerOptions
-// }
-
-// const cloudSettings: CloudSettings = {
-//     'core': {
-//         'app_id': '50b0c8e3'
-//     }
+// export const firebaseConfig = {
+//     apiKey: "AIzaSyAGTwZIbcgCToM49vt4W2GYfWH1XsF7644",
+//     authDomain: "test-3823e.firebaseapp.com",
+//     databaseURL: "https://test-3823e.firebaseio.com",
+//     storageBucket: "test-3823e.appspot.com",
+//     messagingSenderId: "549062744875"
 // };
 
 @NgModule({
@@ -64,7 +48,7 @@ export const firebaseConfig = {
     ],
     imports: [
         IonicModule.forRoot(MyApp),
-        AngularFireModule.initializeApp(firebaseConfig),
+        // AngularFireModule.initializeApp(firebaseConfig),
         // CloudModule.forRoot(cloudSettings)
     ],
     bootstrap: [IonicApp],
