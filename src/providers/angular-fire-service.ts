@@ -29,7 +29,7 @@ export class AngularFireService {
 
 
     //  ---- New
-    private MongoUrl: string = 'http://localhost:8031/';
+    private MongoUrl: string = 'http://10.241.190.216:8031/';
     AllElmList: any = [];
 
 	constructor(
@@ -38,7 +38,6 @@ export class AngularFireService {
 		public af: AngularFire
 	) {
 		console.log('Hello AngularFireService Provider');
-        this.getAllElementList();
     }
     
     /*
@@ -64,38 +63,6 @@ export class AngularFireService {
     */
     removeClass( elem: any, className: string ): void {
         elem.classList.remove( className );
-    }
-
-    /*
-    * Loads the All Element List in JSON format from firebase or local-Storage
-    * Params<function> :: A callback function which needs to be executed after data loads
-    */
-    loadJSON( p_fCallback: any ): void {
-
-        let scope: any = this;
-    	let isToDownload: boolean = this.readDate();
-
-        if( ( typeof(Storage) !== "undefined" && localStorage.getItem( "allElements" ) == undefined ) || isToDownload ) {
-            
-            scope.put( ' Loading from DB ' );
-        	this.elm_DB_Ref = this.af.database.list( '/newElements' );
-            this.elm_DB_Ref.subscribe( data => {
-                
-                scope.elmList = data;
-                localStorage.setItem("allElements", JSON.stringify( data ) );
-
-                if( p_fCallback )
-                    p_fCallback();
-            } );
-
-        } else {
-            scope.put( ' Loading from Local Storage ' );
-            scope.elmList = JSON.parse( localStorage.getItem( "allElements" ) );
-
-            if( p_fCallback )
-                p_fCallback();
-        }
-        // console.log( scope.elmList );
     }
 
     /*
@@ -208,23 +175,24 @@ export class AngularFireService {
     }
 
     getCompundDetails(): any {
-
         return this.http.get( 'assets/jsonFiles/reactionDetails.json' );
-
     }
 
 
     /*
     * Get data from Node Server
     */
-    getAllElementList(): void {
+    getAllElementList( p_fCallback: any ): void {
 
         // AllElmList
-        this.aGet( this.MongoUrl + 'api/getAllElms' )
+        this.aGet( 'api/getAllElms' )
             .map( res=> res.json() )
             .subscribe( res=> {
+                
                 this.AllElmList = res;
-                console.log( this.AllElmList );
+                
+                if( p_fCallback )
+                    p_fCallback();
             } );
 
     }
@@ -233,7 +201,7 @@ export class AngularFireService {
 
     aGet( p_url ): any {
 
-        return this.http.get( p_url );
+        return this.http.get( this.MongoUrl + p_url );
 
     }
 

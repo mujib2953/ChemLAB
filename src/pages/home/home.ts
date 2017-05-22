@@ -49,7 +49,7 @@ export class HomePage {
 		if( this.AFS.elmList == undefined ) {
 
 			this.toggleLoader( true );
-			this.AFS.loadJSON( function(){
+			this.AFS.getAllElementList( function(){
                 scope.toggleLoader( false );
             } );
 

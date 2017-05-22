@@ -16,7 +16,7 @@
 <ion-content>
 	
 	<ion-list>
-		<ion-item *ngFor="let elem of allElementList" (click)="moveToPage( elem )" >
+		<ion-item *ngFor="let elem of allElementList" (click)="moveToPage( elem.symbol )" >
 			<div class="elmName">{{ elem.name }}</div>
 			<div class="elmSymbol">{{ elem.symbol }}</div>
 			

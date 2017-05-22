@@ -30,7 +30,7 @@ export class MyApp {
                 /*
                 * On device ready calling service function to load JSON data
                 */
-                this.AFS.loadJSON( function(){
+                this.AFS.getAllElementList( function(){
                     Splashscreen.hide();
                 } );
             }

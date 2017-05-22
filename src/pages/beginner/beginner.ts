@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, LoadingController } from 'ionic-angular';
 
 // --- services
 import { AngularFireService } from '../../providers/angular-fire-service';
@@ -19,10 +19,13 @@ import { ElementsDetailsPage } from '../elements-details/elements-details';
 export class BeginnerPage {
 
   	allElementList: string[];
+  	private loader: any;
 
 	constructor(
 		public navCtrl: NavController, 
 		public navParams: NavParams,
+
+		public loadingCtrl: LoadingController,
 
 		public AFS: AngularFireService
 	) {
@@ -38,7 +41,7 @@ export class BeginnerPage {
 	* Reading data from Service
 	*/
 	initializeItems() {
-		this.allElementList = this.AFS.elmList;
+		this.allElementList = this.AFS.AllElmList;
 	}
 
 	/*
@@ -63,11 +66,36 @@ export class BeginnerPage {
 	* For Navigation from Home to specific page
 	* @Params :: Object of the elemnet
 	*/
-	moveToPage( data: any ): void {
+	moveToPage( p_elmSymbl: any ): void {
+		this.toggleLoader( true );
+		this.AFS.aGet( 'api/getElements/' + p_elmSymbl )
+			.map( res=> res.json() )
+            .subscribe( res=> {
+                
+                // console.log( res );
+                this.toggleLoader( false );
+                this.navCtrl.push( ElementsDetailsPage, {
+            		urlData: res
+            	} );
 
-		this.navCtrl.push( ElementsDetailsPage, {
-			urlData: data
-		} );
+            } );
+	}
+
+	toggleLoader( p_status: boolean ): void {
+
+		if( p_status ) {
+
+			if( this.loader == undefined )
+				this.loader = this.loadingCtrl.create({});
+
+			this.loader.present();
+
+		} else {
+			if( this.loader ){
+				this.loader.dismiss();
+				this.loader = undefined;
+			}
+		}
 
 	}
 
