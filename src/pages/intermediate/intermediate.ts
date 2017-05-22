@@ -41,11 +41,11 @@ export class IntermediatePage {
 		public AFS: AngularFireService
 	) {
 
-		// this.toggleLoader( true );
-		// this.AFS.loadReaction( ()=> {
-		// 	this.gObj.ractant_1 = this.AFS.reactionJSON;
-		// 	this.toggleLoader( false );			
-		// });
+		this.toggleLoader( true );
+		this.AFS.loadReaction( ()=> {
+			this.gObj.ractant_1 = this.AFS.reactionJSON;
+			this.toggleLoader( false );			
+		});
 
 		this.gObj.gData = JSON.parse( '{"Ag":{"O":{"elm":"AgO","e":"O"},"N":{"elm":"AgN3","e":"N"},"C":{"elm":"AgOCN","e":"C"},"S":{"elm":"Ag2S","e":"S"},"Br":{"elm":"AgBr","e":"Br"},"Cl":{"elm":"AgCl","e":"Cl"},"I":{"elm":"AgI","e":"I"}},"O":{"Ag":{"elm":"AgO","e":"Ag"},"N":{"elm":"AgOCN","e":"N"},"C":{"elm":"AgOCN","e":"C"},"Al":{"elm":"Al2O3","e":"Al"}},"N":{"Ag":{"elm":"AgN3","e":"Ag"},"O":{"elm":"AgOCN","e":"O"},"C":{"elm":"AgOCN","e":"C"}},"C":{"Ag":{"elm":"AgOCN","e":"Ag"},"O":{"elm":"AgOCN","e":"O"},"N":{"elm":"AgOCN","e":"N"}},"S":{"Ag":{"elm":"Ag2S","e":"Ag"}},"Br":{"Ag":{"elm":"AgBr","e":"Ag"}},"Cl":{"Ag":{"elm":"AgCl","e":"Ag"}},"I":{"Ag":{"elm":"AgI","e":"Ag"}},"Al":{"O":{"elm":"Al2O3","e":"O"}}}' );
 		this.generateReactant_1()

@@ -29,7 +29,7 @@ export class AngularFireService {
 
 
     //  ---- New
-    private MongoUrl: string = 'http://10.241.190.216:8031/';
+    private MongoUrl: string = 'http://10.241.190.224:8031/';
     AllElmList: any = [];
 
 	constructor(
@@ -94,6 +94,11 @@ export class AngularFireService {
 
     //     }
     // }
+    loadReaction( p_fCallback: any ): void {
+
+        
+        
+    }
 
     /*
     * Read or Write the dates to local storage.

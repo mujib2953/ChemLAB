@@ -164,6 +164,52 @@
 			</div>
 			<div class="blockElm textRight" [innerHtml]="compDetails.LC"></div>
 		</ion-item>
+		<ion-item>
+			<div class="blockElm">
+				Accidity
+			</div>
+			<div class="blockElm textRight" [innerHtml]="compDetails.accidty"></div>
+		</ion-item>
+		<ion-item>
+			<div class="blockElm">
+				Viscosity
+			</div>
+			<div class="blockElm textRight" [innerHtml]="compDetails.viscosty"></div>
+		</ion-item>
+		<ion-item>
+			<div class="blockElm">
+				Vapour Pressure
+			</div>
+			<div class="blockElm textRight" [innerHtml]="compDetails.vp"></div>
+		</ion-item>
+		<ion-list-header>
+			EU classification (DSD)
+		</ion-list-header>
+		<ion-item>
+			<div class="sprite sprite-EU_DSD blockElm"></div>
+			<div class="blockElm eu-dsd" [innerHtml]="compDetails.EU_DSD"></div>
+		</ion-item>
+		<ion-list-header>
+			GHS pictograms
+		</ion-list-header>
+		<ion-item>
+			<div [ngClass]="'sprite blockElm ' + getClassName( compDetails.GHS )"></div>
+			<div class="blockElm ghs-class" [innerHtml]="compDetails.GHS"></div>
+		</ion-item>
+		<ion-list-header *ngIf="compDetails.NFPA" >
+			NFPA 704
+		</ion-list-header>
+		<ion-item *ngIf="compDetails.NFPA">
+			<div [ngClass]="'sprite sprite-NFPA nfpa-class '">
+				<div class="blockElm nfpa nfpa-left">{{ compDetails.NFPA.split( '|' )[ 0 ] }}</div>
+				<div class="blockElm nfpa nfpa-top">{{ compDetails.NFPA.split( '|' )[ 1 ] }}</div>
+				<div class="blockElm nfpa nfpa-right">{{ compDetails.NFPA.split( '|' )[ 2 ] }}</div>
+				<div class="blockElm nfpa nfpa-bottom">{{ compDetails.NFPA.split( '|' )[ 3 ] }}</div>
+			</div>
+			
+			
+			<!-- <div class="blockElm ghs-class" [innerHtml]="compDetails.GHS"></div> -->
+		</ion-item>
 
 	</ion-list>
 	

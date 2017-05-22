@@ -34,4 +34,35 @@ page-reaction {
 	.wrapText {
 		white-space: normal;
 	}
+	.eu-dsd {
+	    position: relative;
+    	top: -13px;
+	}
+	.ghs-class {
+		position: relative;
+    	top: -69px;
+	}
+	.nfpa-class {
+		margin: auto;
+	}
+	.nfpa {
+		font-weight: bold;
+		position: relative;
+	}
+	.nfpa-left {
+		top: 30px;
+    	left: 17px;
+	}
+	.nfpa-top {
+		top: 12px;
+    	left: 24px;
+	}
+	.nfpa-right {
+		top: 30px;
+    	left: 32px;
+	}
+	.nfpa-bottom {
+		top: 50px;
+    	left: -1px;
+	}
 }

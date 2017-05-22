@@ -26,7 +26,7 @@ export class ReactionPage {
         public AFS: AngularFireService
     ) {
     	console.log( this.navParams.data );
-    	this.toggleLoader( true );
+    	// this.toggleLoader( true );
     	this.gObj.currentCompound = this.navParams.get( 'sharedData' );
     	this.getData();
 
@@ -69,6 +69,24 @@ export class ReactionPage {
             console.log( this.compDetails );
         } );
 
+    }
+
+    getClassName( propName: any ): void {
+        console.log( propName );
+        let className: any;
+        switch( propName ) {
+
+            case 'Harmful':
+                className = 'sprite-harmful';
+            break;
+
+            default:
+                className = 'sprite-EU_DSD';
+            break;
+
+        }
+
+        return className;
     }
 
 }
