@@ -29,8 +29,11 @@ export class AngularFireService {
 
 
     //  ---- New
-    private MongoUrl: string = 'http://10.241.190.224:8031/';
+    private MongoUrl: string = 'http://10.241.191.1:8031/';
     AllElmList: any = [];
+    gReaction: any = {
+        firstTier: []
+    };
 
 	constructor(
 		public http: Http,
@@ -70,32 +73,18 @@ export class AngularFireService {
     * -store in service's 'reactionJSON' variable
     * Params<function> :: A callback function which needs to be executed after data loads
     */
-    // loadReaction( p_fCallback: any ): void {
+    loadReaction1stTier( p_fCallback: any ): any {
 
-    //     if( this.reactionJSON ) {
-    //         if( p_fCallback )
-    //             p_fCallback();
-    //     } else {
-            
-    //         this.af.database.list( '/reactions' ).subscribe( data => {
-                
-    //             let tempData: any = {};
-
-    //             for( let i in data ) {
-    //                 tempData[  data[ i ].$key ] = data[ 0 ]
-    //             }
-                
-    //             this.reactionJSON = data;
-    //             this.reactionFormattedJSON = tempData;
-                
-    //             if( p_fCallback )
-    //                 p_fCallback();
-    //         } );
-
-    //     }
-    // }
-    loadReaction( p_fCallback: any ): void {
-
+        if( this.gReaction.firstTier.length != 0 ) {
+           if( p_fCallback ) p_fCallback();
+        } else {
+            this.aGet( 'api/getFirstTierChemTree' )
+                .map( res=> res.json() )
+                .subscribe( res=> {
+                    this.gReaction.firstTier = res;
+                    if( p_fCallback ) p_fCallback();
+                } );
+        }
         
         
     }

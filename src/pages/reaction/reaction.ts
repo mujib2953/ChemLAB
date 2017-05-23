@@ -58,17 +58,19 @@ export class ReactionPage {
 
     getData(): void {
 
-    	let temp: any = this.AFS.getCompundDetails();
+    	
+        this.AFS.aGet( 'api/getReactionDetails/' + this.gObj.currentCompound )
+            .map( res=> res.json() )
+            .subscribe( res=> {
+                console.log( res );
 
-    	temp
-    	.map( res=> res.json() )
-        .subscribe( res=> {
-            console.log( res );
-            this.gObj.allComp = res;
-            this.compDetails = this.gObj.allComp[ this.gObj.currentCompound ]
-            console.log( this.compDetails );
-        } );
+                if( res.name != undefined ) {
+                    this.compDetails = res
+                    console.log( this.compDetails );
+                }
 
+                
+            } );
     }
 
     getClassName( propName: any ): void {

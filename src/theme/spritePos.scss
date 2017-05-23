@@ -1,0 +1,227 @@
+/*
+* @Author: mujibur
+* @Date:   2017-05-22 15:42:25
+* @Last Modified by:   mujibur
+* @Last Modified time: 2017-05-22 15:48:37
+*/
+.sprite {
+    background-image: url(../assets/images/spritesheet.png);
+    background-repeat: no-repeat;
+    display: block;
+}
+
+.sprite-EU_DSD {
+    width: 40px;
+    height: 40px;
+    background-position: -5px -5px;
+}
+
+.sprite-NFPA {
+    width: 80px;
+    height: 80px;
+    background-position: -55px -5px;
+}
+
+.sprite-compressed_gas {
+    width: 150px;
+    height: 150px;
+    background-position: -145px -5px;
+}
+
+.sprite-corresive {
+    width: 150px;
+    height: 150px;
+    background-position: -305px -5px;
+}
+
+.sprite-evs_hazardous {
+    width: 150px;
+    height: 150px;
+    background-position: -465px -5px;
+}
+
+.sprite-explosive {
+    width: 150px;
+    height: 150px;
+    background-position: -625px -5px;
+}
+
+.sprite-explosive_T13 {
+    width: 150px;
+    height: 150px;
+    background-position: -5px -165px;
+}
+
+.sprite-explosive_T14 {
+    width: 150px;
+    height: 150px;
+    background-position: -165px -165px;
+}
+
+.sprite-explosive_T15 {
+    width: 150px;
+    height: 149px;
+    background-position: -325px -165px;
+}
+
+.sprite-explosive_T16 {
+    width: 150px;
+    height: 150px;
+    background-position: -485px -165px;
+}
+
+.sprite-flammable {
+    width: 150px;
+    height: 150px;
+    background-position: -645px -165px;
+}
+
+.sprite-gas_T21 {
+    width: 150px;
+    height: 151px;
+    background-position: -5px -325px;
+}
+
+.sprite-gas_T21_1 {
+    width: 80px;
+    height: 80px;
+    background-position: -165px -325px;
+}
+
+.sprite-gas_T22 {
+    width: 150px;
+    height: 149px;
+    background-position: -255px -325px;
+}
+
+.sprite-gas_T22_1 {
+    width: 80px;
+    height: 80px;
+    background-position: -415px -325px;
+}
+
+.sprite-gas_T23 {
+    width: 150px;
+    height: 150px;
+    background-position: -505px -325px;
+}
+
+.sprite-gas_T3 {
+    width: 150px;
+    height: 149px;
+    background-position: -665px -325px;
+}
+
+.sprite-gas_T3_1 {
+    width: 80px;
+    height: 80px;
+    background-position: -165px -484px;
+}
+
+.sprite-gas_T41 {
+    width: 150px;
+    height: 150px;
+    background-position: -255px -484px;
+}
+
+.sprite-gas_T42 {
+    width: 150px;
+    height: 150px;
+    background-position: -665px -484px;
+}
+
+.sprite-gas_T43 {
+    width: 150px;
+    height: 150px;
+    background-position: -5px -644px;
+}
+
+.sprite-gas_T43_1 {
+    width: 80px;
+    height: 80px;
+    background-position: -415px -484px;
+}
+
+.sprite-gas_T51 {
+    width: 150px;
+    height: 150px;
+    background-position: -165px -644px;
+}
+
+.sprite-gas_T52 {
+    width: 150px;
+    height: 150px;
+    background-position: -325px -644px;
+}
+
+.sprite-gas_T52_1 {
+    width: 80px;
+    height: 80px;
+    background-position: -485px -644px;
+}
+
+.sprite-gas_T62 {
+    width: 75px;
+    height: 75px;
+    background-position: -575px -644px;
+}
+
+.sprite-gas_T71 {
+    width: 75px;
+    height: 75px;
+    background-position: -660px -644px;
+}
+
+.sprite-gas_T72 {
+    width: 75px;
+    height: 75px;
+    background-position: -745px -644px;
+}
+
+.sprite-gas_T73 {
+    width: 75px;
+    height: 75px;
+    background-position: -575px -729px;
+}
+
+.sprite-gas_T74 {
+    width: 75px;
+    height: 75px;
+    background-position: -660px -729px;
+}
+
+.sprite-gas_T8 {
+    width: 150px;
+    height: 150px;
+    background-position: -785px -5px;
+}
+
+.sprite-gas_T9 {
+    width: 75px;
+    height: 75px;
+    background-position: -805px -165px;
+}
+
+.sprite-harmful {
+    width: 150px;
+    height: 150px;
+    background-position: -825px -250px;
+}
+
+.sprite-hurtful {
+    width: 150px;
+    height: 150px;
+    background-position: -825px -410px;
+}
+
+.sprite-nausea {
+    width: 150px;
+    height: 150px;
+    background-position: -830px -570px;
+}
+
+.sprite-oxidiser {
+    width: 150px;
+    height: 150px;
+    background-position: -745px -730px;
+}
