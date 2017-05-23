@@ -1,8 +1,8 @@
 /*
 * @Author: Mujib Ansari
 * @Date:   2017-05-13 14:06:53
-* @Last Modified by:   Mujib Ansari
-* @Last Modified time: 2017-05-16 15:03:28
+* @Last Modified by:   mujibur
+* @Last Modified time: 2017-05-23 12:26:28
 */
 
 'use strict';
@@ -24,7 +24,7 @@
 
 	function getDataFromAPI() {
 
-		$.get( 'http://localhost:8031/api/readFile', function( data ) {
+		$.get( 'http://localhost:8031/api/readReactionData', function( data ) {
 			console.log( 'success' );
 			console.log( data );
 
@@ -40,19 +40,10 @@
 	};
 
 	function writeDataToAPI( p_Obj, p_fCallBack ) {
-
-		// /api/writeToFile
 		console.log( p_Obj );
 
-		var postData = { 
-			fileName: "reactionDetails" 
-			// data: p_Obj,
-			// key: oScope.activeKey
-		}
-
-		$.post( "http://localhost:8031/api/writeToFile", 
+		$.post( "http://localhost:8031/api/writeReactionData", 
 			{
-				"fileName": "reactionDetails",
 				"data": JSON.stringify( p_Obj ),
 				"key": oScope.activeKey
 			}, function( data ) {
@@ -147,7 +138,6 @@
 				var res = readFormData.call( oScope );
 				
 				$.post( "http://localhost:8031/api/addDummyRow", {
-					"fileName": "reactionDetails",
 					"data": JSON.stringify( {} ),
 					"key": key
 					// "key": Math.floor( Math.random()*10000 )
