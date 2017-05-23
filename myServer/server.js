@@ -2,7 +2,7 @@
 * @Author: Mujib Ansari
 * @Date:   2017-05-13 14:32:44
 * @Last Modified by:   mujibur
-* @Last Modified time: 2017-05-22 20:04:59
+* @Last Modified time: 2017-05-23 14:16:07
 */
 
 'use strict';
@@ -37,7 +37,8 @@ app.use( cors() );
 
 /*----- Application Vars ----- */
 var allElements,
-	AllReaction;
+	AllReaction,
+	chemTree;
 
 
 /* --- Below is the code for HTTP header --- */
@@ -48,388 +49,274 @@ var allElements,
 // } );
 /* --- HTTP header code ended --- */
 
-/* --- Model cretation starts --- */
-var ReviewModel = mongoose.model('ReviewModel', {
-	name: String,
-	rating: Number
-});
-/* --- Model creation ends --- */
-
-// ------------------- GET Request ----------------------
-app.get( '/api/getRatings', function( req, res ) {
-	console.log( '****** Reading ratings *******' );
-
-	ReviewModel.find( function( err, reviews ) {
-
-		if( err ) res.send( err );
-
-		res.json( reviews );
-		console.log( 'review sent' );
-	} );
-} );
-
-// ------------------- GET Request Ends -----------------
-
-// ------------------- POST Request ----------------------
-app.post( '/api/postRatings', function( req, res ) {
-	console.log( '****** Storing ratings *******' );
-
-	ReviewModel.create({
-		name: req.body.name,
-		rating: req.body.rating,
-		isVarified: false
-	}, function( err, review ) {
-
-		if( err ) res.send( err );
-
-		ReviewModel.find( function( err, review ) {
-			
-			if( err ) res.send( err );
-
-			res.json( review );
-
-		} );
-	});
-
-} );
-
-// ------------------- POST Request Ends -----------------
-
-// ------------------- DELETE Request ----------------------
-app.delete( '/api/deletReview/:id', function( req, res ) {
-
-	ReviewModel.remove({
-		_id: req.params.id
-	}, function( err, reviews ) {
-		if( err ) res.send( err );
-
-		res.json( reviews );
-	});
-
-} );
-
-// ------------------- DELETE Request Ends -----------------
 
 /* ---------------------------------------------------------
 -------------------- File System API -----------------------
 ------------------------------------------------------------*/
-app.get( '/api/readFile', function( req, res ) {
-	fs.readFile( 'files/reactionDetails.json', 'utf8', function( err, data ) {
-		if( err ) res.send( err );
-		res.json( JSON.parse( data ) );
-	} );
+
+
+/*
+*  Reaction Admin Page
+*/
+
+// ***  Reads the JSON files
+app.get( '/api/readReactionData', function( req, res ) {
+	
+	if( AllReaction ) {
+		res.json( AllReaction );
+	} else  {
+		readReactionFile( req, res, function() {
+			res.json( AllReaction );
+		} );
+	}
 } );
 
-app.post( '/api/writeToFile', function( req, res ) {
+// ***  writes the JSON files
+app.post( '/api/writeReactionData', function( req, res ) {
 
-	var fileName = req.body.fileName,
-		data = req.body.data,
+	var data = req.body.data,
 		key = req.body.key;
+	console.log( 'Writing to file' );
+	
+	if( AllReaction ) {
+		manageWriteOperation( AllReaction, data, key, req, res );
+	} else  {
+		readReactionFile( req, res, function() {
+			manageWriteOperation( AllReaction, data, key, req, res );
+		} )
+	}
+} );
+function manageWriteOperation( p_fileData, p_data, p_key, req, res ) {
+	console.log( 'manageWriteOperation reactionDetails started' );
+	if( p_data.imgUrl && ( p_fileData[ p_key ].imgUrl != p_data.imgUrl ) ) {
+		p_fileData[ p_key ] = JSON.parse( p_data );
 
-    fs.readFile( 'files/' + fileName + '.json', 'utf8', function( err, fileData ) {
+		requestAPI.get( p_fileData[ p_key ].imgUrl, function (error, response, body) {
 
-    	if( err ) res.send( err );
-
-    	fileData = JSON.parse( fileData );
-
-
-    	if( fileData[ key ].imgUrl != data.imgUrl ) {
-
-    		fileData[ key ] = JSON.parse( data );
-
-			requestAPI.get( fileData[ key ].imgUrl, function (error, response, body) {
-				
-				if (!error && response.statusCode == 200) {
+			if ( !error && response.statusCode == 200 ) {
+				console.log( 'base64 completed' );
+				var imgData = "data:" + response.headers["content-type"] + ";base64," + new Buffer(body).toString('base64');
 					
-					data = "data:" + response.headers["content-type"] + ";base64," + new Buffer(body).toString('base64');
-					// console.log(data);
-
-					fileData[ key ].imgBase64 = data;
-					fs.writeFile( 'files/' + fileName + '.json', JSON.stringify( fileData ), function() {
-						res.json( fileData );
+				p_fileData[ p_key ].imgBase64 = imgData;
+				
+				writeToReactionFile( p_fileData, function() {
+					creatReact( p_fileData[ p_key ][ 'allElem' ], p_key, function() {
+						console.log( 'Evert thing completed sending response' );
+						res.json( p_fileData );
 					} );
+				} );
+			}
+
+		});		
+	} else {
+		console.log( 'No base64 Found Fine' );
+		p_fileData[ p_key ] = JSON.parse( p_data );
+		
+		writeToReactionFile( p_fileData, function() {
+			creatReact( p_fileData[ p_key ][ 'allElem' ], p_key, function() {
+				console.log( 'Evert thing completed sending response' );
+				res.json( p_fileData );
+			} );	
+		} );
+	}
+};
+function creatReact( p_arr, p_comp, p_fCallback ) {
+	
+	console.log( 'Creating ChemTree started' );
+	var reactionJSON;
+
+	fs.readFile( 'files/chemTree.json', function( err, p_fileData ) {
+		reactionJSON = JSON.parse( p_fileData );
+
+		for( var i in p_arr ) {
+
+			for( var j in p_arr ) {
+
+				if( p_arr[ i ] != p_arr[ j ] ) {
+
+					if( reactionJSON[ p_arr[ i ] ] == undefined ) {
+
+						reactionJSON[ p_arr[ i ] ] = {};
+
+						if( reactionJSON[ p_arr[ i ] ][ p_arr[ j ] ] == undefined )
+							reactionJSON[ p_arr[ i ] ][ p_arr[ j ] ] = [ p_comp ]
+						else
+							reactionJSON[ p_arr[ i ] ][ p_arr[ j ] ].push( p_comp );
+
+					} else {
+
+						if( reactionJSON[ p_arr[ i ] ][ p_arr[ j ] ] == undefined )
+							reactionJSON[ p_arr[ i ] ][ p_arr[ j ] ] = [ p_comp ]
+						else
+							reactionJSON[ p_arr[ i ] ][ p_arr[ j ] ].push( p_comp );
+
+					}
+
 				}
 
-			});		
-    	} else {
+			}
 
-    		fileData[ key ] = JSON.parse( data );
-    		
-    		fs.writeFile( 'files/' + fileName + '.json', JSON.stringify( fileData ), function() {
-				res.json( fileData );
-			} );
-    	}
+		}
 
-	    	
-
-    } );
-} );
-
-
-app.post( '/api/addDummyRow', function( req, res ) {
-
-	var fileName = req.body.fileName,
-		data = req.body.data,
-		key = req.body.key;
-
-    fs.readFile( 'files/' + fileName + '.json', 'utf8', function( err, fileData ) {
-
-    	if( err ) res.send( err );
-
-    	fileData = JSON.parse( fileData );
-
-    	fileData[ key ] = JSON.parse( data );
-
-		fs.writeFile( 'files/' + fileName + '.json', JSON.stringify( fileData ), function() {
-			res.json( fileData );
+		// console.log( reactionJSON );
+		fs.writeFile( 'files/chemTree.json', JSON.stringify( reactionJSON ), function() {
+			console.log( 'Writing ChemTree started' );
+			if( p_fCallback )
+				p_fCallback();
 		} );
 
-    } );
-} );
+	} );
+}
 
+// ***  Add dummy row in the JSON files
+app.post( '/api/addDummyRow', function( req, res ) {
+
+	var data = req.body.data,
+		key = req.body.key;
+
+	if( AllReaction ) {
+		manageAddDummyRow( key, data, function() {
+			writeToReactionFile( AllReaction, function() {
+				res.json( AllReaction );
+			} );
+		} );
+	} else  {
+		readReactionFile( req, res, function() {
+			manageAddDummyRow( key, data, function() {
+				writeToReactionFile( AllReaction, function() {
+					res.json( AllReaction );
+				} );
+			} );
+		} )
+	}
+} );
+function manageAddDummyRow( p_key, p_data, p_fCallback ) {
+	AllReaction[ p_key ] = JSON.parse( p_data );
+	if( p_fCallback )
+		p_fCallback();
+};
+
+// ***  Delete row from the JSON files
 app.post( '/api/deleteRow', function( req, res ) {
 
 	var key = req.body.key;
 
-	fs.readFile( 'files/reactionDetails.json', 'utf8', function( err, fileData ) {
-
-		if( err ) res.send( err );
-
-		fileData = JSON.parse( fileData );
-
-		if( fileData[ key ] != undefined )
-			delete fileData[ key ];
-		fs.writeFile( 'files/reactionDetails.json', JSON.stringify( fileData ), function() {
-			res.json( fileData );
+	if( AllReaction ) {
+		manageDeleteRow( key, function() {
+			writeToReactionFile( AllReaction, function() {
+				res.json( AllReaction );
+			} );
 		} );
-	} );
+	} else  {
+		readReactionFile( req, res, function() {
+			manageDeleteRow( key, function() {
+				writeToReactionFile( AllReaction, function() {
+					res.json( AllReaction );
+				} );
+			} );
+		} )
+	}
 } );
+function manageDeleteRow( p_key, p_fCallback ) {
 
+	if( AllReaction[ p_key ] != undefined )
+		delete AllReaction[ p_key ];
+
+	if( p_fCallback )
+		p_fCallback();
+
+};
+
+// *** Adds global Property to JSON file
 app.post( '/api/addGlobalProp', function( req, res ) {
 
 	var key = req.body.key;
 	console.log( 'key :: ' + key );
-	fs.readFile( 'files/reactionDetails.json', 'utf8', function( err, fileData ) {
 
-		if( err ) res.send( err );
-
-		fileData = JSON.parse( fileData );
-
-		for( var i in fileData ) {
-			if( fileData[ i ][ key ] == undefined ) {
-				fileData[ i ][ key ] = '';
-			}
-
-		}
-
-		fs.writeFile( 'files/reactionDetails.json', JSON.stringify( fileData ), function() {
-			res.json( fileData );
+	if( AllReaction ) {
+		manageAddGlobalProp( key, function() {
+			writeToReactionFile( AllReaction, function() {
+				res.json( AllReaction );
+			} );
 		} );
-
-	} );
-
+	} else  {
+		readReactionFile( req, res, function() {
+			manageAddGlobalProp( key, function() {
+				writeToReactionFile( AllReaction, function() {
+					res.json( AllReaction );
+				} );
+			} );
+		} );
+	}
 } );
+function manageAddGlobalProp( p_key, p_fCallback ) {
 
+	var i;
+	for( i in AllReaction ) {
+		if( AllReaction[ i ][ p_key ] == undefined )
+			AllReaction[ i ][ p_key ] = '';
+	}
+
+	if( p_fCallback )
+		p_fCallback();
+
+};
+
+// *** Delete global Property from JSON file
 app.post( '/api/deleteGlobalProp', function( req, res ) {
 
 	var key = req.body.key;
 
-	fs.readFile( 'files/reactionDetails.json', 'utf8', function( err, fileData ) {
-
-		if( err ) res.send( err );
-
-		fileData = JSON.parse( fileData );
-
-		for( var i in fileData ) {
-
-			if( fileData[ i ][ key ] != undefined ) {
-				delete fileData[ i ][ key ];
-			}
-
-		}
-		fs.writeFile( 'files/reactionDetails.js', JSON.stringify( fileData ), function() {
-			res.send( fileData )
+	if( AllReaction ) {
+		manageDelGlobalProp( key, function() {
+			writeToReactionFile( AllReaction, function() {
+				res.json( AllReaction );
+			} );
 		} );
-	} )
-
-} );
-
-
-
-
-// -------------- All Elements -------------------------
-app.get( '/api/allElmConvertBase64', function( req, res ) {
-
-	fs.readFile( 'files/allElements.json', function( err, fileData ) {
-
-		if( err ) res.send( err );
-
-		fileData = JSON.parse( fileData );
-
-		var myKey = 0,
-			fileSize = fileData.length,
-			imgArr = {};
-
-		var doTask = function() {
-			console.log( myKey + ' Starting..' );
-
-			if( fileData[ myKey ].imgBase64 == undefined ) {
-				requestAPI.get( fileData[ myKey ].img_src, function (error, response, body) {
-				
-					if (!error && response.statusCode == 200) {
-						
-						var data = "data:" + response.headers["content-type"] + ";base64," + new Buffer(body).toString('base64');
-			
-						fileData[ myKey ].imgBase64 = data;
-						console.log( myKey + 'writting to file...' );
-						
-						imgArr[ myKey ] = data
-						fs.writeFile( 'files/allElements.json', JSON.stringify( fileData ), function() {
-							console.log( myKey + 'writting Completed...' );
-							
-							if( myKey > fileSize-2 ){
-								console.log( ' *** Completed *** ' );
-								res.json( fileData );
-							}
-							else {
-								myKey++;
-								doTask();
-							}
-
-						} );
-					}
-
-				});
-			} else {
-				if( myKey > fileSize-2 ){
-					console.log( ' *** Completed *** ' );
-					res.json( fileData );
-				}
-				else {
-					myKey++;
-					doTask();
-				}
-			}
-
-		}
-		doTask();
-
-	} );
-
-} );
-
-var gJSON = {};
-app.get( '/api/rearrange', function( req, res ) {
-
-	
-	// fs.readFile( 'files/allElements.json', function( err, fileData ) {
-
-	// 	if( err ) res.send( err );
-	// 	fileData = JSON.parse( fileData );
-
-	// 	var newJSon = {};
-
-	// 	for( var i in fileData ) {
-
-	// 		newJSon[ fileData[ i ].symbol ] = fileData[ i ];
-
-	// 	}
-
-	// 	fs.writeFile( 'files/allElements.json', JSON.stringify( newJSon ), function() {
-	// 		console.log( 'writting Completed..' );
-	// 		res.send( newJSon )
-	// 	});
-
-	// } );
-
-
-
-	// fs.readFile( 'files/allElements.json', function( err, fileData ) {
-
-	// 	if( err ) res.send( err );
-	// 	fileData = JSON.parse( fileData );
-
-	// 	var AllElements = [];
-
-	// 	for( var i in fileData ) {
-	// 		AllElements.push( {
-	// 			symbol: fileData[ i ].symbol,
-	// 			name: fileData[ i ].name,
-	// 		} );
-	// 	}
-
-	// 	fileData[ 'AllElements' ] = AllElements;
-
-	// 	fs.writeFile( 'files/allElements.json', JSON.stringify( fileData ), function() {
-	// 		console.log( 'writting Completed..' );
-	// 		res.send( fileData )
-	// 	});
-	// });
-
-
-	fs.readFile( 'files/reactionDetails.json', function( err, reactionDD ) {
-		if( err ) res.send( err );
-
-		
-		reactionDD = JSON.parse( reactionDD );
-
-
-		for( var i in reactionDD ) {
-
-			var allElem = reactionDD[ i ][ 'allElem' ];
-			creatReact( allElem, i );		
-
-		}
-
-		
-
-		fs.writeFile( 'files/reactions.json', JSON.stringify( gJSON ), function() {
-			
-			res.send( gJSON );
+	} else  {
+		readReactionFile( req, res, function() {
+			manageDelGlobalProp( key, function() {
+				writeToReactionFile( AllReaction, function() {
+					res.json( AllReaction );
+				} );
+			} );
 		} );
-	} );
-
-} );
-
-function creatReact( p_arr, p_comp ) {
-	console.log( p_arr );
-	console.log( p_comp );
-	for( var i in p_arr ) {
-
-
-		for( var j in p_arr ) {
-
-			if( p_arr[ i ] != p_arr[ j ] ) {
-
-
-				if( gJSON[ p_arr[ i ] ] == undefined ) {
-
-					gJSON[ p_arr[ i ] ] = {};
-					
-					if( gJSON[ p_arr[ i ] ][ p_arr[ j ] ] == undefined )
-						gJSON[ p_arr[ i ] ][ p_arr[ j ] ] = [ p_comp ]
-				  else
-					gJSON[ p_arr[ i ] ][ p_arr[ j ] ].push( p_comp );
-
-				} else {
-
-					console.log( gJSON[ p_arr[ i ] ][ p_arr[ j ] ] );
-					if( gJSON[ p_arr[ i ] ][ p_arr[ j ] ] == undefined )
-						gJSON[ p_arr[ i ] ][ p_arr[ j ] ] = [ p_comp ]
-				  else
-					gJSON[ p_arr[ i ] ][ p_arr[ j ] ].push( p_comp );
-
-				}
-
-			}
-
-		}
-
 	}
-  console.log( gJSON );
-}
+} );
 
+function manageDelGlobalProp( p_key, p_fCallback ) {
 
+	var i;
+
+	for( i in AllReaction ) {
+		if( AllReaction[ i ][ p_key ] != undefined )
+			delete AllReaction[ i ][ p_key ];
+	}
+
+	if( p_fCallback )
+		p_fCallback();
+
+};
+
+// *********************************************************************************** //
+/*
+*  Mobile App API's
+*/
+
+// 1. **** Return All Elements name and symbol
+app.get( '/api/getAllElms', function( req, res ) {
+
+	if( allElements ) {
+		res.send( allElements[ 'AllElements' ] );
+	} else {
+		readFileData( req, res , function() {
+			res.send( allElements[ 'AllElements' ] );
+		} );
+	}
+
+} );
+
+// 2. *** Return all property of the Element 
 app.get( '/api/getElements/:name', function( req, res ) {
 	var elm = req.params.name;
 
@@ -443,32 +330,84 @@ app.get( '/api/getElements/:name', function( req, res ) {
 
 } );
 
-app.get( '/api/getAllElms', function( req, res ) {
+app.get( '/api/getFirstTierChemTree', function( req, res ) {
 
-	if( allElements ) {
-		res.send( allElements[ 'AllElements' ] );
+	if( chemTree ) {
+		manageFirstTier( function( p_retArr ) {
+			res.json( { result: p_retArr } );
+		} );
 	} else {
-		readFileData( req, res , function() {
-			res.send( allElements[ 'AllElements' ] );
+		readChemTree( req, res, function() {
+			manageFirstTier( function( p_retArr ) {
+				res.json( { result: p_retArr } );
+			} );
 		} );
 	}
 
 } );
+function manageFirstTier( p_fCallback ) {
 
-app.get( '/api/getAllReaction', function( req, res ) {
+	var retArr = [],
+		i;
 
+	for( i in chemTree ) {
+
+		retArr.push( i );
+	}
+	console.log( retArr );
+	if( p_fCallback )
+		p_fCallback( retArr );
+};
+
+app.get( '/api/getSecondTierChemTree/:name', function( req, res ) {
+
+	var elmName = req.params.name;
+
+	if( chemTree ) {
+		manageSecondTier( elmName, function( p_retArr ) {
+			res.json( { result: p_retArr } );
+		} );
+	} else {
+		readChemTree( req, res, function() {
+			manageSecondTier( elmName, function( p_retArr ) {
+				res.json( { result: p_retArr } );
+			} );
+		} );
+	}
+
+} );
+function manageSecondTier( p_Name, p_fCallback ) {
+
+	var retObj = chemTree[ p_Name ];
+	if( p_fCallback )
+		p_fCallback( retObj );
+
+}
+
+
+app.get( '/api/getReactionDetails/:compound', function( req, res ) {
+
+	var comp = req.params.compound;
+	console.log( comp );
 	if( AllReaction ) {
-
+		if( AllReaction[ comp ] )
+			res.json( AllReaction[ comp ] );
+		else 
+			res.send( 'Not found' );
 	} else {
 		readReactionFile( req, res, function() {
-
+			console.log( AllReaction[ comp ] );
+			if( AllReaction[ comp ] )
+				res.json( AllReaction[ comp ] );
+			else 
+				res.send( 'Not found' );
 		} );
 	}
 
 } );
 
 
-
+// --- Reading All Element json
 function readFileData( req, res, p_fCallback ) {
 
 	fs.readFile( 'files/allElements.json', function( err, fileData ) {
@@ -478,24 +417,72 @@ function readFileData( req, res, p_fCallback ) {
 			p_fCallback();
 	} );
 
+
+
 }
 
+// --- Reading reaction Details json
 function readReactionFile( req, res, p_fCallback ) {
-
+	console.log( 'Reading reactionDetails file' );
 	fs.readFile( 'files/reactionDetails.json', function( err, allReact ) {
 		if( err ) res.send( err );
 
 		AllReaction = JSON.parse( allReact );
+		
 		if( p_fCallback )
 			p_fCallback();
 	} );
 
 };
 
-function createReaction() {
-
+// --- Writing reaction Details json
+function writeToReactionFile( p_data, p_fCallback ) {
+	console.log( 'Writting to reactionDetails started' );
+	fs.writeFile( 'files/reactionDetails.json', JSON.stringify( p_data ), function() {
+		if ( p_fCallback )
+			p_fCallback();
+	} );
 }
 
+// --- Reading chemTree json
+function readChemTree( req, res, p_fCallback ) {
+	fs.readFile( 'files/chemTree.json', function( err, chemTreeData ) {
+		if( err ) res.send( err );
+
+		chemTree = JSON.parse( chemTreeData );
+
+		if( p_fCallback )
+			p_fCallback();
+	} );
+}
 // ------------------------- port -------------------------
 app.listen(8031);
 console.log( 'Server is running at :: 8031' );
+
+// ---------------------------------------------------------------------------
+//  ----------------- Supporting API's ---------------------------------------
+
+app.get( '/api/rearrange', function( req, res ) {
+
+	// fs.readFile( 'files/reactionDetails.json', function( err, reactionDD ) {
+	// 	if( err ) res.send( err );
+
+		
+	// 	reactionDD = JSON.parse( reactionDD );
+
+
+	// 	for( var i in reactionDD ) {
+
+	// 		var allElem = reactionDD[ i ][ 'allElem' ];
+	// 		creatReact( allElem, i );		
+
+	// 	}
+
+	// 	fs.writeFile( 'files/reactions.json', JSON.stringify( gJSON ), function() {
+			
+	// 		res.send( gJSON );
+	// 	} );
+	// } );
+
+} );
+
