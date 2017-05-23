@@ -2,7 +2,7 @@
 * @Author: Mujib Ansari
 * @Date:   2017-05-13 14:32:44
 * @Last Modified by:   mujibur
-* @Last Modified time: 2017-05-23 14:16:07
+* @Last Modified time: 2017-05-23 14:39:33
 */
 
 'use strict';
@@ -396,7 +396,7 @@ app.get( '/api/getReactionDetails/:compound', function( req, res ) {
 			res.send( 'Not found' );
 	} else {
 		readReactionFile( req, res, function() {
-			console.log( AllReaction[ comp ] );
+			// console.log( AllReaction[ comp ] );
 			if( AllReaction[ comp ] )
 				res.json( AllReaction[ comp ] );
 			else 
