@@ -26,6 +26,7 @@ http://www.chemspider.com/Chemical-Structure.145878.html
 http://www.chemtube3d.com
 http://www.endmemo.com/chem/common/hydrogen.php
 https://www.webelements.com/hydrogen/compounds.html
+https://en.wikipedia.org/wiki/File:Hazard_X.svg
 
 //============================================================================
 
