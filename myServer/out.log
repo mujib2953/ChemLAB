@@ -1,1 +1,32 @@
 Server is running at :: 8031
+[0mGET /api/getElements/As [36m304 [0m86.184 ms - -[0m
+[0mGET /api/getElements/Ar [32m200 [0m2.116 ms - 18830[0m
+[ 'Ag', 'O', 'N', 'C', 'S', 'Br', 'Cl', 'I', 'Al' ]
+[0mGET /api/getFirstTierChemTree [36m304 [0m7.145 ms - -[0m
+[0mGET /api/getAllElms [32m200 [0m0.673 ms - 3978[0m
+[0mGET /api/getAllElms [36m304 [0m1.129 ms - -[0m
+[ 'Ag', 'O', 'N', 'C', 'S', 'Br', 'Cl', 'I', 'Al' ]
+[0mGET /api/getFirstTierChemTree [32m200 [0m1.301 ms - 52[0m
+[0mGET /api/getAllElms [36m304 [0m0.451 ms - -[0m
+[ 'Ag', 'O', 'N', 'C', 'S', 'Br', 'Cl', 'I', 'Al' ]
+[0mGET /api/getFirstTierChemTree [36m304 [0m1.046 ms - -[0m
+[0mGET /api/getElements/Ac [32m200 [0m0.463 ms - 22046[0m
+Server is running at :: 8031
+[ 'Ag', 'O', 'N', 'C', 'S', 'Br', 'Cl', 'I', 'Al' ]
+[0mGET /api/getFirstTierChemTree [36m304 [0m15.361 ms - -[0m
+[ 'Ag', 'O', 'N', 'C', 'S', 'Br', 'Cl', 'I', 'Al' ]
+[0mGET /api/getFirstTierChemTree [36m304 [0m2.066 ms - -[0m
+[ 'Ag', 'O', 'N', 'C', 'S', 'Br', 'Cl', 'I', 'Al' ]
+[0mGET /api/getFirstTierChemTree [36m304 [0m1.441 ms - -[0m
+[0mGET /api/getElements/Ac [36m304 [0m84.752 ms - -[0m
+[0mGET /api/getElements/Br [32m200 [0m1.497 ms - 19943[0m
+[0mGET /api/getElements/Cn [32m200 [0m4.304 ms - 325212[0m
+[ 'Ag', 'O', 'N', 'C', 'S', 'Br', 'Cl', 'I', 'Al' ]
+[0mGET /api/getFirstTierChemTree [36m304 [0m1.425 ms - -[0m
+[0mGET /api/getSecondTierChemTree/Ag [32m200 [0m0.832 ms - 120[0m
+AgBr
+Reading reactionDetails file
+[0mGET /api/getReactionDetails/AgBr [32m200 [0m91.724 ms - 885841[0m
+[0mGET / [33m404 [0m3.764 ms - 139[0m
+[0mGET /favicon.ico [33m404 [0m0.621 ms - 150[0m
+[0mGET /api/readReactionData [32m200 [0m35.804 ms - 2720819[0m

@@ -2,7 +2,7 @@
 * @Author: Mujib Ansari
 * @Date:   2017-05-13 14:32:44
 * @Last Modified by:   mujibur
-* @Last Modified time: 2017-05-23 14:39:33
+* @Last Modified time: 2017-05-24 16:01:37
 */
 
 'use strict';
@@ -457,6 +457,9 @@ function readChemTree( req, res, p_fCallback ) {
 }
 // ------------------------- port -------------------------
 app.listen(8031);
+// var server = app.listen(app.get('port'), function() {
+//   console.log('Express server listening on port ' + server.address().port);
+// });
 console.log( 'Server is running at :: 8031' );
 
 // ---------------------------------------------------------------------------
