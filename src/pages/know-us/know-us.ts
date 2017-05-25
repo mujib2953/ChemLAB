@@ -4,6 +4,9 @@ import { NavController, NavParams, Slides } from 'ionic-angular';
 // --- services
 import { AngularFireService } from '../../providers/angular-fire-service';
 
+// --- Components
+import { BgComponent } from '../../components/bg-comp/bg-comp';
+
 /*
   Generated class for the KnowUs page.
 

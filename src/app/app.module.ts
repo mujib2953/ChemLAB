@@ -17,6 +17,10 @@ import { ElementsDetailsPage } from '../pages/elements-details/elements-details'
 import { KnowUsPage } from '../pages/know-us/know-us';
 import { ReactionPage } from '../pages/reaction/reaction';
 
+// --- Components
+import { BgComponent } from '../components/bg-comp/bg-comp';
+
+
 // // ---- Custom Services
 import { AngularFireService } from '../providers/angular-fire-service';
 
@@ -32,6 +36,25 @@ import { AngularFireService } from '../providers/angular-fire-service';
 //     messagingSenderId: "549062744875"
 // };
 
+// interface CloudSettings {
+//     core: CoreSettings
+//     // push: PushOptions
+//     // database: IonicDBOptions
+//     // auth: AuthOptions
+//     // insights: InsightsOptions
+//     // logger: LoggerOptions
+// }
+
+// interface CoreSettings {
+//     app_id: string
+// }
+
+// const cloudSettings: CloudSettings = {
+//   'core': {
+//     'app_id': '50b0c8e3'
+//   }
+// };
+
 @NgModule({
     declarations: [
         MyApp,
@@ -44,7 +67,8 @@ import { AngularFireService } from '../providers/angular-fire-service';
         XtremzPage,
         ElementsDetailsPage,
         KnowUsPage,
-        ReactionPage
+        ReactionPage,
+        BgComponent
     ],
     imports: [
         IonicModule.forRoot(MyApp),

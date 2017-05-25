@@ -29,7 +29,7 @@ export class AngularFireService {
 
 
     //  ---- New
-    private MongoUrl: string = 'http://10.241.191.59:8031/';
+    private MongoUrl: string = 'http://10.241.190.43:8031/';
     AllElmList: any = [];
     gReaction: any = {
         firstTier: []

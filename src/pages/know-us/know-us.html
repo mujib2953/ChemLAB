@@ -14,8 +14,8 @@
 
 
 <ion-content>
-
-	<div padding>
+	<bg-comp></bg-comp>
+	<div padding class="topButton">
 		<ion-segment>
 			<ion-segment-button [ngClass]="{ 'segment-activated': pageObj.activeTab == 'about-us' }" value="about-us" (click)="tabChanged( 'about-us' )">
 				About Us
@@ -95,7 +95,7 @@
 			<ion-slide>
 				<ion-row>
 					<ion-col>
-						<h2 class="centered cursiveFont">&lt;adna_coderz /&gt;</h2>
+						<h2 class="centered cursiveFont brandName">&lt;adna_coderz /&gt;</h2>
 					</ion-col>
 				</ion-row>			
 				<ion-card *ngFor=" let devloper of pageObj.developer " >
