@@ -1,8 +1,8 @@
 /*
 * @Author: Mujib Ansari
 * @Date:   2017-05-13 14:32:44
-* @Last Modified by:   mujibur
-* @Last Modified time: 2017-05-24 16:01:37
+* @Last Modified by:   Mujib Ansari
+* @Last Modified time: 2017-06-04 21:11:14
 */
 
 'use strict';
@@ -25,7 +25,7 @@ var dbURL = 'mongodb://127.0.0.1:27017',
 	db = '/chemLab';
 
 
-mongoose.connect( dbURL + db );
+// mongoose.connect( dbURL + db );
 
 app.use( morgan( 'dev' ) ); 										// --- Logs every request to server console
 app.use( bodyParser.urlencoded( { 'extended': 'true' } ) );		// --- parse application/x-www-frm-urlencoded
@@ -489,3 +489,31 @@ app.get( '/api/rearrange', function( req, res ) {
 
 } );
 
+app.post( '/api/createFile', function( req, res ) {
+
+	var data = req.body.data,
+		fileName = req.body.fileName;
+
+		console.log( data );
+		console.log( "=============================================================" );
+	fs.readFile( 'files/wikiCASList.json', function( err, fileData ) {
+
+		if( err ) res.send( err );
+		fileData = JSON.parse( fileData );
+
+		for( var i in data )
+			fileData.allData.push( data[ i ] );
+
+		fs.writeFile( 'files/wikiCASList.json', JSON.stringify( fileData ), function( err ) {
+			if( err ) res.send( err );
+
+			res.send({ status: 200, msg: 'file is Created and written' });
+		} )	
+
+	} );
+
+	
+
+
+
+} );
